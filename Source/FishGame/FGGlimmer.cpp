@@ -1,7 +1,9 @@
 #include "FGGlimmer.h"
 
 #include "FGGameData.h"
+#include "FGTowerSite.h"
 #include "Components/StaticMeshComponent.h"
+#include "EngineUtils.h"
 #include "Engine/StaticMesh.h"
 #include "Materials/MaterialInstanceDynamic.h"
 
@@ -40,6 +42,12 @@ void AFGGlimmer::BeginPlay()
 	GlowMID->SetScalarParameterValue(TEXT("Glow"), 6.f);
 	BodyMesh->SetMaterial(0, GlowMID);
 	TailMesh->SetMaterial(0, GlowMID);
+
+	for (TActorIterator<AFGTowerSite> It(GetWorld()); It; ++It)
+	{
+		Tower = *It;
+		break;
+	}
 }
 
 void AFGGlimmer::Tick(float DeltaSeconds)
@@ -59,6 +67,9 @@ void AFGGlimmer::Tick(float DeltaSeconds)
 
 	if (GlowMID)
 	{
-		GlowMID->SetScalarParameterValue(TEXT("Glow"), 4.f + 3.f * (0.5f + 0.5f * FMath::Sin(Time * 1.7f)));
+		// A dirty sea dims them (Ocean Health).
+		const float Health = Tower.IsValid() ? Tower->OceanHealth : 1.f;
+		const float Pulse = 4.f + 3.f * (0.5f + 0.5f * FMath::Sin(Time * 1.7f));
+		GlowMID->SetScalarParameterValue(TEXT("Glow"), Pulse * FMath::Lerp(0.12f, 1.f, Health));
 	}
 }

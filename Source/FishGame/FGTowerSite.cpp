@@ -132,6 +132,15 @@ void AFGTowerSite::CheckComplete()
 	}
 }
 
+void AFGTowerSite::RestoreState(int32 Phase, const TMap<FName, int32>& InDelivered, int32 Trust, float InOceanHealth)
+{
+	CurrentPhase = FMath::Clamp(Phase, 0, NumPhases());
+	Delivered = InDelivered;
+	GlimmerTrust = Trust;
+	OceanHealth = InOceanHealth;
+	RebuildSections();
+}
+
 void AFGTowerSite::CheatCompletePhase()
 {
 	FFGPhaseRow Phase;

@@ -43,7 +43,7 @@ void AFGBelt::Setup(AFGBuildable* InSource, AFGBuildable* InTarget, const TArray
 	BeltMesh->SetRelativeLocation(FVector(Length * 0.5f, 0.f, 0.f));
 	BeltMesh->SetRelativeScale3D(FVector(Length / 100.f, 0.55f, 0.08f));
 
-	UMaterialInstanceDynamic* BeltMID = UMaterialInstanceDynamic::Create(UFGGameData::BeltMaterial(), this);
+	BeltMID = UMaterialInstanceDynamic::Create(UFGGameData::BeltMaterial(), this);
 	BeltMID->SetVectorParameterValue(TEXT("Color"), FLinearColor(0.12f, 0.13f, 0.15f));
 	BeltMID->SetScalarParameterValue(TEXT("Length"), Length / 100.f);
 	BeltMesh->SetMaterial(0, BeltMID);
@@ -65,7 +65,7 @@ void AFGBelt::Tick(float DeltaSeconds)
 
 	AFGBuildable* Src = Source.Get();
 	AFGBuildable* Dst = Target.Get();
-	if (!Src || !Dst)
+	if (!Src || !Dst || bBroken)
 	{
 		return;
 	}
@@ -134,7 +134,20 @@ void AFGBelt::GetRefund(TArray<FFGItemStack>& Out) const
 	}
 }
 
+void AFGBelt::SetBroken(bool bInBroken)
+{
+	bBroken = bInBroken;
+	if (BeltMID)
+	{
+		BeltMID->SetVectorParameterValue(TEXT("Color"), bBroken ? FLinearColor(0.6f, 0.08f, 0.05f) : FLinearColor(0.12f, 0.13f, 0.15f));
+	}
+}
+
 FString AFGBelt::GetStatusText() const
 {
+	if (bBroken)
+	{
+		return TEXT("SNAPPED in the storm. Press E to repair (1 Steel Bar).");
+	}
 	return FString::Printf(TEXT("%.0f m long, carrying %d item(s)"), Length / 100.f, Queue.Num());
 }

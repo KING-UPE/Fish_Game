@@ -30,6 +30,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Story")
 	int32 GlimmerTrust = 0;
 
+	/** 1 = clear blue sea, 0 = dark and dying. Burners lower it, reef filters raise it (Phase 3+). */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Story")
+	float OceanHealth = 1.f;
+
+	/** Load a saved game's story state. */
+	void RestoreState(int32 Phase, const TMap<FName, int32>& InDelivered, int32 Trust, float InOceanHealth);
+
 	UPROPERTY(BlueprintAssignable, Category = "Story")
 	FFGPhaseEvent OnPhaseCompleted;
 

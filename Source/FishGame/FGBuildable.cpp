@@ -3,6 +3,7 @@
 #include "FGGameData.h"
 #include "FGResourceNode.h"
 #include "FGTowerSite.h"
+#include "FGWeather.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
@@ -465,7 +466,9 @@ void AFGExtractor::Tick(float DeltaSeconds)
 	}
 	if (CountOutput(Row.ExtractItem) < Row.BufferSize)
 	{
-		Timer += DeltaSeconds * GetPowerSatisfaction(GetWorld());
+		// Lightning rods (no node) barely trickle in calm weather and charge fast in a storm.
+		const float WeatherFactor = Row.bNoNode ? FMath::Lerp(1.f / 6.f, 1.f, AFGWeather::GetIntensity(GetWorld())) : 1.f;
+		Timer += DeltaSeconds * GetPowerSatisfaction(GetWorld()) * WeatherFactor;
 		if (Timer >= Row.ExtractInterval)
 		{
 			Timer = 0.f;
@@ -515,7 +518,12 @@ float AFGGenerator::GetPowerOutput() const
 	{
 		return 0.f;
 	}
-	return (Row.FuelItem.IsNone() || BurnLeft > 0.f) ? Row.PowerOutput : 0.f;
+	if (Row.FuelItem.IsNone())
+	{
+		// Sun power: storms cut it to 30%.
+		return Row.PowerOutput * FMath::Lerp(1.f, 0.3f, AFGWeather::GetIntensity(GetWorld()));
+	}
+	return BurnLeft > 0.f ? Row.PowerOutput : 0.f;
 }
 
 FString AFGGenerator::GetStatusText() const

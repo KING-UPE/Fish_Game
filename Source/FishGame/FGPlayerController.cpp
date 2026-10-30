@@ -5,8 +5,11 @@
 #include "FGFishApi.h"
 #include "FGGameData.h"
 #include "FGResourceNode.h"
+#include "FGSaveGame.h"
 #include "FGTowerSite.h"
+#include "FGWeather.h"
 #include "FishGame.h"
+#include "Kismet/GameplayStatics.h"
 #include "Components/InputComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/DataTable.h"
@@ -33,6 +36,7 @@ namespace
 		case EFGBuildableKind::Platform: return AFGPlatform::StaticClass();
 		case EFGBuildableKind::Translator: return AFGTranslator::StaticClass();
 		case EFGBuildableKind::TradeBuoy: return AFGTradeBuoy::StaticClass();
+		case EFGBuildableKind::Structure: return AFGBuildable::StaticClass();
 		default: return AFGMachine::StaticClass();
 		}
 	}
@@ -79,8 +83,15 @@ void AFGPlayerController::BeginPlay()
 		UE_LOG(LogFishGame, Warning, TEXT("No AFGTowerSite in the level: phases and story won't run."));
 	}
 
-	RefreshHotbar();
+	if (LoadFactory())
+	{
+		RefreshHotbar();
+		QueueLine(FText::GetEmpty(), LOCTEXT("GameTitle", "BLUE SIGNAL"), 3.f, EFGLineStyle::Title);
+		QueueLine(Echo, LOCTEXT("WelcomeBack", "Welcome back. Everything is where you left it. Mostly."), 4.f);
+		return;
+	}
 
+	RefreshHotbar();
 	QueueLine(FText::GetEmpty(), LOCTEXT("GameTitle", "BLUE SIGNAL"), 3.5f, EFGLineStyle::Title);
 	QueueLine(Echo, LOCTEXT("Prologue1", "Good news: we're alive. Bad news: everything else."), 4.5f);
 	if (Tower)
@@ -89,8 +100,145 @@ void AFGPlayerController::BeginPlay()
 	}
 }
 
+void AFGPlayerController::SaveFactory()
+{
+	if (!IsLocalController() || bNewGameRequested)
+	{
+		return;
+	}
+	UFGSaveGame* Save = Cast<UFGSaveGame>(UGameplayStatics::CreateSaveGameObject(UFGSaveGame::StaticClass()));
+	TMap<const AFGBuildable*, int32> Indices;
+	for (TActorIterator<AFGBuildable> It(GetWorld()); It; ++It)
+	{
+		if (It->bGhost || It->IsA<AFGTowerSite>() || It->RowName.IsNone())
+		{
+			continue;
+		}
+		FFGSavedBuildable& Saved = Save->Buildables.AddDefaulted_GetRef();
+		Saved.Row = It->RowName;
+		Saved.Transform = It->GetActorTransform();
+		Saved.Input = It->InputBuffer;
+		Saved.Output = It->OutputBuffer;
+		Indices.Add(*It, Save->Buildables.Num() - 1);
+	}
+	for (TActorIterator<AFGBelt> It(GetWorld()); It; ++It)
+	{
+		auto IndexOf = [&](const AFGBuildable* Buildable) -> int32
+		{
+			if (Cast<AFGTowerSite>(Buildable))
+			{
+				return UFGSaveGame::TowerIndex;
+			}
+			const int32* Found = Indices.Find(Buildable);
+			return Found ? *Found : INDEX_NONE;
+		};
+		FFGSavedBelt Belt;
+		Belt.Source = IndexOf(It->Source.Get());
+		Belt.Target = IndexOf(It->Target.Get());
+		if (Belt.Source != INDEX_NONE && Belt.Target != INDEX_NONE)
+		{
+			Save->Belts.Add(Belt);
+		}
+	}
+	Save->Inventory = Inventory;
+	Save->HintsShown = HintsShown.Array();
+	if (Tower)
+	{
+		Save->Phase = Tower->CurrentPhase;
+		Save->Delivered = Tower->Delivered;
+		Save->GlimmerTrust = Tower->GlimmerTrust;
+		Save->OceanHealth = Tower->OceanHealth;
+	}
+	if (APawn* MyPawn = GetPawn())
+	{
+		Save->PlayerLocation = MyPawn->GetActorLocation();
+		Save->PlayerRotation = GetControlRotation();
+	}
+	UGameplayStatics::SaveGameToSlot(Save, UFGSaveGame::SlotName, 0);
+}
+
+bool AFGPlayerController::LoadFactory()
+{
+	if (!UGameplayStatics::DoesSaveGameExist(UFGSaveGame::SlotName, 0))
+	{
+		return false;
+	}
+	const UFGSaveGame* Save = Cast<UFGSaveGame>(UGameplayStatics::LoadGameFromSlot(UFGSaveGame::SlotName, 0));
+	if (!Save)
+	{
+		return false;
+	}
+
+	TArray<AFGBuildable*> Spawned;
+	FActorSpawnParameters Spawn;
+	Spawn.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	for (const FFGSavedBuildable& Saved : Save->Buildables)
+	{
+		const FFGBuildableRow* Row = UFGGameData::FindBuildable(Saved.Row);
+		AFGBuildable* Built = Row ? GetWorld()->SpawnActor<AFGBuildable>(ClassForKind(Row->Kind), Saved.Transform, Spawn) : nullptr;
+		if (Built)
+		{
+			Built->InitFromRow(Saved.Row, *Row, false);
+			Built->InputBuffer = Saved.Input;
+			Built->OutputBuffer = Saved.Output;
+		}
+		Spawned.Add(Built);
+	}
+	const FFGBuildableRow* BeltRow = UFGGameData::FindBuildable(TEXT("Belt"));
+	for (const FFGSavedBelt& Saved : Save->Belts)
+	{
+		auto Resolve = [&](int32 Index) -> AFGBuildable*
+		{
+			if (Index == UFGSaveGame::TowerIndex)
+			{
+				return Tower;
+			}
+			return Spawned.IsValidIndex(Index) ? Spawned[Index] : nullptr;
+		};
+		AFGBuildable* Source = Resolve(Saved.Source);
+		AFGBuildable* Target = Resolve(Saved.Target);
+		if (Source && Target)
+		{
+			AFGBelt* Belt = GetWorld()->SpawnActor<AFGBelt>(AFGBelt::StaticClass(), FTransform::Identity, Spawn);
+			Belt->Setup(Source, Target, BeltRow ? BeltRow->Cost : TArray<FFGItemStack>());
+		}
+	}
+
+	Inventory = Save->Inventory;
+	HintsShown = TSet<FName>(Save->HintsShown);
+	if (Tower)
+	{
+		Tower->RestoreState(Save->Phase, Save->Delivered, Save->GlimmerTrust, Save->OceanHealth);
+	}
+	if (!Save->PlayerLocation.IsNearlyZero())
+	{
+		bPendingPlayerRestore = true;
+		RestoreLocation = Save->PlayerLocation;
+		RestoreRotation = Save->PlayerRotation;
+	}
+	UE_LOG(LogFishGame, Log, TEXT("Loaded save: %d buildables, %d belts, phase %d."), Save->Buildables.Num(), Save->Belts.Num(), Save->Phase + 1);
+	return true;
+}
+
+void AFGPlayerController::FGSave()
+{
+	SaveFactory();
+	ShowToast(TEXT("Saved"));
+}
+
+void AFGPlayerController::FGNewGame()
+{
+	bNewGameRequested = true;
+	UGameplayStatics::DeleteGameInSlot(UFGSaveGame::SlotName, 0);
+	UGameplayStatics::OpenLevel(this, FName(*UGameplayStatics::GetCurrentLevelName(this)));
+}
+
 void AFGPlayerController::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	if (EndPlayReason == EEndPlayReason::Quit || EndPlayReason == EEndPlayReason::EndPlayInEditor)
+	{
+		SaveFactory();
+	}
 	if (Ghost)
 	{
 		Ghost->Destroy();
@@ -133,6 +281,23 @@ void AFGPlayerController::PlayerTick(float DeltaTime)
 
 	GatherCooldown = FMath::Max(0.f, GatherCooldown - DeltaTime);
 	ToastTime = FMath::Max(0.f, ToastTime - DeltaTime);
+
+	if (bPendingPlayerRestore)
+	{
+		if (APawn* MyPawn = GetPawn())
+		{
+			MyPawn->TeleportTo(RestoreLocation, MyPawn->GetActorRotation());
+			SetControlRotation(RestoreRotation);
+			bPendingPlayerRestore = false;
+		}
+	}
+
+	AutosaveTimer += DeltaTime;
+	if (AutosaveTimer >= 60.f)
+	{
+		AutosaveTimer = 0.f;
+		SaveFactory();
+	}
 
 	CheckFallIntoSea();
 	UpdateLook();
@@ -486,7 +651,8 @@ bool AFGPlayerController::CheckPlacement(const FFGBuildableRow& Row, FIntPoint O
 			return false;
 		}
 	}
-	if (Row.Kind == EFGBuildableKind::Extractor && !Row.bNeedsWater) // sea pumps draw from the sea, not a node
+	// Sea pumps draw from the sea and lightning rods from the sky: neither needs a node.
+	if (Row.Kind == EFGBuildableKind::Extractor && !Row.bNeedsWater && !Row.bNoNode)
 	{
 		bool bOnNode = false;
 		for (TActorIterator<AFGResourceNode> It(GetWorld()); It; ++It)
@@ -690,6 +856,17 @@ void AFGPlayerController::OnInteract()
 	if (AFGResourceNode* Node = Cast<AFGResourceNode>(LookActor.Get()))
 	{
 		Gather(Node);
+	}
+	else if (AFGBelt* Belt = Cast<AFGBelt>(LookActor.Get()); Belt && Belt->bBroken)
+	{
+		if (CountItem(TEXT("SteelBar")) < 1)
+		{
+			ShowToast(TEXT("Repairing a belt needs 1 Steel Bar"));
+			return;
+		}
+		AddItem(TEXT("SteelBar"), -1);
+		Belt->SetBroken(false);
+		ShowToast(TEXT("Belt repaired"));
 	}
 	else if (AFGTradeBuoy* Buoy = Cast<AFGTradeBuoy>(LookActor.Get()); Buoy && Buoy->State == EFGTradeState::Waiting && Buoy->TotalOutput() == 0)
 	{
@@ -962,6 +1139,20 @@ void AFGPlayerController::UpdateHints()
 	if (LowPowerTime > 3.f)
 	{
 		Hint(TEXT("LowPower"), LOCTEXT("HintLowPower", "We're using more power than the panels make, so everything slows down. Build another Solar Panel."));
+	}
+
+	if (const AFGWeather* Weather = AFGWeather::Get(GetWorld()))
+	{
+		if (Weather->StormCount > LastStormCount)
+		{
+			LastStormCount = Weather->StormCount;
+			ShowToast(TEXT("STORM"));
+			Hint(TEXT("FirstStorm"), LOCTEXT("HintStorm", "Storm front! Solar drops to almost nothing in this, and belts without a Breakwater nearby can snap. Lightning Rods love it, though."));
+		}
+	}
+	if (Tower && Tower->OceanHealth < 0.8f)
+	{
+		Hint(TEXT("Murk"), LOCTEXT("HintMurk", "Look at the water near the burners. It's going dark. And the Glimmers... they're dimmer than they were."));
 	}
 }
 

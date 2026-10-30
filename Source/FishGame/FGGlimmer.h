@@ -46,4 +46,5 @@ protected:
 	FVector Center = FVector::ZeroVector;
 	float Angle = 0.f;
 	float Time = 0.f;
+	TWeakObjectPtr<class AFGTowerSite> Tower;
 };

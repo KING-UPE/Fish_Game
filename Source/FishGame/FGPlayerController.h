@@ -147,6 +147,17 @@ public:
 	UFUNCTION(Exec)
 	void FGTeleport(float X, float Y, float Z);
 
+	/** Save now (the game also autosaves every minute and when you quit). */
+	UFUNCTION(Exec)
+	void FGSave();
+
+	/** Delete the save and restart the level from the crash. */
+	UFUNCTION(Exec)
+	void FGNewGame();
+
+	void SaveFactory();
+	bool LoadFactory();
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
@@ -197,6 +208,12 @@ protected:
 	void AnswerPuzzle(int32 Option);
 
 	float GatherCooldown = 0.f;
+	float AutosaveTimer = 0.f;
+	int32 LastStormCount = 0;
+	bool bPendingPlayerRestore = false;
+	bool bNewGameRequested = false;
+	FVector RestoreLocation = FVector::ZeroVector;
+	FRotator RestoreRotation = FRotator::ZeroRotator;
 	FVector SafeLocation = FVector::ZeroVector;
 	bool bHasSafeLocation = false;
 	float LowPowerTime = 0.f;

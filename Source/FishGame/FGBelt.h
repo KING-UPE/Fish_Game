@@ -54,6 +54,12 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
 	TArray<FFGItemStack> SegmentCost;
 
+	/** Snapped in a storm: carries nothing until repaired (E, 1 Steel Bar). */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
+	bool bBroken = false;
+
+	void SetBroken(bool bInBroken);
+
 	void Setup(AFGBuildable* InSource, AFGBuildable* InTarget, const TArray<FFGItemStack>& InSegmentCost);
 
 	static int32 SegmentsFor(float Length) { return FMath::Max(1, FMath::CeilToInt(Length / SegmentLength)); }
@@ -75,6 +81,9 @@ private:
 	TArray<FBeltItem> Queue;
 	float Length = 100.f;
 	bool bConnected = false;
+
+	UPROPERTY(Transient)
+	TObjectPtr<class UMaterialInstanceDynamic> BeltMID;
 
 	void UpdateItemMeshes();
 };

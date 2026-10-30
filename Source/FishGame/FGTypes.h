@@ -67,7 +67,9 @@ enum class EFGBuildableKind : uint8
 	/** Lets you understand the Glimmers (needed for trades). */
 	Translator,
 	/** Where Glimmer trades happen (needs a working Translator). */
-	TradeBuoy
+	TradeBuoy,
+	/** Passive structure (breakwater, reef filter): no ports, works by being there. */
+	Structure
 };
 
 /** DT_Buildables row: everything the player can build. Row order = hotbar order. */
@@ -129,6 +131,10 @@ struct FFGBuildableRow : public FTableRowBase
 	/** Must be placed at the waterline or on a platform (sea pumps). */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
 	bool bNeedsWater = false;
+
+	/** Extractors that don't need a resource node (lightning rods pull crystals from the storm). */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
+	bool bNoNode = false;
 
 	/** Generators: item burned for power (None = free power, e.g. solar). */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
