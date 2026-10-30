@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "unreal": {
+      "type": "http",
+      "url": "http://127.0.0.1:18765/mcp"
+    },
+    "unrealclaude": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["D:/UE_5.8/Engine/Plugins/Marketplace/UnrealClaude/Resources/mcp-bridge/index.js"],
+      "env": {
+        "UNREAL_MCP_URL": "http://127.0.0.1:3000"
+      }
+    }
+  }
+}

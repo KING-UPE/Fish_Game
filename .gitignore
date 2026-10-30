@@ -1,0 +1,26 @@
+# Unreal build / cache output
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# Per-user editor content
+Content/Developers/
+Content/Collections/
+
+# Python
+__pycache__/
+*.pyc

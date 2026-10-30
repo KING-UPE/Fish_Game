@@ -1,0 +1,26 @@
+﻿{
+	"FileVersion": 3,
+	"EngineAssociation": "",
+	"Category": "",
+	"Description": "Fish game",
+	"Modules": [
+		{
+			"Name": "FishGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [ "Engine" ]
+		}
+	],
+	"Plugins": [
+		{ "Name": "ModelingToolsEditorMode", "Enabled": true, "TargetAllowList": [ "Editor" ] },
+		{ "Name": "PythonScriptPlugin", "Enabled": true },
+		{ "Name": "EditorScriptingUtilities", "Enabled": true },
+		{ "Name": "ToolsetRegistry", "Enabled": true },
+		{ "Name": "ModelContextProtocol", "Enabled": true },
+		{ "Name": "AllToolsets", "Enabled": true },
+		{ "Name": "VibeUE", "Enabled": true },
+		{ "Name": "UnrealClaude", "Enabled": true },
+		{ "Name": "HttpBlueprint", "Enabled": true },
+		{ "Name": "JsonBlueprintUtilities", "Enabled": true }
+	]
+}
