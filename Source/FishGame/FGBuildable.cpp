@@ -2,6 +2,7 @@
 
 #include "FGGameData.h"
 #include "FGResourceNode.h"
+#include "FGTowerSite.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
@@ -486,9 +487,176 @@ FString AFGExtractor::GetStatusText() const
 
 // ---------------------------------------------------------------- Generator
 
+void AFGGenerator::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	if (bGhost || Row.FuelItem.IsNone())
+	{
+		return;
+	}
+	if (BurnLeft <= 0.f && CountInput(Row.FuelItem) > 0)
+	{
+		int32& Count = InputBuffer.FindChecked(Row.FuelItem);
+		if (--Count <= 0)
+		{
+			InputBuffer.Remove(Row.FuelItem);
+		}
+		BurnLeft = Row.FuelTime;
+	}
+	if (BurnLeft > 0.f)
+	{
+		BurnLeft -= DeltaSeconds;
+	}
+}
+
+float AFGGenerator::GetPowerOutput() const
+{
+	if (bGhost)
+	{
+		return 0.f;
+	}
+	return (Row.FuelItem.IsNone() || BurnLeft > 0.f) ? Row.PowerOutput : 0.f;
+}
+
 FString AFGGenerator::GetStatusText() const
 {
-	return FString::Printf(TEXT("Producing %.0f power"), GetPowerOutput());
+	if (Row.FuelItem.IsNone())
+	{
+		return FString::Printf(TEXT("Producing %.0f power"), GetPowerOutput());
+	}
+	const FString Fuel = UFGGameData::ItemName(Row.FuelItem).ToString();
+	if (BurnLeft > 0.f)
+	{
+		return FString::Printf(TEXT("Burning %s: %.0f power\nFuel left: %d"), *Fuel, Row.PowerOutput, CountInput(Row.FuelItem));
+	}
+	return FString::Printf(TEXT("Out of fuel. Feed it %s (belt or E)."), *Fuel);
+}
+
+// ---------------------------------------------------------------- Platform
+
+void AFGPlatform::OnRowInitialized()
+{
+	if (bGhost)
+	{
+		return;
+	}
+	// Platforms are ground: static for the placement trace, tagged as buildable.
+	Body->SetCollisionObjectType(ECC_WorldStatic);
+	Tags.AddUnique(TEXT("Buildable"));
+}
+
+// ---------------------------------------------------------------- Translator
+
+bool AFGTranslator::IsWorking() const
+{
+	return !bGhost && GetPowerSatisfaction(GetWorld()) > 0.5f;
+}
+
+FString AFGTranslator::GetStatusText() const
+{
+	const AFGTowerSite* Tower = nullptr;
+	for (TActorIterator<AFGTowerSite> It(GetWorld()); It; ++It)
+	{
+		Tower = *It;
+		break;
+	}
+	const int32 Trust = Tower ? Tower->GlimmerTrust : 0;
+	return FString::Printf(TEXT("%s\nUnderstood trades: %d"), IsWorking() ? TEXT("Listening to the Glimmers.") : TEXT("Needs power."), Trust);
+}
+
+AFGTranslator* AFGTranslator::FindWorking(const UWorld* World)
+{
+	if (!World)
+	{
+		return nullptr;
+	}
+	for (TActorIterator<AFGTranslator> It(const_cast<UWorld*>(World)); It; ++It)
+	{
+		if (It->IsWorking())
+		{
+			return *It;
+		}
+	}
+	return nullptr;
+}
+
+// ---------------------------------------------------------------- Trade buoy
+
+void AFGTradeBuoy::StartTrade(int32 Fish, int32 Chests, int32 PhaseNumber)
+{
+	// What the Glimmers ask for grows with the story.
+	TArray<FName> Wants = { TEXT("Wire"), TEXT("CoralSheet"), TEXT("SteelPlate"), TEXT("Glass") };
+	if (PhaseNumber >= 3)
+	{
+		Wants.Append({ TEXT("Frame"), TEXT("Lens"), TEXT("FreshWater") });
+	}
+	WantItem = Wants[FMath::RandRange(0, Wants.Num() - 1)];
+	WantCount = FMath::Max(1, Fish) * ItemsPerFish;
+	RewardPearls = FMath::Max(1, Chests);
+	Delivered = 0;
+	State = EFGTradeState::Active;
+}
+
+void AFGTradeBuoy::Misunderstood()
+{
+	State = EFGTradeState::Cooldown;
+	Cooldown = 8.f;
+}
+
+void AFGTradeBuoy::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	if (State == EFGTradeState::Cooldown)
+	{
+		Cooldown -= DeltaSeconds;
+		if (Cooldown <= 0.f)
+		{
+			State = EFGTradeState::Waiting;
+		}
+	}
+}
+
+bool AFGTradeBuoy::TryInsert(FName Item)
+{
+	if (!AcceptsItem(Item))
+	{
+		return false;
+	}
+	if (++Delivered >= WantCount)
+	{
+		OutputBuffer.FindOrAdd(TEXT("GlimmerPearl")) += RewardPearls;
+		for (TActorIterator<AFGTowerSite> It(GetWorld()); It; ++It)
+		{
+			It->GlimmerTrust++;
+			break;
+		}
+		State = EFGTradeState::Cooldown;
+		Cooldown = 20.f;
+	}
+	return true;
+}
+
+FString AFGTradeBuoy::GetStatusText() const
+{
+	FString Text;
+	switch (State)
+	{
+	case EFGTradeState::Waiting:
+		Text = TEXT("A Glimmer is waiting. Press E to talk (needs a working Translator).");
+		break;
+	case EFGTradeState::Active:
+		Text = FString::Printf(TEXT("Trade: %d / %d %s  ->  %d Glimmer Pearl(s)"), Delivered, WantCount,
+			*UFGGameData::ItemName(WantItem).ToString(), RewardPearls);
+		break;
+	case EFGTradeState::Cooldown:
+		Text = FString::Printf(TEXT("The Glimmers are away. Back in %.0f s."), FMath::Max(Cooldown, 0.f));
+		break;
+	}
+	if (TotalOutput() > 0)
+	{
+		Text += FString::Printf(TEXT("\nReady to collect: %s"), *BufferToString(OutputBuffer));
+	}
+	return Text;
 }
 
 // ---------------------------------------------------------------- Storage

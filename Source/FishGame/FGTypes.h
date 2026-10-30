@@ -61,7 +61,13 @@ enum class EFGBuildableKind : uint8
 	Extractor,
 	Generator,
 	Storage,
-	Belt
+	Belt,
+	/** Floating platform: extends the buildable ground over the water. */
+	Platform,
+	/** Lets you understand the Glimmers (needed for trades). */
+	Translator,
+	/** Where Glimmer trades happen (needs a working Translator). */
+	TradeBuoy
 };
 
 /** DT_Buildables row: everything the player can build. Row order = hotbar order. */
@@ -119,6 +125,22 @@ struct FFGBuildableRow : public FTableRowBase
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
 	float ExtractInterval = 2.f;
+
+	/** Must be placed at the waterline or on a platform (sea pumps). */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
+	bool bNeedsWater = false;
+
+	/** Generators: item burned for power (None = free power, e.g. solar). */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
+	FName FuelItem;
+
+	/** Generators: seconds of power per fuel item. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
+	float FuelTime = 4.f;
+
+	/** Darkens the sea while working (Ocean Health, Phase 3+). */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")
+	float Pollution = 0.f;
 
 	/** Max items per input/output slot (storage: total capacity). */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Factory")

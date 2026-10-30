@@ -26,6 +26,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Story")
 	TMap<FName, int32> Delivered;
 
+	/** Completed Glimmer trades. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Story")
+	int32 GlimmerTrust = 0;
+
 	UPROPERTY(BlueprintAssignable, Category = "Story")
 	FFGPhaseEvent OnPhaseCompleted;
 

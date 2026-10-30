@@ -232,6 +232,10 @@ void AFGHUD::DrawHotbar(AFGPlayerController* PC)
 	}
 
 	FString Help = TEXT("1-9 build  ·  E gather / exchange  ·  X dismantle");
+	if (PC->NumHotbarPages() > 1)
+	{
+		Help = FString::Printf(TEXT("Page %d/%d (Tab)  ·  "), PC->HotbarPage + 1, PC->NumHotbarPages()) + Help;
+	}
 	FFGBuildableRow Row;
 	FName Name;
 	if (PC->GetSelectedRow(Row, Name))
@@ -393,9 +397,11 @@ void AFGHUD::DrawPuzzle(AFGPlayerController* PC)
 	const float CX = Canvas->ClipX * 0.5f;
 	DrawRect(FLinearColor(0.f, 0.f, 0.f, 0.55f), 0.f, 0.f, Canvas->ClipX, Canvas->ClipY);
 
+	const bool bTrade = PC->PuzzleKind != AFGPlayerController::EPuzzleKind::Drawing;
 	if (PC->bPuzzleWaiting)
 	{
-		DrawWrapped(TEXT("Receiving Neela's drawing..."), CX, Canvas->ClipY * 0.45f, 900.f * S, Medium, S * 1.2f, Warm, true);
+		DrawWrapped(bTrade ? TEXT("A Glimmer rises and starts to glow a picture...") : TEXT("Receiving Neela's drawing..."),
+			CX, Canvas->ClipY * 0.45f, 900.f * S, Medium, S * 1.2f, bTrade ? Cyan : Warm, true);
 		return;
 	}
 
@@ -407,9 +413,20 @@ void AFGHUD::DrawPuzzle(AFGPlayerController* PC)
 	const float PicX = CX - PicW * 0.5f;
 	const float PicY = Canvas->ClipY * 0.5f - PicH * 0.5f - 40.f * S;
 
-	// A sheet of paper with her drawing on it.
-	DrawRect(FLinearColor(0.98f, 0.95f, 0.86f, 1.f), PicX - 24.f * S, PicY - 70.f * S, PicW + 48.f * S, PicH + 190.f * S);
-	DrawWrapped(TEXT("\"How many fish did I draw, Mum?\""), CX, PicY - 52.f * S, PicW, Medium, S * 1.15f, FLinearColor(0.25f, 0.18f, 0.1f), true);
+	// Neela: a sheet of paper. Glimmers: a glowing deep-blue panel.
+	const FLinearColor Ink = bTrade ? Cyan : FLinearColor(0.25f, 0.18f, 0.1f);
+	DrawRect(bTrade ? FLinearColor(0.02f, 0.1f, 0.18f, 0.95f) : FLinearColor(0.98f, 0.95f, 0.86f, 1.f),
+		PicX - 24.f * S, PicY - 70.f * S, PicW + 48.f * S, PicH + 190.f * S);
+	FString Question = TEXT("\"How many fish did I draw, Mum?\"");
+	if (PC->PuzzleKind == AFGPlayerController::EPuzzleKind::TradeFish)
+	{
+		Question = TEXT("How many fish? (that's how many crates they want)");
+	}
+	else if (PC->PuzzleKind == AFGPlayerController::EPuzzleKind::TradeChests)
+	{
+		Question = TEXT("And how many treasure chests? (that's how many pearls they give)");
+	}
+	DrawWrapped(Question, CX, PicY - 52.f * S, PicW, Medium, S * 1.15f, Ink, true);
 	if (Picture)
 	{
 		// The API pictures have a transparent background: let the paper show through.
@@ -424,9 +441,9 @@ void AFGHUD::DrawPuzzle(AFGPlayerController* PC)
 	const float BoxY = PicY + PicH + 18.f * S;
 	for (int32 Index = 0; Index < NumOptions; ++Index)
 	{
-		DrawRect(FLinearColor(0.1f, 0.25f, 0.45f, 0.12f), BoxX, BoxY, BoxW, 52.f * S);
+		DrawRect(bTrade ? FLinearColor(0.3f, 0.85f, 1.f, 0.15f) : FLinearColor(0.1f, 0.25f, 0.45f, 0.12f), BoxX, BoxY, BoxW, 52.f * S);
 		const FString Label = FString::Printf(TEXT("[%d]   %d"), Index + 1, PC->PuzzleOptions[Index]);
-		DrawText(Label, FLinearColor(0.1f, 0.25f, 0.45f), BoxX + (BoxW - TextWidth(Label, Large, S * 1.1f)) * 0.5f, BoxY + 8.f * S, Large, S * 1.1f);
+		DrawText(Label, bTrade ? Cyan : FLinearColor(0.1f, 0.25f, 0.45f), BoxX + (BoxW - TextWidth(Label, Large, S * 1.1f)) * 0.5f, BoxY + 8.f * S, Large, S * 1.1f);
 		BoxX += BoxW + BoxGap;
 	}
 	DrawWrapped(TEXT("Press 1-4"), CX, PicY + PicH + 76.f * S, PicW, Medium, S * 0.9f, FLinearColor(0.4f, 0.35f, 0.3f), true);

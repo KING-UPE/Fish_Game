@@ -64,6 +64,7 @@ ITEMS = [
     ("Lens", "Lens", color(0.5, 0.95, 1.0)),
     ("Float", "Float", color(0.95, 0.85, 0.3)),
     ("Biofuel", "Biofuel", color(0.35, 0.55, 0.1)),
+    ("GlimmerPearl", "Glimmer Pearl", color(0.85, 0.95, 1.0)),
 ]
 table("DT_Items", unreal.FGItemRow.static_struct(),
       [{"Name": n, "DisplayName": d, "Color": c} for n, d, c in ITEMS])
@@ -85,6 +86,7 @@ RECIPES = [
     recipe("Lens", "Assembler", [stack("Glass", 1), stack("Wire", 2)], [stack("Lens", 1)], 3.0),
     recipe("Float", "Assembler", [stack("Glowkelp", 2), stack("SteelPlate", 1)], [stack("Float", 1)], 3.0),
     recipe("Biofuel", "KelpDryer", [stack("Glowkelp", 3)], [stack("Biofuel", 1)], 2.0),
+    recipe("Glowkelp", "KelpFarm", [stack("Brine", 1)], [stack("Glowkelp", 1)], 4.0),
 ]
 table("DT_Recipes", unreal.FGRecipeRow.static_struct(), RECIPES)
 
@@ -97,6 +99,7 @@ def buildable(name, display, kind, cost, size, height, mesh, col, phase, desc, *
            "TopMesh": "None", "TopScale": {"X": 0.5, "Y": 0.5, "Z": 0.5},
            "Color": col, "AccentColor": color(1.0, 0.55, 0.1), "PowerUse": 0, "PowerOutput": 0,
            "ExtractItem": "None", "ExtractInterval": 2.0, "BufferSize": 10,
+           "bNeedsWater": False, "FuelItem": "None", "FuelTime": 4.0, "Pollution": 0.0,
            "Phase": phase, "Description": desc}
     row.update(extra)
     return row
@@ -132,6 +135,48 @@ BUILDABLES = [
               BufferSize=200, AccentColor=color(0.8, 0.8, 0.7)),
     buildable("Belt", "Belt", "Belt", [stack("SteelBar", 1)], (1, 1), 10, CUBE,
               color(0.12, 0.13, 0.15), 1, "Floating belt from an orange output to a blue input."),
+    # ---- Phase 2: Strangers
+    buildable("SandDredger", "Sand Dredger", "Extractor", [stack("SteelPlate", 6), stack("Wire", 10)], (2, 2), 150, CYLINDER,
+              color(0.18, 0.2, 0.24), 2, "Sits on a Black Sand patch and scoops up sand.",
+              ExtractItem="BlackSand", ExtractInterval=2.0, PowerUse=4, BufferSize=20,
+              TopMesh=CONE, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.3}, AccentColor=color(0.5, 0.5, 0.55)),
+    buildable("SeaPump", "Sea Pump", "Extractor", [stack("SteelPlate", 4), stack("Wire", 6)], (2, 2), 120, CYLINDER,
+              color(0.12, 0.3, 0.55), 2, "Pumps Brine from the sea. Place it at the water's edge or on a platform.",
+              ExtractItem="Brine", ExtractInterval=2.0, PowerUse=3, BufferSize=20, bNeedsWater=True,
+              TopMesh=CYLINDER, TopScale={"X": 0.35, "Y": 0.35, "Z": 0.5}, AccentColor=color(0.3, 0.7, 1.0)),
+    buildable("Kiln", "Kiln", "Machine", [stack("SteelBar", 10), stack("CoralSheet", 6)], (2, 2), 170, CHAMFER,
+              color(0.55, 0.32, 0.22), 2, "Black Sand -> Glass.",
+              MachineType="Kiln", PowerUse=5, BufferSize=30,
+              TopMesh=CYLINDER, TopScale={"X": 0.3, "Y": 0.3, "Z": 0.5}, AccentColor=color(1.0, 0.6, 0.2)),
+    buildable("Assembler", "Assembler", "Machine", [stack("SteelPlate", 10), stack("Wire", 20)], (3, 3), 200, CHAMFER,
+              color(0.25, 0.3, 0.28), 2, "Steel Plates + Wire -> Frame.  Glass + Wire -> Lens.  Glowkelp + Steel Plate -> Float.",
+              MachineType="Assembler", PowerUse=8, BufferSize=30,
+              TopMesh=CUBE, TopScale={"X": 0.7, "Y": 0.7, "Z": 0.2}, AccentColor=color(0.4, 1.0, 0.6)),
+    buildable("KelpFarm", "Kelp Farm", "Machine", [stack("SteelPlate", 6), stack("CoralSheet", 6)], (3, 3), 60, CHAMFER,
+              color(0.08, 0.25, 0.22), 2, "Brine -> Glowkelp. Slow, but it glows.",
+              MachineType="KelpFarm", PowerUse=3, BufferSize=30,
+              TopMesh=CUBE, TopScale={"X": 0.85, "Y": 0.85, "Z": 0.15}, AccentColor=color(0.2, 1.0, 0.6)),
+    buildable("Desalinator", "Desalinator", "Machine", [stack("SteelPlate", 8), stack("Wire", 10)], (2, 2), 160, CYLINDER,
+              color(0.7, 0.75, 0.8), 2, "Brine -> Fresh Water + Salt.",
+              MachineType="Desalinator", PowerUse=4, BufferSize=30,
+              TopMesh=SPHERE, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.4}, AccentColor=color(0.55, 0.8, 1.0)),
+    buildable("KelpDryer", "Kelp Dryer", "Machine", [stack("SteelPlate", 6)], (2, 2), 130, CHAMFER,
+              color(0.3, 0.33, 0.15), 2, "3 Glowkelp -> Biofuel.",
+              MachineType="KelpDryer", PowerUse=3, BufferSize=30,
+              TopMesh=CUBE, TopScale={"X": 0.8, "Y": 0.3, "Z": 0.2}, AccentColor=color(0.6, 0.8, 0.2)),
+    buildable("KelpBurner", "Kelp Burner", "Generator", [stack("SteelPlate", 10), stack("CoralSheet", 4)], (2, 2), 160, CHAMFER,
+              color(0.2, 0.18, 0.16), 2, "Burns Biofuel for 30 power. Strong, but its smoke and runoff darken the sea.",
+              PowerOutput=30, FuelItem="Biofuel", FuelTime=6.0, Pollution=1.0, BufferSize=20,
+              TopMesh=CYLINDER, TopScale={"X": 0.25, "Y": 0.25, "Z": 0.8}, AccentColor=color(1.0, 0.35, 0.05)),
+    buildable("Platform", "Floating Platform", "Platform", [stack("Float", 2), stack("SteelPlate", 1)], (4, 4), 40, CUBE,
+              color(0.42, 0.33, 0.22), 2, "4x4 m of new ground on the water. Build on it, or build your way across the sea."),
+    buildable("Translator", "Translator", "Translator", [stack("Frame", 4), stack("Lens", 4), stack("Wire", 12)], (2, 2), 240, CYLINDER,
+              color(0.15, 0.2, 0.3), 2, "Turns the Glimmers' light and music into words. Needs power.",
+              PowerUse=6, TopMesh=SPHERE, TopScale={"X": 0.9, "Y": 0.9, "Z": 0.35}, AccentColor=color(0.3, 0.9, 1.0)),
+    buildable("TradeBuoy", "Trade Buoy", "TradeBuoy", [stack("Float", 4), stack("Wire", 10), stack("Lens", 1)], (2, 2), 130, CYLINDER,
+              color(1.0, 0.45, 0.1), 2, "Where Glimmers come to trade. Place it at the water's edge or on a platform.",
+              bNeedsWater=True, BufferSize=999, TopMesh=SPHERE, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.35},
+              AccentColor=color(0.3, 0.9, 1.0)),
 ]
 table("DT_Buildables", unreal.FGBuildableRow.static_struct(), BUILDABLES)
 
@@ -171,10 +216,12 @@ PHASES = [
         "Name": "Phase2",
         "Title": "Strangers",
         "TowerPart": "Receiver Dish",
-        "Requirements": [stack("Frame", 30), stack("Lens", 20)],
+        "Requirements": [stack("Frame", 30), stack("Lens", 20), stack("GlimmerPearl", 3)],
         "Intro": [
-            line(ECHO, "New parts unlocked. The dish needs Frames and Lenses: glass from black sand, and an Assembler to put it together."),
-            line(ECHO, "Also... something is moving under the water. Something that glows."),
+            line(ECHO, "The dish needs Frames and Lenses. Lenses need glass, glass needs black sand. There's a dark patch on the north beach."),
+            line(ECHO, "New machines are on your hotbar. Press Tab for the second page: Sea Pump, Kelp Farm, Platforms and more."),
+            line(ECHO, "And... something is moving under the water to the east. Something that glows."),
+            line(ECHO, "If those lights are what I think they are, we'll need a Translator. And something they'd want to trade for."),
         ],
         "MessageHome": [
             line(ISHANI, "There are people here, Neela. They glow."),

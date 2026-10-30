@@ -164,15 +164,101 @@ public:
 	float Timer = 0.f;
 };
 
-/** Makes power. */
+/** Makes power. With a FuelItem it burns one item per FuelTime seconds and only makes power while burning. */
 UCLASS()
 class FISHGAME_API AFGGenerator : public AFGBuildable
 {
 	GENERATED_BODY()
 
 public:
+	virtual void Tick(float DeltaSeconds) override;
+	virtual bool HasInputPort() const override { return !Row.FuelItem.IsNone(); }
+	virtual bool AcceptsItemType(FName Item) const override { return !Row.FuelItem.IsNone() && Item == Row.FuelItem; }
+	virtual float GetPowerOutput() const override;
 	virtual FString GetStatusText() const override;
-	virtual bool IsWorking() const override { return true; }
+	virtual bool IsWorking() const override { return Row.FuelItem.IsNone() || BurnLeft > 0.f; }
+
+	float BurnLeft = 0.f;
+};
+
+/** Floating platform tile: new buildable ground on the water. */
+UCLASS()
+class FISHGAME_API AFGPlatform : public AFGBuildable
+{
+	GENERATED_BODY()
+
+public:
+	virtual FString GetStatusText() const override { return TEXT("Floating platform. Build on it."); }
+
+protected:
+	virtual void OnRowInitialized() override;
+};
+
+/** Listens to the Glimmers. Trades need at least one powered Translator. */
+UCLASS()
+class FISHGAME_API AFGTranslator : public AFGBuildable
+{
+	GENERATED_BODY()
+
+public:
+	virtual bool IsWorking() const override;
+	virtual FString GetStatusText() const override;
+
+	/** A built, powered Translator in this world (or nullptr). */
+	static AFGTranslator* FindWorking(const UWorld* World);
+};
+
+UENUM(BlueprintType)
+enum class EFGTradeState : uint8
+{
+	Waiting,
+	Active,
+	Cooldown
+};
+
+/**
+ * Glimmer trades. Talk to it (E) with a working Translator: a Glimmer shows a Fish API picture.
+ * Fish = how many crates (x5 items) they want, chests = how many Glimmer Pearls they give.
+ * Count both right and the trade starts; deliver by belt or E, then collect the pearls.
+ */
+UCLASS()
+class FISHGAME_API AFGTradeBuoy : public AFGBuildable
+{
+	GENERATED_BODY()
+
+public:
+	static constexpr int32 ItemsPerFish = 5;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Glimmers")
+	EFGTradeState State = EFGTradeState::Waiting;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Glimmers")
+	FName WantItem;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Glimmers")
+	int32 WantCount = 0;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Glimmers")
+	int32 Delivered = 0;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Glimmers")
+	int32 RewardPearls = 0;
+
+	float Cooldown = 0.f;
+
+	/** Called by the player controller when both counts were answered correctly. */
+	void StartTrade(int32 Fish, int32 Chests, int32 PhaseNumber);
+	/** A wrong count: the Glimmer swims off for a while. */
+	void Misunderstood();
+
+	virtual void Tick(float DeltaSeconds) override;
+	virtual bool HasInputPort() const override { return true; }
+	virtual bool HasOutputPort() const override { return true; }
+	virtual bool AcceptsItemType(FName Item) const override { return State == EFGTradeState::Active && Item == WantItem; }
+	virtual bool AcceptsItem(FName Item) const override { return AcceptsItemType(Item) && Delivered < WantCount; }
+	virtual bool TryInsert(FName Item) override;
+	virtual FString GetStatusText() const override;
+	virtual bool IsWorking() const override { return State == EFGTradeState::Active; }
 };
 
 /** Holds any items; belts can feed it and pull from it. */

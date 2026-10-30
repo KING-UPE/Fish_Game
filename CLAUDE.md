@@ -441,6 +441,15 @@ then `compile_material` + `save_asset`. Remove a stray output wire with
   spawn at the origin and the camera floats with no body. Check with a capsule overlap at the start location.
 - A level-placed plane with `set_visibility(False)` set from Python still rendered in the editor; don't rely on it
   for hidden collision.
+- Python property names drop the `b` prefix of C++ bools (`bGhost` → `ghost`). A GameInstance subsystem is reachable
+  from Python with `unreal.find_object(GameplayStatics.get_game_instance(world), "FGFishApiSubsystem_0")`
+  (`unreal.SubsystemBlueprintLibrary` is not exposed).
+- **Don't write C++ through Python heredocs with `
+` in strings**: the escape turned into real line breaks inside
+  string literals. Use the Edit tool for C++.
+- Testing gameplay from scripts: `Tools/Dev/test_building.py` / `test_phase2.py` drive the real code through the
+  `FG*` exec commands, one STEP per call so the game ticks between steps (`FGSelect 11+` = later hotbar pages,
+  `FGSelect 100+N` answers a picture with value N).
 - Build-placement uses a **WorldStatic-only** trace; machines, belts and nodes are `BlockAllDynamic` so the ghost
   lands on the ground, not on them.
 

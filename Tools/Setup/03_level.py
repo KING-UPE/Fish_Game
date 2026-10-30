@@ -196,6 +196,21 @@ for index, angle in enumerate([300, 330, 15, 200]):
     x, y = math.cos(math.radians(angle)) * dist, math.sin(math.radians(angle)) * dist
     node(f"CoralPatch{index + 1}", "CoralOre", x, y, "/Engine/BasicShapes/Cone", (0.9, 0.9, 0.9), "Resources")
 
+# Phase 2: black sand on the north beach.
+for index, angle in enumerate([95, 115, 135]):
+    dist = ISLAND_R * 0.8
+    x, y = math.cos(math.radians(angle)) * dist, math.sin(math.radians(angle)) * dist
+    node(f"BlackSand{index + 1}", "BlackSand", x, y, "/Engine/BasicShapes/Sphere", (1.6, 1.6, 0.35), "Resources")
+
+# Phase 2: the Glimmers, circling just under the surface east of the island and near the far island.
+for index, (x, y, radius, speed) in enumerate([
+        (3200, 300, 450, 14), (3000, -700, 650, -10), (3600, 900, 350, 18),
+        (5200, 2000, 700, 9), (6000, 1500, 500, -12), (2900, 1200, 300, 22)]):
+    glimmer = EAS.spawn_actor_from_class(unreal.FGGlimmer, vec(x, y, -45), rot())
+    glimmer.set_editor_property("swim_radius", float(radius))
+    glimmer.set_editor_property("swim_speed", float(speed))
+    label(glimmer, f"Glimmer{index + 1}", "Glimmers")
+
 # ---------------------------------------------------------------- Signal Tower site and player start
 TX, TY = 650.0, -250.0
 tower = EAS.spawn_actor_from_class(unreal.FGTowerSite, vec(TX, TY, ground_z(TX, TY)), rot())

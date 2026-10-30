@@ -29,6 +29,8 @@ public:
 
 	static constexpr float BuildRange = 1600.f;
 	static constexpr float InteractRange = 650.f;
+	/** Platforms sit with their middle a little below the sea surface. */
+	static constexpr float PlatformZ = -20.f;
 
 	// ---------------------------------------------------------------- Inventory
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
@@ -42,8 +44,18 @@ public:
 	FString MissingItemsText(const TArray<FFGItemStack>& Stacks, int32 Multiplier = 1) const;
 
 	// ---------------------------------------------------------------- Building
+	/** Every unlocked buildable, in table order. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
+	TArray<FName> HotbarAll;
+
+	/** The visible page of HotbarAll (10 slots, Tab flips pages). */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
 	TArray<FName> Hotbar;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
+	int32 HotbarPage = 0;
+
+	int32 NumHotbarPages() const { return FMath::Max(1, (HotbarAll.Num() + 9) / 10); }
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Factory")
 	int32 SelectedSlot = INDEX_NONE;
@@ -79,6 +91,13 @@ public:
 
 	bool bPuzzleWaiting = false;
 	bool bPuzzleOpen = false;
+
+	/** What the open picture is for: Neela's drawing, or a Glimmer trade (fish first, then chests). */
+	enum class EPuzzleKind : uint8 { Drawing, TradeFish, TradeChests };
+	EPuzzleKind PuzzleKind = EPuzzleKind::Drawing;
+	int32 PuzzleFish = 0;
+	int32 PuzzleChests = 0;
+	TWeakObjectPtr<class AFGTradeBuoy> PuzzleBuoy;
 
 	UPROPERTY(Transient)
 	TObjectPtr<UTexture2D> PuzzlePicture;
@@ -140,7 +159,8 @@ protected:
 	void UpdateStory(float DeltaTime);
 	void UpdateHints();
 	void RefreshHotbar();
-	bool CheckPlacement(const FFGBuildableRow& Row, FIntPoint Origin, FIntPoint Footprint, FString& OutProblem) const;
+	bool CheckPlacement(const FFGBuildableRow& Row, FIntPoint Origin, FIntPoint Footprint, bool bOnWater, FString& OutProblem) const;
+	bool bGhostOnWater = false;
 
 	void OnInteract();
 	void OnInteractRepeat();
@@ -149,6 +169,11 @@ protected:
 	void OnRotate();
 	void OnDismantle();
 	void OnNumber(int32 Index);
+	void OnNextPage();
+	void TalkToBuoy(class AFGTradeBuoy* Buoy);
+	void BuildPuzzleOptions(int32 Answer);
+	/** Where the view ray meets the sea surface (Z = 0). */
+	bool GetWaterPoint(FVector& OutPoint) const;
 
 	void SelectSlot(int32 Index);
 	void ClearSelection();

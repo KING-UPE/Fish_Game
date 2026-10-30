@@ -14,7 +14,7 @@ Full story, phases, machines and recipes: [`Design/Blue_Signal.md`](Design/Blue_
 | Phase | State |
 |---|---|
 | 1. "I'm alive": salvage, smelting, pressing, wire, belts, power, Tower Base | **Playable** |
-| 2. "Strangers": glass, assembler, Glimmers, Translator, trades | In progress |
+| 2. "Strangers": black sand + glass, sea pump, kelp, assembler, fuel burners, floating platforms, Glimmers, Translator, Trade Buoy trades | **Playable** |
 | 3-5 + endings | Planned |
 
 ## Requirements
@@ -53,7 +53,8 @@ cd Fish_Game
 | **R** | Rotate |
 | **Right click / Q** | Cancel |
 | **X** | Dismantle (refunds the cost) |
-| **1-4** | Answer Neela's drawing ("How many fish did I draw?") |
+| **Tab** | Next page of buildings |
+| **1-4** | Answer a picture: Neela's drawing ("How many fish did I draw?") or a Glimmer's trade (fish = crates they want, chests = pearls they give) |
 
 ## How it is built
 

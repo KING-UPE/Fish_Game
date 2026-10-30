@@ -30,6 +30,9 @@ namespace
 		case EFGBuildableKind::Extractor: return AFGExtractor::StaticClass();
 		case EFGBuildableKind::Generator: return AFGGenerator::StaticClass();
 		case EFGBuildableKind::Storage: return AFGStorage::StaticClass();
+		case EFGBuildableKind::Platform: return AFGPlatform::StaticClass();
+		case EFGBuildableKind::Translator: return AFGTranslator::StaticClass();
+		case EFGBuildableKind::TradeBuoy: return AFGTradeBuoy::StaticClass();
 		default: return AFGMachine::StaticClass();
 		}
 	}
@@ -108,6 +111,7 @@ void AFGPlayerController::SetupInputComponent()
 	InputComponent->BindKey(EKeys::Q, IE_Pressed, this, &AFGPlayerController::OnCancel);
 	InputComponent->BindKey(EKeys::R, IE_Pressed, this, &AFGPlayerController::OnRotate);
 	InputComponent->BindKey(EKeys::X, IE_Pressed, this, &AFGPlayerController::OnDismantle);
+	InputComponent->BindKey(EKeys::Tab, IE_Pressed, this, &AFGPlayerController::OnNextPage);
 
 	const FKey Numbers[] = { EKeys::One, EKeys::Two, EKeys::Three, EKeys::Four, EKeys::Five,
 		EKeys::Six, EKeys::Seven, EKeys::Eight, EKeys::Nine, EKeys::Zero };
@@ -300,19 +304,54 @@ void AFGPlayerController::RefreshHotbar()
 		{
 			if (const FFGBuildableRow* Row = Table->FindRow<FFGBuildableRow>(Name, TEXT("FGHotbar"), false))
 			{
-				if (Row->Phase <= PhaseNumber && Rows.Num() < 10)
+				if (Row->Phase <= PhaseNumber)
 				{
 					Rows.Add(Name);
 				}
 			}
 		}
 	}
-	if (Rows != Hotbar)
+	HotbarAll = Rows;
+	HotbarPage = FMath::Clamp(HotbarPage, 0, NumHotbarPages() - 1);
+
+	TArray<FName> Page;
+	for (int32 Index = HotbarPage * 10; Index < FMath::Min(HotbarAll.Num(), HotbarPage * 10 + 10); ++Index)
+	{
+		Page.Add(HotbarAll[Index]);
+	}
+	if (Page != Hotbar)
 	{
 		const FName Selected = Hotbar.IsValidIndex(SelectedSlot) ? Hotbar[SelectedSlot] : NAME_None;
-		Hotbar = Rows;
+		Hotbar = Page;
 		SelectedSlot = Hotbar.IndexOfByKey(Selected);
 	}
+}
+
+void AFGPlayerController::OnNextPage()
+{
+	HotbarPage = (HotbarPage + 1) % NumHotbarPages();
+	ClearSelection();
+	RefreshHotbar();
+}
+
+bool AFGPlayerController::GetWaterPoint(FVector& OutPoint) const
+{
+	FVector ViewLocation;
+	FRotator ViewRotation;
+	GetPlayerViewPoint(ViewLocation, ViewRotation);
+	const FVector Dir = ViewRotation.Vector();
+	if (Dir.Z > -0.02f || ViewLocation.Z <= 0.f)
+	{
+		return false;
+	}
+	const float Distance = -ViewLocation.Z / Dir.Z;
+	if (Distance > BuildRange)
+	{
+		return false;
+	}
+	OutPoint = ViewLocation + Dir * Distance;
+	OutPoint.Z = 0.f;
+	return true;
 }
 
 void AFGPlayerController::UpdateGhost()
@@ -373,47 +412,81 @@ void AFGPlayerController::UpdateGhost()
 		}
 	}
 
+	// Platforms float on the sea: use where the view meets the water unless dry ground is in the way.
+	bGhostOnWater = false;
+	if (Row.Kind == EFGBuildableKind::Platform)
+	{
+		const bool bDryGround = bGroundHit && GroundActor.IsValid() && GroundActor->ActorHasTag(TEXT("Buildable"))
+			&& !GroundActor->IsA<AFGPlatform>() && GroundPoint.Z > 5.f;
+		FVector Water;
+		if (!bDryGround && GetWaterPoint(Water))
+		{
+			Anchor = Water;
+			bGhostOnWater = true;
+		}
+	}
+
 	const FIntPoint Origin(
 		FMath::FloorToInt(Anchor.X / AFGBuildable::CellSize) - Footprint.X / 2,
 		FMath::FloorToInt(Anchor.Y / AFGBuildable::CellSize) - Footprint.Y / 2);
 	const FVector Center(
 		(Origin.X + Footprint.X * 0.5f) * AFGBuildable::CellSize,
 		(Origin.Y + Footprint.Y * 0.5f) * AFGBuildable::CellSize,
-		GroundPoint.Z);
+		bGhostOnWater ? PlatformZ : GroundPoint.Z);
 	Ghost->SetActorLocationAndRotation(Center, FRotator(0.f, GhostYaw, 0.f));
-	Ghost->SetActorHiddenInGame(!bGroundHit);
+	Ghost->SetActorHiddenInGame(!bGroundHit && !bGhostOnWater);
 
-	bGhostValid = CheckPlacement(Row, Origin, Footprint, GhostProblem);
+	bGhostValid = CheckPlacement(Row, Origin, Footprint, bGhostOnWater, GhostProblem);
 	Ghost->SetGhostValid(bGhostValid);
 }
 
-bool AFGPlayerController::CheckPlacement(const FFGBuildableRow& Row, FIntPoint Origin, FIntPoint Footprint, FString& OutProblem) const
+bool AFGPlayerController::CheckPlacement(const FFGBuildableRow& Row, FIntPoint Origin, FIntPoint Footprint, bool bOnWater, FString& OutProblem) const
 {
 	OutProblem.Reset();
-	if (!bGroundHit || !GroundActor.IsValid() || !GroundActor->ActorHasTag(TEXT("Buildable")))
+	const bool bIsPlatform = Row.Kind == EFGBuildableKind::Platform;
+	if (bIsPlatform)
 	{
-		OutProblem = TEXT("Aim at the island sand or a platform");
+		if (!bOnWater)
+		{
+			OutProblem = TEXT("Platforms go on the water");
+			return false;
+		}
+	}
+	else
+	{
+		if (!bGroundHit || !GroundActor.IsValid() || !GroundActor->ActorHasTag(TEXT("Buildable")))
+		{
+			OutProblem = TEXT("Aim at the island sand or a platform");
+			return false;
+		}
+		if (GroundNormal.Z < 0.8f)
+		{
+			OutProblem = TEXT("Too steep");
+			return false;
+		}
+	}
+	if (Row.bNeedsWater && !(GroundActor.IsValid() && GroundActor->IsA<AFGPlatform>()) && GroundPoint.Z > 70.f)
+	{
+		OutProblem = TEXT("Must be at the water's edge or on a platform");
 		return false;
 	}
-	if (GroundNormal.Z < 0.8f)
-	{
-		OutProblem = TEXT("Too steep");
-		return false;
-	}
+
+	const float PlaceZ = bOnWater ? PlatformZ : GroundPoint.Z;
 	for (TActorIterator<AFGBuildable> It(GetWorld()); It; ++It)
 	{
-		if (It->bGhost)
+		// Buildings sit on platforms, so platforms only clash with other platforms.
+		if (It->bGhost || It->IsA<AFGPlatform>() != bIsPlatform)
 		{
 			continue;
 		}
-		if (FMath::Abs(It->GetActorLocation().Z - GroundPoint.Z) < 400.f
+		if (FMath::Abs(It->GetActorLocation().Z - PlaceZ) < 400.f
 			&& RectsOverlap(Origin, Footprint, It->GetGridOrigin(), It->GetFootprint()))
 		{
 			OutProblem = FString::Printf(TEXT("Blocked by %s"), *It->GetDisplayName().ToString());
 			return false;
 		}
 	}
-	if (Row.Kind == EFGBuildableKind::Extractor)
+	if (Row.Kind == EFGBuildableKind::Extractor && !Row.bNeedsWater) // sea pumps draw from the sea, not a node
 	{
 		bool bOnNode = false;
 		for (TActorIterator<AFGResourceNode> It(GetWorld()); It; ++It)
@@ -500,6 +573,15 @@ void AFGPlayerController::PlaceGhost()
 		break;
 	case EFGBuildableKind::Extractor:
 		Hint(TEXT("FirstExtractor"), LOCTEXT("HintExtractor", "Machines stop when they're full. Grab the output with E, or run a belt to the next machine."));
+		break;
+	case EFGBuildableKind::Translator:
+		Hint(TEXT("FirstTranslator"), LOCTEXT("HintTranslatorBuilt", "The Translator is listening. Now build a Trade Buoy at the water's edge so they have somewhere to talk to us."));
+		break;
+	case EFGBuildableKind::TradeBuoy:
+		Hint(TEXT("FirstBuoy"), LOCTEXT("HintBuoy", "A Glimmer is already circling it. Walk up and press E."));
+		break;
+	case EFGBuildableKind::Platform:
+		Hint(TEXT("FirstPlatform"), LOCTEXT("HintPlatform", "It floats. Machines can stand on platforms, and you can build your way across the water."));
 		break;
 	default:
 		if (Row.MachineType == TEXT("Smelter"))
@@ -609,10 +691,36 @@ void AFGPlayerController::OnInteract()
 	{
 		Gather(Node);
 	}
+	else if (AFGTradeBuoy* Buoy = Cast<AFGTradeBuoy>(LookActor.Get()); Buoy && Buoy->State == EFGTradeState::Waiting && Buoy->TotalOutput() == 0)
+	{
+		TalkToBuoy(Buoy);
+	}
 	else if (AFGBuildable* Buildable = Cast<AFGBuildable>(LookActor.Get()))
 	{
 		Exchange(Buildable);
 	}
+}
+
+void AFGPlayerController::TalkToBuoy(AFGTradeBuoy* Buoy)
+{
+	if (!AFGTranslator::FindWorking(GetWorld()))
+	{
+		ShowToast(TEXT("You can't understand the Glimmer. Build a powered Translator first."));
+		Hint(TEXT("NeedTranslator"), LOCTEXT("HintTranslator", "They're talking, but it's just light and music to us. We need a Translator, and power for it."));
+		return;
+	}
+	UGameInstance* GameInstance = GetGameInstance();
+	UFGFishApiSubsystem* Api = GameInstance ? GameInstance->GetSubsystem<UFGFishApiSubsystem>() : nullptr;
+	if (!Api || bPuzzleWaiting || bPuzzleOpen)
+	{
+		return;
+	}
+	PuzzleBuoy = Buoy;
+	PuzzleKind = EPuzzleKind::TradeFish;
+	Api->OnPuzzleReady.AddUniqueDynamic(this, &AFGPlayerController::HandlePuzzleReady);
+	bPuzzleWaiting = true;
+	Api->RequestPuzzle();
+	Hint(TEXT("FirstTrade"), LOCTEXT("HintTrade", "It's showing us a picture. The fish are how many crates they want, the chests are what they'll give. Count carefully."));
 }
 
 void AFGPlayerController::OnInteractRepeat()
@@ -678,6 +786,19 @@ void AFGPlayerController::OnDismantle()
 	if (!Buildable || Buildable->bGhost || !Buildable->CanDismantle())
 	{
 		return;
+	}
+	if (Buildable->IsA<AFGPlatform>())
+	{
+		for (TActorIterator<AFGBuildable> It(GetWorld()); It; ++It)
+		{
+			if (!It->bGhost && !It->IsA<AFGPlatform>()
+				&& RectsOverlap(Buildable->GetGridOrigin(), Buildable->GetFootprint(), It->GetGridOrigin(), It->GetFootprint())
+				&& FMath::Abs(It->GetActorLocation().Z - Buildable->GetActorLocation().Z) < 400.f)
+			{
+				ShowToast(TEXT("Clear the platform first"));
+				return;
+			}
+		}
 	}
 	DestroyBeltsOf(Buildable);
 	TArray<FFGItemStack> Refund;
@@ -900,6 +1021,7 @@ void AFGPlayerController::StartPuzzle()
 	}
 	Api->OnPuzzleReady.AddUniqueDynamic(this, &AFGPlayerController::HandlePuzzleReady);
 	bPuzzleWaiting = true;
+	PuzzleKind = EPuzzleKind::Drawing;
 
 	// After the Phase 4 message the relay is secretly dead: Echo re-sends old drawings.
 	const bool bRelayBroken = Tower && Tower->CurrentPhase >= 4;
@@ -920,6 +1042,11 @@ void AFGPlayerController::HandlePuzzleReady(UTexture2D* Picture, int32 Fish, int
 		return;
 	}
 	bPuzzleWaiting = false;
+	if (!Picture && PuzzleKind != EPuzzleKind::Drawing)
+	{
+		ShowToast(TEXT("The Glimmer's picture didn't come through. Try again."));
+		return;
+	}
 	if (!Picture)
 	{
 		FFGStoryLine Line;
@@ -930,17 +1057,25 @@ void AFGPlayerController::HandlePuzzleReady(UTexture2D* Picture, int32 Fish, int
 	}
 
 	PuzzlePicture = Picture;
-	PuzzleAnswer = Fish;
+	PuzzleFish = Fish;
+	PuzzleChests = Chests;
+	BuildPuzzleOptions(Fish);
+	bPuzzleOpen = true;
+}
+
+void AFGPlayerController::BuildPuzzleOptions(int32 Answer)
+{
+	PuzzleAnswer = Answer;
 	TArray<int32> Candidates;
 	for (int32 Offset = -3; Offset <= 3; ++Offset)
 	{
-		const int32 Value = Fish + Offset;
+		const int32 Value = Answer + Offset;
 		if (Offset != 0 && Value >= 0)
 		{
 			Candidates.Add(Value);
 		}
 	}
-	PuzzleOptions = { Fish };
+	PuzzleOptions = { Answer };
 	while (PuzzleOptions.Num() < 4 && Candidates.Num() > 0)
 	{
 		PuzzleOptions.Add(Candidates[FMath::RandRange(0, Candidates.Num() - 1)]);
@@ -950,13 +1085,41 @@ void AFGPlayerController::HandlePuzzleReady(UTexture2D* Picture, int32 Fish, int
 	{
 		PuzzleOptions.Swap(Index, FMath::RandRange(0, Index));
 	}
-	bPuzzleOpen = true;
 }
 
 void AFGPlayerController::AnswerPuzzle(int32 Option)
 {
-	bPuzzleOpen = false;
 	const int32 Chosen = PuzzleOptions[Option];
+
+	// Glimmer trades: fish first, then chests; one wrong count and the Glimmer swims off.
+	if (PuzzleKind != EPuzzleKind::Drawing)
+	{
+		AFGTradeBuoy* Buoy = PuzzleBuoy.Get();
+		if (Chosen != PuzzleAnswer || !Buoy)
+		{
+			bPuzzleOpen = false;
+			if (Buoy)
+			{
+				Buoy->Misunderstood();
+			}
+			ShowToast(TEXT("Wrong count. The Glimmer flickers, confused, and swims away."));
+			return;
+		}
+		if (PuzzleKind == EPuzzleKind::TradeFish)
+		{
+			PuzzleKind = EPuzzleKind::TradeChests;
+			BuildPuzzleOptions(PuzzleChests);
+			return;
+		}
+		bPuzzleOpen = false;
+		Buoy->StartTrade(PuzzleFish, PuzzleChests, Tower ? Tower->GetPhaseNumber() : 1);
+		QueueLine(LOCTEXT("Glimmer", "Glimmer (translated)"), FText::Format(
+			LOCTEXT("TradeOffer", "\"Bring {0} {1}. We give {2} pearl(s). We wait here.\""),
+			FText::AsNumber(Buoy->WantCount), UFGGameData::ItemName(Buoy->WantItem), FText::AsNumber(Buoy->RewardPearls)), 5.f);
+		return;
+	}
+
+	bPuzzleOpen = false;
 	FFGStoryLine Line;
 	Line.Speaker = Neela;
 	Line.Duration = 4.5f;
@@ -995,6 +1158,22 @@ void AFGPlayerController::FGSkipStory()
 
 void AFGPlayerController::FGSelect(int32 Slot)
 {
+	// During a picture question, 100 + N answers with the value N.
+	if (bPuzzleOpen && Slot >= 100)
+	{
+		const int32 Index = PuzzleOptions.IndexOfByKey(Slot - 100);
+		AnswerPuzzle(Index != INDEX_NONE ? Index : 0);
+		return;
+	}
+	// Slots past 10 live on later hotbar pages.
+	if (!bPuzzleOpen && Slot > 10)
+	{
+		HotbarPage = (Slot - 1) / 10;
+		RefreshHotbar();
+		ClearSelection();
+		OnNumber((Slot - 1) % 10);
+		return;
+	}
 	OnNumber(Slot - 1);
 }
 

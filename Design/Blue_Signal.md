@@ -218,10 +218,11 @@ Also: Lightning Rod, **Breakwater** (protects belts from storms), Floating Belt 
 
 1. **The Glimmers' language.** They show pictures of fish (themselves) and treasure chests (things). Every
    correct count improves the **Translator**, revealing more of what they say.
-2. **Trade contracts at the Trade Buoy.** Each request is an API picture: **fish × 10 = how many units of an
-   item they want** (always something you can make at your current tier), **chests = how many rare rewards
-   they give** (Glimmer blueprints, Storm or Deep Crystal, clean-power parts). Random every time, so there's
-   always a fresh order for the factory. Completing trades builds trust.
+2. **Trade contracts at the Trade Buoy.** Each request is an API picture: **fish × 5 = how many units of an
+   item they want** (always something you can make at your current tier), **chests = how many Glimmer Pearls
+   they give**. Count both right and the trade starts; one wrong count and the Glimmer swims off for a while.
+   Random every time, so there's always a fresh order for the factory. Completing trades builds trust, and
+   Phase 2's Receiver Dish needs 3 pearls. (Implemented: x5, not x10, for pacing.)
 3. **Neela's drawings.** Every reply includes a drawing to count, which is her game from Flashback 1. After the
    Phase 3 storm, the game re-shows pictures you've already seen (cached earlier API results) as the clue
    that the replies aren't real.
