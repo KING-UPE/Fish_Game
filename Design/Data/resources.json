@@ -216,7 +216,7 @@
   "Item": "Tar",
   "NodeKind": "TarSeep",
   "Extractors": [
-   "TarPump"
+   "SeaPump"
   ],
   "bFluid": true,
   "bHandGather": false,

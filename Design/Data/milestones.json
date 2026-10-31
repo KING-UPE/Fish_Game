@@ -115,7 +115,6 @@
    "TideLab",
    "SuitFabricator",
    "Catwalk",
-   "Ladder",
    "Pillar",
    "Roof"
   ],
@@ -152,8 +151,7 @@
   "UnlockBuildables": [
    "Translator",
    "TradeBuoy",
-   "BeltMk2",
-   "DoorWall"
+   "BeltMk2"
   ],
   "UnlockRecipes": [
    "Frame",
@@ -194,10 +192,8 @@
    "FuelBurner",
    "SeaPump",
    "Pipe",
-   "PipePump",
    "DrillMk2",
-   "Skiff",
-   "TallFoundation"
+   "Skiff"
   ],
   "UnlockRecipes": [
    "KelpChar",
@@ -235,7 +231,6 @@
    }
   ],
   "UnlockBuildables": [
-   "TarPump",
    "Refinery",
    "Accumulator"
   ],

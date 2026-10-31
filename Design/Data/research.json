@@ -450,7 +450,7 @@
   "GrantItems": [],
   "TrustDelta": 0,
   "OceanHealthDelta": 0.0,
-  "Description": "Plays the core's memory; pick 1 of 2 alternates from its tier pool (or +6 slots when the pool is empty)."
+  "Description": "Plays the core's voice memory and unlocks its alternate recipe (one per core, Design/Progression.md §6)."
  },
  {
   "Name": "SH_PaintReef",
@@ -638,30 +638,58 @@
   "Description": "Marks the nearest unfound data core."
  },
  {
-  "Name": "SH_ArchiveAlt",
-  "DisplayName": "Archive Copy",
+  "Name": "SH_SealWeave",
+  "DisplayName": "Seal Weave",
   "Station": "TradeBuoy",
   "Tree": "Shop",
-  "Phase": 2,
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 10,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 6
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "Alt_SealedWire"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "The Glimmers show you their kelp-seal weave (alternate: Sealed Wire). Trust 10."
+ },
+ {
+  "Name": "SH_ReefGift",
+  "DisplayName": "Gift to the Reef",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 3,
   "Requires": "None",
   "TrustRequired": 0,
   "Cost": [
    {
-    "Item": "GlimmerPearl",
-    "Count": 8
+    "Item": "Glass",
+    "Count": 20
+   },
+   {
+    "Item": "KelpPulp",
+    "Count": 40
    }
   ],
   "ResearchSeconds": 0.0,
   "bRepeatable": true,
   "UnlockBuildables": [],
   "UnlockRecipes": [],
-  "UnlockUpgrades": [
-   "PickAlternate"
-  ],
+  "UnlockUpgrades": [],
   "GrantItems": [],
-  "TrustDelta": 0,
+  "TrustDelta": 4,
   "OceanHealthDelta": 0.0,
-  "Description": "Buy one alternate you were offered by a data core but didn't pick."
+  "Description": "Leave glass and pulp at the buoy for the reef. +4 trust, any time from Phase 3: the clean power option is never out of reach (R9)."
  },
  {
   "Name": "SH_GlimmerResonator",

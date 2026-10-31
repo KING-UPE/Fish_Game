@@ -1191,8 +1191,8 @@
     "Count": 3
    },
    {
-    "Item": "Frame",
-    "Count": 1
+    "Item": "RivetedPlate",
+    "Count": 2
    },
    {
     "Item": "Cable",
@@ -1218,8 +1218,8 @@
   "Machine": "SuitFabricator",
   "Inputs": [
    {
-    "Item": "Frame",
-    "Count": 2
+    "Item": "SteelPipe",
+    "Count": 6
    },
    {
     "Item": "Rotor",
@@ -1266,7 +1266,7 @@
   "CraftTime": 8.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC01",
   "Phase": 1,
   "Description": "Wire stitching instead of bolts. No bolt line needed."
  },
@@ -1289,7 +1289,7 @@
   "CraftTime": 6.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC02",
   "Phase": 1,
   "Description": "Bolts straight from ingots; skips the rod step."
  },
@@ -1312,7 +1312,7 @@
   "CraftTime": 6.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC03",
   "Phase": 1,
   "Description": "Iron wire. Worse, but frees your copper."
  },
@@ -1339,7 +1339,7 @@
   "CraftTime": 5.0,
   "bAlternate": true,
   "bHandCraftable": false,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC04",
   "Phase": 2,
   "Description": "Lime flux: more glass per sand."
  },
@@ -1366,7 +1366,7 @@
   "CraftTime": 12.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC06",
   "Phase": 2,
   "Description": "Two floats around one riveted keel."
  },
@@ -1393,7 +1393,7 @@
   "CraftTime": 12.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC07",
   "Phase": 2,
   "Description": "Wire coil instead of bolts."
  },
@@ -1420,13 +1420,13 @@
   "CraftTime": 4.0,
   "bAlternate": true,
   "bHandCraftable": false,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC08",
   "Phase": 3,
   "Description": "Steel from ingots: more steel per char."
  },
  {
-  "Name": "Alt_SteelFrame",
-  "DisplayName": "Steel Frame",
+  "Name": "Alt_BracedFrame",
+  "DisplayName": "Braced Frame",
   "Machine": "Assembler",
   "Inputs": [
    {
@@ -1434,8 +1434,8 @@
     "Count": 1
    },
    {
-    "Item": "SteelPipe",
-    "Count": 3
+    "Item": "Bolt",
+    "Count": 20
    }
   ],
   "Outputs": [
@@ -1447,9 +1447,9 @@
   "CraftTime": 15.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
-  "Phase": 3,
-  "Description": "Pipe-braced frame; half the riveted plate."
+  "UnlockedBy": "DC05",
+  "Phase": 2,
+  "Description": "Bolt bracing instead of rods; half the riveted plate."
  },
  {
   "Name": "Alt_PolymerCircuit",
@@ -1474,7 +1474,7 @@
   "CraftTime": 8.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC09",
   "Phase": 3,
   "Description": "Printed wire traces; no cuprite sheet."
  },
@@ -1501,9 +1501,9 @@
   "CraftTime": 4.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "SH_SealWeave",
   "Phase": 3,
-  "Description": "Seal the wire directly; skip the cable press."
+  "Description": "The Glimmers' kelp-seal weave: seal the wire directly and skip the cable press."
  },
  {
   "Name": "Alt_PureFerrite",
@@ -1528,7 +1528,7 @@
   "CraftTime": 6.0,
   "bAlternate": true,
   "bHandCraftable": false,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC12",
   "Phase": 4,
   "Description": "Wash the ore first: 50% more ingots."
  },
@@ -1555,7 +1555,7 @@
   "CraftTime": 10.0,
   "bAlternate": true,
   "bHandCraftable": true,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC11",
   "Phase": 4,
   "Description": "Crystal-ground lenses, two at a time."
  },
@@ -1582,9 +1582,40 @@
   "CraftTime": 8.0,
   "bAlternate": true,
   "bHandCraftable": false,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC10",
   "Phase": 4,
   "Description": "Lightning-fused sand."
+ },
+ {
+  "Name": "Alt_FusedDeepLens",
+  "DisplayName": "Fused Deep Lens",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Glass",
+    "Count": 4
+   },
+   {
+    "Item": "DeepCrystal",
+    "Count": 2
+   },
+   {
+    "Item": "CrystalShard",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "DeepLens",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC13",
+  "Phase": 5,
+  "Description": "Echo's relay-focus notes: fuse the crystal straight into glass; no lens step."
  },
  {
   "Name": "Alt_EchoModule",
@@ -1613,7 +1644,7 @@
   "CraftTime": 36.0,
   "bAlternate": true,
   "bHandCraftable": false,
-  "UnlockedBy": "DataCore",
+  "UnlockedBy": "DC14",
   "Phase": 5,
   "Description": "Ray's old board layout, found in Echo's private files. No sealed cable."
  },
