@@ -1,3 +1,0 @@
-import unreal
-
-print(unreal.GeometryScript_NewAssetUtils.create_new_texture2d_asset.__doc__)
