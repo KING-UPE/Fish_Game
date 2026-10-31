@@ -504,10 +504,10 @@
   "Category": "Part",
   "bFluid": false,
   "StackSize": 100,
-  "Phase": 2,
-  "TradePhase": 3,
+  "Phase": 5,
+  "TradePhase": 5,
   "Icon": "None",
-  "Description": "Spinning parts for pumps, burners, the skiff."
+  "Description": "Spinning parts for motors."
  },
  {
   "Name": "KelpChar",
@@ -572,10 +572,10 @@
   "Category": "Part",
   "bFluid": false,
   "StackSize": 100,
-  "Phase": 3,
+  "Phase": 4,
   "TradePhase": 4,
   "Icon": "None",
-  "Description": "Steel pipe."
+  "Description": "Steel pipe. Stators and heavy frames."
  },
  {
   "Name": "Polymer",
@@ -606,7 +606,7 @@
   "Category": "Part",
   "bFluid": false,
   "StackSize": 200,
-  "Phase": 3,
+  "Phase": 4,
   "TradePhase": 4,
   "Icon": "None",
   "Description": "Tar and kelp sealant. Waterproofs anything."
@@ -657,7 +657,7 @@
   "Category": "Part",
   "bFluid": false,
   "StackSize": 100,
-  "Phase": 3,
+  "Phase": 4,
   "TradePhase": 4,
   "Icon": "None",
   "Description": "Cable that survives the sea."
@@ -677,7 +677,7 @@
   "Phase": 3,
   "TradePhase": 0,
   "Icon": "None",
-  "Description": "One lattice section of the Antenna Mast, cable runs included."
+  "Description": "One lattice section of the Antenna Mast, signal board included."
  },
  {
   "Name": "CrystalShard",
@@ -810,7 +810,7 @@
   "Category": "Part",
   "bFluid": false,
   "StackSize": 100,
-  "Phase": 4,
+  "Phase": 5,
   "TradePhase": 5,
   "Icon": "None",
   "Description": "Wound steel stator."
@@ -827,10 +827,10 @@
   "Category": "Part",
   "bFluid": false,
   "StackSize": 50,
-  "Phase": 4,
+  "Phase": 5,
   "TradePhase": 5,
   "Icon": "None",
-  "Description": "Rotor plus stator. Turbines and drills."
+  "Description": "Rotor plus stator. The big drills and the resonance forge."
  },
  {
   "Name": "Resonator",
@@ -895,7 +895,7 @@
   "Category": "Equipment",
   "bFluid": false,
   "StackSize": 50,
-  "Phase": 2,
+  "Phase": 3,
   "TradePhase": 0,
   "Icon": "None",
   "Description": "Place it to mark a spot on the compass."
@@ -929,7 +929,7 @@
   "Category": "Equipment",
   "bFluid": false,
   "StackSize": 1,
-  "Phase": 2,
+  "Phase": 3,
   "TradePhase": 0,
   "Icon": "None",
   "Description": "Pulse to show nearby resource nodes (and later trench vents and data cores)."

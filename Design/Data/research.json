@@ -10,14 +10,14 @@
   "Cost": [
    {
     "Item": "KelpPulp",
-    "Count": 50
+    "Count": 20
    },
    {
     "Item": "RivetedPlate",
-    "Count": 10
+    "Count": 5
    }
   ],
-  "ResearchSeconds": 90.0,
+  "ResearchSeconds": 60.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [
@@ -40,18 +40,18 @@
   "Cost": [
    {
     "Item": "Biofuel",
-    "Count": 20
-   },
-   {
-    "Item": "Float",
     "Count": 10
    },
    {
+    "Item": "Float",
+    "Count": 5
+   },
+   {
     "Item": "Glass",
-    "Count": 20
+    "Count": 10
    }
   ],
-  "ResearchSeconds": 180.0,
+  "ResearchSeconds": 90.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [
@@ -74,14 +74,14 @@
   "Cost": [
    {
     "Item": "Biofuel",
-    "Count": 50
+    "Count": 20
    },
    {
-    "Item": "Rotor",
-    "Count": 20
+    "Item": "Frame",
+    "Count": 5
    }
   ],
-  "ResearchSeconds": 240.0,
+  "ResearchSeconds": 120.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [],
@@ -104,14 +104,14 @@
   "Cost": [
    {
     "Item": "Sealant",
-    "Count": 30
+    "Count": 15
    },
    {
     "Item": "Glowkelp",
-    "Count": 100
+    "Count": 50
    }
   ],
-  "ResearchSeconds": 240.0,
+  "ResearchSeconds": 120.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [
@@ -128,20 +128,20 @@
   "DisplayName": "Optics",
   "Station": "TideLab",
   "Tree": "Glass",
-  "Phase": 2,
+  "Phase": 3,
   "Requires": "None",
   "TrustRequired": 0,
   "Cost": [
    {
     "Item": "Glass",
-    "Count": 20
+    "Count": 10
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    }
   ],
-  "ResearchSeconds": 90.0,
+  "ResearchSeconds": 60.0,
   "bRepeatable": false,
   "UnlockBuildables": [
    "WindowWall"
@@ -160,20 +160,20 @@
   "DisplayName": "Resource Scanner",
   "Station": "TideLab",
   "Tree": "Glass",
-  "Phase": 2,
+  "Phase": 3,
   "Requires": "RS_Optics",
   "TrustRequired": 0,
   "Cost": [
    {
     "Item": "Lens",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "RivetedPlate",
-    "Count": 10
+    "Count": 5
    }
   ],
-  "ResearchSeconds": 180.0,
+  "ResearchSeconds": 90.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [
@@ -220,20 +220,20 @@
   "DisplayName": "Pearl Lexicon",
   "Station": "TideLab",
   "Tree": "Pearl",
-  "Phase": 2,
+  "Phase": 3,
   "Requires": "None",
   "TrustRequired": 0,
   "Cost": [
    {
     "Item": "GlimmerPearl",
-    "Count": 3
+    "Count": 1
    },
    {
     "Item": "Lens",
-    "Count": 10
+    "Count": 5
    }
   ],
-  "ResearchSeconds": 120.0,
+  "ResearchSeconds": 60.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [],
@@ -256,14 +256,14 @@
   "Cost": [
    {
     "Item": "GlimmerPearl",
-    "Count": 5
+    "Count": 4
    },
    {
     "Item": "Float",
-    "Count": 20
+    "Count": 10
    }
   ],
-  "ResearchSeconds": 180.0,
+  "ResearchSeconds": 90.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [],
@@ -287,14 +287,14 @@
   "Cost": [
    {
     "Item": "GlimmerPearl",
-    "Count": 8
+    "Count": 4
    },
    {
     "Item": "Oscillator",
-    "Count": 10
+    "Count": 5
    }
   ],
-  "ResearchSeconds": 240.0,
+  "ResearchSeconds": 120.0,
   "bRepeatable": false,
   "UnlockBuildables": [
    "ReefFilter"
@@ -352,10 +352,10 @@
    },
    {
     "Item": "CircuitBoard",
-    "Count": 10
+    "Count": 5
    }
   ],
-  "ResearchSeconds": 120.0,
+  "ResearchSeconds": 60.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [
@@ -378,14 +378,14 @@
   "Cost": [
    {
     "Item": "CrystalShard",
-    "Count": 40
+    "Count": 20
    },
    {
     "Item": "SealedCable",
-    "Count": 20
+    "Count": 10
    }
   ],
-  "ResearchSeconds": 240.0,
+  "ResearchSeconds": 120.0,
   "bRepeatable": false,
   "UnlockBuildables": [],
   "UnlockRecipes": [],
@@ -642,7 +642,7 @@
   "DisplayName": "Seal Weave",
   "Station": "TradeBuoy",
   "Tree": "Shop",
-  "Phase": 3,
+  "Phase": 4,
   "Requires": "None",
   "TrustRequired": 10,
   "Cost": [

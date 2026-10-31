@@ -53,15 +53,15 @@
   "Cost": [
    {
     "Item": "FerritePlate",
-    "Count": 60
+    "Count": 40
    },
    {
     "Item": "FerriteRod",
-    "Count": 60
+    "Count": 40
    },
    {
     "Item": "Wire",
-    "Count": 100
+    "Count": 60
    }
   ],
   "UnlockBuildables": [
@@ -94,29 +94,28 @@
   "Cost": [
    {
     "Item": "RivetedPlate",
-    "Count": 40
+    "Count": 15
    },
    {
     "Item": "Cable",
-    "Count": 100
+    "Count": 40
    },
    {
     "Item": "Reefcrete",
-    "Count": 100
+    "Count": 40
    }
   ],
   "UnlockBuildables": [
    "KelpHarvester",
    "Kiln",
    "FloatingPlatform",
-   "BeltLift",
-   "Splitter",
-   "Merger",
    "TideLab",
    "SuitFabricator",
    "Catwalk",
    "Pillar",
-   "Roof"
+   "Roof",
+   "Splitter",
+   "Merger"
   ],
   "UnlockRecipes": [
    "Glass",
@@ -137,26 +136,24 @@
   "Cost": [
    {
     "Item": "Glass",
-    "Count": 80
+    "Count": 40
    },
    {
     "Item": "Float",
-    "Count": 30
+    "Count": 12
    },
    {
     "Item": "RivetedPlate",
-    "Count": 50
+    "Count": 15
    }
   ],
   "UnlockBuildables": [
    "Translator",
-   "TradeBuoy",
-   "BeltMk2"
+   "TradeBuoy"
   ],
   "UnlockRecipes": [
    "Frame",
    "Lens",
-   "Rotor",
    "CupriteSheet"
   ],
   "UnlockUpgrades": [
@@ -176,15 +173,15 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 25
-   },
-   {
-    "Item": "Rotor",
-    "Count": 40
+    "Count": 10
    },
    {
     "Item": "Lens",
-    "Count": 40
+    "Count": 15
+   },
+   {
+    "Item": "Cable",
+    "Count": 30
    }
   ],
   "UnlockBuildables": [
@@ -192,14 +189,13 @@
    "FuelBurner",
    "SeaPump",
    "Pipe",
-   "DrillMk2",
-   "Skiff"
+   "Skiff",
+   "BeltLift"
   ],
   "UnlockRecipes": [
    "KelpChar",
    "SteelIngot",
    "SteelBeam",
-   "SteelPipe",
    "ZiplineHarness"
   ],
   "UnlockUpgrades": [
@@ -208,7 +204,7 @@
   "HubUpgrade": "A skiff dock and slipway are built beside the pod.",
   "StoryTrigger": "HubTier(3,1)",
   "StoryHook": "BT_P3_02 the sea darkens (if Ocean Health hasn't fired it first). Echo: the Tar Shelves are 900 m west.",
-  "Description": "Steel, fluids, the skiff and the first big generator."
+  "Description": "Steel, the skiff to reach the Tar Shelves, and the first big generator."
  },
  {
   "Name": "M6",
@@ -219,27 +215,24 @@
   "Cost": [
    {
     "Item": "SteelBeam",
-    "Count": 80
-   },
-   {
-    "Item": "SteelPipe",
-    "Count": 80
+    "Count": 30
    },
    {
     "Item": "Frame",
+    "Count": 6
+   },
+   {
+    "Item": "Glass",
     "Count": 20
    }
   ],
   "UnlockBuildables": [
-   "Refinery",
-   "Accumulator"
+   "Refinery"
   ],
   "UnlockRecipes": [
    "Polymer",
-   "Sealant",
    "TarFuel",
    "CircuitBoard",
-   "SealedCable",
    "MastSegment",
    "GliderPack"
   ],
@@ -247,7 +240,7 @@
   "HubUpgrade": "The pod gets a second deck and a taller antenna.",
   "StoryTrigger": "HubTier(3,2)",
   "StoryHook": "BT_P3_03 the withheld packet, then BT_P3_04 the Great Storm 30 s later.",
-  "Description": "Tar, circuits and sealed cable: the Antenna Mast."
+  "Description": "Tar and circuits: the Antenna Mast. Finishing this tier brings the Great Storm."
  },
  {
   "Name": "M7",
@@ -258,28 +251,32 @@
   "Cost": [
    {
     "Item": "CircuitBoard",
-    "Count": 50
-   },
-   {
-    "Item": "SealedCable",
-    "Count": 80
+    "Count": 15
    },
    {
     "Item": "SteelBeam",
-    "Count": 100
+    "Count": 30
+   },
+   {
+    "Item": "Frame",
+    "Count": 8
    }
   ],
-  "UnlockBuildables": [],
+  "UnlockBuildables": [
+   "DrillMk2",
+   "BeltMk2"
+  ],
   "UnlockRecipes": [
-   "Stator",
-   "Motor",
-   "Oscillator"
+   "Oscillator",
+   "SteelPipe",
+   "SealedCable",
+   "Sealant"
   ],
   "UnlockUpgrades": [],
   "HubUpgrade": "A crystal lightning rod crowns the pod.",
   "StoryTrigger": "HubTier(4,1)",
   "StoryHook": "BT_P4_02 the power choice: keep the burners, or rebuild clean (Glimmer blueprint, trust 20).",
-  "Description": "Oscillators, stators and motors for the big machines."
+  "Description": "Sealed cable, oscillators and faster drills and belts for the storm country."
  },
  {
   "Name": "M8",
@@ -290,21 +287,19 @@
   "Cost": [
    {
     "Item": "Oscillator",
-    "Count": 40
+    "Count": 12
    },
    {
-    "Item": "Motor",
-    "Count": 20
+    "Item": "SealedCable",
+    "Count": 25
    },
    {
     "Item": "SteelPipe",
-    "Count": 100
+    "Count": 25
    }
   ],
   "UnlockBuildables": [
-   "Manufactory",
-   "BeltMk3",
-   "DrillMk3"
+   "Manufactory"
   ],
   "UnlockRecipes": [
    "HeavyFrame",
@@ -339,16 +334,22 @@
    }
   ],
   "UnlockBuildables": [
-   "ResonanceForge"
+   "ResonanceForge",
+   "DrillMk3",
+   "Accumulator",
+   "BeltMk3"
   ],
   "UnlockRecipes": [
-   "Resonator"
+   "Resonator",
+   "Rotor",
+   "Stator",
+   "Motor"
   ],
   "UnlockUpgrades": [],
   "HubUpgrade": "Echo's relay console lights up inside the pod.",
   "StoryTrigger": "HubTier(5,1)",
   "StoryHook": "BT_P5_03 confession 1, BT_P5_04 FB5 \"The Garage\", then the cold stretch.",
-  "Description": "Calibrate the relay with deep lenses. It finds what Echo has been hiding."
+  "Description": "Calibrate the relay with deep lenses. It finds what Echo has been hiding. Motors and the top belt tier."
  },
  {
   "Name": "M10",

@@ -7,15 +7,15 @@
   "Requirements": [
    {
     "Item": "RivetedPlate",
-    "Count": 50
+    "Count": 30
    },
    {
     "Item": "Reefcrete",
-    "Count": 150
+    "Count": 60
    },
    {
     "Item": "Cable",
-    "Count": 100
+    "Count": 40
    }
   ],
   "RequirementsLabel": "",
@@ -103,11 +103,11 @@
   "Requirements": [
    {
     "Item": "Frame",
-    "Count": 30
+    "Count": 12
    },
    {
     "Item": "Lens",
-    "Count": 40
+    "Count": 20
    },
    {
     "Item": "GlimmerPearl",
@@ -187,15 +187,15 @@
   "Requirements": [
    {
     "Item": "MastSegment",
-    "Count": 40
+    "Count": 15
    },
    {
     "Item": "CircuitBoard",
-    "Count": 60
+    "Count": 20
    },
    {
-    "Item": "SealedCable",
-    "Count": 100
+    "Item": "Cable",
+    "Count": 40
    }
   ],
   "RequirementsLabel": "",
@@ -220,30 +220,30 @@
   "Requirements": [
    {
     "Item": "PowerCell",
-    "Count": 40
+    "Count": 12
    },
    {
     "Item": "ControlModule",
-    "Count": 25
+    "Count": 8
    },
    {
     "Item": "HeavyFrame",
-    "Count": 20
+    "Count": 6
    }
   ],
   "RequirementsLabel": "Clean ring: power cells",
   "AltRequirements": [
    {
     "Item": "Biofuel",
-    "Count": 400
+    "Count": 150
    },
    {
     "Item": "ControlModule",
-    "Count": 25
+    "Count": 8
    },
    {
     "Item": "HeavyFrame",
-    "Count": 20
+    "Count": 6
    }
   ],
   "AltLabel": "Burner ring: biofuel",

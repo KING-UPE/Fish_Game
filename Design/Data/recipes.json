@@ -127,7 +127,7 @@
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "RS_Optics",
-  "Phase": 2,
+  "Phase": 3,
   "Description": ""
  },
  {
@@ -146,7 +146,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 2.0,
+  "CraftTime": 1.0,
   "bAlternate": false,
   "bHandCraftable": false,
   "UnlockedBy": "M1",
@@ -169,7 +169,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 2.0,
+  "CraftTime": 1.0,
   "bAlternate": false,
   "bHandCraftable": false,
   "UnlockedBy": "M1",
@@ -215,7 +215,7 @@
     "Count": 2
    }
   ],
-  "CraftTime": 6.0,
+  "CraftTime": 4.0,
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "M1",
@@ -238,7 +238,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 4.0,
+  "CraftTime": 3.0,
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "M1",
@@ -261,7 +261,7 @@
     "Count": 4
    }
   ],
-  "CraftTime": 6.0,
+  "CraftTime": 4.0,
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "M1",
@@ -281,7 +281,7 @@
   "Outputs": [
    {
     "Item": "Wire",
-    "Count": 2
+    "Count": 3
    }
   ],
   "CraftTime": 4.0,
@@ -330,7 +330,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 4.0,
+  "CraftTime": 3.0,
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "M2",
@@ -413,7 +413,7 @@
   "Inputs": [
    {
     "Item": "SteelIngot",
-    "Count": 4
+    "Count": 3
    }
   ],
   "Outputs": [
@@ -448,8 +448,8 @@
   "CraftTime": 6.0,
   "bAlternate": false,
   "bHandCraftable": true,
-  "UnlockedBy": "M5",
-  "Phase": 3,
+  "UnlockedBy": "M7",
+  "Phase": 4,
   "Description": ""
  },
  {
@@ -555,11 +555,11 @@
   "Inputs": [
    {
     "Item": "FerritePlate",
-    "Count": 4
+    "Count": 3
    },
    {
     "Item": "Bolt",
-    "Count": 8
+    "Count": 6
    }
   ],
   "Outputs": [
@@ -568,7 +568,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 10.0,
+  "CraftTime": 8.0,
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "M2",
@@ -613,7 +613,7 @@
    },
    {
     "Item": "FerriteRod",
-    "Count": 6
+    "Count": 4
    }
   ],
   "Outputs": [
@@ -622,7 +622,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 20.0,
+  "CraftTime": 15.0,
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "M4",
@@ -663,11 +663,11 @@
   "Inputs": [
    {
     "Item": "FerriteRod",
-    "Count": 3
+    "Count": 2
    },
    {
     "Item": "Bolt",
-    "Count": 12
+    "Count": 8
    }
   ],
   "Outputs": [
@@ -676,11 +676,11 @@
     "Count": 1
    }
   ],
-  "CraftTime": 12.0,
+  "CraftTime": 10.0,
   "bAlternate": false,
   "bHandCraftable": true,
-  "UnlockedBy": "M4",
-  "Phase": 2,
+  "UnlockedBy": "M9",
+  "Phase": 5,
   "Description": ""
  },
  {
@@ -733,8 +733,8 @@
   "CraftTime": 4.0,
   "bAlternate": false,
   "bHandCraftable": true,
-  "UnlockedBy": "M6",
-  "Phase": 3,
+  "UnlockedBy": "M7",
+  "Phase": 4,
   "Description": ""
  },
  {
@@ -747,8 +747,8 @@
     "Count": 3
    },
    {
-    "Item": "SealedCable",
-    "Count": 2
+    "Item": "CircuitBoard",
+    "Count": 1
    }
   ],
   "Outputs": [
@@ -771,11 +771,11 @@
   "Inputs": [
    {
     "Item": "SteelPipe",
-    "Count": 3
+    "Count": 2
    },
    {
     "Item": "Wire",
-    "Count": 8
+    "Count": 6
    }
   ],
   "Outputs": [
@@ -787,8 +787,8 @@
   "CraftTime": 12.0,
   "bAlternate": false,
   "bHandCraftable": true,
-  "UnlockedBy": "M7",
-  "Phase": 4,
+  "UnlockedBy": "M9",
+  "Phase": 5,
   "Description": ""
  },
  {
@@ -798,11 +798,11 @@
   "Inputs": [
    {
     "Item": "Rotor",
-    "Count": 2
+    "Count": 1
    },
    {
     "Item": "Stator",
-    "Count": 2
+    "Count": 1
    }
   ],
   "Outputs": [
@@ -811,11 +811,11 @@
     "Count": 1
    }
   ],
-  "CraftTime": 12.0,
+  "CraftTime": 10.0,
   "bAlternate": false,
   "bHandCraftable": true,
-  "UnlockedBy": "M7",
-  "Phase": 4,
+  "UnlockedBy": "M9",
+  "Phase": 5,
   "Description": ""
  },
  {
@@ -945,8 +945,8 @@
   "CraftTime": 6.0,
   "bAlternate": false,
   "bHandCraftable": false,
-  "UnlockedBy": "M6",
-  "Phase": 3,
+  "UnlockedBy": "M7",
+  "Phase": 4,
   "Description": ""
  },
  {
@@ -1006,15 +1006,15 @@
   "Inputs": [
    {
     "Item": "RivetedPlate",
-    "Count": 3
+    "Count": 2
    },
    {
     "Item": "SteelBeam",
-    "Count": 4
+    "Count": 3
    },
    {
     "Item": "SteelPipe",
-    "Count": 4
+    "Count": 3
    }
   ],
   "Outputs": [
@@ -1023,7 +1023,7 @@
     "Count": 1
    }
   ],
-  "CraftTime": 30.0,
+  "CraftTime": 24.0,
   "bAlternate": false,
   "bHandCraftable": false,
   "UnlockedBy": "M8",
@@ -1068,15 +1068,15 @@
   "Inputs": [
    {
     "Item": "GlowGel",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "CrystalShard",
-    "Count": 2
+    "Count": 1
    },
    {
     "Item": "Glass",
-    "Count": 2
+    "Count": 1
    }
   ],
   "Outputs": [
@@ -1178,7 +1178,7 @@
   "bAlternate": false,
   "bHandCraftable": true,
   "UnlockedBy": "RS_ResourceScanner",
-  "Phase": 2,
+  "Phase": 3,
   "Description": ""
  },
  {
@@ -1187,16 +1187,12 @@
   "Machine": "SuitFabricator",
   "Inputs": [
    {
-    "Item": "Rotor",
-    "Count": 3
-   },
-   {
     "Item": "RivetedPlate",
-    "Count": 2
+    "Count": 4
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    }
   ],
   "Outputs": [
@@ -1218,16 +1214,16 @@
   "Machine": "SuitFabricator",
   "Inputs": [
    {
-    "Item": "SteelPipe",
-    "Count": 6
-   },
-   {
-    "Item": "Rotor",
+    "Item": "SteelBeam",
     "Count": 3
    },
    {
+    "Item": "RivetedPlate",
+    "Count": 2
+   },
+   {
     "Item": "Polymer",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Outputs": [
@@ -1371,31 +1367,31 @@
   "Description": "Two floats around one riveted keel."
  },
  {
-  "Name": "Alt_CoiledRotor",
-  "DisplayName": "Coiled Rotor",
+  "Name": "Alt_CableLens",
+  "DisplayName": "Cable-ring Lens",
   "Machine": "Assembler",
   "Inputs": [
    {
-    "Item": "FerriteRod",
-    "Count": 4
+    "Item": "Glass",
+    "Count": 3
    },
    {
-    "Item": "Wire",
-    "Count": 10
+    "Item": "Cable",
+    "Count": 1
    }
   ],
   "Outputs": [
    {
-    "Item": "Rotor",
+    "Item": "Lens",
     "Count": 1
    }
   ],
-  "CraftTime": 12.0,
+  "CraftTime": 10.0,
   "bAlternate": true,
   "bHandCraftable": true,
   "UnlockedBy": "DC07",
   "Phase": 2,
-  "Description": "Wire coil instead of bolts."
+  "Description": "Set the lens in a cable ring: no second wire line at the dish."
  },
  {
   "Name": "Alt_FiredSteel",
@@ -1422,7 +1418,7 @@
   "bHandCraftable": false,
   "UnlockedBy": "DC08",
   "Phase": 3,
-  "Description": "Steel from ingots: more steel per char."
+  "Description": "Steel from ingots: a third less iron per steel."
  },
  {
   "Name": "Alt_BracedFrame",
@@ -1435,7 +1431,7 @@
    },
    {
     "Item": "Bolt",
-    "Count": 20
+    "Count": 16
    }
   ],
   "Outputs": [
@@ -1502,7 +1498,7 @@
   "bAlternate": true,
   "bHandCraftable": true,
   "UnlockedBy": "SH_SealWeave",
-  "Phase": 3,
+  "Phase": 4,
   "Description": "The Glimmers' kelp-seal weave: seal the wire directly and skip the cable press."
  },
  {

@@ -163,11 +163,11 @@
   "Cost": [
    {
     "Item": "RivetedPlate",
-    "Count": 6
+    "Count": 3
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    }
   ],
   "Size": {
@@ -222,20 +222,20 @@
   "Cost": [
    {
     "Item": "RivetedPlate",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "Cable",
-    "Count": 30
+    "Count": 15
    },
    {
     "Item": "Reefcrete",
-    "Count": 30
+    "Count": 15
    }
   ],
   "Size": {
-   "X": 16,
-   "Y": 16
+   "X": 12,
+   "Y": 12
   },
   "Height": 1000.0,
   "Mesh": "None",
@@ -285,15 +285,15 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "Lens",
-    "Count": 6
+    "Count": 4
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    }
   ],
   "Size": {
@@ -348,11 +348,11 @@
   "Cost": [
    {
     "Item": "Float",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "Cable",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "Lens",
@@ -411,15 +411,15 @@
   "Cost": [
    {
     "Item": "FerriteRod",
-    "Count": 5
+    "Count": 3
    },
    {
     "Item": "Wire",
-    "Count": 8
+    "Count": 5
    }
   ],
   "Size": {
-   "X": 16,
+   "X": 12,
    "Y": 8
   },
   "Height": 900.0,
@@ -470,15 +470,15 @@
   "Cost": [
    {
     "Item": "FerritePlate",
-    "Count": 6
+    "Count": 4
    },
    {
     "Item": "FerriteRod",
-    "Count": 6
+    "Count": 4
    }
   ],
   "Size": {
-   "X": 16,
+   "X": 12,
    "Y": 8
   },
   "Height": 850.0,
@@ -529,19 +529,19 @@
   "Cost": [
    {
     "Item": "Reefcrete",
-    "Count": 10
-   },
-   {
-    "Item": "FerritePlate",
     "Count": 6
    },
    {
+    "Item": "FerritePlate",
+    "Count": 4
+   },
+   {
     "Item": "Cable",
-    "Count": 8
+    "Count": 4
    }
   ],
   "Size": {
-   "X": 16,
+   "X": 12,
    "Y": 8
   },
   "Height": 900.0,
@@ -592,20 +592,20 @@
   "Cost": [
    {
     "Item": "RivetedPlate",
-    "Count": 6
+    "Count": 3
    },
    {
     "Item": "Cable",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "FerriteRod",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {
    "X": 16,
-   "Y": 16
+   "Y": 10
   },
   "Height": 1100.0,
   "Mesh": "None",
@@ -655,20 +655,20 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 8
+    "Count": 4
    },
    {
-    "Item": "Rotor",
-    "Count": 10
+    "Item": "RivetedPlate",
+    "Count": 2
    },
    {
     "Item": "Reefcrete",
-    "Count": 20
+    "Count": 10
    }
   ],
   "Size": {
-   "X": 16,
-   "Y": 16
+   "X": 12,
+   "Y": 12
   },
   "Height": 1000.0,
   "Mesh": "None",
@@ -718,20 +718,16 @@
   "Cost": [
    {
     "Item": "SteelBeam",
-    "Count": 10
-   },
-   {
-    "Item": "SteelPipe",
-    "Count": 10
+    "Count": 6
    },
    {
     "Item": "Frame",
-    "Count": 6
+    "Count": 3
    }
   ],
   "Size": {
-   "X": 24,
-   "Y": 16
+   "X": 20,
+   "Y": 12
   },
   "Height": 2400.0,
   "Mesh": "None",
@@ -780,21 +776,21 @@
   "MachineType": "Manufactory",
   "Cost": [
    {
-    "Item": "Motor",
-    "Count": 10
-   },
-   {
     "Item": "SteelBeam",
-    "Count": 20
+    "Count": 8
    },
    {
     "Item": "CircuitBoard",
-    "Count": 10
+    "Count": 5
+   },
+   {
+    "Item": "Frame",
+    "Count": 2
    }
   ],
   "Size": {
-   "X": 24,
-   "Y": 24
+   "X": 20,
+   "Y": 18
   },
   "Height": 1300.0,
   "Mesh": "None",
@@ -844,20 +840,20 @@
   "Cost": [
    {
     "Item": "HeavyFrame",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "ControlModule",
-    "Count": 6
+    "Count": 3
    },
    {
-    "Item": "SealedCable",
-    "Count": 20
+    "Item": "Motor",
+    "Count": 2
    }
   ],
   "Size": {
-   "X": 16,
-   "Y": 16
+   "X": 12,
+   "Y": 12
   },
   "Height": 1600.0,
   "Mesh": "None",
@@ -907,11 +903,11 @@
   "Cost": [
    {
     "Item": "FerritePlate",
-    "Count": 6
+    "Count": 4
    },
    {
     "Item": "Wire",
-    "Count": 10
+    "Count": 6
    }
   ],
   "Size": {
@@ -966,15 +962,15 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 4
+    "Count": 2
    },
    {
-    "Item": "Rotor",
-    "Count": 6
+    "Item": "RivetedPlate",
+    "Count": 2
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    }
   ],
   "Size": {
@@ -1012,8 +1008,8 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 50,
-  "Phase": 3,
-  "UnlockedBy": "M5",
+  "Phase": 4,
+  "UnlockedBy": "M7",
   "MaxCount": 0,
   "Throughput": 0.0,
   "PlacementRule": "Node:Solid",
@@ -1029,15 +1025,15 @@
   "Cost": [
    {
     "Item": "Motor",
-    "Count": 10
+    "Count": 4
    },
    {
     "Item": "SteelBeam",
-    "Count": 10
+    "Count": 4
    },
    {
     "Item": "CircuitBoard",
-    "Count": 10
+    "Count": 4
    }
   ],
   "Size": {
@@ -1075,8 +1071,8 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 50,
-  "Phase": 4,
-  "UnlockedBy": "M8",
+  "Phase": 5,
+  "UnlockedBy": "M9",
   "MaxCount": 0,
   "Throughput": 0.0,
   "PlacementRule": "Node:Solid",
@@ -1092,15 +1088,15 @@
   "Cost": [
    {
     "Item": "RivetedPlate",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "FerriteRod",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "Cable",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {
@@ -1155,15 +1151,11 @@
   "Cost": [
    {
     "Item": "RivetedPlate",
-    "Count": 6
-   },
-   {
-    "Item": "Rotor",
-    "Count": 4
+    "Count": 3
    },
    {
     "Item": "Cable",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {
@@ -1217,12 +1209,12 @@
   "MachineType": "None",
   "Cost": [
    {
-    "Item": "SteelPipe",
-    "Count": 4
+    "Item": "SteelBeam",
+    "Count": 1
    },
    {
     "Item": "Cable",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {
@@ -1276,16 +1268,16 @@
   "MachineType": "None",
   "Cost": [
    {
-    "Item": "Motor",
+    "Item": "SteelBeam",
     "Count": 6
    },
    {
     "Item": "HeavyFrame",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "ControlModule",
-    "Count": 10
+    "Count": 4
    }
   ],
   "Size": {
@@ -1372,7 +1364,7 @@
    "A": 1.0
   },
   "PowerUse": 0.0,
-  "PowerOutput": 8.0,
+  "PowerOutput": 25.0,
   "ExtractItem": "None",
   "ExtractInterval": 0.0,
   "bNeedsWater": false,
@@ -1384,11 +1376,11 @@
   "BufferSize": 50,
   "Phase": 1,
   "UnlockedBy": "M1",
-  "MaxCount": 12,
+  "MaxCount": 6,
   "Throughput": 0.0,
   "PlacementRule": "Anywhere",
   "EffectRadius": 0.0,
-  "Description": "A panel and battery pack from the wreck. Steady 8 MW. The wreck has 12."
+  "Description": "A panel and battery pack from the wreck. Steady 25 MW. The wreck has 6."
  },
  {
   "Name": "KelpBurner",
@@ -1399,15 +1391,15 @@
   "Cost": [
    {
     "Item": "FerritePlate",
-    "Count": 10
+    "Count": 6
    },
    {
     "Item": "FerriteRod",
-    "Count": 10
+    "Count": 6
    },
    {
     "Item": "Cable",
-    "Count": 6
+    "Count": 4
    }
   ],
   "Size": {
@@ -1435,7 +1427,7 @@
    "A": 1.0
   },
   "PowerUse": 0.0,
-  "PowerOutput": 30.0,
+  "PowerOutput": 60.0,
   "ExtractItem": "None",
   "ExtractInterval": 0.0,
   "bNeedsWater": false,
@@ -1460,7 +1452,7 @@
   "Throughput": 0.0,
   "PlacementRule": "Foundation",
   "EffectRadius": 0.0,
-  "Description": "30 MW. Burns biofuel (or kelp pulp, or raw glowkelp). Dirties the water a little (counts from Phase 3)."
+  "Description": "60 MW. Burns biofuel (or kelp pulp, or raw glowkelp). Dirties the water a little (counts from Phase 3)."
  },
  {
   "Name": "FuelBurner",
@@ -1471,20 +1463,20 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 10
+    "Count": 4
    },
    {
-    "Item": "Rotor",
-    "Count": 10
+    "Item": "RivetedPlate",
+    "Count": 2
    },
    {
     "Item": "Cable",
-    "Count": 30
+    "Count": 10
    }
   ],
   "Size": {
-   "X": 24,
-   "Y": 16
+   "X": 16,
+   "Y": 12
   },
   "Height": 2400.0,
   "Mesh": "None",
@@ -1507,21 +1499,21 @@
    "A": 1.0
   },
   "PowerUse": 0.0,
-  "PowerOutput": 75.0,
+  "PowerOutput": 150.0,
   "ExtractItem": "None",
   "ExtractInterval": 0.0,
   "bNeedsWater": false,
   "bNoNode": false,
   "FuelItem": "KelpChar",
-  "FuelTime": 4.0,
+  "FuelTime": 10.0,
   "AltFuels": [
    {
     "Item": "TarFuel",
-    "BurnSeconds": 10.0
+    "BurnSeconds": 20.0
    },
    {
     "Item": "Biofuel",
-    "BurnSeconds": 8.0
+    "BurnSeconds": 16.0
    }
   ],
   "Pollution": 4.0,
@@ -1532,7 +1524,7 @@
   "Throughput": 0.0,
   "PlacementRule": "Foundation",
   "EffectRadius": 0.0,
-  "Description": "75 MW. Burns kelp char, tar fuel or biofuel. Strong, fast and dirty."
+  "Description": "150 MW. Burns kelp char, tar fuel or biofuel. Strong, fast and dirty."
  },
  {
   "Name": "TidalTurbine",
@@ -1542,16 +1534,16 @@
   "MachineType": "None",
   "Cost": [
    {
-    "Item": "Motor",
-    "Count": 4
-   },
-   {
     "Item": "SteelBeam",
-    "Count": 6
+    "Count": 3
    },
    {
     "Item": "SealedCable",
-    "Count": 10
+    "Count": 5
+   },
+   {
+    "Item": "Frame",
+    "Count": 1
    }
   ],
   "Size": {
@@ -1579,7 +1571,7 @@
    "A": 1.0
   },
   "PowerUse": 0.0,
-  "PowerOutput": 50.0,
+  "PowerOutput": 120.0,
   "ExtractItem": "None",
   "ExtractInterval": 0.0,
   "bNeedsWater": true,
@@ -1595,7 +1587,7 @@
   "Throughput": 0.0,
   "PlacementRule": "Node:TidalRace",
   "EffectRadius": 0.0,
-  "Description": "Glimmer blueprint. Sits in a tidal race. 50 MW on a normal race (impure x0.5, pure x2). No fuel, no runoff."
+  "Description": "Glimmer blueprint. Sits in a tidal race. 120 MW on a normal race (impure x0.5, pure x2). No fuel, no runoff."
  },
  {
   "Name": "GlowBank",
@@ -1606,24 +1598,20 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 6
-   },
-   {
-    "Item": "Motor",
-    "Count": 4
+    "Count": 3
    },
    {
     "Item": "Glass",
-    "Count": 20
+    "Count": 10
    },
    {
     "Item": "SealedCable",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {
-   "X": 16,
-   "Y": 16
+   "X": 12,
+   "Y": 12
   },
   "Height": 1200.0,
   "Mesh": "None",
@@ -1646,13 +1634,13 @@
    "A": 1.0
   },
   "PowerUse": 0.0,
-  "PowerOutput": 120.0,
+  "PowerOutput": 150.0,
   "ExtractItem": "None",
   "ExtractInterval": 0.0,
   "bNeedsWater": false,
   "bNoNode": false,
   "FuelItem": "LightCell",
-  "FuelTime": 40.0,
+  "FuelTime": 60.0,
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 50,
@@ -1662,7 +1650,7 @@
   "Throughput": 0.0,
   "PlacementRule": "Foundation",
   "EffectRadius": 0.0,
-  "Description": "Glimmer blueprint. 120 MW from light cells (1.5/min). Clean."
+  "Description": "Glimmer blueprint. 150 MW from light cells (1/min). Clean."
  },
  {
   "Name": "Accumulator",
@@ -1673,15 +1661,15 @@
   "Cost": [
    {
     "Item": "SteelBeam",
-    "Count": 5
+    "Count": 3
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    },
    {
     "Item": "CupriteSheet",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {
@@ -1719,8 +1707,8 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 0,
-  "Phase": 3,
-  "UnlockedBy": "M6",
+  "Phase": 5,
+  "UnlockedBy": "M9",
   "MaxCount": 0,
   "Throughput": 0.0,
   "PlacementRule": "Foundation",
@@ -1829,8 +1817,8 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 50,
-  "Phase": 2,
-  "UnlockedBy": "M4",
+  "Phase": 4,
+  "UnlockedBy": "M7",
   "MaxCount": 0,
   "Throughput": 120.0,
   "PlacementRule": "Belt",
@@ -1884,8 +1872,8 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 50,
-  "Phase": 4,
-  "UnlockedBy": "M8",
+  "Phase": 5,
+  "UnlockedBy": "M9",
   "MaxCount": 0,
   "Throughput": 270.0,
   "PlacementRule": "Belt",
@@ -1943,8 +1931,8 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 50,
-  "Phase": 2,
-  "UnlockedBy": "M3",
+  "Phase": 3,
+  "UnlockedBy": "M5",
   "MaxCount": 0,
   "Throughput": 0.0,
   "PlacementRule": "Belt",
@@ -2251,19 +2239,15 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 6
-   },
-   {
-    "Item": "Rotor",
-    "Count": 6
+    "Count": 3
    },
    {
     "Item": "Float",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "Cable",
-    "Count": 20
+    "Count": 10
    }
   ],
   "Size": {
@@ -2318,7 +2302,7 @@
   "Cost": [
    {
     "Item": "Reefcrete",
-    "Count": 4
+    "Count": 2
    }
   ],
   "Size": {
@@ -2377,7 +2361,7 @@
    },
    {
     "Item": "FerritePlate",
-    "Count": 2
+    "Count": 1
    }
   ],
   "Size": {
@@ -2643,7 +2627,7 @@
   "AltFuels": [],
   "Pollution": 0.0,
   "BufferSize": 0,
-  "Phase": 2,
+  "Phase": 3,
   "UnlockedBy": "RS_Optics",
   "MaxCount": 0,
   "Throughput": 0.0,
@@ -2660,7 +2644,7 @@
   "Cost": [
    {
     "Item": "FerritePlate",
-    "Count": 2
+    "Count": 1
    },
    {
     "Item": "FerriteRod",
@@ -2892,15 +2876,15 @@
   "Cost": [
    {
     "Item": "Frame",
-    "Count": 4
+    "Count": 2
    },
    {
     "Item": "SealedCable",
-    "Count": 10
+    "Count": 5
    },
    {
     "Item": "Polymer",
-    "Count": 10
+    "Count": 5
    }
   ],
   "Size": {

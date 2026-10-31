@@ -2,7 +2,8 @@
 """Blue Signal: playtime model and data check (Python 3, stdlib only).
 
     python Tools/Design/playtime_model.py           estimate minutes per step, milestone and phase, print the
-                                                     table and write Design/Playtime.md
+                                                     table and write Design/Playtime.md (exit code 2 if the
+                                                     Clean path misses a target)
     python Tools/Design/playtime_model.py --check   validate Design/Data/*.json (exit code 1 on any error)
 
 Owner: game-designer. Every assumption is a named constant in the ASSUMPTIONS block. To change the playtime,
@@ -519,12 +520,14 @@ class Progress:
         self.upgrades.update(row.get("UnlockUpgrades", []))
 
     def enter_phase(self, ph):
-        """Story unlocks and choices that happen inside a phase (before its tower delivery)."""
-        db = self.db
+        """A new phase starts. Story unlocks of earlier phases are in by now; this phase's wait for their beat."""
         self.phase = ph
-        for b in db.bld.values():
+        self.story_unlocks(ph - 1)
+
+    def story_unlocks(self, up_to_phase):
+        for b in self.db.bld.values():
             ub = b["UnlockedBy"]
-            if ub.startswith("Story:") and (db.unlock_phase(ub) or 99) <= ph:
+            if ub.startswith("Story:") and (self.db.unlock_phase(ub) or 99) <= up_to_phase:
                 self.buildables.add(b["Name"])
 
     def after_milestone(self, m):
@@ -537,7 +540,7 @@ class Progress:
                 self.research_done.add(row["Name"])
                 self.grant(row)
         if m["StoryTrigger"] == "HubTier(3,2)":
-            self.enter_phase(3)   # the Great Storm (BT_P3_04) then aftermath BT_P3_05 unlock rods/breakwaters
+            self.story_unlocks(3)   # the Great Storm (BT_P3_04) then aftermath BT_P3_05 unlock rods/breakwaters
 
     def complete(self, step):
         self.grant(step.row)
@@ -611,8 +614,662 @@ class Progress:
 
 
 # =====================================================================================================
-# Model (default mode): TODO
+# Model (default mode): walk the 15 steps in story order and price each one in minutes
 # =====================================================================================================
+BUCKETS = ["run", "hands", "build", "learn", "research", "hub", "world", "glimmer", "story", "rework"]
+BUCKET_HELP = OrderedDict([
+    ("run", "machines producing the step's parts, after RUN_OVERLAP (the rest overlaps other work)"),
+    ("hands", "gathering and crafting by hand, no overlap"),
+    ("build", "placing machines, generators, foundations and extras (belts and cable included)"),
+    ("learn", "first build of each kind and first use of each recipe, plus re-laying belts on a new tier"),
+    ("research", "Tide Lab menu and the waited share of research time"),
+    ("hub", "hub hand-ins and tower deliveries"),
+    ("world", "first biome visits, commuting, data cores, night shell runs"),
+    ("glimmer", "Trade Buoy contracts and Translator picture counts"),
+    ("story", "non-interactive beats, the phase-complete chain, storm repairs"),
+    ("rework", "fixing, moving and tidying (REWORK share of run + build)"),
+])
+# Family buildings teach once: the second drill or belt tier is not a new lesson (BELT_UPGRADE_MIN covers belts).
+LEARN_ONCE_FAMILY = {"DrillMk1": "Drill", "DrillMk2": "Drill", "DrillMk3": "Drill",
+                     "BeltMk1": "Belt", "BeltMk2": "Belt", "BeltMk3": "Belt"}
+BUILD_KIND_DEFAULT = "Structure"   # belts, poles, crates, splitters: small pieces use the structure time
+SPECIAL_BUILD_ORDER = ("Workbench", "SuitFabricator", "TideLab", "Translator", "TradeBuoy", "Skiff")
+
+
+def merged(*counters):
+    out = defaultdict(float)
+    for c in counters:
+        for k, v in c.items():
+            out[k] += v
+    return out
+
+
+class Model:
+    def __init__(self, db, choice):
+        self.db, self.choice = db, choice
+        self.prog = Progress(db, choice)
+        self.machines = defaultdict(int)     # recipe -> machines built on it
+        self.extractors = defaultdict(list)  # raw item -> [(purity mult, base rate per min, buildable)]
+        self.gens = []                       # [(buildable, MW)]
+        self.others = defaultdict(int)       # other buildings that draw power, by buildable
+        self.learned = set()
+        self.used_recipes = set()
+        self.done_research = set()
+        self.pending_research = []
+        self.done_extras = set()
+        self.done_equipment = set()
+        self.done_belt_upgrades = set()
+        self.specials_built = set()
+        self.stock = defaultdict(float)
+        self.pearls = 0.0
+        self.trust = 0
+        self.trust_by_phase = OrderedDict()
+        self.trades_by_phase = defaultdict(int)
+        self.rows = []
+        self.shortages = []
+        self.burners_retired = False
+        self.raw_totals = defaultdict(float)
+        for name in TYPICAL_RESEARCH:
+            self.queue_research(name)
+
+    # -- lookups --------------------------------------------------------------------------------------
+    def queue_research(self, name):
+        row = self.db.rs[name]
+        if row["Requires"] in self.db.rs:
+            self.queue_research(row["Requires"])
+        if name not in self.pending_research and name not in self.done_research:
+            self.pending_research.append(name)
+
+    def missing_research(self, item, seen=None):
+        """Queue the research a step's item needs: the factory can't make it without that row."""
+        db, prog = self.db, self.prog
+        seen = seen if seen is not None else set()
+        if item in seen or item in db.raw_items or item == "GlimmerPearl":
+            return
+        seen.add(item)
+        if prog.recipe_for(item, False):
+            return
+        cands = [r for r in db.by_output.get(item, []) if not r["bAlternate"]]
+        cands.sort(key=lambda r: r["Machine"] in HAND_STATIONS)
+        for r in cands:
+            src = r["UnlockedBy"]
+            if r["Name"] in prog.recipes or (src in db.rs and db.rs[src]["Station"] == "TideLab"):
+                if r["Name"] not in prog.recipes:
+                    self.queue_research(src)
+                for i, _ in stacks(r["Inputs"]):
+                    self.missing_research(i, seen)
+                return
+
+    def belt_rate(self):
+        return max([self.db.bld[b]["Throughput"] for b in self.prog.buildables
+                    if self.db.bld[b]["Kind"] == "Belt"] or [0.0])
+
+    def pipe_rate(self):
+        return self.db.bld["Pipe"]["Throughput"]
+
+    def best_extractor(self, res):
+        """Fastest unlocked extractor that works this resource's nodes (rods only catch storms)."""
+        best, rate = None, 0.0
+        for e in res["Extractors"]:
+            row = self.db.bld[e]
+            if e in self.prog.buildables and row["PlacementRule"] != "Anywhere" and row["ExtractInterval"] > 0:
+                r = 60.0 / row["ExtractInterval"]
+                if r > rate:
+                    best, rate = e, r
+        return best, rate
+
+    def nodes_open(self, res):
+        """Purity multipliers of the nodes the player can reach now: nearest biome first, best purity first."""
+        out = []
+        for n in sorted(res["Nodes"], key=lambda n: BIOME_PHASE[n["Biome"]]):
+            if BIOME_PHASE[n["Biome"]] > self.prog.phase:
+                continue
+            for purity in ("Pure", "Normal", "Impure"):
+                out += [NODE_PURITY_MULT[purity]] * n[purity]
+        return out
+
+    def expand(self, demand):
+        """Crafts per recipe and raw totals for a demand, using the default recipe unlocked right now."""
+        crafts, raw = defaultdict(float), defaultdict(float)
+
+        def walk(item, qty):
+            if qty <= 0:
+                return
+            if item in self.db.raw_items or item == "GlimmerPearl":
+                raw[item] += qty
+                return
+            r = self.prog.recipe_for(item, False)
+            if r is None:
+                raise ValueError("no recipe for %s in phase %d [%s]" % (item, self.prog.phase, self.choice))
+            n = float(qty) / dict(stacks(r["Outputs"]))[item]
+            crafts[r["Name"]] += n
+            for i, c in stacks(r["Inputs"]):
+                walk(i, c * n)
+
+        for item, qty in demand.items():
+            walk(item, qty)
+        return crafts, raw
+
+    def fuel_for(self, gen):
+        """(item, burn seconds) a generator would burn right now, best fuel first; None if it can't be fed."""
+        row = self.db.bld[gen]
+        options = []
+        if row["FuelItem"] != "None":
+            options.append((row["FuelItem"], row["FuelTime"]))
+        options += [(f["Item"], f["BurnSeconds"]) for f in row["AltFuels"]]
+        for item, secs in options:
+            if self.feedable(item):
+                return item, secs
+        return None
+
+    def feedable(self, item, stack=()):
+        """True if a belt can carry this item: every raw input has an unlocked extractor."""
+        db, prog = self.db, self.prog
+        if item in stack:
+            return False
+        if item in db.raw_items:
+            res = db.raw_items[item]
+            return res["Phase"] <= prog.phase and self.best_extractor(res)[0] is not None
+        r = prog.recipe_for(item, False)
+        if not r or r["Machine"] in HAND_STATIONS:
+            return False
+        return all(self.feedable(i, stack + (item,)) for i, _ in stacks(r["Inputs"]))
+
+    def gen_mw(self, gen):
+        mw = self.db.bld[gen]["PowerOutput"]
+        if "BurnerBoost" in self.prog.upgrades and gen in ("KelpBurner", "FuelBurner"):
+            mw *= 1.25
+        return mw
+
+    def power_plan(self):
+        plan = POWER_PLAN[self.prog.phase]
+        return plan[self.choice] if isinstance(plan, dict) else plan
+
+    def next_generator(self, gens):
+        """The generator a player reaches for: the phase plan in order, solar only when nothing better works."""
+        usable = []
+        for g in self.power_plan():
+            row = self.db.bld[g]
+            placed = sum(1 for n, _ in gens if n == g)
+            if g not in self.prog.buildables or (row["MaxCount"] and placed >= row["MaxCount"]):
+                continue
+            if row["PlacementRule"].startswith("Node:"):
+                res = next(r for r in self.db.res.values() if r["NodeKind"] == row["PlacementRule"][5:])
+                nodes = sorted(self.nodes_open(res), reverse=True)
+                if placed < len(nodes):
+                    usable.append((g, self.gen_mw(g) * nodes[placed]))
+            elif row["FuelItem"] == "None" or self.fuel_for(g):
+                usable.append((g, self.gen_mw(g)))
+        better = [u for u in usable if u[0] != "SalvagedSolar"]
+        return (better or usable or [(None, 0.0)])[0]
+
+    # -- one step ------------------------------------------------------------------------------------
+    def solve(self, base, row_builds):
+        """Size the lines for a demand. Repeats because new buildings cost parts and power needs fuel lines."""
+        db = self.db
+        ph = self.prog.phase
+        builds, gens = defaultdict(int), list(self.gens)
+        result = None
+        for _ in range(12):
+            demand = dict(base)
+            everything = merged(builds, row_builds)
+            for b, n in merged(everything, self.foundations(everything)).items():
+                for item, c in stacks(db.bld[b]["Cost"]):
+                    demand[item] = demand.get(item, 0) + c * n
+            crafts, raw = self.expand(demand)
+            # A line is sized for the step's goal. Building costs come out of what the lines and crates already
+            # make: they need a line to exist and they lengthen the run, but nobody sizes a line for them.
+            goal_crafts, goal_raw = self.expand(base)
+
+            # steady fuel demand per minute: a generator burns all game, so its line is sized for the rate
+            fuel_rate = defaultdict(float)
+            for g, _mw in gens:
+                f = self.fuel_for(g)
+                if f:
+                    fuel_rate[f[0]] += 60.0 / f[1]
+            s_crafts, s_raw = self.expand(fuel_rate)
+
+            new_b = defaultdict(int)
+            machines = dict(self.machines)
+            run, hands, used, slow = 0.0, 0.0, set(), ""
+            for rname in set(crafts) | set(s_crafts):
+                r = db.rec[rname]
+                n = crafts.get(rname, 0.0)
+                used.add(rname)
+                if r["Machine"] in HAND_STATIONS:
+                    hands += n * r["CraftTime"] * HAND_CRAFT_FACTOR / 60.0
+                    continue
+                work = n * r["CraftTime"] / 60.0
+                goal_work = goal_crafts.get(rname, 0.0) * r["CraftTime"] / 60.0
+                steady = s_crafts.get(rname, 0.0) * r["CraftTime"] / 60.0
+                want = int(math.ceil(steady + min(MAX_PER_LINE[ph], goal_work / PATIENCE_MIN) - 1e-9))
+                if n > 0:
+                    want = max(want, 1)
+                have = machines.get(rname, 0)
+                if want > have:
+                    new_b[db.machine_bld[r["Machine"]]] += want - have
+                    machines[rname] = want
+                if n > 0:
+                    line_min = work / max(machines[rname] - steady, 0.5)
+                    if line_min > run:
+                        run, slow = line_min, rname
+
+            # raw lines
+            exts = {k: list(v) for k, v in self.extractors.items()}
+            belt = self.belt_rate()
+            shortage = []
+            for item in sorted(set(raw) | set(s_raw)):
+                if item == "GlimmerPearl":
+                    continue
+                qty = max(0.0, raw.get(item, 0.0) - self.stock.get(item, 0.0))
+                res = db.raw_items[item]
+                ext, base_rate = self.best_extractor(res)
+                sea = res["NodeKind"] == "Sea"
+                nodes = [1.0] * 8 if sea else self.nodes_open(res)
+                if ext is None or res["Phase"] > ph or not nodes:
+                    if res["bHandGather"]:
+                        secs = res["HandGatherSeconds"] * GATHER_WALK_FACTOR / HAND_GATHER_YIELD.get(item, 1)
+                        if item == "ScrapMetal" and "SalvageCutter" in self.done_equipment:
+                            secs /= SALVAGE_CUTTER_SPEED
+                        hands += qty * secs / 60.0
+                    elif qty > 0:
+                        shortage.append(item)
+                    continue
+                cap = self.pipe_rate() if res["bFluid"] else belt
+                goal_qty = max(0.0, goal_raw.get(item, 0.0) - self.stock.get(item, 0.0))
+                want_rate = goal_qty / PATIENCE_MIN + s_raw.get(item, 0.0)
+                if qty > 0 and want_rate <= 0:
+                    want_rate = 0.01   # a raw line must exist even if only buildings need it
+                cur = exts.setdefault(item, [])
+                supply = sum(min(m * b, cap) for m, b, _ in cur)
+                while supply < want_rate - 1e-6:
+                    if len(cur) < len(nodes):
+                        cur.append((nodes[len(cur)], base_rate, ext))
+                    else:
+                        low = [i for i, e in enumerate(cur) if e[1] < base_rate]
+                        if not low:
+                            break
+                        cur[low[0]] = (cur[low[0]][0], base_rate, ext)
+                    new_b[ext] += 1
+                    supply = sum(min(m * b, cap) for m, b, _ in cur)
+                net = supply - s_raw.get(item, 0.0)
+                if qty > 0:
+                    if net <= 0:
+                        shortage.append(item)
+                        net = 0.25 * max(supply, 1.0)
+                    if qty / net > run:
+                        run, slow = qty / net, item
+
+            # power
+            draw = sum(db.bld[db.machine_bld[db.rec[rn]["Machine"]]]["PowerUse"] * n for rn, n in machines.items())
+            draw += sum(db.bld[e]["PowerUse"] for lst in exts.values() for _m, _b, e in lst)
+            draw += sum(db.bld[b]["PowerUse"] * n for b, n in merged(self.others, row_builds).items())
+            need = draw * POWER_HEADROOM
+            gens_new = list(self.gens)
+            cap = sum(mw for _g, mw in gens_new)
+            while cap < need - 1e-6:
+                g, mw = self.next_generator(gens_new)
+                if g is None:
+                    shortage.append("power")
+                    break
+                gens_new.append((g, mw))
+                cap += mw
+                new_b[g] += 1
+
+            settled = dict(new_b) == dict(builds) and gens_new == gens
+            builds, gens = new_b, gens_new
+            result = dict(machines=machines, exts=exts, gens=gens, run=run, hands=hands, used=used, raw=raw,
+                          draw=draw, cap=cap, shortage=shortage, builds=builds, slow=slow)
+            if settled:
+                break
+        return result
+
+    def foundations(self, builds):
+        """FOUNDATIONS_PER_64_CELLS for each machine footprint, once foundations exist (M2)."""
+        out = defaultdict(int)
+        if "Foundation" not in self.prog.buildables:
+            return out
+        cells = sum(self.db.bld[b]["Size"]["X"] * self.db.bld[b]["Size"]["Y"] * n for b, n in builds.items()
+                    if self.db.bld[b]["PlacementRule"] == "Foundation")
+        if cells:
+            out["Foundation"] = int(math.ceil(cells / 64.0 * FOUNDATIONS_PER_64_CELLS))
+        return out
+
+    def extras_due(self):
+        """Typical extras (EXTRA_BUILDS) the moment the phase has them unlocked."""
+        out = defaultdict(int)
+        table = dict(EXTRA_BUILDS)
+        table[1] = EXTRA_BUILDS_P1
+        for ph, rows in table.items():
+            if ph > self.prog.phase:
+                continue
+            for b, n in rows.items():
+                if (ph, b) not in self.done_extras and b in self.prog.buildables:
+                    self.done_extras.add((ph, b))
+                    out[b] += n
+        return out
+
+    def specials_due(self):
+        """Stations the story needs: built in the first step after their tier unlocks them."""
+        out = defaultdict(int)
+        for b in SPECIAL_BUILD_ORDER:
+            if b in self.prog.buildables and b not in self.specials_built:
+                self.specials_built.add(b)
+                out[b] += 1
+        return out
+
+    def research_due(self):
+        """Pending research that can start now: its phase has come, Requires is done, its cost can be made."""
+        db, prog = self.db, self.prog
+        due = []
+        if "TideLab" not in self.specials_built:
+            return due
+        for name in list(self.pending_research):
+            row = db.rs[name]
+            if row["Phase"] > prog.phase:
+                continue
+            if row["Requires"] in db.rs and row["Requires"] not in self.done_research:
+                continue
+            ok = True
+            for item, _ in stacks(row["Cost"]):
+                if item == "GlimmerPearl":
+                    ok = ok and "TradeBuoy" in self.specials_built
+                elif item in db.raw_items:
+                    ok = ok and (self.stock.get(item, 0) > 0 or self.feedable(item))
+                else:
+                    ok = ok and prog.recipe_for(item, False) is not None
+            if ok:
+                due.append(name)
+                self.pending_research.remove(name)
+                self.done_research.add(name)
+                prog.research_done.add(name)
+                prog.grant(row)
+        return due
+
+    def equipment_due(self):
+        out = []
+        for name in TYPICAL_EQUIPMENT:
+            r = self.db.rec[name]
+            if name not in self.done_equipment and name in self.prog.recipes and \
+                    r["Machine"] in self.specials_built:
+                out.append(name)
+                self.done_equipment.add(name)
+        return out
+
+    def step(self, step, index_in_phase):
+        db, prog = self.db, self.prog
+        ph = step.phase
+        mins = OrderedDict((b, 0.0) for b in BUCKETS)
+        notes = []
+        for item, _ in step.cost:
+            self.missing_research(item)
+        base = defaultdict(float)
+        for item, c in step.cost:
+            base[item] += c
+
+        # stations and extras due in this step
+        row_builds = self.specials_due()
+        for b, n in self.extras_due().items():
+            row_builds[b] += n
+        for key, learn in (("BeltMk1", "Belt"), ("PowerPole", "PowerPole")):
+            if key in prog.buildables and key not in self.learned:   # taught with the first machine, not a "build"
+                mins["learn"] += LEARN_MIN[learn]
+                self.learned.update((key, LEARN_ONCE_FAMILY.get(key, key)))
+
+        # research and equipment started in this step
+        for name in self.research_due():
+            row = db.rs[name]
+            for item, c in stacks(row["Cost"]):
+                base[item] += c
+            mins["research"] += RESEARCH_MENU_MIN + RESEARCH_WAIT_SHARE * row["ResearchSeconds"] / 60.0
+            notes.append(name)
+        for name in self.equipment_due():
+            r = db.rec[name]
+            for item, c in stacks(r["Inputs"]):
+                base[item] += c
+            mins["hands"] += r["CraftTime"] * HAND_CRAFT_FACTOR / 60.0
+            mins["learn"] += LEARN_RECIPE_MIN
+            notes.append(name)
+
+        # Clean path: once the Glow Bank can be fed, the burners come down and the plan carries the whole grid
+        if self.choice == "Clean" and ph >= 4 and not self.burners_retired and "GlowBank" in prog.buildables \
+                and self.fuel_for("GlowBank"):
+            old_fuel = defaultdict(float)
+            for g, _mw in self.gens:
+                f = self.fuel_for(g) if g in ("KelpBurner", "FuelBurner") else None
+                if f:
+                    old_fuel[f[0]] += 60.0 / f[1]
+            for rname, n in self.expand(old_fuel)[0].items():   # their fuel lines come down with them
+                if db.rec[rname]["Machine"] not in HAND_STATIONS:
+                    self.machines[rname] = max(0, self.machines[rname] -
+                                               int(math.ceil(n * db.rec[rname]["CraftTime"] / 60.0 - 1e-9)))
+            self.gens = [g for g in self.gens if g[0] not in ("KelpBurner", "FuelBurner")]
+            self.burners_retired = True
+            notes.append("burners retired")
+
+        res = self.solve(base, row_builds)
+        everything = merged(res["builds"], row_builds)
+        found = self.foundations(everything)
+        builds = merged(everything, found)
+        mins["run"] += res["run"] * (1.0 - RUN_OVERLAP)
+        mins["hands"] += res["hands"]
+        for b, n in builds.items():
+            row = db.bld[b]
+            kind = "Special" if b in SPECIALS else row["Kind"]
+            mins["build"] += BUILD_MIN.get(kind, BUILD_MIN[BUILD_KIND_DEFAULT]) * n
+            fam = LEARN_ONCE_FAMILY.get(b, b)
+            if row["Kind"] == "Structure" and row["PlacementRule"] != "Water":
+                fam = "Structure"   # walls, ramps and stairs use the foundation's grid: one lesson
+            if fam not in self.learned:
+                self.learned.update((fam, b))
+                mins["learn"] += LEARN_MIN.get(row["Kind"], 0.0)
+        for rname in res["used"]:
+            if rname not in self.used_recipes:
+                self.used_recipes.add(rname)
+                mins["learn"] += LEARN_RECIPE_MIN
+        for b, m in BELT_UPGRADE_MIN.items():
+            if b in prog.buildables and b not in self.done_belt_upgrades:
+                self.done_belt_upgrades.add(b)
+                mins["learn"] += m
+
+        # commit
+        self.machines = defaultdict(int, res["machines"])
+        self.extractors = defaultdict(list, res["exts"])
+        self.gens = res["gens"]
+        for b, n in merged(row_builds, found).items():
+            if db.bld[b]["PowerUse"] > 0:
+                self.others[b] += n
+        for item, qty in res["raw"].items():
+            self.raw_totals[item] += qty
+            if item in self.stock:
+                self.stock[item] = max(0.0, self.stock[item] - qty)
+        if res["shortage"]:
+            self.shortages.append((step.name, sorted(set(res["shortage"]))))
+
+        # hub and tower
+        mins["hub"] += HUB_STEP_MIN if step.kind == "milestone" else TOWER_DELIVERY_MIN
+
+        # phase-level time, spread over the phase's three steps
+        if index_in_phase == 0:
+            mins["world"] += sum(BIOME_FIRST_VISIT_MIN[b] for b, p in BIOME_PHASE.items() if p == ph)
+        mins["world"] += COMMUTE_MIN_PER_STEP[ph]
+        mins["world"] += DATA_CORE_MIN * sum(1 for p in db.cores.values() if p == ph) / 3.0
+        mins["world"] += GLOW_SHELL_MIN.get(ph, 0.0) / 3.0
+        mins["story"] += (MID_BEAT_MIN[ph] + STORM_EXTRA_MIN.get(ph, 0.0)) / 3.0
+        if step.kind == "tower":
+            mins["story"] += PHASE_CHAIN_MIN[ph]
+        if step.kind == "tower" and ph == 3:
+            mins["story"] += STORM_RECOVERY_MIN   # the storm fires at the end of M6, so repairs land here
+
+        # Glimmers: optional trades and counts wait for the buoy (P2's tower step), then spread over each phase
+        share = (1.0 if step.kind == "tower" else 0.0) if ph == 2 else 1.0 / 3.0
+        mins["glimmer"] += COUNT_MIN * TRANSLATOR_COUNTS.get(ph, 0) * share
+        mins["glimmer"] += TRADE_MIN * TRADES_EXTRA.get(ph, 0) * share
+        need = res["raw"].get("GlimmerPearl", 0.0)   # only what the pearl purse can't cover forces a contract
+        trades = int(math.ceil(max(0.0, need - self.pearls) / AVG_PEARLS - 1e-9))
+        self.pearls += trades * AVG_PEARLS - need + TRADES_EXTRA.get(ph, 0) * share * AVG_PEARLS
+        mins["glimmer"] += TRADE_MIN * trades
+        self.trades_by_phase[ph] += trades
+
+        mins["rework"] = REWORK[ph] * (mins["run"] + mins["build"])
+        self.rows.append(dict(name=step.name, label=step.label, phase=ph, kind=step.kind, mins=mins,
+                              total=sum(mins.values()), new=sorted(builds.items()), notes=notes,
+                              draw=res["draw"], cap=res["cap"], cost=step.cost, slow=res["slow"],
+                              slow_min=res["run"], gens=sorted(g for g, _ in self.gens)))
+
+        prog.complete(step)
+        if step.row.get("StoryTrigger") == "HubTier(3,2)":
+            self.stock["StormCrystal"] += STORM_CRYSTAL_DROP   # the Great Storm leaves crystals on the ground
+
+    def run(self):
+        phase_index = defaultdict(int)
+        for step in self.prog.steps():
+            self.step(step, phase_index[step.phase])
+            phase_index[step.phase] += 1
+            if step.kind == "tower":
+                self.close_trust(step.phase)
+        return self
+
+    def close_trust(self, ph):
+        trades = self.trades_by_phase[ph] + TRADES_EXTRA.get(ph, 0)
+        self.trust += trades * TRUST_PER_TRADE + TRANSLATOR_COUNTS.get(ph, 0) * TRUST_PER_COUNT
+        if ph == 4:
+            self.trust += self.db.rs["RS_Choice" + self.choice]["TrustDelta"]
+            self.trust += self.db.rs["RS_Medkit" + MEDKIT_CHOICE]["TrustDelta"]
+        self.trust_by_phase[ph] = self.trust
+
+    # -- totals ---------------------------------------------------------------------------------------
+    def phase_totals(self):
+        out = OrderedDict((p, 0.0) for p in sorted(TARGET_MIN))
+        for r in self.rows:
+            out[r["phase"]] += r["total"]
+        return out
+
+    def total(self):
+        return sum(self.phase_totals().values()) + PROLOGUE_MIN + ENDING_MIN
+
+
+def verdicts(model):
+    """(all ok, phase lines, total, total ok) against TARGET_MIN."""
+    lines, ok = [], True
+    for ph, m in model.phase_totals().items():
+        dev = (m - TARGET_MIN[ph]) / TARGET_MIN[ph]
+        good = abs(dev) <= PHASE_TOL
+        ok = ok and good
+        lines.append((ph, m, TARGET_MIN[ph], dev, good))
+    total = model.total()
+    tok = abs(total - TARGET_TOTAL_MIN) <= TOTAL_TOL_MIN
+    return ok and tok, lines, total, tok
+
+
+def table_text(model):
+    head = "%-34s %6s " % ("Step", "total") + " ".join("%6s" % b[:6] for b in BUCKETS)
+    out = [head, "-" * len(head), "%-34s %6.1f" % ("Prologue", PROLOGUE_MIN)]
+    pt = model.phase_totals()
+    for r in model.rows:
+        out.append("%-34s %6.1f " % (r["label"][:34], r["total"]) + " ".join("%6.1f" % r["mins"][b] for b in BUCKETS))
+        if r["kind"] == "tower":
+            t = TARGET_MIN[r["phase"]]
+            out.append("%-34s %6.1f   target %.0f, %+.1f %%" % ("== Phase %d" % r["phase"], pt[r["phase"]], t,
+                                                               (pt[r["phase"]] - t) / t * 100.0))
+    out.append("%-34s %6.1f" % ("Ending", ENDING_MIN))
+    out.append("%-34s %6.1f   (%.2f h; target 600 +- 60)" % ("TOTAL", model.total(), model.total() / 60.0))
+    return "\n".join(out)
+
+
+def gen_summary(names):
+    count = defaultdict(int)
+    for n in names:
+        count[n] += 1
+    return ", ".join("%s x%d" % kv for kv in sorted(count.items()))
+
+
+def write_markdown(clean, burners):
+    ok, lines, total, _tok = verdicts(clean)
+    bt = burners.phase_totals()
+    L = ["# Blue Signal: Playtime estimate", "",
+         "Generated by `python Tools/Design/playtime_model.py`. Do not edit by hand; change the data or the",
+         "assumptions and re-run. Minutes are for a first-time player on Normal, Clean power path, medkit %s."
+         % MEDKIT_CHOICE.lower(), "",
+         "**Result: %.0f min = %.2f h against 10 h +- 1 h. %s.**" %
+         (total, total / 60.0, "All targets met" if ok else "TARGETS NOT MET"), "",
+         "## Per phase", "",
+         "| Phase | Clean (min) | Target | Deviation (limit +-15 %) | Burners (min) | Burners minus Clean |",
+         "|---|---:|---:|---:|---:|---:|"]
+    for ph, m, t, dev, good in lines:
+        L.append("| P%d | %.0f | %.0f | %+.1f %%%s | %.0f | %+.0f |" %
+                 (ph, m, t, dev * 100, "" if good else " **OUT**", bt[ph], bt[ph] - m))
+    L.append("| Prologue + ending | %.0f | | | %.0f | |" % (PROLOGUE_MIN + ENDING_MIN, PROLOGUE_MIN + ENDING_MIN))
+    L.append("| **Total** | **%.0f** | **600** | %+.1f %% | **%.0f** | %+.0f |" %
+             (total, (total - TARGET_TOTAL_MIN) / TARGET_TOTAL_MIN * 100.0, burners.total(), burners.total() - total))
+    L += ["", "## Per step (Clean path)", "",
+          "| Step | Total | " + " | ".join(BUCKETS) + " | Slowest line (min, before overlap) | New buildings |",
+          "|---|---:|" + "---:|" * len(BUCKETS) + "---|---|"]
+    for r in clean.rows:
+        new = ", ".join("%s x%d" % (b, n) for b, n in r["new"])
+        slow = "%s %.1f" % (r["slow"], r["slow_min"]) if r["slow"] else "by hand"
+        L.append("| %s | %.1f | " % (r["label"], r["total"]) + " | ".join("%.1f" % r["mins"][b] for b in BUCKETS) +
+                 " | %s | %s |" % (slow, new))
+    L += ["", "What the columns count:", ""]
+    L += ["- **%s**: %s." % (b, h) for b, h in BUCKET_HELP.items()]
+    L += ["", "## Per step (Burners path, phases 4 and 5)", "", "| Step | Total | New buildings |", "|---|---:|---|"]
+    for r in burners.rows:
+        if r["phase"] >= 4:
+            L.append("| %s | %.1f | %s |" % (r["label"], r["total"], ", ".join("%s x%d" % (b, n) for b, n in r["new"])))
+    L += ["", "## Power and trust at each tower delivery (Clean path)", "",
+          "| Phase | Draw (MW) | Capacity (MW) | Generators | Trust | Trades in the phase |",
+          "|---|---:|---:|---|---:|---:|"]
+    for r in clean.rows:
+        if r["kind"] == "tower":
+            ph = r["phase"]
+            L.append("| P%d | %.0f | %.0f | %s | %d | %d |" %
+                     (ph, r["draw"], r["cap"], gen_summary(r["gens"]), clean.trust_by_phase.get(ph, 0),
+                      clean.trades_by_phase[ph] + TRADES_EXTRA.get(ph, 0)))
+    L.append("")
+    if clean.shortages or burners.shortages:
+        L += ["**Shortages flagged:** Clean %s; Burners %s" % (clean.shortages, burners.shortages), ""]
+    L += ["## Factory at the end (Clean path)", "", "| Recipe | Machines |", "|---|---:|"]
+    for rname, n in sorted(clean.machines.items(), key=lambda kv: (clean.db.rec[kv[0]]["Phase"], kv[0])):
+        L.append("| %s | %d |" % (rname, n))
+    L += ["", "| Raw | Extractors | Rate (per min) | Drawn for parts over the game |", "|---|---:|---:|---:|"]
+    for item, lst in sorted(clean.extractors.items()):
+        L.append("| %s | %d | %.0f | %.0f |" % (item, len(lst), sum(m * b for m, b, _ in lst),
+                                                clean.raw_totals.get(item, 0.0)))
+    L += ["", "## How the model works", "",
+          "1. Walk the 10 hub tiers and 5 tower deliveries in story order, tracking every unlock.",
+          "2. For each step, add its cost, the research and equipment started in it and the cost of each new",
+          "   building, then expand that through the default (non-alternate) recipes down to raw resources.",
+          "3. Size each line so the step's parts finish in about `PATIENCE_MIN` (%.0f min), capped by" % PATIENCE_MIN,
+          "   `MAX_PER_LINE`. Lines persist between steps. Generators burn all game, so their fuel gets its own",
+          "   always-on line. Extractors go on reachable nodes, nearest biome first, limited by nodes and belts.",
+          "4. Price it: slowest line x (1 - `RUN_OVERLAP`), `BUILD_MIN` per new building, `LEARN_MIN` for firsts,",
+          "   then hub, world, Glimmer and story time from the ASSUMPTIONS block, plus the `REWORK` share.", "",
+          "Choices the constants leave open: building costs lengthen a run but never size a line (they come out of",
+          "running lines and crates). Structures on the grid are one lesson, not one each. `REWORK` applies to run +",
+          "build, not to learning. Pearls carry over, so a contract is forced only when the purse is short.", "",
+          "Not modelled: alternates and shop purchases (speed-ups), glow shell overclocks, belt-segment costs, the",
+          "Keep-medkit hand bonus. They make experienced runs faster, not first runs slower.", ""]
+    with open(OUT_MD, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(L))
+
+
+def run_model(db):
+    clean = Model(db, DEFAULT_POWER_CHOICE).run()
+    burners = Model(db, "Burners").run()
+    print(table_text(clean))
+    print("")
+    ok, lines, total, tok = verdicts(clean)
+    for ph, m, t, dev, good in lines:
+        print("P%d %6.1f / %.0f min  %+6.1f %%  %-3s   (Burners %.1f)" %
+              (ph, m, t, dev * 100, "ok" if good else "OUT", burners.phase_totals()[ph]))
+    print("Total %.1f min = %.2f h  %s   (Burners %.1f min)" %
+          (total, total / 60.0, "ok" if tok else "OUT", burners.total()))
+    print("Trust at each tower delivery: " + ", ".join("P%d %d" % kv for kv in clean.trust_by_phase.items()))
+    if clean.shortages or burners.shortages:
+        print("SHORTAGES: Clean %s; Burners %s" % (clean.shortages, burners.shortages))
+    write_markdown(clean, burners)
+    print("wrote %s" % OUT_MD)
+    return 0 if ok else 2
 
 
 def main(argv):
@@ -622,8 +1279,7 @@ def main(argv):
         ok = c.run()
         c.report()
         return 0 if ok else 1
-    print("model: TODO")
-    return 0
+    return run_model(db)
 
 
 if __name__ == "__main__":
