@@ -12,6 +12,16 @@ game-designer (Progression.md, `Tools/Design/playtime_model.py --check`, Playtim
 holds `EDITOR.lock`; its Source changes go on `m1/core`, cut from `dev` after the m0 merge).
 **Next**: review + commit the M0 docs on `m0/plan`, merge to `dev`, tag `m0`, push; then M1 wave 1 cards,
 material masters and the kitbash library.
+**Incident 22:39-23:30**: the user's Antigravity agent started *Tide & Treasure* in this folder: it stashed
+Blue Signal (`stash@{1}`), switched to an orphan branch, later checked out `dev`. Agents were stopped mid-run.
+Resolved with the user (Plan D18): Tide & Treasure moved to the worktree `D:\Game\TideAndTreasure` (branch
+`tide-and-treasure`, snapshot `b5e63cc`); Blue Signal restored here on `m0/plan` (stash popped, newer drafts
+from `Saved/BlueSignalRecovery/` laid on top) and committed (`1afa138`..`2a8569b`). A producer move script
+briefly moved Art/ArtSource/Config/2 smoke assets to a staging folder; all moved back, nothing lost.
+**User decisions**: D19 English names (Isla, Skye, Ray), D20 free only (no LFS pack, no paid keys; OFL fonts ok).
+**Open**: `Config/DefaultEngine.ini` uncommitted change (Nanite off, DX11, SM5; matches the running editor,
+origin unknown) — asked the user. `stash@{0}` (superseded partial CSV) and the empty
+`D:\Game\TideAndTreasure_stage` can be deleted. Agents resumed (bible, progression, engine step 1).
 
 ## 2026-10-31 (session 2) — M0 continued
 **Decided**: user answered Q1: Low/Medium/High speed targets on this laptop, Epic kept at full quality for
