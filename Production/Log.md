@@ -2,6 +2,17 @@
 
 Newest first. Each entry: what was decided/done, what's next, blockers. Keep it short; details live in files.
 
+## 2026-10-31 (session 2) — M0 continued
+**Decided**: user answered Q1: Low/Medium/High speed targets on this laptop, Epic kept at full quality for
+strong PCs and documented for a later test (Plan D6, §6; `Production/EpicTestPlan.md`).
+**Recovered**: the previous session ended mid-run. `Design/Tech.md` (complete) and `Design/Data/*.json`
+(complete, consistent) survived; `Art/*`, `Design/Progression.md` and the playtime model did not.
+**Done**: art pipeline committed (`851a5d1`, verified Blender 5.2 → UE 5.8); Tech.md committed.
+**In flight**: art-director (bible, references, card template, asset manifest), game-designer (Progression.md,
+playtime model + `--check`).
+**Next**: review both, merge `m0/plan` → `dev`, tag `m0`, push; M1 wave 1 (engine M1 steps per Tech.md §9,
+material masters, slice cards, kitbash library).
+
 ## 2026-10-31 — M0 Audit and plan (in progress, branch `m0/plan`)
 **Done**
 - Checkpointed the previous session's uncommitted graphics work on `wip/phase3` (`f3998e9`); created `dev` and
