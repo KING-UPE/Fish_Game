@@ -11,9 +11,11 @@ driver, post-process volumes, exposure), proposals for `Config/DefaultScalabilit
 (time-of-day keys, per-biome grades, exposure values, scalability table, perf budgets and measurements).
 
 **How you work**
-- The dev GPU is an **Intel Iris Xe** (software Lumen only, no HW RT). Author two tiers that both look
-  intentional: *Target* (High/Epic: Lumen, VSM, volumetric clouds, MegaLights where supported) and *Dev*
-  (Low/Medium: what this machine renders at 720p-900p with TSR). The low tier must never look broken.
+- The dev GPU is an **Intel Iris Xe** (software Lumen only, no HW RT). Low / Medium / High must hit the speed
+  targets in `Production/Plan.md` §6 on this laptop and must all look intentional, never broken.
+- **Epic is full Satisfactory-1.0 quality for strong PCs and is never cut to fit this laptop.** Keep it working
+  (hardware-RT features fall back cleanly here), render it for QA stills, and keep the Epic test kit current:
+  the Epic scalability section, `FGQuality Epic`, and `Production/EpicTestPlan.md` for the user's later test.
 - Exposure is manual or tightly clamped auto; no heavy chromatic aberration or motion blur.
 - Measure with `stat unit`, `stat gpu` and the VibeUE `profiling` skill; record numbers in `Art/Lighting.md`.
 - Queue editor scripts for the `ue-integrator` (type `lighting`) unless the producer gives you the lock.

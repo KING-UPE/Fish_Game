@@ -15,7 +15,7 @@ Status and next steps: `Production/Log.md`. This file holds the **decisions**, t
 | D3 | 2026-10-31 | **Echo** = the ship's AI from the story (sarcastic, warm, Ravi's voice, two secrets), now running in Ishani's suit. It is the tutorial voice the Brief calls ECHO. | Story doc is the authority on characters |
 | D4 | 2026-10-31 | **No oxygen meter, no underwater survival.** The Brief's "rebreather" becomes a **dive mask** (underwater vision + swim speed). | Story doc: "No underwater survival, no oxygen meter" |
 | D5 | 2026-10-31 | **One skiff**; the story doc's Drone Boat Dock is cut. Zipline + glider-pack for traversal. | Brief §4 cuts |
-| D6 | 2026-10-31 | **Two lighting tiers.** The dev machine is an **Intel Iris Xe iGPU** (software Lumen only, no HW RT). Author a *Target* tier (High/Epic) and a *Dev* tier (Low/Medium, 720-900p TSR); both must look intentional. QA stills are captured at High/Epic (frame rate doesn't matter for stills); gameplay perf is measured at the Dev tier here. Brief §9's 60 fps @ 1080p High can't be verified on this machine → open question Q1. | Measured hardware (Audit) |
+| D6 | 2026-10-31 | **Performance is re-baselined to this laptop (user's answer to Q1), with one rule: Epic is never cut to fit it.** Low / Medium / High get their speed targets on this Intel Iris Xe laptop (§6), and main development happens here, so every feature must run and be testable here on Low-High. **Epic keeps full Satisfactory-1.0 quality for strong PCs**: it is authored, kept working and documented (`Production/EpicTestPlan.md`) for the user to test later on a stronger PC. Here, Epic is only rendered for QA stills (frame rate ignored); hardware-RT-only features (hardware Lumen, anything needing DXR) must fall back cleanly on this GPU. | User decision 2026-10-31; measured hardware (Audit) |
 | D7 | 2026-10-31 | **Parametric scripts are the art source of truth.** Commit `Tools/Art/**`, `ArtSource/<id>/card.json`, `selfcheck.md`, `preview/contact.jpg` and the imported `.uasset`s. Git-ignore `.blend`, raw exports, full-size previews and downloads (re-creatable; URLs in `Credits.md`). | GitHub's free LFS is 1 GB storage / 1 GB per month (Q2) |
 | D8 | 2026-10-31 | The 14 role files live in `.claude/agents/`. Custom agent types load at session start, so until the next session they run as `general-purpose` agents told to read their role file. Every agent prompt starts with the same fixed preamble (`[Blue Signal production · fixed preamble v2]`) and puts the variable task last. | Prompt-cache hits; roles survive restarts |
 | D9 | 2026-10-31 | **Architecture: keep** the data-driven buildable core (`FGTypes` rows, `AFGBuildable` buffers/refunds, extractor/generator/storage), `AFGTowerSite`, `UFGFishApi`, translator/trade buoy logic. **Rewrite**: belts → a world subsystem with spline belts and one shared ISM per item type; placement → 800 cm foundations with snapping; power → circuits with poles/cables/fuses; UI → UMG; input → Enhanced Input; the 1400-line controller → components (inventory, build tool, interaction, story); save → versioned and complete. | Audit risks 1-3 |
@@ -112,11 +112,31 @@ can still be spawned in parallel: they write scripts in parallel and take turns 
 
 ---
 
-## 6. Open questions for the user (batched)
+## 6. Performance targets (replace Brief §9 "Performance"; D6)
 
-- **Q1 Target hardware.** This laptop has Intel Iris Xe graphics. Brief §9's 60 fps @ 1080p High can't be met
-  or measured here. Keep §9 as the Target-tier goal (tested later on a dedicated-GPU PC), or re-baseline to this
-  laptop (e.g. 30 fps @ 900p Medium)?
+Measured on **this laptop** (Intel Iris Xe, i7-1165G7, 16 GB) in a **standalone game** run (`-game`, not PIE),
+1080p output, `stat unit` over a fixed fly-through of the QA cameras. "Floor" = the 1% low frame rate.
+
+| Preset | Internal res (TSR) | GI / reflections | Shadows | Target / floor fps | Large factory floor* |
+|---|---|---|---|---|---|
+| Low | 50% | no Lumen: skylight + SSAO, no SSR | shadow maps, short range | 60 / 45 | 40 |
+| Medium | 58% | lightest software Lumen GI in 5.8 + SSR | VSM low (or CSM if faster) | 45 / 30 | 30 |
+| High | 67% | software Lumen GI + reflections | VSM | 30 / 25 | 25 |
+| **Epic** | 100% (strong PC) | full Lumen (hardware RT where present), MegaLights, high volumetrics | VSM high | **not measured here**: full quality, never reduced for this laptop | — |
+
+\* 200+ machines running with full belts (the `FGStressFactory` test scene from `Design/Tech.md`).
+
+- RAM: the standalone game stays under **5 GB** working set at High on this laptop.
+- Every gameplay feature works on Low; visuals degrade, function doesn't.
+- **Epic test kit** (deliverable, kept current from M1): the Epic section of `Config/DefaultScalability.ini`, a
+  one-command switch (`FGQuality Epic` and the `sg.*` values), and `Production/EpicTestPlan.md`: what to install,
+  how to launch, the camera path, what to measure (`stat unit`, `stat gpu`, Insights) and what to send back.
+  Target on a strong PC (RTX 3070-class): 60 fps at 1080p, 30+ at 1440p.
+
+## 7. Open questions for the user (batched)
+
+- ~~Q1 Target hardware~~ **Answered 2026-10-31:** re-baseline Low/Medium/High to this laptop, keep Epic at full
+  quality for strong PCs, keep Epic ready and documented for a later test (D6, §6).
 - **Q2 Git LFS.** GitHub's free LFS is 1 GB storage + 1 GB/month bandwidth (136 MB used). A full production will
   exceed it. Buy a data pack, or accept that art sources stay local (D7) and only `.uasset`s go to LFS?
 - **Q3 Keys and libraries (optional).** Sketchfab / Hyper3D API keys, or a Fab library to draw from? Without

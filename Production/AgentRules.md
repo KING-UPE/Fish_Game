@@ -17,8 +17,10 @@ These rules outrank speed. The producer (the main session) owns the plan, git an
 Don't read `Production/Brief.md` in full unless your task says so; the files above distil it.
 
 ## 2. Hard limits of this machine (plan for them)
-- **GPU: Intel Iris Xe (integrated, ~2 GB shared). No hardware ray tracing.** Lumen runs in software mode only;
-  MegaLights, hardware RT and Epic settings are authored for a dedicated-GPU target but cannot be measured here.
+- **GPU: Intel Iris Xe (integrated, ~2 GB shared). No hardware ray tracing.** Lumen runs in software mode only.
+  Speed targets for Low / Medium / High are measured here (`Production/Plan.md` §6), and every feature must run
+  and be testable here. **Epic keeps full Satisfactory-1.0 quality for strong PCs: never cut Epic to fit this
+  laptop.** Epic is rendered here only for QA stills; hardware-RT-only features must fall back cleanly.
 - **RAM: 16 GB, often < 1 GB free** with the editor open. Check free RAM before any heavy process
   (`(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1MB` GB). Below 4 GB: one Blender at a time.
   Always close the Blender process you started.
