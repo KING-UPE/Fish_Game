@@ -22,6 +22,11 @@ Status and next steps: `Production/Log.md`. This file holds the **decisions**, t
 | D10 | 2026-10-31 | **Grid**: foundations 800 x 800 cm (walls 800 x 400). Buildings snap to a 100 cm sub-grid on foundations and to the 800 grid on terrain; small logistics may use half cells. | Brief §5.11; current code is 100 cm |
 | D11 | 2026-10-31 | **Fish API offline fallback is fixed early (M2)**: bundle ~24 fallback puzzles (`/Game/Blue/FishApi/T_Fish_F#_C#`, generated original art), queue concurrent requests instead of dropping them, persist the history in the save. | Audit: fallback folder doesn't exist; DoD requires offline play |
 | D12 | 2026-10-31 | Scripted tests always start with `FGNewGame` (PIE end autosaves, so runs otherwise resume the last one). | Audit |
+| D13 | 2026-10-31 | **Wear masks live in vertex colour, not unique textures.** `bslib.masks` bakes `BS_Mask` (R edge wear from convexity, G Cycles AO, B cavity) on every exported part; `M_Factory_Master` reads it, plus shared trims, tiling detail textures and world-aligned salt/rust. Unique texture sets only where a card asks. | Bevelled Nanite meshes are dense at edges; saves disk, RAM, LFS and bake time |
+| D14 | 2026-10-31 | Echo's mind runs on the wreck's core; the suit is only its link (narrative R4). That is why Echo "stays behind" in Ending A. | Ending A logic |
+| D15 | 2026-10-31 | The Lander Hub is built from the escape pod, which is also Ending A's return capsule (R5). | Payoff for the hub |
+| D16 | 2026-10-31 | P5 pacing: Echo's confession + Flashback 5 at P5 hub tier 1, then a stretch with Echo text-only, then the last real message + the choice (R12). | Avoids ~15 min without play |
+| D17 | 2026-10-31 | The Fish API returns 0 fish ~1 time in 8: re-roll those for drawings and trades; keep them for the Elder's empty picture (R6). Flashback 4 hints Echo is Ravi (voice filter drops), Flashback 5 confirms it (R3). | Narrative audit |
 
 ---
 
@@ -116,3 +121,5 @@ can still be spawned in parallel: they write scripts in parallel and take turns 
   exceed it. Buy a data pack, or accept that art sources stay local (D7) and only `.uasset`s go to LFS?
 - **Q3 Keys and libraries (optional).** Sketchfab / Hyper3D API keys, or a Fab library to draw from? Without
   them we use Poly Haven, ambientCG and our own procedural models.
+- **Q4 Names (small).** Ishani calls Neela *Duwa* (Sinhala) and Neela calls her father *Appa* (Tamil). Deliberate
+  (a mixed family), or should both come from one language?
