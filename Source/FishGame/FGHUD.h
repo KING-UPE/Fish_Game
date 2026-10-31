@@ -7,7 +7,7 @@
 class AFGPlayerController;
 class UFont;
 
-/** Canvas HUD: phase goals, power, inventory, hotbar, look-at info, subtitles, flashbacks, Neela's drawing. */
+/** Canvas HUD: phase goals, power, inventory, hotbar, look-at info, subtitles, flashbacks, Skye's drawing. */
 UCLASS()
 class FISHGAME_API AFGHUD : public AHUD
 {

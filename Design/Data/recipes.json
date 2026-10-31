@@ -1,0 +1,1674 @@
+[
+ {
+  "Name": "SalvagePlate",
+  "DisplayName": "Salvaged Plate",
+  "Machine": "Workbench",
+  "Inputs": [
+   {
+    "Item": "ScrapMetal",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerritePlate",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "Start",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "SalvageRod",
+  "DisplayName": "Salvaged Rod",
+  "Machine": "Workbench",
+  "Inputs": [
+   {
+    "Item": "ScrapMetal",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerriteRod",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "Start",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "StripWiring",
+  "DisplayName": "Stripped Wiring",
+  "Machine": "Workbench",
+  "Inputs": [
+   {
+    "Item": "ScrapMetal",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Wire",
+    "Count": 3
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "Start",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "SalvageCutter",
+  "DisplayName": "Salvage Cutter",
+  "Machine": "Workbench",
+  "Inputs": [
+   {
+    "Item": "FerritePlate",
+    "Count": 5
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 5
+   },
+   {
+    "Item": "Wire",
+    "Count": 10
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SalvageCutter",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "Start",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Beacon",
+  "DisplayName": "Beacon",
+  "Machine": "Workbench",
+  "Inputs": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   },
+   {
+    "Item": "Cable",
+    "Count": 2
+   },
+   {
+    "Item": "Glass",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Beacon",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "RS_Optics",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "FerriteIngot",
+  "DisplayName": "Ferrite Ingot",
+  "Machine": "Smelter",
+  "Inputs": [
+   {
+    "Item": "FerriteOre",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 1.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "CupriteIngot",
+  "DisplayName": "Cuprite Ingot",
+  "Machine": "Smelter",
+  "Inputs": [
+   {
+    "Item": "CupriteOre",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "CupriteIngot",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 1.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "SalvageIngot",
+  "DisplayName": "Salvage Ingot",
+  "Machine": "Smelter",
+  "Inputs": [
+   {
+    "Item": "ScrapMetal",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "FerritePlate",
+  "DisplayName": "Ferrite Plate",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "FerriteRod",
+  "DisplayName": "Ferrite Rod",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerriteRod",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 3.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Bolt",
+  "DisplayName": "Bolts",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "FerriteRod",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Bolt",
+    "Count": 4
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Wire",
+  "DisplayName": "Wire",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "CupriteIngot",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Wire",
+    "Count": 3
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Cable",
+  "DisplayName": "Cable",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "Wire",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Cable",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M1",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Reefcrete",
+  "DisplayName": "Reefcrete",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "CoralLime",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Reefcrete",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 3.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M2",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "KelpPulp",
+  "DisplayName": "Kelp Pulp",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "Glowkelp",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "KelpPulp",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M2",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Biofuel",
+  "DisplayName": "Biofuel",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "KelpPulp",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Biofuel",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "RS_KelpBiology",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "CupriteSheet",
+  "DisplayName": "Cuprite Sheet",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "CupriteIngot",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "CupriteSheet",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M4",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "SteelBeam",
+  "DisplayName": "Steel Beam",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "SteelIngot",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SteelBeam",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M5",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "SteelPipe",
+  "DisplayName": "Steel Pipe",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "SteelIngot",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SteelPipe",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M7",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "CrystalShard",
+  "DisplayName": "Crystal Shard",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "StormCrystal",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "CrystalShard",
+    "Count": 3
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "RS_CrystalCutting",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "Glass",
+  "DisplayName": "Glass",
+  "Machine": "Kiln",
+  "Inputs": [
+   {
+    "Item": "BlackSand",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Glass",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M3",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "KelpChar",
+  "DisplayName": "Kelp Char",
+  "Machine": "Kiln",
+  "Inputs": [
+   {
+    "Item": "Glowkelp",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "KelpChar",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 2.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M5",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "SteelIngot",
+  "DisplayName": "Steel Ingot",
+  "Machine": "Foundry",
+  "Inputs": [
+   {
+    "Item": "FerriteOre",
+    "Count": 3
+   },
+   {
+    "Item": "KelpChar",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SteelIngot",
+    "Count": 3
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M5",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "RivetedPlate",
+  "DisplayName": "Riveted Plate",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "FerritePlate",
+    "Count": 3
+   },
+   {
+    "Item": "Bolt",
+    "Count": 6
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 8.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M2",
+  "Phase": 1,
+  "Description": ""
+ },
+ {
+  "Name": "Float",
+  "DisplayName": "Float",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "KelpPulp",
+    "Count": 4
+   },
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Float",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 10.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M3",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "Frame",
+  "DisplayName": "Frame",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 2
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 4
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Frame",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 15.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M4",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "Lens",
+  "DisplayName": "Lens",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Glass",
+    "Count": 3
+   },
+   {
+    "Item": "Wire",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Lens",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 10.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M4",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "Rotor",
+  "DisplayName": "Rotor",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "FerriteRod",
+    "Count": 2
+   },
+   {
+    "Item": "Bolt",
+    "Count": 8
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Rotor",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 10.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M9",
+  "Phase": 5,
+  "Description": ""
+ },
+ {
+  "Name": "CircuitBoard",
+  "DisplayName": "Circuit Board",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "CupriteSheet",
+    "Count": 2
+   },
+   {
+    "Item": "Polymer",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "CircuitBoard",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 8.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M6",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "SealedCable",
+  "DisplayName": "Sealed Cable",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Cable",
+    "Count": 2
+   },
+   {
+    "Item": "Sealant",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SealedCable",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M7",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "MastSegment",
+  "DisplayName": "Mast Segment",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "SteelBeam",
+    "Count": 3
+   },
+   {
+    "Item": "CircuitBoard",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "MastSegment",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 15.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M6",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "Stator",
+  "DisplayName": "Stator",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "SteelPipe",
+    "Count": 2
+   },
+   {
+    "Item": "Wire",
+    "Count": 6
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Stator",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M9",
+  "Phase": 5,
+  "Description": ""
+ },
+ {
+  "Name": "Motor",
+  "DisplayName": "Motor",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Rotor",
+    "Count": 1
+   },
+   {
+    "Item": "Stator",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Motor",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 10.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M9",
+  "Phase": 5,
+  "Description": ""
+ },
+ {
+  "Name": "Oscillator",
+  "DisplayName": "Oscillator",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "CrystalShard",
+    "Count": 3
+   },
+   {
+    "Item": "Cable",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Oscillator",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M7",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "PowerCell",
+  "DisplayName": "Power Cell",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "LightCell",
+    "Count": 2
+   },
+   {
+    "Item": "CircuitBoard",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "PowerCell",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 15.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "RS_ChoiceClean",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "DeepLens",
+  "DisplayName": "Deep Lens",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Lens",
+    "Count": 2
+   },
+   {
+    "Item": "DeepCrystal",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "DeepLens",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "Phase4",
+  "Phase": 5,
+  "Description": ""
+ },
+ {
+  "Name": "Polymer",
+  "DisplayName": "Polymer",
+  "Machine": "Refinery",
+  "Inputs": [
+   {
+    "Item": "Tar",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Polymer",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M6",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "Sealant",
+  "DisplayName": "Sealant",
+  "Machine": "Refinery",
+  "Inputs": [
+   {
+    "Item": "Tar",
+    "Count": 2
+   },
+   {
+    "Item": "KelpPulp",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Sealant",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M7",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "TarFuel",
+  "DisplayName": "Tar Fuel",
+  "Machine": "Refinery",
+  "Inputs": [
+   {
+    "Item": "Tar",
+    "Count": 6
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "TarFuel",
+    "Count": 4
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M6",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "GlowGel",
+  "DisplayName": "Glow Gel",
+  "Machine": "Refinery",
+  "Inputs": [
+   {
+    "Item": "Glowkelp",
+    "Count": 3
+   },
+   {
+    "Item": "Seawater",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "GlowGel",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "RS_GlowChemistry",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "HeavyFrame",
+  "DisplayName": "Heavy Frame",
+  "Machine": "Manufactory",
+  "Inputs": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 2
+   },
+   {
+    "Item": "SteelBeam",
+    "Count": 3
+   },
+   {
+    "Item": "SteelPipe",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "HeavyFrame",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 24.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M8",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "ControlModule",
+  "DisplayName": "Control Module",
+  "Machine": "Manufactory",
+  "Inputs": [
+   {
+    "Item": "CircuitBoard",
+    "Count": 2
+   },
+   {
+    "Item": "Oscillator",
+    "Count": 1
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 3
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "ControlModule",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 24.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M8",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "LightCell",
+  "DisplayName": "Light Cell",
+  "Machine": "Manufactory",
+  "Inputs": [
+   {
+    "Item": "GlowGel",
+    "Count": 2
+   },
+   {
+    "Item": "CrystalShard",
+    "Count": 1
+   },
+   {
+    "Item": "Glass",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "LightCell",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "RS_ChoiceClean",
+  "Phase": 4,
+  "Description": ""
+ },
+ {
+  "Name": "Resonator",
+  "DisplayName": "Resonator",
+  "Machine": "ResonanceForge",
+  "Inputs": [
+   {
+    "Item": "DeepCrystal",
+    "Count": 3
+   },
+   {
+    "Item": "Oscillator",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Resonator",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 20.0,
+  "bAlternate": false,
+  "bHandCraftable": false,
+  "UnlockedBy": "M9",
+  "Phase": 5,
+  "Description": ""
+ },
+ {
+  "Name": "DiveMask",
+  "DisplayName": "Dive Mask",
+  "Machine": "SuitFabricator",
+  "Inputs": [
+   {
+    "Item": "Glass",
+    "Count": 6
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 2
+   },
+   {
+    "Item": "Float",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "DiveMask",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "RS_PressureSeals",
+  "Phase": 2,
+  "Description": ""
+ },
+ {
+  "Name": "Scanner",
+  "DisplayName": "Scanner",
+  "Machine": "SuitFabricator",
+  "Inputs": [
+   {
+    "Item": "Lens",
+    "Count": 4
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 2
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Scanner",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "RS_ResourceScanner",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "ZiplineHarness",
+  "DisplayName": "Zipline Harness",
+  "Machine": "SuitFabricator",
+  "Inputs": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 4
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "ZiplineHarness",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M5",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "GliderPack",
+  "DisplayName": "Glider Pack",
+  "Machine": "SuitFabricator",
+  "Inputs": [
+   {
+    "Item": "SteelBeam",
+    "Count": 3
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 2
+   },
+   {
+    "Item": "Polymer",
+    "Count": 5
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "GliderPack",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": false,
+  "bHandCraftable": true,
+  "UnlockedBy": "M6",
+  "Phase": 3,
+  "Description": ""
+ },
+ {
+  "Name": "Alt_StitchedPlate",
+  "DisplayName": "Stitched Plate",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "FerritePlate",
+    "Count": 3
+   },
+   {
+    "Item": "Wire",
+    "Count": 6
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 8.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC01",
+  "Phase": 1,
+  "Description": "Wire stitching instead of bolts. No bolt line needed."
+ },
+ {
+  "Name": "Alt_CastBolt",
+  "DisplayName": "Cast Bolts",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Bolt",
+    "Count": 5
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC02",
+  "Phase": 1,
+  "Description": "Bolts straight from ingots; skips the rod step."
+ },
+ {
+  "Name": "Alt_FerriteWire",
+  "DisplayName": "Ferrite Wire",
+  "Machine": "Press",
+  "Inputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Wire",
+    "Count": 3
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC03",
+  "Phase": 1,
+  "Description": "Iron wire. Worse, but frees your copper."
+ },
+ {
+  "Name": "Alt_TemperedGlass",
+  "DisplayName": "Tempered Glass",
+  "Machine": "Kiln",
+  "Inputs": [
+   {
+    "Item": "BlackSand",
+    "Count": 2
+   },
+   {
+    "Item": "CoralLime",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Glass",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 5.0,
+  "bAlternate": true,
+  "bHandCraftable": false,
+  "UnlockedBy": "DC04",
+  "Phase": 2,
+  "Description": "Lime flux: more glass per sand."
+ },
+ {
+  "Name": "Alt_PulpFloat",
+  "DisplayName": "Pulp Float",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "KelpPulp",
+    "Count": 6
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Float",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC06",
+  "Phase": 2,
+  "Description": "Two floats around one riveted keel."
+ },
+ {
+  "Name": "Alt_CableLens",
+  "DisplayName": "Cable-ring Lens",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Glass",
+    "Count": 3
+   },
+   {
+    "Item": "Cable",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Lens",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 10.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC07",
+  "Phase": 2,
+  "Description": "Set the lens in a cable ring: no second wire line at the dish."
+ },
+ {
+  "Name": "Alt_FiredSteel",
+  "DisplayName": "Fired Steel",
+  "Machine": "Foundry",
+  "Inputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 2
+   },
+   {
+    "Item": "KelpChar",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SteelIngot",
+    "Count": 3
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": true,
+  "bHandCraftable": false,
+  "UnlockedBy": "DC08",
+  "Phase": 3,
+  "Description": "Steel from ingots: a third less iron per steel."
+ },
+ {
+  "Name": "Alt_BracedFrame",
+  "DisplayName": "Braced Frame",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 1
+   },
+   {
+    "Item": "Bolt",
+    "Count": 16
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Frame",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 15.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC05",
+  "Phase": 2,
+  "Description": "Bolt bracing instead of rods; half the riveted plate."
+ },
+ {
+  "Name": "Alt_PolymerCircuit",
+  "DisplayName": "Printed Circuit",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Wire",
+    "Count": 4
+   },
+   {
+    "Item": "Polymer",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "CircuitBoard",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 8.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC09",
+  "Phase": 3,
+  "Description": "Printed wire traces; no cuprite sheet."
+ },
+ {
+  "Name": "Alt_SealedWire",
+  "DisplayName": "Sealed Wire",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Wire",
+    "Count": 3
+   },
+   {
+    "Item": "Sealant",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "SealedCable",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 4.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "SH_SealWeave",
+  "Phase": 4,
+  "Description": "The Glimmers' kelp-seal weave: seal the wire directly and skip the cable press."
+ },
+ {
+  "Name": "Alt_PureFerrite",
+  "DisplayName": "Pure Ferrite Ingot",
+  "Machine": "Refinery",
+  "Inputs": [
+   {
+    "Item": "FerriteOre",
+    "Count": 4
+   },
+   {
+    "Item": "Seawater",
+    "Count": 2
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "FerriteIngot",
+    "Count": 6
+   }
+  ],
+  "CraftTime": 6.0,
+  "bAlternate": true,
+  "bHandCraftable": false,
+  "UnlockedBy": "DC12",
+  "Phase": 4,
+  "Description": "Wash the ore first: 50% more ingots."
+ },
+ {
+  "Name": "Alt_CrystalLens",
+  "DisplayName": "Crystal Lens",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Glass",
+    "Count": 2
+   },
+   {
+    "Item": "CrystalShard",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Lens",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 10.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC11",
+  "Phase": 4,
+  "Description": "Crystal-ground lenses, two at a time."
+ },
+ {
+  "Name": "Alt_StormGlass",
+  "DisplayName": "Storm Glass",
+  "Machine": "Kiln",
+  "Inputs": [
+   {
+    "Item": "StormCrystal",
+    "Count": 1
+   },
+   {
+    "Item": "BlackSand",
+    "Count": 4
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Glass",
+    "Count": 4
+   }
+  ],
+  "CraftTime": 8.0,
+  "bAlternate": true,
+  "bHandCraftable": false,
+  "UnlockedBy": "DC10",
+  "Phase": 4,
+  "Description": "Lightning-fused sand."
+ },
+ {
+  "Name": "Alt_FusedDeepLens",
+  "DisplayName": "Fused Deep Lens",
+  "Machine": "Assembler",
+  "Inputs": [
+   {
+    "Item": "Glass",
+    "Count": 4
+   },
+   {
+    "Item": "DeepCrystal",
+    "Count": 2
+   },
+   {
+    "Item": "CrystalShard",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "DeepLens",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 12.0,
+  "bAlternate": true,
+  "bHandCraftable": true,
+  "UnlockedBy": "DC13",
+  "Phase": 5,
+  "Description": "Echo's relay-focus notes: fuse the crystal straight into glass; no lens step."
+ },
+ {
+  "Name": "Alt_EchoModule",
+  "DisplayName": "Echo's Module",
+  "Machine": "Manufactory",
+  "Inputs": [
+   {
+    "Item": "CircuitBoard",
+    "Count": 3
+   },
+   {
+    "Item": "Oscillator",
+    "Count": 2
+   },
+   {
+    "Item": "Cable",
+    "Count": 6
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "ControlModule",
+    "Count": 2
+   }
+  ],
+  "CraftTime": 36.0,
+  "bAlternate": true,
+  "bHandCraftable": false,
+  "UnlockedBy": "DC14",
+  "Phase": 5,
+  "Description": "Ray's old board layout, found in Echo's private files. No sealed cable."
+ },
+ {
+  "Name": "Alt_GlimmerResonator",
+  "DisplayName": "Glimmer Resonator",
+  "Machine": "ResonanceForge",
+  "Inputs": [
+   {
+    "Item": "DeepCrystal",
+    "Count": 2
+   },
+   {
+    "Item": "LightCell",
+    "Count": 1
+   }
+  ],
+  "Outputs": [
+   {
+    "Item": "Resonator",
+    "Count": 1
+   }
+  ],
+  "CraftTime": 15.0,
+  "bAlternate": true,
+  "bHandCraftable": false,
+  "UnlockedBy": "SH_GlimmerResonator",
+  "Phase": 5,
+  "Description": "The Glimmers sing the crystal into tune. Trust 40+."
+ }
+]

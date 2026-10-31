@@ -1,0 +1,806 @@
+[
+ {
+  "Name": "RS_KelpBiology",
+  "DisplayName": "Kelp Biology",
+  "Station": "TideLab",
+  "Tree": "Kelp",
+  "Phase": 2,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "KelpPulp",
+    "Count": 20
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 5
+   }
+  ],
+  "ResearchSeconds": 60.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "Biofuel"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Biofuel bricks: 2.5x the burn time of kelp pulp."
+ },
+ {
+  "Name": "RS_PressureSeals",
+  "DisplayName": "Pressure Seals",
+  "Station": "TideLab",
+  "Tree": "Kelp",
+  "Phase": 2,
+  "Requires": "RS_KelpBiology",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Biofuel",
+    "Count": 10
+   },
+   {
+    "Item": "Float",
+    "Count": 5
+   },
+   {
+    "Item": "Glass",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 90.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "DiveMask"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "The dive mask: clear vision and faster swimming."
+ },
+ {
+  "Name": "RS_BloomCulture",
+  "DisplayName": "Bloom Culture",
+  "Station": "TideLab",
+  "Tree": "Kelp",
+  "Phase": 3,
+  "Requires": "RS_PressureSeals",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Biofuel",
+    "Count": 20
+   },
+   {
+    "Item": "Frame",
+    "Count": 5
+   }
+  ],
+  "ResearchSeconds": 120.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "KelpYield50"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Kelp harvesters yield 50% more."
+ },
+ {
+  "Name": "RS_GlowChemistry",
+  "DisplayName": "Glow Chemistry",
+  "Station": "TideLab",
+  "Tree": "Kelp",
+  "Phase": 4,
+  "Requires": "RS_BloomCulture",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Sealant",
+    "Count": 15
+   },
+   {
+    "Item": "Glowkelp",
+    "Count": 50
+   }
+  ],
+  "ResearchSeconds": 120.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "GlowGel"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Glow gel at the refinery. Light cells need it."
+ },
+ {
+  "Name": "RS_Optics",
+  "DisplayName": "Optics",
+  "Station": "TideLab",
+  "Tree": "Glass",
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Glass",
+    "Count": 10
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 60.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [
+   "WindowWall"
+  ],
+  "UnlockRecipes": [
+   "Beacon"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Window walls and beacons."
+ },
+ {
+  "Name": "RS_ResourceScanner",
+  "DisplayName": "Resource Scanner",
+  "Station": "TideLab",
+  "Tree": "Glass",
+  "Phase": 3,
+  "Requires": "RS_Optics",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Lens",
+    "Count": 5
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 5
+   }
+  ],
+  "ResearchSeconds": 90.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "Scanner"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "The scanner: pulse to find nodes."
+ },
+ {
+  "Name": "RS_DeepSonar",
+  "DisplayName": "Deep Sonar",
+  "Station": "TideLab",
+  "Tree": "Glass",
+  "Phase": 4,
+  "Requires": "RS_ResourceScanner",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Lens",
+    "Count": 20
+   },
+   {
+    "Item": "Oscillator",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 300.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "ScannerDeep"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Scanner shows trench vents and data cores. The low-trust way into the trench."
+ },
+ {
+  "Name": "RS_PearlLexicon",
+  "DisplayName": "Pearl Lexicon",
+  "Station": "TideLab",
+  "Tree": "Pearl",
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 1
+   },
+   {
+    "Item": "Lens",
+    "Count": 5
+   }
+  ],
+  "ResearchSeconds": 60.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "TranslatorL2"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Translator level 2: more of every Glimmer line, and trade cooldowns halve."
+ },
+ {
+  "Name": "RS_GlimmerCurrents",
+  "DisplayName": "Glimmer Currents",
+  "Station": "TideLab",
+  "Tree": "Pearl",
+  "Phase": 3,
+  "Requires": "RS_PearlLexicon",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 4
+   },
+   {
+    "Item": "Float",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 90.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "SkiffSpeed25",
+   "TidalMarkers"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Skiff +25% speed; tidal races marked on the map."
+ },
+ {
+  "Name": "RS_ReefSong",
+  "DisplayName": "Reef Song",
+  "Station": "TideLab",
+  "Tree": "Pearl",
+  "Phase": 4,
+  "Requires": "RS_GlimmerCurrents",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 4
+   },
+   {
+    "Item": "Oscillator",
+    "Count": 5
+   }
+  ],
+  "ResearchSeconds": 120.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [
+   "ReefFilter"
+  ],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "The reef filter: cleans runoff, raises Ocean Health."
+ },
+ {
+  "Name": "RS_DeepHarmony",
+  "DisplayName": "Deep Harmony",
+  "Station": "TideLab",
+  "Tree": "Pearl",
+  "Phase": 5,
+  "Requires": "RS_ReefSong",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 10
+   },
+   {
+    "Item": "DeepLens",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 240.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "TranslatorL3",
+   "TrenchOverclock"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Translator level 3; trench drills run at 150% without shells."
+ },
+ {
+  "Name": "RS_CrystalCutting",
+  "DisplayName": "Crystal Cutting",
+  "Station": "TideLab",
+  "Tree": "Storm",
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "StormCrystal",
+    "Count": 20
+   },
+   {
+    "Item": "CircuitBoard",
+    "Count": 5
+   }
+  ],
+  "ResearchSeconds": 60.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "CrystalShard"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Cut storm crystals into shards. Opens after the Great Storm."
+ },
+ {
+  "Name": "RS_StormHarness",
+  "DisplayName": "Storm Harness",
+  "Station": "TideLab",
+  "Tree": "Storm",
+  "Phase": 4,
+  "Requires": "RS_CrystalCutting",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "CrystalShard",
+    "Count": 20
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 120.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "RodYield2x",
+   "FuseAutoReset"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Lightning rods collect twice as much; fuses reset themselves."
+ },
+ {
+  "Name": "RS_StormGlider",
+  "DisplayName": "Storm Glider",
+  "Station": "TideLab",
+  "Tree": "Storm",
+  "Phase": 4,
+  "Requires": "RS_StormHarness",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Oscillator",
+    "Count": 10
+   },
+   {
+    "Item": "Polymer",
+    "Count": 20
+   }
+  ],
+  "ResearchSeconds": 240.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "GliderMk2"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Glider Mk2 rides storm updrafts."
+ },
+ {
+  "Name": "RS_DecodeDataCore",
+  "DisplayName": "Decode Data Core",
+  "Station": "Hub",
+  "Tree": "Archive",
+  "Phase": 1,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "DataCore",
+    "Count": 1
+   }
+  ],
+  "ResearchSeconds": 30.0,
+  "bRepeatable": true,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Plays the core's voice memory and unlocks its alternate recipe (one per core, Design/Progression.md §6)."
+ },
+ {
+  "Name": "SH_PaintReef",
+  "DisplayName": "Reef Paints",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 2,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 3
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "PaintSetReef"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Six reef colours for the paint tool."
+ },
+ {
+  "Name": "SH_PaintBasalt",
+  "DisplayName": "Basalt Paints",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 2,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 3
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "PaintSetBasalt"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Six volcanic colours."
+ },
+ {
+  "Name": "SH_SuitTrim",
+  "DisplayName": "Glow Suit Trim",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 2,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 4
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "SuitTrimGlow"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Bioluminescent piping on Isla's suit."
+ },
+ {
+  "Name": "SH_HubLantern",
+  "DisplayName": "Hub Lanterns",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 4
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "HubLantern"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Glimmer lanterns around the pod."
+ },
+ {
+  "Name": "SH_PaintGlimmer",
+  "DisplayName": "Glimmer Paints",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 30,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 6
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "PaintSetGlimmer"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Colours only the Glimmers make. Trust 30."
+ },
+ {
+  "Name": "SH_GlowShells",
+  "DisplayName": "Glow Shells x3",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 2,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 3
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": true,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [],
+  "GrantItems": [
+   {
+    "Item": "GlowShell",
+    "Count": 3
+   }
+  ],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Three overclock shells."
+ },
+ {
+  "Name": "SH_CoreHint",
+  "DisplayName": "Where the Cores Fell",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 2,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 2
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": true,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "RevealDataCore"
+  ],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "Marks the nearest unfound data core."
+ },
+ {
+  "Name": "SH_SealWeave",
+  "DisplayName": "Seal Weave",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 4,
+  "Requires": "None",
+  "TrustRequired": 10,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 6
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "Alt_SealedWire"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "The Glimmers show you their kelp-seal weave (alternate: Sealed Wire). Trust 10."
+ },
+ {
+  "Name": "SH_ReefGift",
+  "DisplayName": "Gift to the Reef",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 3,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [
+   {
+    "Item": "Glass",
+    "Count": 20
+   },
+   {
+    "Item": "KelpPulp",
+    "Count": 40
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": true,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 4,
+  "OceanHealthDelta": 0.0,
+  "Description": "Leave glass and pulp at the buoy for the reef. +4 trust, any time from Phase 3: the clean power option is never out of reach (R9)."
+ },
+ {
+  "Name": "SH_GlimmerResonator",
+  "DisplayName": "Glimmer Resonator",
+  "Station": "TradeBuoy",
+  "Tree": "Shop",
+  "Phase": 5,
+  "Requires": "None",
+  "TrustRequired": 40,
+  "Cost": [
+   {
+    "Item": "GlimmerPearl",
+    "Count": 10
+   }
+  ],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "Alt_GlimmerResonator"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 0,
+  "OceanHealthDelta": 0.0,
+  "Description": "The Glimmers sing the crystal into tune. Trust 40."
+ },
+ {
+  "Name": "RS_ChoiceClean",
+  "DisplayName": "Rebuild Clean",
+  "Station": "Choice",
+  "Tree": "Glimmer",
+  "Phase": 4,
+  "Requires": "None",
+  "TrustRequired": 20,
+  "Cost": [],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [
+   "TidalTurbine",
+   "GlowBank"
+  ],
+  "UnlockRecipes": [
+   "LightCell",
+   "PowerCell"
+  ],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 5,
+  "OceanHealthDelta": 0.0,
+  "Description": "BT_P4_02. The Glimmers give their tidal and light-cell blueprints. Needs trust 20; until then the option shows how to earn it."
+ },
+ {
+  "Name": "RS_ChoiceBurners",
+  "DisplayName": "Keep the Burners",
+  "Station": "Choice",
+  "Tree": "Glimmer",
+  "Phase": 4,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "BurnerBoost"
+  ],
+  "GrantItems": [],
+  "TrustDelta": -5,
+  "OceanHealthDelta": 0.0,
+  "Description": "BT_P4_02. Fuel and kelp burners run at 125%. The Power Ring takes biofuel."
+ },
+ {
+  "Name": "RS_MedkitGive",
+  "DisplayName": "Give the Medkit",
+  "Station": "Choice",
+  "Tree": "Glimmer",
+  "Phase": 4,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [],
+  "GrantItems": [],
+  "TrustDelta": 15,
+  "OceanHealthDelta": 0.0,
+  "Description": "BT_P4_04. The child lives and returns in Ending B."
+ },
+ {
+  "Name": "RS_MedkitKeep",
+  "DisplayName": "Keep the Medkit",
+  "Station": "Choice",
+  "Tree": "Glimmer",
+  "Phase": 4,
+  "Requires": "None",
+  "TrustRequired": 0,
+  "Cost": [],
+  "ResearchSeconds": 0.0,
+  "bRepeatable": false,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "SteadyHands"
+  ],
+  "GrantItems": [],
+  "TrustDelta": -5,
+  "OceanHealthDelta": 0.0,
+  "Description": "BT_P4_04. Isla treats the hand she hurt in the crash: hand-crafting x2 speed, salvage and gathering +50%."
+ }
+]

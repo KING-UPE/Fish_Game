@@ -1,0 +1,302 @@
+[
+ {
+  "Name": "Phase1",
+  "Title": "I'm alive",
+  "TowerPart": "Tower Base",
+  "Biome": "CrashReef",
+  "Requirements": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 30
+   },
+   {
+    "Item": "Reefcrete",
+    "Count": 60
+   },
+   {
+    "Item": "Cable",
+    "Count": 40
+   }
+  ],
+  "RequirementsLabel": "",
+  "AltRequirements": [],
+  "AltLabel": "",
+  "AltOceanHealthDelta": 0.0,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "Intro": [],
+  "MessageHome": [
+   {
+    "Speaker": "Isla",
+    "Text": "Skye, it's Mum. I'm alive.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Isla",
+    "Text": "I'm coming home. I promise.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   }
+  ],
+  "FlashbackTitle": "Count My Fish",
+  "Flashback": [
+   {
+    "Speaker": "",
+    "Text": "Seven years ago. A kitchen. Rain on the window.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Skye",
+    "Text": "How many fish did I draw, Mum?",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Isla",
+    "Text": "...Five?",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Skye",
+    "Text": "Wrong! Six! You're not even looking!",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Isla",
+    "Text": "Okay. Laptop closed. Show me. One... two...",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Skye",
+    "Text": "...six! See? You have to really look.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   }
+  ],
+  "Reply": [
+   {
+    "Speaker": "Skye",
+    "Text": "Mum! Mum, you're alive! Everyone kept saying... I didn't believe them.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Skye",
+    "Text": "When are you coming home? I drew you something. Count them properly this time!",
+    "Duration": 0.0,
+    "Style": "Normal"
+   }
+  ],
+  "bReplyHasDrawing": true,
+  "Description": "The tower's footing on the crash beach."
+ },
+ {
+  "Name": "Phase2",
+  "Title": "Strangers",
+  "TowerPart": "Receiver Dish",
+  "Biome": "BlackSands",
+  "Requirements": [
+   {
+    "Item": "Frame",
+    "Count": 12
+   },
+   {
+    "Item": "Lens",
+    "Count": 20
+   },
+   {
+    "Item": "GlimmerPearl",
+    "Count": 3
+   }
+  ],
+  "RequirementsLabel": "",
+  "AltRequirements": [],
+  "AltLabel": "",
+  "AltOceanHealthDelta": 0.0,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "Intro": [],
+  "MessageHome": [
+   {
+    "Speaker": "Isla",
+    "Text": "There are people here, Skye. They glow.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Isla",
+    "Text": "They talk in pictures. Like your drawings.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   }
+  ],
+  "FlashbackTitle": "You Always Leave",
+  "Flashback": [
+   {
+    "Speaker": "",
+    "Text": "Skye is nine. The night Isla tells her about the mission.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Skye",
+    "Text": "Two years? You always choose work!",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Skye",
+    "Text": "Dad would never have left!",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "",
+    "Text": "A door slams.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   },
+   {
+    "Speaker": "Isla",
+    "Text": "...I'm sorry, sweetheart.",
+    "Duration": 0.0,
+    "Style": "Normal"
+   }
+  ],
+  "Reply": [
+   {
+    "Speaker": "Skye",
+    "Text": "Glowing people?! Are they nice? I drew them. Count them!",
+    "Duration": 0.0,
+    "Style": "Normal"
+   }
+  ],
+  "bReplyHasDrawing": true,
+  "Description": "The dish that listens. Three Glimmer pearls sit in its focus ring."
+ },
+ {
+  "Name": "Phase3",
+  "Title": "Hungry for power",
+  "TowerPart": "Antenna Mast",
+  "Biome": "TarShelves",
+  "Requirements": [
+   {
+    "Item": "MastSegment",
+    "Count": 15
+   },
+   {
+    "Item": "CircuitBoard",
+    "Count": 20
+   },
+   {
+    "Item": "Cable",
+    "Count": 40
+   }
+  ],
+  "RequirementsLabel": "",
+  "AltRequirements": [],
+  "AltLabel": "",
+  "AltOceanHealthDelta": 0.0,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "Intro": [],
+  "MessageHome": [],
+  "FlashbackTitle": "The Blue Light",
+  "Flashback": [],
+  "Reply": [],
+  "bReplyHasDrawing": true,
+  "Description": "The mast goes up after the Great Storm (BT_P3_04 fires at hub tier 6, before this delivery)."
+ },
+ {
+  "Name": "Phase4",
+  "Title": "Dark water",
+  "TowerPart": "Power Ring",
+  "Biome": "StormSpires",
+  "Requirements": [
+   {
+    "Item": "PowerCell",
+    "Count": 12
+   },
+   {
+    "Item": "ControlModule",
+    "Count": 8
+   },
+   {
+    "Item": "HeavyFrame",
+    "Count": 6
+   }
+  ],
+  "RequirementsLabel": "Clean ring: power cells",
+  "AltRequirements": [
+   {
+    "Item": "Biofuel",
+    "Count": 150
+   },
+   {
+    "Item": "ControlModule",
+    "Count": 8
+   },
+   {
+    "Item": "HeavyFrame",
+    "Count": 6
+   }
+  ],
+  "AltLabel": "Burner ring: biofuel",
+  "AltOceanHealthDelta": -10.0,
+  "UnlockBuildables": [
+   "TrenchDrill"
+  ],
+  "UnlockRecipes": [
+   "DeepLens"
+  ],
+  "Intro": [],
+  "MessageHome": [],
+  "FlashbackTitle": "Sky Fire",
+  "Flashback": [],
+  "Reply": [],
+  "bReplyHasDrawing": true,
+  "Description": "Requirements = clean ring (after RS_ChoiceClean); AltRequirements = burner ring (after RS_ChoiceBurners). Delivery unlocks the trench drill and deep lens for Phase 5."
+ },
+ {
+  "Name": "Phase5",
+  "Title": "The Tower",
+  "TowerPart": "Signal Core",
+  "Biome": "GlimmerDeep",
+  "Requirements": [
+   {
+    "Item": "Resonator",
+    "Count": 30
+   },
+   {
+    "Item": "DeepLens",
+    "Count": 40
+   },
+   {
+    "Item": "ControlModule",
+    "Count": 30
+   },
+   {
+    "Item": "HeavyFrame",
+    "Count": 20
+   }
+  ],
+  "RequirementsLabel": "",
+  "AltRequirements": [],
+  "AltLabel": "",
+  "AltOceanHealthDelta": 0.0,
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "Intro": [],
+  "MessageHome": [],
+  "FlashbackTitle": "The Garage",
+  "Flashback": [],
+  "Reply": [],
+  "bReplyHasDrawing": true,
+  "Description": "Accepted only after M10 (CoreDock). Then BT_P5_07..09: the last real message and the final choice."
+ }
+]

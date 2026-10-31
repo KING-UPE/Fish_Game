@@ -1,0 +1,41 @@
+{
+  "_notes": "Copy to ArtSource/<Id>/card.json (machine-readable twin of Art/Cards/<Id>.md). All lengths in the rig are UE cm, asset space: origin = footprint centre, base Z = 0, +X = front/output side. Blender metres (x, y, z) = UE (100x, -100y, 100z). Rates are at 100% clock: Rotator deg/s, Piston/Oscillator Hz. Remove _notes in real cards if you like; tools ignore keys starting with _.",
+  "id": "<Id>",
+  "name": "<Display Name>",
+  "category": "Machine",
+  "phase": 1,
+  "tier_wear": 1.0,
+  "hero": false,
+  "mesh_name": "SM_<Id>",
+  "dest": "/Game/Blue/Art/Machine/<Id>",
+  "footprint_cells": [2, 1],
+  "height_cm": 900,
+  "tri_budget": 400000,
+  "moving_tri_budget": 120000,
+  "collision_parts": ["Body"],
+  "slots": ["Paint_Primary", "Paint_Secondary", "Paint_Detail", "Metal_Bare", "Metal_Dark", "Rubber", "Glass",
+            "Emissive_Status", "Emissive_Tech", "Port_In", "Port_Out", "Decal_Atlas"],
+  "kit": ["Kit_PortFrame_Belt", "Kit_StatusLight", "Kit_PowerSocket", "Kit_Ladder", "Kit_Railing", "Kit_Hatch",
+          "Kit_Vent_Louvre", "Kit_Bolt", "Kit_Hose", "Kit_WarningPlate"],
+  "refs": ["R001", "R009"],
+  "preview": {"closeup_m": [7.5, 0.0, 1.0]},
+  "rig": {
+    "parts": {
+      "Body":      {"role": "Static"},
+      "Drum":      {"role": "Rotator",    "axis": [0, 1, 0], "rate": 90},
+      "Fan":       {"role": "Rotator",    "axis": [0, 0, 1], "rate": 360},
+      "Piston":    {"role": "Piston",     "axis": [0, 0, 1], "rate": 0.5, "amplitude": 60, "phase": 0},
+      "Light":     {"role": "StatusLight"},
+      "PortIn0":   {"role": "PortFrame"},
+      "PortOut0":  {"role": "PortFrame"},
+      "Decals":    {"role": "Static"}
+    },
+    "ports": [
+      {"name": "In0",  "dir": "In",  "kind": "Solid", "loc_cm": [-800, 0, 100], "yaw": 180},
+      {"name": "Out0", "dir": "Out", "kind": "Solid", "loc_cm": [800, 0, 100],  "yaw": 0}
+    ],
+    "power": [0, -250, 820],
+    "snaps": [],
+    "bounds_cm": [[-750, -350, 0], [750, 350, 900]]
+  }
+}

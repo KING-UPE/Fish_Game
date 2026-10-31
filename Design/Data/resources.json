@@ -1,0 +1,443 @@
+[
+ {
+  "Name": "FerriteOre",
+  "DisplayName": "Ferrite Ore",
+  "Item": "FerriteOre",
+  "NodeKind": "OreVent",
+  "Extractors": [
+   "DrillMk1",
+   "DrillMk2",
+   "DrillMk3"
+  ],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 2.5,
+  "bFinite": false,
+  "Phase": 1,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 1,
+    "Normal": 2,
+    "Pure": 0
+   },
+   {
+    "Biome": "BlackSands",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 1
+   },
+   {
+    "Biome": "TarShelves",
+    "Impure": 0,
+    "Normal": 0,
+    "Pure": 1
+   },
+   {
+    "Biome": "StormSpires",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 0
+   }
+  ],
+  "Description": "Rust-red vents in the reef rock."
+ },
+ {
+  "Name": "CupriteOre",
+  "DisplayName": "Cuprite Ore",
+  "Item": "CupriteOre",
+  "NodeKind": "OreVent",
+  "Extractors": [
+   "DrillMk1",
+   "DrillMk2",
+   "DrillMk3"
+  ],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 2.5,
+  "bFinite": false,
+  "Phase": 1,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 1,
+    "Normal": 1,
+    "Pure": 0
+   },
+   {
+    "Biome": "KelpShallows",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 0
+   },
+   {
+    "Biome": "BlackSands",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 0
+   },
+   {
+    "Biome": "StormSpires",
+    "Impure": 0,
+    "Normal": 0,
+    "Pure": 1
+   }
+  ],
+  "Description": "Green-streaked vents."
+ },
+ {
+  "Name": "CoralLime",
+  "DisplayName": "Coral Lime",
+  "Item": "CoralLime",
+  "NodeKind": "LimeBed",
+  "Extractors": [
+   "DrillMk1",
+   "DrillMk2",
+   "DrillMk3"
+  ],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 2.5,
+  "bFinite": false,
+  "Phase": 1,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 0,
+    "Normal": 2,
+    "Pure": 0
+   },
+   {
+    "Biome": "KelpShallows",
+    "Impure": 0,
+    "Normal": 0,
+    "Pure": 1
+   },
+   {
+    "Biome": "TarShelves",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 0
+   }
+  ],
+  "Description": "Pale beds of dead coral."
+ },
+ {
+  "Name": "BlackSand",
+  "DisplayName": "Black Sand",
+  "Item": "BlackSand",
+  "NodeKind": "SandDune",
+  "Extractors": [
+   "DrillMk1",
+   "DrillMk2",
+   "DrillMk3"
+  ],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 2.0,
+  "bFinite": false,
+  "Phase": 2,
+  "Nodes": [
+   {
+    "Biome": "BlackSands",
+    "Impure": 1,
+    "Normal": 1,
+    "Pure": 1
+   },
+   {
+    "Biome": "StormSpires",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 0
+   }
+  ],
+  "Description": "Black dunes between the basalt columns."
+ },
+ {
+  "Name": "Glowkelp",
+  "DisplayName": "Glowkelp",
+  "Item": "Glowkelp",
+  "NodeKind": "KelpBed",
+  "Extractors": [
+   "KelpHarvester"
+  ],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 0.6,
+  "bFinite": false,
+  "Phase": 1,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 0,
+    "Normal": 1,
+    "Pure": 0
+   },
+   {
+    "Biome": "KelpShallows",
+    "Impure": 1,
+    "Normal": 2,
+    "Pure": 1
+   },
+   {
+    "Biome": "TarShelves",
+    "Impure": 0,
+    "Normal": 2,
+    "Pure": 0
+   },
+   {
+    "Biome": "GlimmerDeep",
+    "Impure": 0,
+    "Normal": 0,
+    "Pure": 1
+   }
+  ],
+  "Description": "Kelp beds. Wild patches everywhere can be hand-gathered (5 per pull)."
+ },
+ {
+  "Name": "Seawater",
+  "DisplayName": "Seawater",
+  "Item": "Seawater",
+  "NodeKind": "Sea",
+  "Extractors": [
+   "SeaPump"
+  ],
+  "bFluid": true,
+  "bHandGather": false,
+  "HandGatherSeconds": 0.0,
+  "bFinite": false,
+  "Phase": 3,
+  "Nodes": [],
+  "Description": "Anywhere with open water. No nodes, no purity."
+ },
+ {
+  "Name": "Tar",
+  "DisplayName": "Tar",
+  "Item": "Tar",
+  "NodeKind": "TarSeep",
+  "Extractors": [
+   "SeaPump"
+  ],
+  "bFluid": true,
+  "bHandGather": false,
+  "HandGatherSeconds": 0.0,
+  "bFinite": false,
+  "Phase": 3,
+  "Nodes": [
+   {
+    "Biome": "TarShelves",
+    "Impure": 1,
+    "Normal": 1,
+    "Pure": 1
+   }
+  ],
+  "Description": "Smoking seeps on the shelf."
+ },
+ {
+  "Name": "StormCrystal",
+  "DisplayName": "Storm Crystal",
+  "Item": "StormCrystal",
+  "NodeKind": "StormSpire",
+  "Extractors": [
+   "DrillMk1",
+   "DrillMk2",
+   "DrillMk3",
+   "LightningRod"
+  ],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 3.0,
+  "bFinite": false,
+  "Phase": 3,
+  "Nodes": [
+   {
+    "Biome": "StormSpires",
+    "Impure": 1,
+    "Normal": 2,
+    "Pure": 0
+   }
+  ],
+  "Description": "Spire nodes wake with the Great Storm (BT_P3_04); rods also catch crystals in any storm; the storm leaves ~30 on the ground."
+ },
+ {
+  "Name": "DeepCrystal",
+  "DisplayName": "Deep Crystal",
+  "Item": "DeepCrystal",
+  "NodeKind": "TrenchVent",
+  "Extractors": [
+   "TrenchDrill"
+  ],
+  "bFluid": false,
+  "bHandGather": false,
+  "HandGatherSeconds": 0.0,
+  "bFinite": false,
+  "Phase": 5,
+  "Nodes": [
+   {
+    "Biome": "GlimmerDeep",
+    "Impure": 2,
+    "Normal": 2,
+    "Pure": 1
+   }
+  ],
+  "Description": "Trench vents. Trust 50+: the Glimmers light the way to the pure vent and one normal. Low trust: two impure vents near the rim; the rest need Deep Sonar."
+ },
+ {
+  "Name": "TidalRace",
+  "DisplayName": "Tidal Race",
+  "Item": "None",
+  "NodeKind": "TidalRace",
+  "Extractors": [
+   "TidalTurbine"
+  ],
+  "bFluid": false,
+  "bHandGather": false,
+  "HandGatherSeconds": 0.0,
+  "bFinite": false,
+  "Phase": 4,
+  "Nodes": [
+   {
+    "Biome": "StormSpires",
+    "Impure": 1,
+    "Normal": 2,
+    "Pure": 1
+   }
+  ],
+  "Description": "Fast channels between the spires. Placement site for tidal turbines (purity scales MW)."
+ },
+ {
+  "Name": "ScrapPile",
+  "DisplayName": "Scrap Pile",
+  "Item": "ScrapMetal",
+  "NodeKind": "Pickup",
+  "Extractors": [],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 1.5,
+  "bFinite": true,
+  "Phase": 1,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 0,
+    "Normal": 40,
+    "Pure": 0
+   },
+   {
+    "Biome": "BlackSands",
+    "Impure": 0,
+    "Normal": 8,
+    "Pure": 0
+   },
+   {
+    "Biome": "KelpShallows",
+    "Impure": 0,
+    "Normal": 6,
+    "Pure": 0
+   }
+  ],
+  "Description": "Wreck debris, about 25 scrap per pile (Normal = number of piles). Finite: ~1350 scrap."
+ },
+ {
+  "Name": "GlowShellSpot",
+  "DisplayName": "Glow Shell",
+  "Item": "GlowShell",
+  "NodeKind": "Pickup",
+  "Extractors": [],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 1.0,
+  "bFinite": true,
+  "Phase": 2,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 0,
+    "Normal": 4,
+    "Pure": 0
+   },
+   {
+    "Biome": "KelpShallows",
+    "Impure": 0,
+    "Normal": 6,
+    "Pure": 0
+   },
+   {
+    "Biome": "BlackSands",
+    "Impure": 0,
+    "Normal": 4,
+    "Pure": 0
+   },
+   {
+    "Biome": "TarShelves",
+    "Impure": 0,
+    "Normal": 6,
+    "Pure": 0
+   },
+   {
+    "Biome": "StormSpires",
+    "Impure": 0,
+    "Normal": 6,
+    "Pure": 0
+   },
+   {
+    "Biome": "GlimmerDeep",
+    "Impure": 0,
+    "Normal": 10,
+    "Pure": 0
+   }
+  ],
+  "Description": "Night-only reef pickups (Normal = count)."
+ },
+ {
+  "Name": "DataCoreSpot",
+  "DisplayName": "Data Core",
+  "Item": "DataCore",
+  "NodeKind": "Pickup",
+  "Extractors": [],
+  "bFluid": false,
+  "bHandGather": true,
+  "HandGatherSeconds": 1.0,
+  "bFinite": true,
+  "Phase": 1,
+  "Nodes": [
+   {
+    "Biome": "CrashReef",
+    "Impure": 0,
+    "Normal": 3,
+    "Pure": 0
+   },
+   {
+    "Biome": "BlackSands",
+    "Impure": 0,
+    "Normal": 2,
+    "Pure": 0
+   },
+   {
+    "Biome": "KelpShallows",
+    "Impure": 0,
+    "Normal": 2,
+    "Pure": 0
+   },
+   {
+    "Biome": "TarShelves",
+    "Impure": 0,
+    "Normal": 2,
+    "Pure": 0
+   },
+   {
+    "Biome": "StormSpires",
+    "Impure": 0,
+    "Normal": 3,
+    "Pure": 0
+   },
+   {
+    "Biome": "GlimmerDeep",
+    "Impure": 0,
+    "Normal": 2,
+    "Pure": 0
+   }
+  ],
+  "Description": "DC01-DC14 (Design/Narrative/StoryBeats.md §3). DC13/DC14 stay locked until BT_P5_03/04."
+ }
+]

@@ -30,6 +30,9 @@ Last updated: 2026-10-31.
 | Engine | UE **5.8.4** at `D:\UE_5.8` — **not registered with the Epic launcher** (`.uproject` double-click won't work; use `LaunchEditor.bat`) |
 | Compiler | Visual Studio Build Tools 2026 (MSVC 14.51) + **.NET Framework 4.8 SDK** (added 2026-10-31; UE plugin builds fail with `RulesError` / "Could not find NetFxSDK" without it) |
 | Node / Claude CLI | Node 24, `claude` at `C:\Users\info\.local\bin\claude.exe` |
+| GPU | **Intel Iris Xe** (integrated, ~2 GB shared): software Lumen only, no hardware RT (see `Production/Plan.md` D6) |
+| Blender | **5.2** at `C:\Program Files\Blender Foundation\Blender 5.2` (winget, 2026-10-31). Use `Tools/Art/run_blender.py` |
+| Python (system) | 3.14 with Pillow 12 and numpy 2.5; `uv`/`uvx` in `~/.local/bin` |
 | Claude settings | `~/.claude/settings.json` has `promptCacheTtl: "1h"`, `subagentPromptCacheTtl: "1h"` |
 
 ---

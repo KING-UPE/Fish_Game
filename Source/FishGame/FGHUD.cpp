@@ -23,9 +23,9 @@ namespace
 	FLinearColor SpeakerColor(const FString& Speaker)
 	{
 		if (Speaker == TEXT("Echo")) return Cyan;
-		if (Speaker == TEXT("Neela")) return Warm;
-		if (Speaker == TEXT("Ishani")) return FLinearColor::White;
-		if (Speaker == TEXT("Ravi")) return FLinearColor(0.6f, 0.95f, 0.8f);
+		if (Speaker == TEXT("Skye")) return Warm;
+		if (Speaker == TEXT("Isla")) return FLinearColor::White;
+		if (Speaker == TEXT("Ray")) return FLinearColor(0.6f, 0.95f, 0.8f);
 		return Soft;
 	}
 }
@@ -400,7 +400,7 @@ void AFGHUD::DrawPuzzle(AFGPlayerController* PC)
 	const bool bTrade = PC->PuzzleKind != AFGPlayerController::EPuzzleKind::Drawing;
 	if (PC->bPuzzleWaiting)
 	{
-		DrawWrapped(bTrade ? TEXT("A Glimmer rises and starts to glow a picture...") : TEXT("Receiving Neela's drawing..."),
+		DrawWrapped(bTrade ? TEXT("A Glimmer rises and starts to glow a picture...") : TEXT("Receiving Skye's drawing..."),
 			CX, Canvas->ClipY * 0.45f, 900.f * S, Medium, S * 1.2f, bTrade ? Cyan : Warm, true);
 		return;
 	}
@@ -413,7 +413,7 @@ void AFGHUD::DrawPuzzle(AFGPlayerController* PC)
 	const float PicX = CX - PicW * 0.5f;
 	const float PicY = Canvas->ClipY * 0.5f - PicH * 0.5f - 40.f * S;
 
-	// Neela: a sheet of paper. Glimmers: a glowing deep-blue panel.
+	// Skye: a sheet of paper. Glimmers: a glowing deep-blue panel.
 	const FLinearColor Ink = bTrade ? Cyan : FLinearColor(0.25f, 0.18f, 0.1f);
 	DrawRect(bTrade ? FLinearColor(0.02f, 0.1f, 0.18f, 0.95f) : FLinearColor(0.98f, 0.95f, 0.86f, 1.f),
 		PicX - 24.f * S, PicY - 70.f * S, PicW + 48.f * S, PicH + 190.f * S);
