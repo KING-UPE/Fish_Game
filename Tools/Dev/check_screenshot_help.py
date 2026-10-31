@@ -1,0 +1,2 @@
+import unreal
+help(unreal.AutomationLibrary.take_high_res_screenshot)
