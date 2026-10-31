@@ -2,6 +2,17 @@
 
 Newest first. Each entry: what was decided/done, what's next, blockers. Keep it short; details live in files.
 
+## 2026-10-31 (session 3) — finish M0, start M1 engine
+**Recovered**: session 2's art-director and game-designer outputs were lost again (no `Art/`, no
+`Design/Progression.md`, no playtime model); `Design/Data/*.json` survived and is now committed (`013d66a`).
+**Done**: the fixed preamble text is now written down (`AgentRules.md` §8) plus a write-early rule (§7).
+**In flight**: art-director A (ArtBible, References, card template), art-director B (AssetManifest.csv/.md),
+game-designer (Progression.md, `Tools/Design/playtime_model.py --check`, Playtime.md), engine-programmer
+(Tech §9 step 1: baseline tests, UFGCheatManager, UFGTestLibrary/FGDump, BuildId, UFGFactorySettings, stat FG;
+holds `EDITOR.lock`; its Source changes go on `m1/core`, cut from `dev` after the m0 merge).
+**Next**: review + commit the M0 docs on `m0/plan`, merge to `dev`, tag `m0`, push; then M1 wave 1 cards,
+material masters and the kitbash library.
+
 ## 2026-10-31 (session 2) — M0 continued
 **Decided**: user answered Q1: Low/Medium/High speed targets on this laptop, Epic kept at full quality for
 strong PCs and documented for a later test (Plan D6, §6; `Production/EpicTestPlan.md`).

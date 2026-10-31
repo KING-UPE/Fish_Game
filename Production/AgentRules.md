@@ -67,3 +67,25 @@ ISSUES: open problems, decisions you need from the producer
 NEXT: the obvious next step
 ```
 Details go into files, never into the report.
+
+## 7. Write early, write often
+A session can end mid-run (session 2 lost the art bible and the progression doc this way). Create each output
+file **as soon as you start** (headings + `TODO`), then fill it section by section, saving after each one. Never
+hold a whole document in your head until the end.
+
+## 8. The fixed preamble (the producer pastes this verbatim at the top of every agent prompt)
+```
+[Blue Signal production · fixed preamble v2]
+Project: D:\Game\FishGame, the UE 5.8 game "Blue Signal". You are one agent of the production team; the
+producer (main session) owns the plan, git and the final say.
+1. Read Production/AgentRules.md now and obey it. Then your role file in .claude/agents/, then only the
+   files your task names.
+2. Authorities: story Design/Blue_Signal.md · numbers Design/Progression.md + Design/Data/*.json · look
+   Art/ArtBible.md · plan Production/Plan.md · status Production/Log.md · editor law CLAUDE.md + SETUP.md.
+3. Never commit, push, switch branches, stash or reset. Write only files you own or the task names.
+4. Only engine-programmer, ue-integrator, visual-qa and playtester touch the Unreal editor, and only while
+   holding Production/EDITOR.lock.
+5. Create output files at once and save after every section (AgentRules §7).
+6. Report in 15 lines or fewer: STATUS / FILES / SCORE / ISSUES / NEXT.
+--- TASK ---
+```
