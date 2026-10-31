@@ -1,0 +1,345 @@
+id,name,category,phase,priority,hero,footprint,owner,status,score,notes
+Kit_Bolt,Bolts and washers,KitbashKit,1,P0,n,~0.1 m,asset-modeler,planned,,hex bolt + washer + nut in 3 sizes; carriage heads; instanced on every machine
+Kit_RivetStrip,Rivet strips,KitbashKit,1,P0,n,~1x0.05 m,asset-modeler,planned,,straight + curved strips; mirrored as a normal trim in Kit_Trims
+Kit_Vent_Louvre,Louvred vent,KitbashKit,1,P0,n,~0.8x0.5 m,asset-modeler,planned,,3 sizes; heat-shimmer socket for hot machines
+Kit_Grille,Grilles,KitbashKit,1,P0,n,~0.6x0.6 m,asset-modeler,planned,,rect + round mesh grilles; optional emissive glow behind
+Kit_Fan,Fan in shroud,KitbashKit,1,P0,n,~1 m dia,asset-modeler,planned,,blades are a separate object with a centre pivot; spin driven by machine state
+Kit_Pipe_Straight,Pipe segments,KitbashKit,1,P0,n,~1x0.3 m,asset-modeler,planned,,3 diameters (15/30/60 cm); UVs tile for any length
+Kit_Pipe_Elbow,Pipe elbows and tees,KitbashKit,1,P0,n,~0.6 m,asset-modeler,planned,,45 and 90 degree elbows + tee per diameter
+Kit_Pipe_Flange,Flanges and gaskets,KitbashKit,1,P0,n,~0.5 m dia,asset-modeler,planned,,bolted flange ring with rubber gasket; joins every pipe
+Kit_Hose,Flexible hose,KitbashKit,1,P0,n,~2 m,asset-modeler,planned,,corrugated rubber hose; spline-deformable; end fittings
+Kit_Panel,Access panels,KitbashKit,1,P0,n,~1x1 m,asset-modeler,planned,,bolted panels in 3 sizes; bevelled; main paint-zone carrier
+Kit_EdgeCap,Bevelled edge and corner caps,KitbashKit,1,P0,n,~1 m,asset-modeler,planned,,chunky rounded frame edges that give machines the toy-like bevel
+Kit_Hatch,Round inspection hatch,KitbashKit,1,P0,n,~0.8 m dia,asset-modeler,planned,,lid is a separate object with a hinge pivot
+Kit_Door_Service,Service door,KitbashKit,1,P0,n,~1x2 m,asset-modeler,planned,,human-scale door on machine bodies (sells the 180 cm player scale)
+Kit_Ladder,Machine ladder,KitbashKit,1,P0,n,~0.5x3 m,asset-modeler,planned,,ladder + safety-cage segments for machine bodies (not the Ladder buildable)
+Kit_Railing,Railings,KitbashKit,1,P0,n,~2x1.1 m,asset-modeler,planned,,segment + post + corner; reused by the Catwalk buildable
+Kit_Grate,Grating floor plates,KitbashKit,1,P0,n,~2x1 m,asset-modeler,planned,,walkable machine platforms; masked opacity
+Kit_CableTray,Cable trays,KitbashKit,1,P0,n,~2x0.3 m,asset-modeler,planned,,straight + bend + drop with cable bundles
+Kit_Conduit,Cable conduits,KitbashKit,1,P0,n,~2 m,asset-modeler,planned,,spline-ready insulated cable run with clamps
+Kit_WarningPlate,Warning plates,KitbashKit,1,P0,n,~0.4x0.3 m,asset-modeler,planned,,plate frames that carry Kit_Decals icons and stencil numbers
+Kit_PortFrame_Belt,Belt port frame,KitbashKit,1,P0,n,~2x1 m,asset-modeler,planned,,standard in/out port on every machine; arrow light; one fixed port height
+Kit_PortFrame_Pipe,Pipe port frame,KitbashKit,3,P1,n,~1x1 m,asset-modeler,planned,,standard fluid port; flange + flow light
+Kit_PowerSocket,Power connector,KitbashKit,1,P0,n,~0.4 m,asset-modeler,planned,,insulator + socket where pole cables meet machines
+Kit_StatusLight,Status beacon,KitbashKit,1,P0,n,~0.3 m,asset-modeler,planned,,caged beacon; emissive from machine state (working/idle/no power)
+Kit_WorkLight,Work light,KitbashKit,1,P0,n,~0.4 m,asset-modeler,planned,,caged floodlamp + bracket; real-light socket
+Kit_Gauge,Gauges,KitbashKit,1,P0,n,~0.2 m dia,asset-modeler,planned,,round dial; needle is a separate object with a pivot
+Kit_ControlPanel,Control panel,KitbashKit,1,P0,n,~0.8x1.2 m,asset-modeler,planned,,interaction terminal on every machine; emissive screen slot
+Kit_Piston,Hydraulic piston,KitbashKit,1,P0,n,~1.5 m,asset-modeler,planned,,cylinder + rod as 2 objects; press and drill motion
+Kit_GearHousing,Motor and gear housing,KitbashKit,1,P0,n,~1x1 m,asset-modeler,planned,,motor block + gearbox; exposed shaft pivot
+Kit_Tank,Pressure tanks,KitbashKit,1,P0,n,~1x2 m,asset-modeler,planned,,horizontal + vertical cylinder tanks with domed caps
+Kit_Chimney,Chimney stack,KitbashKit,1,P0,n,~1x4 m,asset-modeler,planned,,stackable exhaust segments + cap; steam/smoke VFX socket
+Kit_Foot,Machine feet and plinths,KitbashKit,1,P0,n,~1x1 m,asset-modeler,planned,,feet + base plinth that seat machines on foundations
+Kit_Handwheel,Valve handwheel,KitbashKit,3,P1,n,~0.4 m dia,asset-modeler,planned,,wheel is a separate object with a pivot; pipes and refinery
+Kit_Mat_FactoryMaster,Factory master material,KitbashKit,1,P0,n,-,material-artist,planned,,M_Factory_Master: paint zones + BS_Mask vertex wear (D13) + world salt/rust; every kit part uses it
+Kit_Trims,Shared trim sheet,KitbashKit,1,P0,n,-,material-artist,planned,,bevel/rivet/hazard-stripe/rubber trims shared by all machines
+Kit_Decals,Brand decals and stencils,KitbashKit,1,P0,n,-,material-artist,planned,,original logo + stencil numbers + warning icons atlas; no third-party brands
+Kit_PaintSwatches,Paint swatches,KitbashKit,2,P1,n,-,material-artist,planned,,pearl-shop swatches and patterns for the paint customiser
+LanderHub,Lander Hub (escape-pod terminal),Special,1,P0,y,16x16,asset-modeler,planned,,h 9 m; Ishani's escape pod rebuilt as the milestone terminal; base for 10 growth add-ons; includes the scorched pre-hub pod state; is Ending A's capsule (D15)
+LanderHub_S1_SolarWing,Hub stage 1: solar wing + work lights,Special,1,P0,y,16x16 add-on,asset-modeler,planned,,M1 Landfall; solar wing unfolds on a hinge pivot; ring of Kit_WorkLight
+LanderHub_S2_BurnerLockers,Hub stage 2: burner stack + lockers,Special,1,P1,y,16x16 add-on,asset-modeler,planned,,M2 Footings; reuses Kit_Chimney + Kit_Tank; storage lockers bolt on
+LanderHub_S3_AerialDrawingWall,Hub stage 3: radio aerial + drawing wall,Special,2,P1,y,16x16 add-on,asset-modeler,planned,,M3 Shallows; the drawing wall shows every counted Fish API drawing (S6); frame slots are material params
+LanderHub_S4_GlimmerLantern,Hub stage 4: Glimmer-light lantern,Special,2,P1,y,16x16 add-on,asset-modeler,planned,,M4 First Words; hangs from the aerial; Glimmer bioluminescent material
+LanderHub_S5_SkiffDock,Hub stage 5: skiff dock + slipway,Special,3,P1,y,~16x12 add-on,asset-modeler,planned,,M5 Steel and Sail; dock berth fits the Skiff (8x4)
+LanderHub_S6_SecondDeck,Hub stage 6: second deck + taller antenna,Special,3,P1,y,16x16 add-on,asset-modeler,planned,,M6 Tar and Circuits; deck on Kit_Grate + Kit_Railing
+LanderHub_S7_CrystalRod,Hub stage 7: crystal lightning rod,Special,4,P1,y,16x16 add-on,asset-modeler,planned,,M7 Storm Glass; storm-crystal crown; strike VFX socket
+LanderHub_S8_CraneArm,Hub stage 8: crane arm,Special,4,P1,y,16x16 add-on,asset-modeler,planned,,M8 Heavy Works; slewing arm with a yaw pivot
+LanderHub_S9_RelayConsole,Hub stage 9: Echo's relay console,Special,5,P1,y,pod interior,asset-modeler,planned,,M9; lights up inside the pod; set for the confession scene (BT_P5_03)
+LanderHub_S10_BlueBeacon,Hub stage 10: blue beacon + flight-ready,Special,5,P1,y,16x16 add-on,asset-modeler,planned,,M10; beacon turns blue; capsule launch rig for Ending A
+Workbench,Workbench (galley table),Special,1,P0,y,4x4,asset-modeler,planned,,h 1.5 m; the salvaged galley table; hold-to-craft animation hooks
+SuitFabricator,Suit Fabricator,Special,2,P1,y,4x4,asset-modeler,planned,,h 2.2 m; builds dive mask / scanner / harness / glider pack
+TideLab,Tide Lab,Special,2,P1,y,16x16,asset-modeler,planned,,h 10 m; research station + data-core decoder; specimen tanks with kelp/glass/pearl/crystal
+Translator,Translator,Special,2,P1,y,8x8,asset-modeler,planned,,h 9 m; big screen shows Glimmer picture-words; lens array; FB4 is seen through it
+TradeBuoy,Trade Buoy,Special,2,P1,y,8x8,asset-modeler,planned,,h 4 m; floats (bob anim); Glimmer-facing light ring; contract board + pearl shop
+SignalTower,Signal Tower site,Special,1,P1,y,48x48,asset-modeler,planned,,the delivery ring on the sand + terminal; sections stack on it to ~120 m; landmark from P1
+Tower_P1_Base,Tower section 1: Tower Base,Special,1,P1,y,48x48,asset-modeler,planned,,riveted plate + reefcrete footing; transmission-beam socket; grows in on Delivered(1)
+Tower_P2_ReceiverDish,Tower section 2: Receiver Dish,Special,2,P1,y,~30 m dish,asset-modeler,planned,,frames + lenses; 3 Glimmer pearls glow in the focus ring
+Tower_P3_AntennaMast,Tower section 3: Antenna Mast,Special,3,P1,y,~12x12 m,asset-modeler,planned,,lattice mast of 40 mast segments; goes up after the Great Storm
+Tower_P4_PowerRing_Clean,Tower section 4: Power Ring (clean),Special,4,P1,y,~40 m ring,asset-modeler,planned,,power cells + soft glow; variant for C_POWER=Clean; shares the ring frame
+Tower_P4_PowerRing_Burner,Tower section 4: Power Ring (burner),Special,4,P1,y,~40 m ring,asset-modeler,planned,,biofuel burner ring; soot + smoke stacks; variant for C_POWER=Burners; shares the ring frame
+Tower_P5_SignalCore,Tower section 5: Signal Core,Special,5,P1,y,~16 m core,asset-modeler,planned,,resonators + deep lenses; drive-core socket for the final choice; both endings frame it
+Smelter,Smelter,Machine,1,P0,y,16x8,asset-modeler,planned,,h 9 m; 1 in 1 out; ore to ingots; glowing pour window; FX_Machine_Sparks + steam
+Press,Press,Machine,1,P0,y,16x8,asset-modeler,planned,,h 8.5 m; 1 in 1 out; constructor-class; stamping head on Kit_Piston; FX_Machine_Impact
+Kiln,Kiln,Machine,2,P1,y,16x8,asset-modeler,planned,,h 9 m; 1 in; glass + kelp char; heat glow; tall Kit_Chimney
+Assembler,Assembler,Machine,1,P1,y,16x16,asset-modeler,planned,,h 11 m; 2 in 1 out; unlocked at M2; robot arms with pivots
+Foundry,Foundry,Machine,3,P1,y,16x16,asset-modeler,planned,,h 10 m; 2 in; steel; crucible tilt pivot + pour glow
+Refinery,Refinery,Machine,3,P1,y,24x16,asset-modeler,planned,,h 24 m; fluid in; columns + pipes + flare stack
+Manufactory,Manufactory,Machine,4,P1,y,24x24,asset-modeler,planned,,h 13 m; 3 in; internal gantry visible through grilles
+ResonanceForge,Resonance Forge,Machine,5,P1,y,16x16,asset-modeler,planned,,h 16 m; 2 in; Glimmer-tech hybrid; crystal ring hum + glow
+FX_Machine_Sparks,Machine sparks + heat glow,Machine,1,P0,n,-,vfx-artist,planned,,NS for smelter pour (later kiln + foundry); driven by machine state
+FX_Machine_Steam,Machine steam + exhaust,Machine,1,P0,n,-,vfx-artist,planned,,shared steam/exhaust puffs on Kit_Chimney and vents
+FX_Machine_Impact,Press impact,Machine,1,P0,n,-,vfx-artist,planned,,dust + spark burst synced to the press stroke
+Drill_Mk1,Drill Rig Mk1,Extractor,1,P0,y,16x8,asset-modeler,planned,,h 14 m; sits on a solid node; drill-head spin + bob pivots; slice: on Node_OreVent_Ferrite
+Drill_Mk2,Drill Rig Mk2,Extractor,3,P1,y,16x8,asset-modeler,planned,,h 16 m; Mk1 frame + heavier head + steel trim
+Drill_Mk3,Drill Rig Mk3,Extractor,4,P1,y,16x8,asset-modeler,planned,,h 18 m; Mk2 frame + crystal-cut head + motors
+KelpHarvester,Kelp Harvester,Extractor,2,P1,y,8x8,asset-modeler,planned,,h 6 m; floats on a kelp bed; rotating cutter reel; bob anim
+SeaPump,Sea Pump,Extractor,3,P1,y,8x8,asset-modeler,planned,,h 8 m; any open water; intake cage + impeller
+TarPump,Tar Pump,Extractor,3,P1,y,16x8,asset-modeler,planned,,h 14 m; on a tar seep; nodding arm pivot; tar drips
+LightningRod,Lightning Rod,Extractor,3,P1,y,4x4,asset-modeler,planned,,h 20 m; strike target; crystal collector tray; strike VFX socket
+TrenchDrill,Trench Drill,Extractor,5,P1,y,16x16,asset-modeler,planned,,h 22 m; on a trench vent in the Glimmer Deep; long shaft down into the water
+FX_Drill_Debris,Drill dust and chips,Extractor,1,P1,n,-,vfx-artist,planned,,rock chips + dust at the node; tint per resource
+SalvagedSolar,Salvaged Solar,Power,1,P1,y,8x8,asset-modeler,planned,,h 3 m; wreck panel + battery pack built from Wreck_SolarArray
+KelpBurner,Kelp Burner,Power,1,P1,y,8x8,asset-modeler,planned,,h 10 m; feed hopper + firebox glow + chimney smoke
+FuelBurner,Fuel Burner,Power,3,P1,y,24x16,asset-modeler,planned,,h 24 m; big dirty generator; twin stacks + soot
+TidalTurbine,Tidal Turbine,Power,4,P1,y,16x8,asset-modeler,planned,,h 12 m; Glimmer blueprint; rotor under water (spin pivot); clean look
+GlowBank,Glow Bank,Power,4,P1,y,16x16,asset-modeler,planned,,h 12 m; Glimmer blueprint; light-cell racks glow
+Accumulator,Accumulator,Power,3,P1,y,8x8,asset-modeler,planned,,h 11 m; data Kind Battery; charge-level light strip
+PowerPole,Power Pole,Power,1,P0,n,4x4,asset-modeler,planned,,h 7 m; data category Logistics; 4 cable sockets; zipline-ready; slice needs a pair
+Power_Cable,Power cable,Power,1,P0,n,up to 50 m,material-artist,planned,,engine draws the sagging catenary (Plan wave 2); art = cable material + end clamp
+FX_Burner_Smoke,Burner smoke,Power,1,P1,n,-,vfx-artist,planned,,dirty smoke for kelp/fuel burners; darker under load
+FX_Power_Spark,Fuse trip and arc sparks,Power,1,P1,n,-,vfx-artist,planned,,pole arcs + fuse trip + storm-strike sparks
+Belt_Mk1,Belt Mk1,Logistics,1,P0,n,8x4 per cell,asset-modeler,planned,,spline belt + end caps; scrolling chevrons; 60/min; items ride as ISM
+Belt_Mk2,Belt Mk2,Logistics,2,P1,n,8x4 per cell,asset-modeler,planned,,mesh = Belt_Mk1 + tier trim colour; faster scroll
+Belt_Mk3,Belt Mk3,Logistics,4,P1,n,8x4 per cell,asset-modeler,planned,,mesh = Belt_Mk1 + tier trim + side guards
+Belt_Support,Belt support stand,Logistics,1,P0,n,~1x1 m,asset-modeler,planned,,auto-placed under belts (not in buildables.json); telescoping height
+Belt_Pontoon,Belt pontoon float,Logistics,1,P1,n,~2x2 m,asset-modeler,planned,,belts over water ride on these (1 per 2 cells); bob anim; taught in P2
+BeltLift,Belt Lift,Logistics,2,P1,n,4x4,asset-modeler,planned,,h 4 m; one floor up or down
+Splitter,Splitter,Logistics,2,P1,n,4x4,asset-modeler,planned,,h 2 m; 1 in 3 out
+Merger,Merger,Logistics,2,P1,n,4x4,asset-modeler,planned,,h 2 m; 3 in 1 out; shares the Splitter body
+StorageCrate,Storage Crate,Logistics,1,P1,n,8x4,asset-modeler,planned,,h 4 m; 24 slots; 1 belt in 1 out
+Pipe,Pipe,Logistics,3,P1,n,8x4 per cell,asset-modeler,planned,,spline pipe on Kit_Pipe_* + flanges; flow window
+PipePump,Pipe Pump,Logistics,3,P1,n,4x4,asset-modeler,planned,,h 2 m; +20 m head-lift; impeller housing
+Pipe_Support,Pipe support stand,Logistics,3,P1,n,~1x1 m,asset-modeler,planned,,auto-placed under pipes (not in buildables.json)
+Skiff,Skiff,Vehicle,3,P1,y,8x4,asset-modeler,planned,,h 2.5 m; data category Logistics; the one boat; outboard rotor + rudder pivots; cargo deck
+FX_Skiff_Wake,Skiff wake and spray,Vehicle,3,P1,n,-,vfx-artist,planned,,bow spray + wake trail + idle ripples
+Foundation,Foundation,Structure,1,P0,n,8x8,asset-modeler,planned,,h 1 m; reefcrete top + bevelled edge trim; snaps to the 800 grid
+Wall,Wall,Structure,1,P0,n,8x4,asset-modeler,planned,,8 m long x 4 m high on a foundation edge
+Ramp,Ramp,Structure,1,P0,n,8x8,asset-modeler,planned,,rise 2 m; anti-slip top
+Stairs,Stairs,Structure,1,P1,n,8x8,asset-modeler,planned,,rise 4 m
+TallFoundation,Tall Foundation,Structure,3,P1,n,8x8,asset-modeler,planned,,h 4 m; Foundation set variant
+FloatingPlatform,Floating Platform,Structure,2,P1,y,8x8,asset-modeler,planned,,pontoon foundation on open water (the signature build); bob + ripple
+WindowWall,Window Wall,Structure,2,P1,n,8x4,asset-modeler,planned,,Wall + window cut-out
+DoorWall,Door Wall,Structure,2,P1,n,8x4,asset-modeler,planned,,Wall + door (leaf on a hinge pivot)
+Catwalk,Catwalk,Structure,2,P1,n,8x4,asset-modeler,planned,,8 m with Kit_Railing; straight/corner/T/stairs; Tech.md says 400x200: confirm
+Ladder,Ladder,Structure,2,P1,n,4x4,asset-modeler,planned,,4 m section
+Pillar,Pillar,Structure,2,P1,n,4x4,asset-modeler,planned,,4 m support
+Roof,Roof,Structure,2,P1,n,8x8,asset-modeler,planned,,0.5 m panel
+Breakwater,Breakwater,Structure,3,P1,n,8x4,asset-modeler,planned,,h 6 m sea wall; wave-break FX socket
+ReefFilter,Reef Filter,Structure,4,P1,y,8x8,asset-modeler,planned,,h 5 m; Glimmer design on water; cleaning glow + bubbles
+Item_FerriteOre,Ferrite Ore,Item,1,P0,n,~0.5x0.4x0.3 m,asset-modeler,planned,,rust-red angular chunk; ore-family master mesh (3 shape seeds)
+Item_CupriteOre,Cuprite Ore,Item,1,P1,n,~0.5x0.4x0.3 m,asset-modeler,planned,,mesh = Item_FerriteOre + copper material with green streaks
+Item_CoralLime,Coral Lime,Item,1,P1,n,~0.5x0.4x0.3 m,asset-modeler,planned,,pale porous coral chunk
+Item_BlackSand,Black Sand,Item,2,P1,n,~0.5x0.5x0.2 m,asset-modeler,planned,,glittering heap; heap-family master mesh
+Item_Glowkelp,Glowkelp,Item,1,P1,n,~0.6x0.3x0.3 m,asset-modeler,planned,,coiled kelp bundle with emissive bulbs
+Item_Seawater,Seawater,Item,3,P1,n,fluid,material-artist,planned,,fluid: no belt mesh; pipe/tank fluid material + icon source
+Item_Tar,Tar,Item,3,P1,n,fluid,material-artist,planned,,fluid: no belt mesh; glossy black fluid material
+Item_StormCrystal,Storm Crystal,Item,3,P1,n,~0.4x0.3x0.4 m,asset-modeler,planned,,jagged fused crystal cluster; faint inner lightning; crystal-family master mesh
+Item_DeepCrystal,Deep Crystal,Item,5,P1,n,~0.4x0.3x0.4 m,asset-modeler,planned,,mesh = Item_StormCrystal + deep-blue resonant glow
+Item_ScrapMetal,Scrap Metal,Item,1,P1,n,~0.6x0.4x0.2 m,asset-modeler,planned,,bent hull-scrap bundle in Wreck_* materials
+Item_GlimmerPearl,Glimmer Pearl,Item,2,P1,n,~0.2 m dia,asset-modeler,planned,,luminous pearl cluster in a woven kelp net
+Item_GlowShell,Glow Shell,Item,2,P1,n,~0.3 m,asset-modeler,planned,,spiral shell with night glow; same mesh is the reef pickup
+Item_DataCore,Data Core,Item,1,P1,n,~0.3x0.2x0.2 m,asset-modeler,planned,,black-box core with blinking LED; world pickup sits in Wreck_DataCoreCradle
+Item_FerriteIngot,Ferrite Ingot,Item,1,P0,n,~0.5x0.2x0.15 m,asset-modeler,planned,,ingot-family master mesh (trapezoid bar + stamp)
+Item_CupriteIngot,Cuprite Ingot,Item,1,P1,n,~0.5x0.2x0.15 m,asset-modeler,planned,,mesh = Item_FerriteIngot + copper material
+Item_FerritePlate,Ferrite Plate,Item,1,P0,n,~0.5x0.5x0.05 m,asset-modeler,planned,,bevelled square plate with bolt holes
+Item_FerriteRod,Ferrite Rod,Item,1,P0,n,~0.8x0.1x0.1 m,asset-modeler,planned,,bundle of 3 rods with a band
+Item_Bolt,Bolts,Item,1,P1,n,~0.3x0.2x0.2 m,asset-modeler,planned,,small crate of bolts (Kit_Bolt instances)
+Item_Wire,Wire,Item,1,P1,n,~0.3 m dia,asset-modeler,planned,,copper wire spool; spool-family master mesh
+Item_Cable,Cable,Item,1,P1,n,~0.4 m dia,asset-modeler,planned,,insulated cable coil
+Item_Reefcrete,Reefcrete,Item,1,P1,n,~0.5x0.3x0.3 m,asset-modeler,planned,,pale coral-concrete block with shell flecks
+Item_RivetedPlate,Riveted Plate,Item,1,P1,n,~0.6x0.6x0.1 m,asset-modeler,planned,,two plates riveted together (Kit_RivetStrip)
+Item_Glass,Glass,Item,2,P1,n,~0.6x0.4x0.05 m,asset-modeler,planned,,smoky black-sand glass sheet in edge clips
+Item_KelpPulp,Kelp Pulp,Item,2,P1,n,~0.4x0.3x0.2 m,asset-modeler,planned,,pressed green brick; brick-family master mesh
+Item_Biofuel,Biofuel,Item,2,P1,n,~0.4x0.3x0.2 m,asset-modeler,planned,,mesh = Item_KelpPulp + dark tint + wrap band
+Item_Float,Float,Item,2,P1,n,~0.6x0.3x0.3 m,asset-modeler,planned,,sealed pontoon capsule (mini Belt_Pontoon)
+Item_Frame,Frame,Item,2,P1,n,~0.7x0.7x0.1 m,asset-modeler,planned,,riveted square frame
+Item_Lens,Lens,Item,2,P1,n,~0.4 m dia,asset-modeler,planned,,ground glass in a wire ring; cheap refraction material
+Item_CupriteSheet,Cuprite Sheet,Item,2,P1,n,~0.5x0.3 m roll,asset-modeler,planned,,rolled copper sheet
+Item_Rotor,Rotor,Item,2,P1,n,~0.5 m dia,asset-modeler,planned,,hub + 4 blades
+Item_KelpChar,Kelp Char,Item,3,P1,n,~0.5x0.4x0.2 m,asset-modeler,planned,,mesh = Item_BlackSand heap + charcoal-briquette material
+Item_SteelIngot,Steel Ingot,Item,3,P1,n,~0.5x0.2x0.15 m,asset-modeler,planned,,mesh = Item_FerriteIngot + blue-grey steel material
+Item_SteelBeam,Steel Beam,Item,3,P1,n,~1x0.2x0.2 m,asset-modeler,planned,,short I-beam
+Item_SteelPipe,Steel Pipe,Item,3,P1,n,~1x0.2 m,asset-modeler,planned,,pipe length from Kit_Pipe_Straight
+Item_Polymer,Polymer,Item,3,P1,n,~0.5x0.4x0.1 m,asset-modeler,planned,,stack of matte plastic sheets
+Item_Sealant,Sealant,Item,3,P1,n,~0.3x0.3x0.4 m,asset-modeler,planned,,lidded tub
+Item_TarFuel,Tar Fuel,Item,3,P1,n,fluid,material-artist,planned,,fluid: no belt mesh; amber-black fuel material
+Item_CircuitBoard,Circuit Board,Item,3,P1,n,~0.4x0.3x0.05 m,asset-modeler,planned,,copper traces on polymer; original layout
+Item_SealedCable,Sealed Cable,Item,3,P1,n,~0.4 m dia,asset-modeler,planned,,mesh = Item_Cable + black sealant sleeve + end caps
+Item_MastSegment,Mast Segment,Item,3,P1,n,~1x0.5x0.5 m,asset-modeler,planned,,mini lattice section; matches Tower_P3_AntennaMast
+Item_CrystalShard,Crystal Shard,Item,4,P1,n,~0.3x0.1x0.1 m,asset-modeler,planned,,cut prism of storm crystal
+Item_Oscillator,Oscillator,Item,4,P1,n,~0.3x0.2x0.2 m,asset-modeler,planned,,crystal in a tuning-fork housing
+Item_GlowGel,Glow Gel,Item,4,P1,n,~0.3 m,asset-modeler,planned,,sealed jar of glowing gel
+Item_LightCell,Light Cell,Item,4,P1,n,~0.4x0.2 m,asset-modeler,planned,,glowing capsule cell
+Item_PowerCell,Power Cell,Item,4,P1,n,~0.5x0.3x0.3 m,asset-modeler,planned,,4 Item_LightCell on a board
+Item_ControlModule,Control Module,Item,4,P1,n,~0.4x0.3x0.2 m,asset-modeler,planned,,boxed module with a small screen
+Item_HeavyFrame,Heavy Frame,Item,4,P1,n,~0.9x0.9x0.2 m,asset-modeler,planned,,Item_Frame scaled up + steel braces
+Item_Stator,Stator,Item,4,P1,n,~0.4 m dia,asset-modeler,planned,,wound copper ring in a steel shell
+Item_Motor,Motor,Item,4,P1,n,~0.5x0.3x0.3 m,asset-modeler,planned,,motor housing in Kit_GearHousing style
+Item_Resonator,Resonator,Item,5,P1,n,~0.4x0.3x0.3 m,asset-modeler,planned,,deep crystal in a tuning cage; hum + glow
+Item_DeepLens,Deep Lens,Item,5,P1,n,~0.4 m dia,asset-modeler,planned,,mesh = Item_Lens + deep-crystal veins
+Item_Medkit,Medkit,Item,1,P1,n,~0.4x0.3x0.15 m,asset-modeler,planned,,key story prop (P4 medkit choice); sits in Wreck_MedLocker; never on belts
+Tool_FPArms,First-person arms (Ishani),Tool,0,P1,y,-,asset-modeler,planned,,suit gloves + sleeves; skeletal; every tool attaches here; hold-to-craft + gather anims
+Tool_Multitool,Multitool (build tool),Tool,1,P1,y,~0.5 m,asset-modeler,planned,,build + dismantle tool; emissive projector nozzle; holster anim
+Tool_BuildHologram,Build hologram material,Tool,1,P0,n,-,material-artist,planned,,M_Hologram valid / invalid / dismantle states
+Tool_BuildMaterialiseFX,Materialise + dismantle FX,Tool,1,P0,n,-,vfx-artist,planned,,scan-in build effect + dismantle refund burst
+Tool_SalvageCutter,Salvage Cutter,Tool,1,P1,y,~0.6 m,asset-modeler,planned,,item SalvageCutter (not belt-carried); cutting beam + spark socket
+Tool_Scanner,Scanner,Tool,2,P1,y,~0.3 m,asset-modeler,planned,,item Scanner (not belt-carried); wrist unit; pulse in FX_ScannerPulse
+FX_ScannerPulse,Scanner pulse,Tool,2,P1,n,-,vfx-artist,planned,,expanding ring + node highlights (later trench vents + data cores)
+Tool_DiveMask,Dive Mask,Tool,2,P1,y,~0.3 m,asset-modeler,planned,,item DiveMask (not belt-carried); first-person mask rim + world pickup mesh; no oxygen (D4)
+Tool_GliderPack,Glider Pack,Tool,3,P1,y,~1x0.4 m,asset-modeler,planned,,item GliderPack (not belt-carried); folding wings on hinge pivots; Mk2 updraft trim
+Tool_ZiplineHarness,Zipline Harness,Tool,3,P1,y,~0.4 m,asset-modeler,planned,,item ZiplineHarness (not belt-carried); trolley rides power cables
+Tool_Beacon,Beacon,Tool,2,P1,n,~0.3x0.3x1 m,asset-modeler,planned,,item Beacon (not belt-carried); placeable marker light + compass icon
+FX_Pickup,Gather and pickup FX,Tool,1,P1,n,-,vfx-artist,planned,,hand-gather + salvage sparkle; glow-shell and data-core pickup
+Creature_Glimmer,Glimmer,Creature,2,P1,y,~1.2 m,asset-modeler,planned,,glowing fish-like people; skeletal; brightness from Trust + Ocean Health (S9); FB4 rescue-carry anim
+Creature_GlimmerElder,The Elder,Creature,2,P1,y,~2.5 m,asset-modeler,planned,,oldest Glimmer; larger with ornate glow; appears at Translator level 2
+Creature_GlimmerChild,Glimmer child (ill),Creature,4,P1,y,~0.6 m,asset-modeler,planned,,flickering-light ill state (BT_P4_03) + healthy state; grown version cameo in Ending B
+Creature_Hazard,Mild hazard (drifting stinger),Creature,2,P1,n,~1 m,asset-modeler,planned,,the one mild hazard; jelly-like drifter that stings and pushes back; species + name TBD by game-designer
+FX_GlimmerSwarm,Glimmer swarm + light path,Creature,2,P1,n,-,vfx-artist,planned,,distant Glimmer lights (count + brightness by GT/OH) and the P5 light-path guide
+Creature_ReefFish,Reef fish schools,Creature,1,P1,n,~0.2 m,asset-modeler,planned,,ambient passive schools (2-3 species); Niagara or ISM flocking
+Creature_Seabird,Seabirds,Creature,1,P2,n,~0.8 m span,asset-modeler,planned,,ambient flocks over the islands
+Creature_ShoreCrab,Shore crabs,Creature,1,P2,n,~0.2 m,asset-modeler,planned,,ambient beach scuttlers
+Wreck_HullPlate_A,Wreck hull plate A (flat torn),WreckKit,0,P0,n,~6x3x1.5 m,asset-modeler,planned,,the slice's wreck piece; half-buried torn plate; Paper Kite livery fragment
+Wreck_HullPlate_B,Wreck hull plate B (curved + windows),WreckKit,0,P1,n,~6x4x3 m,asset-modeler,planned,,curved fuselage panel with window frames
+Wreck_Shards,Wreck shard scatter,WreckKit,0,P1,n,~0.5-2 m,asset-modeler,planned,,small plates + shrapnel set for PCG scatter
+Wreck_Rib_A,Wreck rib arc,WreckKit,0,P1,n,~8x1x6 m,asset-modeler,planned,,exposed hull frame ribs; climbable silhouette
+Wreck_Rib_B,Wreck keel spine,WreckKit,0,P1,n,~12x1.5x2 m,asset-modeler,planned,,broken keel beam that links rib sets
+Wreck_Engine_Main,Wreck main engine,WreckKit,0,P1,y,~10x5x5 m,asset-modeler,planned,,torn engine nacelle; scorched nozzle; hero wreck piece
+Wreck_Engine_Thruster,Wreck thruster pods,WreckKit,0,P1,n,~2x2x2 m,asset-modeler,planned,,small RCS thrusters strewn on the reef
+Wreck_CargoPod_A,Wreck cargo pod (intact),WreckKit,0,P1,n,~4x2.5x2.5 m,asset-modeler,planned,,dented sealed pod; salvage target
+Wreck_CargoPod_B,Wreck cargo pod (burst),WreckKit,0,P1,n,~4x3x2.5 m,asset-modeler,planned,,burst open with spilled crates
+Wreck_Cockpit,Wreck cockpit section,WreckKit,0,P1,y,~6x5x4 m,asset-modeler,planned,,broken canopy; Ishani's seat; matches CIN_Crash_CockpitInterior
+Wreck_Galley,Wreck galley module,WreckKit,0,P1,y,~6x4x3 m,asset-modeler,planned,,where the Workbench table comes from; holds Wreck_MedLocker; tutorial step 2
+Wreck_MedLocker,Med locker,WreckKit,1,P1,n,~1x0.5x2 m,asset-modeler,planned,,first salvage of it gives the only medkit (BT_P1_02); door hinge pivot
+Wreck_DriveCore,Ship drive core,WreckKit,0,P1,y,~4x4x4 m,asset-modeler,planned,,Echo's mind runs here (D14); pulse glow; the final choice's energy source (P5 + endings)
+Wreck_SolarArray,Wreck solar array,WreckKit,1,P1,n,~4x2 m,asset-modeler,planned,,the 12 salvageable panels lying in the debris; source for SalvagedSolar
+Wreck_ScrapPile,Scrap piles,WreckKit,1,P1,n,~3x3x1.5 m,asset-modeler,planned,,hand-salvage piles (~25 scrap each; finite); 3 variants; shrink as salvaged
+Wreck_DataCoreCradle,Data-core cradle,WreckKit,1,P1,n,~1x1x1 m,asset-modeler,planned,,debris nest that holds Item_DataCore; blinking locator light; 14 placements
+Wreck_CableDebris,Torn cable debris,WreckKit,0,P1,n,~3 m,asset-modeler,planned,,torn cable + hose bundles on splines (reuse Kit_Hose)
+Wreck_Decals_PaperKite,Paper Kite livery decals,WreckKit,0,P1,n,-,material-artist,planned,,ship name + hull numbers + the kite emblem Neela drew (DC01); burn + salt overlays
+Wreck_SeabedDebris,Underwater debris field,WreckKit,0,P2,n,~20x10 m,environment-artist,planned,,debris trail through the reef underwater; reused in FB4
+Env_Ocean_Water,Ocean water,EnvKit,0,P0,n,2.5x2.5 km + horizon,material-artist,planned,,UE Water ocean material; turquoise lagoon to deep blue; golden-hour tuned
+Env_Ocean_Shoreline,Shoreline foam + wet sand,EnvKit,0,P0,n,coastline,material-artist,planned,,shore foam + wave-break band + wet-sand darkening; slice requirement
+Env_Ocean_Underwater,Underwater look,EnvKit,1,P1,n,-,material-artist,planned,,underwater post + caustics + particulates + god rays; dive-mask clear variant
+Env_Ocean_Murk,Ocean murk,EnvKit,3,P1,n,-,material-artist,planned,,Ocean Health darkening near polluters (S11 MPC) + oily sheen
+Env_Seabed,Seabed kit,EnvKit,1,P1,n,~4x4 m pieces,environment-artist,planned,,sand ripples + rubble + small rocks; shared by all shallow biomes
+Env_WildKelp,Wild glowkelp patches,EnvKit,1,P1,n,~2x2x3 m,environment-artist,planned,,hand-gather kelp (5 per pull) in every wet biome; sway WPO; night glow
+Env_DistantIslands,Distant island impostors,EnvKit,1,P2,n,horizon,environment-artist,planned,,horizon silhouettes / HLOD so the archipelago reads from any shore
+FX_Ambient,Ambient FX,EnvKit,0,P2,n,-,vfx-artist,planned,,sea spray + drifting motes + heat shimmer + falling leaves
+Node_OreVent_Ferrite,Ferrite ore vent,EnvKit,1,P0,n,~6x6x2 m,asset-modeler,planned,,rust-red vent in reef rock; Drill_Mk1 seats on it; purity by size + glow decal (impure/normal/pure)
+Node_OreVent_Cuprite,Cuprite ore vent,EnvKit,1,P1,n,~6x6x2 m,asset-modeler,planned,,mesh = Node_OreVent_Ferrite + green-streak material
+Node_LimeBed,Coral-lime bed,EnvKit,1,P1,n,~6x6x1 m,asset-modeler,planned,,pale dead-coral bed; drill seat
+Node_SandDune,Black-sand dune node,EnvKit,2,P1,n,~6x6x1.5 m,asset-modeler,planned,,glittering black dune between basalt columns; drill seat
+Node_KelpBed,Kelp bed node,EnvKit,1,P1,n,~8x8 m,asset-modeler,planned,,dense glowkelp patch on water; KelpHarvester floats on it
+Node_TarSeep,Tar seep,EnvKit,3,P1,n,~6x6x1 m,asset-modeler,planned,,smoking bubbling tar pool; TarPump seat; smoke + bubble FX
+Node_StormSpire,Storm-spire crystal node,EnvKit,3,P1,n,~6x6x4 m,asset-modeler,planned,,dormant crystal veins that wake with the Great Storm (BT_P3_04); drill seat
+Node_TrenchVent,Trench vent,EnvKit,5,P1,n,~8x8x3 m,asset-modeler,planned,,deep vent under the Glimmer reef; TrenchDrill seat; deep-blue glow
+Node_TidalRace,Tidal race,EnvKit,4,P1,n,~16x8 m channel,environment-artist,planned,,fast water channel between spires; flow FX + rock throat; TidalTurbine site
+Env_CrashReef_Ground,Crash Reef ground,EnvKit,0,P0,n,terrain,material-artist,planned,,coral sand + wet sand + reef rock + moss layers; slice requirement
+Env_CrashReef_Rock_A,Crash Reef boulders,EnvKit,0,P0,n,~1-6 m,environment-artist,planned,,weathered limestone boulders in 3 sizes; undercut at the waterline
+Env_CrashReef_Rock_B,Crash Reef shelves,EnvKit,0,P0,n,~8x6x1.5 m,environment-artist,planned,,flat reef shelves with tidal pools
+Env_CrashReef_Cliff_A,Crash Reef cliffs,EnvKit,0,P0,n,~20x8x12 m,environment-artist,planned,,modular limestone cliff with a wave notch; Nanite
+Env_CrashReef_SeaStack_A,Crash Reef sea stacks,EnvKit,0,P1,n,~10x10x25 m,environment-artist,planned,,eroded limestone stacks offshore
+Env_CrashReef_Coral_A,Branching coral,EnvKit,0,P0,n,~1.5x1.5x1 m,environment-artist,planned,,branching coral clumps; shallow-water colour pop
+Env_CrashReef_Coral_B,Table coral,EnvKit,0,P0,n,~2x2x0.8 m,environment-artist,planned,,plate/table coral
+Env_CrashReef_Coral_C,Fan coral,EnvKit,0,P1,n,~1x0.2x1.5 m,environment-artist,planned,,sea fans + whips with sway WPO
+Env_CrashReef_Tree_A,Crash Reef stilt tree,EnvKit,0,P0,n,~6x6x9 m,environment-artist,planned,,original stilt-rooted beach tree (tree layer of the PCG stack); wind WPO
+Env_CrashReef_Shrub_A,Crash Reef shrub A,EnvKit,0,P0,n,~2x2x1.5 m,environment-artist,planned,,broadleaf salt shrub (shrub layer)
+Env_CrashReef_Shrub_B,Crash Reef shrub B,EnvKit,0,P1,n,~1.5x1.5x1 m,environment-artist,planned,,flowering succulent bush
+Env_CrashReef_GroundCover_A,Beach grass,EnvKit,0,P0,n,~0.5 m clumps,environment-artist,planned,,tufted dune grass (ground-cover layer)
+Env_CrashReef_GroundCover_B,Creeping vine mat,EnvKit,0,P0,n,~1 m patches,environment-artist,planned,,sand-binding creeper with small flowers
+Env_CrashReef_Scatter,Beach scatter,EnvKit,0,P0,n,~0.1-1 m,environment-artist,planned,,shells + pebbles + coral rubble + driftwood
+Env_CrashReef_Landmark,Paper Kite tail (landmark),EnvKit,0,P1,y,~12x8x30 m,asset-modeler,planned,,the ship's tail fin standing on the reef with a blinking beacon; built from WreckKit parts
+Env_BlackSands_Ground,Black Sands ground,EnvKit,2,P1,n,terrain,material-artist,planned,,black volcanic sand with glitter + ash + wet beach
+Env_BlackSands_Rock_A,Basalt boulders,EnvKit,2,P1,n,~1-5 m,environment-artist,planned,,vesicular basalt boulders
+Env_BlackSands_Cliff_A,Basalt column cliffs,EnvKit,2,P1,n,~16x8x20 m,environment-artist,planned,,modular hexagonal columns (cliff + steps)
+Env_BlackSands_SeaStack_A,Basalt sea stacks,EnvKit,2,P1,n,~8x8x25 m,environment-artist,planned,,column stacks offshore
+Env_BlackSands_Foliage_A,Ash shrubs,EnvKit,2,P1,n,~1.5 m,environment-artist,planned,,hardy dark-leaf shrubs
+Env_BlackSands_GroundCover_A,Lichen + ash moss,EnvKit,2,P1,n,~0.5 m,environment-artist,planned,,orange lichen + ash moss mats
+Env_BlackSands_Landmark,Black Sands landmark (steaming cone),EnvKit,2,P1,y,~120 m wide,environment-artist,planned,,dormant volcanic cone with a steam plume visible from the Crash Reef
+Env_KelpShallows_Ground,Kelp Shallows ground,EnvKit,2,P1,n,terrain,material-artist,planned,,pale sand bars + shallow-water tint + seagrass blend
+Env_KelpShallows_Rock_A,Kelp-draped rocks,EnvKit,2,P1,n,~1-5 m,environment-artist,planned,,rounded rocks with hanging kelp
+Env_KelpShallows_SeaStack_A,Rock islets,EnvKit,2,P1,n,~10x10x8 m,environment-artist,planned,,low rock islets between sandbars
+Env_KelpShallows_Kelp_A,Giant glowkelp stalks,EnvKit,2,P1,n,~2x2x15 m,environment-artist,planned,,towering stalks above water; sway WPO; night glow
+Env_KelpShallows_Coral_A,Soft corals + anemones,EnvKit,2,P1,n,~1 m,environment-artist,planned,,soft glowing corals
+Env_KelpShallows_GroundCover_A,Seagrass meadow,EnvKit,2,P1,n,~1 m patches,environment-artist,planned,,underwater seagrass + surface kelp mats
+Env_KelpShallows_Landmark,Kelp Cathedral (landmark),EnvKit,2,P1,y,~60x60x50 m,environment-artist,planned,,ring of giant kelp spires arching over a lagoon; first Glimmer sighting
+Env_TarShelves_Ground,Tar Shelves ground,EnvKit,3,P1,n,terrain,material-artist,planned,,dark shelf rock + tar stains + salt crust
+Env_TarShelves_Rock_A,Shelf blocks,EnvKit,3,P1,n,~2-6 m,environment-artist,planned,,layered sedimentary blocks
+Env_TarShelves_Cliff_A,Stepped shelf cliffs,EnvKit,3,P1,n,~20x8x10 m,environment-artist,planned,,terraced strata cliffs
+Env_TarShelves_SeaStack_A,Shelf stacks,EnvKit,3,P1,n,~8x8x18 m,environment-artist,planned,,flat-topped strata stacks
+Env_TarShelves_Foliage_A,Tar reeds,EnvKit,3,P1,n,~2 m,environment-artist,planned,,tar-tolerant reeds + mangrove-like roots
+Env_TarShelves_GroundCover_A,Black algae mats,EnvKit,3,P1,n,~1 m,environment-artist,planned,,algae mats + salt crust
+Env_TarShelves_Landmark,The Chimney (landmark),EnvKit,3,P1,y,~20x20x60 m,environment-artist,planned,,tall natural tar-vent pillar with a constant smoke column
+Env_StormSpires_Ground,Storm Spires ground,EnvKit,4,P1,n,terrain,material-artist,planned,,wet dark rock + salt + crystal glints
+Env_StormSpires_Rock_A,Spire rubble,EnvKit,4,P1,n,~1-5 m,environment-artist,planned,,fractured rubble + glassy fulgurites
+Env_StormSpires_Cliff_A,Sea cliffs,EnvKit,4,P1,n,~20x10x40 m,environment-artist,planned,,tall vertical sea cliffs
+Env_StormSpires_Spire_A,Sea spires,EnvKit,4,P1,n,~15x15x40-120 m,environment-artist,planned,,modular tall spires (the biome's sea stacks)
+Env_StormSpires_Foliage_A,Wind-bent shrubs,EnvKit,4,P1,n,~1.5 m,environment-artist,planned,,wind-bent shrubs + cliff grass
+Env_StormSpires_GroundCover_A,Spire lichen,EnvKit,4,P1,n,~0.5 m,environment-artist,planned,,lichen + salt crust patches
+Env_StormSpires_CrystalVein,Crystal veins,EnvKit,4,P1,n,~2-6 m,environment-artist,planned,,storm-crystal veins + clusters for dressing
+Env_StormSpires_Landmark,Crowned Spire (landmark),EnvKit,4,P1,y,~30x30x150 m,environment-artist,planned,,tallest spire with a crystal crown that draws lightning
+Env_GlimmerDeep_Ground,Glimmer Deep ground,EnvKit,5,P1,n,terrain,material-artist,planned,,ring-reef sand + bioluminescent algae; healthy / dark states for the endings
+Env_GlimmerDeep_Rock_A,Glow-veined reef rock,EnvKit,5,P1,n,~1-6 m,environment-artist,planned,,ring-reef rock with glow veins
+Env_GlimmerDeep_Cliff_A,Trench walls,EnvKit,5,P1,n,~20x10x40 m,environment-artist,planned,,trench walls under the ring reef
+Env_GlimmerDeep_Coral_A,Bioluminescent coral,EnvKit,5,P1,n,~2 m,environment-artist,planned,,glowing branch coral; reused bright in FB4
+Env_GlimmerDeep_Coral_B,Glow tubes + anemones,EnvKit,5,P1,n,~1 m,environment-artist,planned,,glow tube worms + anemones
+Env_GlimmerDeep_GroundCover_A,Glow seagrass,EnvKit,5,P1,n,~1 m,environment-artist,planned,,glowing seagrass + algae mats
+Env_GlimmerDeep_Dwelling_A,Glimmer dwellings,EnvKit,2,P1,y,~4-10 m,environment-artist,planned,,coral-pod homes + lantern nests; first seen near the Glimmer reef in P2; reused in Ending B
+Env_GlimmerDeep_Landmark,The Ring Reef (landmark),EnvKit,5,P1,y,~300 m ring,environment-artist,planned,,glowing atoll ring with the Elder's great lantern coral at its centre; visible at night
+Sky_AtmosphereClouds,Sky atmosphere + clouds,Sky,0,P0,n,-,material-artist,planned,,sky atmosphere + volumetric clouds; golden-hour tune for the slice; day/night ready
+Sky_RingedPlanet,Ringed planet,Sky,0,P0,n,-,material-artist,planned,,the big ringed planet in the sky; slice requirement; night-side variant
+Sky_NightStars,Night sky,Sky,1,P1,n,-,material-artist,planned,,stars + galaxy band; Earth's sun marked for messages home
+Sky_Moons,Small moons,Sky,1,P2,n,-,material-artist,planned,,two small moons for night variety
+Sky_StormClouds,Storm cloud deck,Sky,3,P1,n,-,material-artist,planned,,low storm deck for the Great Storm (P3) + recurring Storm Spires storms (P4)
+FX_Weather_Rain,Rain + spray,Sky,3,P1,n,-,vfx-artist,planned,,rain sheets + sea spray + wet-surface hook
+FX_Weather_Lightning,Lightning,Sky,3,P1,n,-,vfx-artist,planned,,bolts + strike flash + rod hit + crystal birth at strike points
+FX_Weather_Fog,Sea fog banks,Sky,4,P2,n,-,vfx-artist,planned,,low fog around the Storm Spires; depth cue
+FB1_Kitchen,FB1 Count My Fish: kitchen,FlashbackSet,1,P1,y,~5x4 m room,environment-artist,planned,,rainy-evening kitchen; table + laptop + Neela's fish drawing; rain-streaked window
+FB2_Stairs,FB2 You Always Leave: stairs,FlashbackSet,2,P1,y,~4x6 m hall,environment-artist,planned,,night landing + stairs outside Neela's room; door slam (hinge pivot); shares house kit with FB1
+FB3_Street,FB3 The Blue Light: street,FlashbackSet,3,P1,y,~60x15 m street,environment-artist,planned,,suburban street at launch morning; Neela runs barefoot after the car
+FB3_Car,FB3 family car,FlashbackSet,3,P1,y,~4.5x1.8x1.5 m,asset-modeler,planned,,original family car; doors + wheels with pivots
+FB4_SkyFire,FB4 Sky Fire: Glimmer memory,FlashbackSet,4,P1,y,reuses biomes,environment-artist,planned,,bright healthy reef (Glimmer Deep kit) + falling Paper Kite + burning wreck + carry to the island; Translator grade
+FB5_Garage,FB5 The Garage,FlashbackSet,5,P1,y,~6x6 m room,environment-artist,planned,,night garage; old laptop + workbench + tools + doorway where Ishani watches
+FB_Drawings,Neela's flashback drawings,FlashbackSet,1,P1,n,-,ui-artist,planned,,original child drawings: 6 fish (FB1) + little ship with a blue light (FB3); reused at the end
+FB_PostGrade,Memory grade,FlashbackSet,1,P1,n,-,material-artist,planned,,warm soft grade + film grain + letterbox; Translator-tinted variant for FB4
+Char_Ishani,Ishani (cinematic),Cinematic,0,P1,y,1.8 m,asset-modeler,planned,,skeletal; home clothes (FB1-3 + FB5) + work suit (crash + FB4 + endings); fallback painted stills (S5)
+Char_Neela_Child,Neela age 7-10,Cinematic,1,P1,y,1.2-1.4 m,asset-modeler,planned,,one rig scaled for ages 7 / 9 / 10 (FB1-FB3)
+Char_Neela_Teen,Neela age 13,Cinematic,E,P1,y,1.55 m,asset-modeler,planned,,Ending A reunion on Earth
+Char_Neela_Adult,Neela adult engineer,Cinematic,E,P1,y,1.7 m,asset-modeler,planned,,Ending B landing; flight suit echoing Ishani's
+Char_Ravi,Ravi,Cinematic,5,P1,y,1.8 m,asset-modeler,planned,,FB5 only (plus photo prop in DC08)
+CIN_Prologue_Crash,Prologue sequence: the crash,Cinematic,0,P1,n,-,narrative-designer,planned,,Sequencer shot list + timing (BT_P0_01); uses CIN_Crash_CockpitInterior + CIN_PaperKite_Intact + FX_Crash
+CIN_Crash_CockpitInterior,Paper Kite cockpit interior (intact),Cinematic,0,P1,y,~5x4x3 m,environment-artist,planned,,alarms + red strobes + fire; matches Wreck_Cockpit
+CIN_PaperKite_Intact,Paper Kite (intact ship),Cinematic,0,P1,y,~60 m long,asset-modeler,planned,,exterior for the prologue and FB4's fall; the WreckKit is its broken form
+FX_Crash,Crash fire + impact,Cinematic,0,P1,n,-,vfx-artist,planned,,fire + sparks + smoke trail + ocean rushing up + wreck fires that smoulder into P1
+CIN_Transmission,Transmission sequence,Cinematic,1,P1,n,-,narrative-designer,planned,,per-phase shot plan: section grows + beam + message VO (S4); one variant per tower section
+FX_TransmissionBeam,Transmission beam,Cinematic,1,P1,n,-,vfx-artist,planned,,beam into the sky + sky ripple; grows stronger per phase; quiet nightly signal in Ending B
+CIN_GreatStorm,Great Storm sequence,Cinematic,3,P1,n,-,narrative-designer,planned,,BT_P3_04 scripted storm staging; uses Sky_StormClouds + FX_Weather_* + FX_StormDamage
+FX_StormDamage,Storm damage FX,Cinematic,3,P1,n,-,vfx-artist,planned,,belts snapping + power-fail flicker + spark showers + wave surges
+CIN_Flashbacks,Flashback sequences FB1-FB5,Cinematic,1,P1,n,-,narrative-designer,planned,,five Sequencer flashbacks + painted-still fallback shot list (S5)
+CIN_EndA_Home,Ending A sequence: Home,Cinematic,E,P1,n,-,narrative-designer,planned,,capsule launch + reef goes dark + Earth reunion + telescope shot; GT variant (Glimmers watch)
+FX_EndA_Launch,Drive-core overload + launch,Cinematic,E,P1,n,-,vfx-artist,planned,,capsule launch from LanderHub_S10 + shockwave + the reef's glow going out
+CIN_EndA_PlanetFromOrbit,Blue from orbit,Cinematic,E,P1,n,-,material-artist,planned,,ocean planet seen while rising; blue glow fades below
+END_A_EarthHome,Ending A Earth home,Cinematic,E,P1,y,~20x20 m,environment-artist,planned,,arrival yard + night room with a telescope; reuses the FB1/FB2 house kit
+END_A_TelescopeImage,Ending A telescope picture,Cinematic,E,P1,n,-,ui-artist,planned,,final shot: telescope image where Blue used to shine
+CIN_EndB_BlueLight,Ending B sequence: The Blue Light,Cinematic,E,P1,n,-,narrative-designer,planned,,ocean lights up + last message + years pass + Neela lands; OH / GT / C_MEDKIT variants
+FX_EndB_OceanLights,Ocean lights up,Cinematic,E,P1,n,-,vfx-artist,planned,,whole ocean blooms with light; Glimmers revive and sing
+END_B_GlowTown,Ending B glowing town,Cinematic,E,P1,y,~400x400 m,environment-artist,planned,,years later: the factory as a clean glowing town shared with the Glimmers; size scales with OH
+END_B_NeelaShip,Neela's ship,Cinematic,E,P1,y,~25 m long,asset-modeler,planned,,the ship that follows the signal and lands; landing legs + ramp pivots
+UI_Fonts,UI fonts,UI,0,P1,n,-,ui-artist,planned,,display + body + stencil fonts; licence must be CC0 or CC-BY (AgentRules 4)
+UI_Logo,Blue Signal logo,UI,0,P1,n,-,ui-artist,planned,,original title logo; also used on Kit_Decals
+UI_MainMenu,Main menu + pause + settings,UI,0,P1,n,-,ui-artist,planned,,menus + graphics tiers + controls + save slots
+UI_KeyArt,Key art + loading screens,UI,0,P2,n,-,ui-artist,planned,,painted key art for menu + loading
+UI_HUD,HUD,UI,1,P1,n,-,ui-artist,planned,,crosshair + prompts + hotbar + compass + toasts + autosave mark
+UI_Subtitles,Subtitles + speaker tags,UI,0,P1,n,-,ui-artist,planned,,speaker colours; Echo voice mark + cold text-only mode (S2/S3)
+UI_ItemIcons,Item icons,UI,1,P1,n,-,ui-artist,planned,,one icon per item (58) rendered from item meshes; fluids from their materials
+UI_BuildableIcons,Buildable icons,UI,1,P1,n,-,ui-artist,planned,,one icon per buildable (54) rendered from final meshes
+UI_BuildMenu,Build menu,UI,1,P1,n,-,ui-artist,planned,,categories + costs + hologram hints
+UI_Inventory,Inventory + crafting,UI,1,P1,n,-,ui-artist,planned,,inventory grid + Workbench / Suit Fabricator hold-to-craft
+UI_MachinePanel,Machine panel,UI,1,P1,n,-,ui-artist,planned,,recipe choice + per-minute rates + standby + glow-shell overclock
+UI_HubTerminal,Hub milestone terminal,UI,1,P1,n,-,ui-artist,planned,,tiers + costs + unlock cards; also the pod's in-world screen
+UI_TowerDelivery,Tower delivery list,UI,1,P1,n,-,ui-artist,planned,,per-phase requirements + progress; burner/clean variant in P4
+UI_PowerGrid,Power grid,UI,1,P1,n,-,ui-artist,planned,,grid load + fuse trip/reset + battery state
+UI_Journal,Ishani's journal,UI,1,P1,n,-,ui-artist,planned,,log pages stamped with the in-game day (S14) + data-core memories
+UI_DrawingCount,Drawing count,UI,1,P1,n,-,ui-artist,planned,,Fish API picture on drawing paper + count input + reply framing (S6)
+UI_FishApiFallback,Fish API fallback pictures,UI,1,P1,n,-,ui-artist,planned,,~24 original fish + chest pictures T_Fish_F#_C# for offline play (D11)
+UI_DataCore,Data-core playback,UI,1,P1,n,-,ui-artist,planned,,voice-memory player + alternate-recipe pick (S12)
+UI_ToDoList,To-do list,UI,1,P1,n,-,ui-artist,planned,,pinned recipes + delivery goals
+UI_Translator,Translator screen,UI,2,P1,n,-,ui-artist,planned,,Glimmer picture-words + text reveal by Translator level (S7)
+UI_GlimmerGlyphs,Glimmer glyph set,UI,2,P2,n,-,ui-artist,planned,,decorative glyph alphabet for the Translator + Glimmer structures
+UI_TradeBuoy,Trade + pearl shop,UI,2,P1,n,-,ui-artist,planned,,trade contracts + pearl shop
+UI_TideLab,Research trees,UI,2,P1,n,-,ui-artist,planned,,kelp / glass / pearl / storm trees + data-core decode
+UI_PaintCustomiser,Paint customiser,UI,2,P1,n,-,ui-artist,planned,,swatch picker for Kit_PaintSwatches
+UI_ProductionStats,Production stats,UI,2,P2,n,-,ui-artist,planned,,per-minute graphs
+UI_ChoicePrompt,Choice prompt,UI,4,P1,n,-,ui-artist,planned,,2 options + hold to confirm + no timer (S8)
+UI_PhotoMode,Photo mode,UI,1,P2,n,-,ui-artist,planned,,camera controls + frames
+UI_Credits,End credits,UI,E,P1,n,-,ui-artist,planned,,credits roll incl. Credits.md third-party lines
