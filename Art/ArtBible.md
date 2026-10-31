@@ -15,7 +15,7 @@
 3. **Life.** What works moves, glows, steams and sounds. Idle and blocked are visible too (amber/orange lamp,
    a steam wisp, parts at rest). Nothing working is ever static.
 4. **Scale contrast.** Player 180 cm, machines 4-14 m, nature 30-300 m (kelp 30-50 m, sea stacks 80-180 m,
-   arches, a 1 km ring reef), and a ringed giant filling a quarter of the sky.
+   arches, a 300 m ring reef), and a ringed giant filling a quarter of the sky.
 5. **Story in the surfaces.** Tier 1 is salvage: mismatched hull plates in the wreck's white/red livery, weld
    beads, patch plates, heavy salt and rust. Each tier gets cleaner and more confident (§5.4 wear table). Near
    the waterline everything carries salt crust and rust streaks. The dirty-power path stains the sea (§6.7).
@@ -75,7 +75,7 @@ paint (amber on yellow vanishes). Factory light is teal/yellow; nature's light i
 ### 4.2 Ports (bslib `PORT_HEIGHT`)
 - Port point (`loc_cm`) = belt centreline at the **running surface, Z = 100 cm**, on the footprint edge, yaw
   facing out. Inputs on -X or the sides, outputs on +X. Solid and fluid ports share the 100 cm centre.
-- **Port frame** (`Kit_PortFrame`): outer 190 x 150 cm (Z 40-190), opening 150 x 110 cm (Z 60-170), frame 20 cm
+- **Port frame** (`Kit_PortFrame_Belt` / `_Pipe`): outer 190 x 150 cm (Z 40-190), opening 150 x 110 cm (Z 60-170), frame 20 cm
   thick, 30 cm deep, 5 cm emissive inner rim (`Port_In` blue / `Port_Out` orange), stencilled `IN`/`OUT` chevron
   on the lintel, black rubber strip curtain in the opening. Fluid port: Ø80 cm flange on a Ø50 cm stub, same rim
   colours as a ring. Belt: 100 cm running surface, 130 cm outer, 30 cm deep body under the surface.
@@ -88,7 +88,7 @@ paint (amber on yellow vanishes). Factory light is teal/yellow; nature's light i
   No collision, no children, no intersection with the body over the full range (check both extremes).
   Moving parts <= 30% of the machine's triangles. Rates are at 100% clock; the engine scales them.
 ### 4.4 Status light
-`StatusLight` part on `Emissive_Status`: lamp >= 30 x 30 cm in a dark bezel, top-front corner at >= 250 cm,
+`StatusLight` part = `Kit_StatusLight` (caged beacon, lens >= 30 cm, `Emissive_Status`, dark bezel), top-front corner >= 250 cm,
 visible from the front and both sides (XL machines: two). States, colours and blink: §3 + Tech §5 table.
 ### 4.5 Required detail (from `ArtSource/Kit/`, never re-modelled per asset)
 Bare-metal frame, rubber hoses + gaskets, bolts/rivets, grilles/vents, a maintenance hatch, ladder + railing
@@ -148,7 +148,8 @@ volume (grade), fog, a PCG foliage set, one landmark visible from 1 km, ambient 
   green `#6E9A4A`, wreck livery. Fog `#BFE3E6`, thin, strong height falloff.
 - Foliage: beach vine + coral rubble (ground), stilt-root screw pines and salt bushes (mid), 12-18 m fan-leaf
   "kite palms" (tall); underwater branching coral, brain-coral domes, sea grass, giant clams.
-- Landmark: the *Paper Kite*'s broken hull (60 m) nose-up on the reef edge, visible from the Hub.
+- Landmark `Env_CrashReef_Landmark`: the *Paper Kite*'s 30 m tail fin standing on the reef (WreckKit parts),
+  red beacon blinking, visible from the Hub; the broken hull lies scattered around it.
 - VFX: reef-crest foam lines, drifting spray, caustics, fish schools, wreck smoke wisps (until the Hub is built).
 - Audio: lagoon lapping, distant reef surf, hull creaks, wind in palms, alien bird calls.
 - Noon: saturated turquoise, crisp shadows. Golden: peach key `#FFB27A`, pink cloud bellies, teal-gold water.
@@ -157,7 +158,8 @@ volume (grade), fog, a PCG foliage set, one landmark visible from 1 km, ambient 
 - Palette: black sand `#1F1F22`, wet basalt `#2A2D30`, column grey `#3B3E42`, lichen `#7A8A6A`, sulphur `#C9A24A`.
   Fog `#9FA9B0` cool sea mist, rolling.
 - Foliage: black moss cushions, silver dune grass, red-tipped "ember ferns"; lichen decals on the columns.
-- Landmark: **the Organ**, a 120 m basalt-column cliff with a sea cave that booms with every wave.
+- Landmark `Env_BlackSands_Landmark`: a dormant 120 m cone with a steam plume seen from the Crash Reef; its
+  seaward flank breaks into basalt columns and a sea cave that booms with every wave.
 - VFX: steam vents with heat haze, surf bursts on column steps, sand glints.
 - Audio: cave booms, pebble backwash, vent hiss, wind.
 - Noon: black sand is the dark value anchor (machines pop). Golden: grazing light rims the hexagon tops.
@@ -166,7 +168,7 @@ volume (grade), fog, a PCG foliage set, one landmark visible from 1 km, ambient 
 - Palette: kelp olive-gold `#8A7A2E` (backlit `#B39B3A`), water green-teal `#2E8C86`, sand `#CDBF98`, Glimmer
   Blue. Fog `#A9D6CF` above, `#1E6A6A` underwater.
 - Foliage: giant kelp 30-50 m with float bladders and surface canopy mats, sea palms on rocks, eelgrass, kelp rafts.
-- Landmark: **the Kelp Cathedral**, a ring of 60 m kelp towers around a deep pool.
+- Landmark `Env_KelpShallows_Landmark`, **the Kelp Cathedral**: 50-60 m kelp spires arching over a lagoon.
 - VFX: god rays through the canopy, particulates, bubbles, drifting fronds, Glimmer flickers at dusk.
 - Audio: muffled swell, kelp creak, water slapping floats, distant Glimmer tones.
 - Noon: dappled light. Golden: kelp glows amber. Night: Glimmer lights moving between stalks (first sighting).
@@ -174,7 +176,8 @@ volume (grade), fog, a PCG foliage set, one landmark visible from 1 km, ambient 
 - Palette: limestone shelf `#B5AA92`, tar `#1A1512` with a thin-film oil sheen, algae rust `#8A5A2B`, drop-off
   blue `#13406B`. Fog `#C9C2B0` warm haze, denser over the seeps.
 - Foliage: sea fans, tube sponges, salt scrub; bleached coral patches near the seeps.
-- Landmark: **the Black Mirror**, a 200 m tar pool with a smoking seep cone at the shelf's edge.
+- Landmark `Env_TarShelves_Landmark`, **the Chimney**: a 60 m tar-vent pillar with a constant smoke column,
+  standing in a 200 m tar pool at the shelf edge.
 - VFX: tar bubbles and burps, oily sheen, smoke plumes, heat shimmer, the "sea darkens" layer (BT_P3_02).
 - Audio: tar bubbling, flat wind, distant whale-like calls.
 - Noon: flat, bleached. Golden: rainbow sheen, smoky orange sky. Night: seep embers, almost no plankton.
@@ -182,19 +185,114 @@ volume (grade), fog, a PCG foliage set, one landmark visible from 1 km, ambient 
 - Palette: slate `#4A4F55`, wet stone `#2F3338`, stack-top grass `#5E7A4E`, storm crystal `#C9B8FF` (emissive),
   storm sky `#3A4250`. Fog `#6E7A86`, dense and low, with rain.
 - Foliage: wind-bent "spire pines" (6-10 m) on stack tops, tussock, sea thrift; crystal clusters (PCG, not foliage).
-- Landmark: **the Needle**, a 180 m sea stack with an arch at its foot and a crystal crown that draws lightning.
+- Landmark `Env_StormSpires_Landmark`, **the Crowned Spire**: a 150 m sea stack with an arch at its foot and a
+  crystal crown that draws lightning.
 - VFX: rain, lightning + flash, spray blasting up the cliffs, spindrift, crystal charge arcs.
 - Audio: gale, thunder, rain, surf on cliffs, crystal hum.
 - Noon (between storms): cold clean light, towering cumulus. Golden: storm break, god rays, a rainbow.
   Night: lightning-lit; the crystals glow violet.
-### 6.6 Glimmer Deep (P5) — R073-R078
+### 6.6 Glimmer Deep (P5) — R073-R080, R106-R108
 - Palette: deep water `#0B2A4A`, ring-reef coral `#D9D2C0`, Glimmer Blue / Violet / Pearl, vent-orange accents.
   Fog `#1F3C5E` above, `#0A1E33` underwater.
 - Foliage: glowing coral fans, tube-worm forests (red plumes) at vents, glowing anemones, pearl clams, sea lilies.
-- Landmark: **the Ring**, a 1 km circular atoll around a blue hole, trench vents glowing at its centre.
+- Landmark `Env_GlimmerDeep_Landmark`, **the Ring Reef**: a 300 m glowing atoll around a blue hole, the
+  Elder's great lantern coral at its centre, trench vents glowing below.
 - VFX: plankton glow in every wave, Glimmer schools, rising light motes, vent shimmer.
 - Audio: Glimmer choir tones, deep hum, gentle swell, vent rumble.
 - Noon: deep saturated blue against a white atoll. Golden: violet-pink sky. Night: the showcase; everything glows.
 ### 6.7 Ocean Health (all biomes)
 `MPC_World.OceanHealth` (1 clean, 0 dark) lerps water absorption toward Murk `#4A5A3A`, cuts plankton and Glimmer
 glow, desaturates coral and adds tar sheen near dirty factories. It must read at a glance from a cliff top.
+
+## 7. Sky, light, post (owner: lighting-tech) — R083-R088
+- **Sky Atmosphere** tinted a touch greener than Earth (zenith `#3D7FD0`, horizon `#BFE6F0`), strong Mie halo for
+  sea haze. **Volumetric Clouds**: trade-wind cumulus by default, a low storm deck in the Storm Spires.
+- **`Sky_RingedPlanet` "Halo"**: a banded teal-and-cream gas giant, 22 deg across, rings sweeping ~70 deg of sky,
+  always above the eastern horizon. Day: pale and soft. Night: its lit side + ring-shine (`#9DB7E0`) is the
+  moonlight. Two small moons (`Sky_Moons`). The only 4K textures in the game (planet 4K, ring strip 4K x 256).
+- **Day/night:** a full cycle (length owned by design; default 40 min). Golden hour = sun < 12 deg: key `#FFB27A`,
+  long shadows, rim light on machines; it is the hero time of day and lasts >= 4 min each way.
+- **Night is never black:** ring-shine + plankton + Glimmers + factory lights. `Kit_WorkLight` floods are warm
+  `#FFD9A0` (4000 K); machine lamps follow §3. MegaLights where the tier allows (§11), else emissive + few real lights.
+- **Exposure:** clamped auto exposure per biome PPV (min/max EV100 within 2 stops); no adaptation pumping > 1 EV.
+- **Post:** per-biome grade (saturation +-10% max, no heavy LUTs), subtle bloom, chromatic aberration 0, motion
+  blur 0 (player option), grain 0. **Flashbacks only:** warm grade, grain 0.3, 2.39:1 letterbox, soft vignette.
+- **Underwater** (`M_PP_Underwater`): depth absorption toward the biome's underwater fog, caustics on the seabed,
+  god rays, particulates. Water: UE Water bodies + Single Layer Water + shoreline foam (`Env_Ocean_*`).
+
+## 8. VFX (Niagara, owner: vfx-artist)
+Systems = manifest `FX_*` ids, assets `NS_<Id>`: Machine_Sparks (smelter embers), Machine_Steam (+ heat haze),
+Machine_Impact (press dust + sparks), Drill_Debris, Burner_Smoke, Power_Spark, Tool_BuildMaterialiseFX
+(scan-line dissolve 0.8 s machines / 0.4 s structures + teal motes; reverse 0.5 s), ScannerPulse, Pickup,
+Weather_Rain / Lightning / Fog, StormDamage, GlimmerSwarm, Ambient (spray, foam, plankton, bubbles,
+particulates, motes), Skiff_Wake, Crash, **TransmissionBeam** (the payoff shot of every phase: teal core,
+expanding rings up through the clouds, sky flash), EndA_Launch, EndB_OceanLights.
+- Factory VFX are white/warm/teal; nature VFX are blue/violet; dirty-power smoke is brown-black.
+- CPU sim < 200 particles, GPU above. Work VFX obey significance (Tech §5: 40 working NS, S1 at Niagara Low).
+- Gameplay-critical VFX (materialise, dismantle, lightning warning, fuse trip, transmission beam) exist on every tier.
+
+## 9. UI and icons (owner: ui-artist) — R101-R105
+- Panels: dark translucent `#0E1620` at 82%, 1 px inner line `#FFFFFF14`, 6 px radius with one 12 px chamfered
+  corner (our signature), Beacon Yellow = focus/selection, Signal Teal = info/progress, status colours from §3.
+- Type: Barlow (body 16-18 px at 1080p, min 14), Barlow Condensed SemiBold caps for headers and rates,
+  Big Shoulders Stencil only for titles and big numbers. Text contrast >= 4.5:1.
+- Colour never works alone: status also has a shape (check / pause bars / jam chevrons / lightning bolt), and
+  blink rates differ (§3) so green/amber/orange read for colour-blind players. Safe area 5%.
+- Skye's drawings (Fish API pictures) show on paper with tape and a pencil count box; Glimmer glyphs are rounded
+  2-3 px glowing strokes in Glimmer Blue.
+- **Icon studio** (`L_IconStudio`): camera yaw 35 deg (front-left), pitch -25 deg, FOV 20 deg, object fills 80%
+  of the frame, soft 5500 K key top-left, 30% fill, teal rim back-right, no ground, transparent background,
+  512 px PNG -> `T_Icon_<Id>` (UI group, no mips). Same rig for items and buildables; never hand-drawn stand-ins.
+
+## 10. Budgets, naming, folders
+| Class (manifest category) | Triangles (Nanite source) | Textures | Collision (simple, hand-made) |
+|---|---|---|---|
+| Hero (`SignalTower`, `LanderHub`, `Manufactory`, landmarks) | <= 1M | trims + atlas; unique 2K set only if the card says | boxes/convex <= 16 |
+| Machine / Extractor / Power | <= 400k (moving parts <= 30%) | trims + atlas, no unique | boxes/convex <= 12, Body part only |
+| Structure (`Foundation`, `Wall`, `Ramp`...) | <= 60k | trims | 1 box (ramp/stairs: 1-2 convex) |
+| Logistics (`Splitter`, `PowerPole`...) | <= 50k; belt/cable segment <= 3k + 2 LODs | trims | boxes; belts query-only |
+| Kit piece (`Kit_*`) | <= 10k (bolt <= 300) | trims | none (host provides) |
+| Item (`Item_*`, belt + hand) | <= 3k | shared 1K atlas per family | none |
+| Prop / wreck piece | <= 50k (wreck hero <= 200k) | 1K | convex <= 8 |
+| Rock / cliff / stack | <= 500k (landmark <= 2M) | `M_Rock_Master` triplanar, 2K | convex <= 32 |
+| Foliage | tree <= 150k, bush <= 30k, ground cover <= 3k | 1K (2K atlas per biome) | trunks only |
+| Creature (`SK_`) / cinematic character | <= 30k / <= 80k | 1K / 2K | capsule |
+- **Nanite** on every opaque static mesh, foliage included (geometry leaves, no masked cards). Not Nanite:
+  translucent, the `Decals` part, skeletal meshes, belt splines if `r.Nanite.AllowSplineMeshes` fails (Tech §2).
+- **Names:** `SM_ SK_ M_ MI_ MF_ T_*_BC/_N/_ORM NS_ BP_ DT_ DA_ WBP_ MPC_ PCG_ L_`. Asset names use the manifest
+  id: `SM_<Id>_<Part>` (bslib: `mesh_name` + part, e.g. `SM_Smelter_Body`, `SM_Smelter_Drum`), `DA_<Id>_Visual`.
+- **Folders:** `/Game/Blue/Art/<Category>/<Id>/` (Category = manifest category: Machine, Extractor, Power,
+  Logistics, Structure, Special, Kit, Wreck, Env/<Biome>, Item, Tool, Creature, Sky, VFX);
+  `/Game/Blue/Art/Materials/{Masters,Functions,Instances,Textures,Decals}`; `/Game/Blue/UI/Icons/`. Sources
+  `ArtSource/<Id>/` (card.json, script output, previews); references only in git-ignored `Art/_refs/`.
+
+## 11. Scalability tiers (Plan D6, §6) — Low/Medium/High run on the Iris Xe laptop; Epic is for strong PCs
+| Feature | Low | Medium | High | Epic (never cut to fit the laptop) |
+|---|---|---|---|---|
+| GI / reflections | skylight + SSAO, no SSR | lightest software Lumen + SSR | software Lumen GI + refl. | full Lumen, hardware RT if present |
+| Shadows / lights | CSM short, emissive lamps | VSM low | VSM, MegaLights if it holds | VSM high, MegaLights |
+| Clouds / fog | low-res clouds, height fog | + volumetric fog low | medium | high, cloud shadows, light shafts |
+| Foliage / VFX | 40% density, Niagara Low | 60% | 80% | 100%, full spawn |
+| Water | no caustics, simple shore | caustics | + SSR on water | + full refraction detail |
+Never scales: silhouettes, materials' colours, wear and status lights, port colours, holograms and the
+outline, UI/icons, gameplay VFX (§8), landmark visibility at distance, the night staying playable, and every
+story shot (the beam is simpler on Low, never missing). Hardware-RT-only features fall back cleanly (D6).
+
+## 12. Satisfactory quality, our own look
+- **Match** (R001-R008, side-by-side QA only): chunky proportions, bevel and wear density, lived-in factories,
+  believable mechanical motion, readable ports and states, layered dense nature, dramatic skies, the build feel
+  (hologram, snap, materialise).
+- **Never copy:** their orange/grey/brown scheme, logos, mascots, stencils, fonts, HUD layout, icons, machine
+  silhouettes, item models, flora, fauna, sounds or any file. No tracing or paint-overs of their shots.
+- **Ours:** an ocean planet with floating platforms; a salvage-to-confident arc; Beacon Yellow / Hull Navy /
+  Signal Teal; Glimmer bioluminescence; rounded Glimmer tech against boxy industry; the ringed giant Halo.
+
+## 13. QA categories (Brief §9: approve at avg >= 8 and none < 7; 1280x720, noon / golden / night)
+| Category | What an 8/10 looks like |
+|---|---|
+| Silhouette and detail density | the §4.6 signature reads as a black silhouette at 50 m; 3 form sizes; detail clustered at ports, hatches and moving parts; bevels catch light; no flat face > 1 m2 without a panel break |
+| Material richness and wear | paint, bare metal, rubber and glass distinct at 5 m; chips only on convex edges, grime in recesses; salt/rust bands at the right height; tier wear right; no visible tiling at 10 m |
+| Function readability | a new player names inputs, outputs and job without UI; ports framed blue/orange at 100 cm; status lamp seen from 3 sides; decals legible at 5 m |
+| Animation and life | primary + secondary motion at believable rates; 0.6 s ramps; each state (Tech §5) changes lamp, motion, VFX and sound; no pops or intersections |
+| Lighting integration | sits in all three presets without looking pasted: GI bounce, contact shadows, emissives bloom without clipping, readable at night, no leaks |
+| Consistency with the bible | palette hexes, slot names, naming, budgets, kit pieces and decals as written here; nothing that reads as Satisfactory's design |
