@@ -201,7 +201,7 @@ BUILDABLES = [
 table("DT_Buildables", unreal.FGBuildableRow.static_struct(), BUILDABLES)
 
 # ---------------------------------------------------------------- phases
-ECHO, ISHANI, NEELA = "Echo", "Ishani", "Neela"
+ECHO, ISLA, SKYE = "Echo", "Isla", "Skye"
 PHASES = [
     {
         "Name": "Phase1",
@@ -214,21 +214,21 @@ PHASES = [
             line(ECHO, "Top left: what the tower needs. Top right: power and inventory. Pink rocks by the water are coral ore."),
         ],
         "MessageHome": [
-            line(ISHANI, "Neela, it's Mum. I'm alive."),
-            line(ISHANI, "I'm coming home. I promise."),
+            line(ISLA, "Skye, it's Mum. I'm alive."),
+            line(ISLA, "I'm coming home. I promise."),
         ],
         "FlashbackTitle": "Count My Fish",
         "Flashback": [
             line("", "Seven years ago. A kitchen. Rain on the window."),
-            line(NEELA, "How many fish did I draw, Mum?"),
-            line(ISHANI, "...Five?"),
-            line(NEELA, "Wrong! Six! You're not even looking!"),
-            line(ISHANI, "Okay. Laptop closed. Show me. One... two..."),
-            line(NEELA, "...six! See? You have to really look."),
+            line(SKYE, "How many fish did I draw, Mum?"),
+            line(ISLA, "...Five?"),
+            line(SKYE, "Wrong! Six! You're not even looking!"),
+            line(ISLA, "Okay. Laptop closed. Show me. One... two..."),
+            line(SKYE, "...six! See? You have to really look."),
         ],
         "Reply": [
-            line(NEELA, "Mum! Mum, you're alive! Everyone kept saying... I didn't believe them."),
-            line(NEELA, "When are you coming home? I drew you something. Count them properly this time!"),
+            line(SKYE, "Mum! Mum, you're alive! Everyone kept saying... I didn't believe them."),
+            line(SKYE, "When are you coming home? I drew you something. Count them properly this time!"),
         ],
         "bReplyHasDrawing": True,
     },
@@ -244,19 +244,19 @@ PHASES = [
             line(ECHO, "If those lights are what I think they are, we'll need a Translator. And something they'd want to trade for."),
         ],
         "MessageHome": [
-            line(ISHANI, "There are people here, Neela. They glow."),
-            line(ISHANI, "They talk in pictures. Like your drawings."),
+            line(ISLA, "There are people here, Skye. They glow."),
+            line(ISLA, "They talk in pictures. Like your drawings."),
         ],
         "FlashbackTitle": "You Always Leave",
         "Flashback": [
-            line("", "Neela is nine. The night Ishani tells her about the mission."),
-            line(NEELA, "Two years? You always choose work!"),
-            line(NEELA, "Appa would never have left!"),
+            line("", "Skye is nine. The night Isla tells her about the mission."),
+            line(SKYE, "Two years? You always choose work!"),
+            line(SKYE, "Dad would never have left!"),
             line("", "A door slams."),
-            line(ISHANI, "...I'm sorry, Duwa."),
+            line(ISLA, "...I'm sorry, sweetheart."),
         ],
         "Reply": [
-            line(NEELA, "Glowing people?! Are they nice? I drew them. Count them!"),
+            line(SKYE, "Glowing people?! Are they nice? I drew them. Count them!"),
         ],
         "bReplyHasDrawing": True,
     },

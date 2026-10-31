@@ -27,13 +27,13 @@
   "Intro": [],
   "MessageHome": [
    {
-    "Speaker": "Ishani",
-    "Text": "Neela, it's Mum. I'm alive.",
+    "Speaker": "Isla",
+    "Text": "Skye, it's Mum. I'm alive.",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Ishani",
+    "Speaker": "Isla",
     "Text": "I'm coming home. I promise.",
     "Duration": 0.0,
     "Style": "Normal"
@@ -48,31 +48,31 @@
     "Style": "Normal"
    },
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "How many fish did I draw, Mum?",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Ishani",
+    "Speaker": "Isla",
     "Text": "...Five?",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "Wrong! Six! You're not even looking!",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Ishani",
+    "Speaker": "Isla",
     "Text": "Okay. Laptop closed. Show me. One... two...",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "...six! See? You have to really look.",
     "Duration": 0.0,
     "Style": "Normal"
@@ -80,13 +80,13 @@
   ],
   "Reply": [
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "Mum! Mum, you're alive! Everyone kept saying... I didn't believe them.",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "When are you coming home? I drew you something. Count them properly this time!",
     "Duration": 0.0,
     "Style": "Normal"
@@ -123,13 +123,13 @@
   "Intro": [],
   "MessageHome": [
    {
-    "Speaker": "Ishani",
-    "Text": "There are people here, Neela. They glow.",
+    "Speaker": "Isla",
+    "Text": "There are people here, Skye. They glow.",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Ishani",
+    "Speaker": "Isla",
     "Text": "They talk in pictures. Like your drawings.",
     "Duration": 0.0,
     "Style": "Normal"
@@ -139,19 +139,19 @@
   "Flashback": [
    {
     "Speaker": "",
-    "Text": "Neela is nine. The night Ishani tells her about the mission.",
+    "Text": "Skye is nine. The night Isla tells her about the mission.",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "Two years? You always choose work!",
     "Duration": 0.0,
     "Style": "Normal"
    },
    {
-    "Speaker": "Neela",
-    "Text": "Appa would never have left!",
+    "Speaker": "Skye",
+    "Text": "Dad would never have left!",
     "Duration": 0.0,
     "Style": "Normal"
    },
@@ -162,15 +162,15 @@
     "Style": "Normal"
    },
    {
-    "Speaker": "Ishani",
-    "Text": "...I'm sorry, Duwa.",
+    "Speaker": "Isla",
+    "Text": "...I'm sorry, sweetheart.",
     "Duration": 0.0,
     "Style": "Normal"
    }
   ],
   "Reply": [
    {
-    "Speaker": "Neela",
+    "Speaker": "Skye",
     "Text": "Glowing people?! Are they nice? I drew them. Count them!",
     "Duration": 0.0,
     "Style": "Normal"

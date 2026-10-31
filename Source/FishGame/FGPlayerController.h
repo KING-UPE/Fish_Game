@@ -14,7 +14,7 @@ class UTexture2D;
 /**
  * The player's factory brain: inventory, build mode (ghost preview on a 1 m grid), belts,
  * E-to-interact, dismantling, and the story queue (Echo lines, messages home, flashbacks,
- * Neela's replies and her Fish API drawings).
+ * Skye's replies and her Fish API drawings).
  *
  * Keys: 1-9 select a building · LMB place · R rotate · RMB/Q cancel · E gather / exchange ·
  * X dismantle · hold E on a resource to keep gathering.
@@ -92,7 +92,7 @@ public:
 	bool bPuzzleWaiting = false;
 	bool bPuzzleOpen = false;
 
-	/** What the open picture is for: Neela's drawing, or a Glimmer trade (fish first, then chests). */
+	/** What the open picture is for: Skye's drawing, or a Glimmer trade (fish first, then chests). */
 	enum class EPuzzleKind : uint8 { Drawing, TradeFish, TradeChests };
 	EPuzzleKind PuzzleKind = EPuzzleKind::Drawing;
 	int32 PuzzleFish = 0;

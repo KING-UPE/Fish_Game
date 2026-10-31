@@ -2,9 +2,9 @@
 
 A story-driven factory-building game made in **Unreal Engine 5.8**.
 
-Ishani, an engineer, crash-lands on an ocean planet she calls **Blue**. To reach her 10-year-old daughter
-**Neela** on Earth, she builds a giant **Signal Tower** from the wreck and the planet's materials. Every finished
-tower phase sends a message home, plays a memory (flashback) and brings back a reply from Neela. Each reply
+Isla, an engineer, crash-lands on an ocean planet she calls **Blue**. To reach her 10-year-old daughter
+**Skye** on Earth, she builds a giant **Signal Tower** from the wreck and the planet's materials. Every finished
+tower phase sends a message home, plays a memory (flashback) and brings back a reply from Skye. Each reply
 includes one of her drawings, and the drawings come live from the **Fish Game API**.
 
 Full story, phases, machines and recipes: [`Design/Blue_Signal.md`](Design/Blue_Signal.md).
@@ -54,7 +54,7 @@ cd Fish_Game
 | **Right click / Q** | Cancel |
 | **X** | Dismantle (refunds the cost) |
 | **Tab** | Next page of buildings |
-| **1-4** | Answer a picture: Neela's drawing ("How many fish did I draw?") or a Glimmer's trade (fish = crates they want, chests = pearls they give) |
+| **1-4** | Answer a picture: Skye's drawing ("How many fish did I draw?") or a Glimmer's trade (fish = crates they want, chests = pearls they give) |
 
 ## How it is built
 
@@ -62,7 +62,7 @@ cd Fish_Game
   - `FGBuildable` (machines, extractors, generators, storage) with item buffers and ports.
   - `FGBelt` (floating belts that carry items), `FGResourceNode`, `FGTowerSite` (phases + tower sections).
   - `FGPlayerController`: inventory, grid build mode with ghost preview, belts, interaction, story queue.
-  - `FGHUD`: phase goals, power, inventory, hotbar, subtitles, flashback overlay, Neela's drawing.
+  - `FGHUD`: phase goals, power, inventory, hotbar, subtitles, flashback overlay, Skye's drawing.
   - `FGFishApi`: the Fish Game API client (live picture + counts, offline fallback, history).
 - **Data tables** (`Content/Blue/Data`): items, recipes, buildings (hotbar order) and story phases. The game
   reads them at runtime; balance changes don't need C++.
@@ -72,7 +72,7 @@ cd Fish_Game
 ### Fish Game API
 
 `GET https://marcconrad.com/uob/fish/api.php?out=json&base64=no` →
-`{ "question": "<picture url>", "fish": 4, "chest": 3 }`. The game downloads the picture, shows it as Neela's
+`{ "question": "<picture url>", "fish": 4, "chest": 3 }`. The game downloads the picture, shows it as Skye's
 drawing and asks how many fish it shows. Every picture is kept so the story's twist can re-show old drawings.
 
 ## Tools

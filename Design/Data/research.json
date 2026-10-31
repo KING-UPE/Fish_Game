@@ -528,7 +528,7 @@
   "GrantItems": [],
   "TrustDelta": 0,
   "OceanHealthDelta": 0.0,
-  "Description": "Bioluminescent piping on Ishani's suit."
+  "Description": "Bioluminescent piping on Isla's suit."
  },
  {
   "Name": "SH_HubLantern",
@@ -773,6 +773,6 @@
   "GrantItems": [],
   "TrustDelta": -5,
   "OceanHealthDelta": 0.0,
-  "Description": "BT_P4_04. Ishani treats the hand she hurt in the crash: hand-crafting x2 speed, salvage and gathering +50%."
+  "Description": "BT_P4_04. Isla treats the hand she hurt in the crash: hand-crafting x2 speed, salvage and gathering +50%."
  }
 ]

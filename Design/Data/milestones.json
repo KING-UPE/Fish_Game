@@ -41,7 +41,7 @@
   "UnlockUpgrades": [],
   "HubUpgrade": "The pod unfolds its solar wing; work lights come on around it.",
   "StoryTrigger": "HubTier(1,1)",
-  "StoryHook": "BT_P1_04 Ishani log 1. Echo tutorial step 4 (first machine).",
+  "StoryHook": "BT_P1_04 Isla log 1. Echo tutorial step 4 (first machine).",
   "Description": "Machines, belts, power: the first factory."
  },
  {
@@ -82,7 +82,7 @@
   ],
   "HubUpgrade": "A burner stack and storage lockers bolt onto the pod.",
   "StoryTrigger": "HubTier(1,2)",
-  "StoryHook": "BT_P1_05 Ishani log 2. Echo tutorial step 7: the tower site and its list.",
+  "StoryHook": "BT_P1_05 Isla log 2. Echo tutorial step 7: the tower site and its list.",
   "Description": "Everything the Tower Base needs: riveted plate, reefcrete, cable."
  },
  {
@@ -124,7 +124,7 @@
    "Float"
   ],
   "UnlockUpgrades": [],
-  "HubUpgrade": "A radio aerial and the drawing wall (Neela's drawings) appear on the pod.",
+  "HubUpgrade": "A radio aerial and the drawing wall (Skye's drawings) appear on the pod.",
   "StoryTrigger": "HubTier(2,1)",
   "StoryHook": "BT_P2_03 first sighting (if not already fired by entering the Kelp Shallows).",
   "Description": "Glass, kelp, floating platforms and belts between islands; the Tide Lab."
@@ -166,7 +166,7 @@
   ],
   "HubUpgrade": "A Glimmer-light lantern hangs from the aerial.",
   "StoryTrigger": "HubTier(2,2)",
-  "StoryHook": "BT_P2_07 Ishani log. The Translator can now be built (BT_P2_04 on first build).",
+  "StoryHook": "BT_P2_07 Isla log. The Translator can now be built (BT_P2_04 on first build).",
   "Description": "Talk to the Glimmers, trade with them, and build the dish's frames and lenses."
  },
  {

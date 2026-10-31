@@ -167,7 +167,7 @@ enum class EFGLineStyle : uint8
 	Flashback,
 	/** A big centred card (scene heading / chapter title). */
 	Title,
-	/** Not shown as text: opens Neela's drawing (a Fish API puzzle). */
+	/** Not shown as text: opens Skye's drawing (a Fish API puzzle). */
 	Puzzle
 };
 
@@ -221,7 +221,7 @@ struct FFGPhaseRow : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Story")
 	TArray<FFGStoryLine> Reply;
 
-	/** Neela's reply includes a drawing to count (a Fish API picture). */
+	/** Skye's reply includes a drawing to count (a Fish API picture). */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Story")
 	bool bReplyHasDrawing = true;
 };

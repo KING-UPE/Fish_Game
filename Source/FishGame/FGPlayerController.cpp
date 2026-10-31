@@ -23,7 +23,7 @@
 namespace
 {
 	const FText Echo = LOCTEXT("Echo", "Echo");
-	const FText Neela = LOCTEXT("Neela", "Neela");
+	const FText Skye = LOCTEXT("Skye", "Skye");
 	const FText FlashbackMarker = LOCTEXT("FlashbackMarker", "FLASHBACK");
 
 	UClass* ClassForKind(EFGBuildableKind Kind)
@@ -1198,7 +1198,7 @@ void AFGPlayerController::HandlePhaseCompleted(int32 PhaseIndex)
 	}
 	if (Phase.bReplyHasDrawing)
 	{
-		QueueLine(Neela, FText::GetEmpty(), 0.f, EFGLineStyle::Puzzle);
+		QueueLine(Skye, FText::GetEmpty(), 0.f, EFGLineStyle::Puzzle);
 	}
 }
 
@@ -1312,7 +1312,7 @@ void AFGPlayerController::AnswerPuzzle(int32 Option)
 
 	bPuzzleOpen = false;
 	FFGStoryLine Line;
-	Line.Speaker = Neela;
+	Line.Speaker = Skye;
 	Line.Duration = 4.5f;
 	if (Chosen == PuzzleAnswer)
 	{

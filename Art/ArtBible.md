@@ -21,8 +21,8 @@
    the waterline everything carries salt crust and rust streaks. The dirty-power path stains the sea (§6.7).
 
 ## 2. Brand (original; never FICSIT / Coffee Stain or any real brand)
-- **PAPER KITE WORKS** (short **PKW**): Ishani's own maker's mark, printed by her fabricator on everything she
-  builds. Named after the ship Neela named. **Logo:** a diamond kite tilted 12 deg clockwise, cross spars as
+- **PAPER KITE WORKS** (short **PKW**): Isla's own maker's mark, printed by her fabricator on everything she
+  builds. Named after the ship Skye named. **Logo:** a diamond kite tilted 12 deg clockwise, cross spars as
   stencil bridges, a curved tail of three small bows trailing down-left that ends in three concentric quarter-
   arcs (a signal). One colour, works as a stencil, reads at 32 px as "diamond with a tail". Wordmark below.
 - **KEELSTAR SURVEY** (the legacy operator of the *Paper Kite*): only on wreck kit, cargo pods, the escape pod /
@@ -35,7 +35,7 @@
   BLU-0001`); flow arrows and `IN`/`OUT` chevrons; rotation arrows; our own pictograms in one style (black on
   yellow triangle: high voltage, hot surface, crush/pinch, rotating parts, fall, flammable, lifting point, no
   step, ear/eye protection); stencil digits 0-9; pipe flow bands (water, biofuel, tar, polymer); story marks
-  (Ishani's day tally on the Hub, Neela's fish doodle sticker on the multitool and Hub); grime (rust streak,
+  (Isla's day tally on the Hub, Skye's fish doodle sticker on the multitool and Hub); grime (rust streak,
   salt ring, oil drip, scorch, weld burn). Decals stay legible: stencil cap height >= 12 cm on machines.
 
 ## 3. Palette (UE values; `mats.py` colours are preview approximations)

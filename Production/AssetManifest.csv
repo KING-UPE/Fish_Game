@@ -35,7 +35,7 @@ Kit_Mat_FactoryMaster,Factory master material,KitbashKit,1,P0,n,-,material-artis
 Kit_Trims,Shared trim sheet,KitbashKit,1,P0,n,-,material-artist,planned,,bevel/rivet/hazard-stripe/rubber trims shared by all machines
 Kit_Decals,Brand decals and stencils,KitbashKit,1,P0,n,-,material-artist,planned,,original logo + stencil numbers + warning icons atlas; no third-party brands
 Kit_PaintSwatches,Paint swatches,KitbashKit,2,P1,n,-,material-artist,planned,,pearl-shop swatches and patterns for the paint customiser
-LanderHub,Lander Hub (escape-pod terminal),Special,1,P0,y,16x16,asset-modeler,planned,,h 9 m; Ishani's escape pod rebuilt as the milestone terminal; base for 10 growth add-ons; includes the scorched pre-hub pod state; is Ending A's capsule (D15)
+LanderHub,Lander Hub (escape-pod terminal),Special,1,P0,y,16x16,asset-modeler,planned,,h 9 m; Isla's escape pod rebuilt as the milestone terminal; base for 10 growth add-ons; includes the scorched pre-hub pod state; is Ending A's capsule (D15)
 LanderHub_S1_SolarWing,Hub stage 1: solar wing + work lights,Special,1,P0,y,16x16 add-on,asset-modeler,planned,,M1 Landfall; solar wing unfolds on a hinge pivot; ring of Kit_WorkLight
 LanderHub_S2_BurnerLockers,Hub stage 2: burner stack + lockers,Special,1,P1,y,16x16 add-on,asset-modeler,planned,,M2 Footings; reuses Kit_Chimney + Kit_Tank; storage lockers bolt on
 LanderHub_S3_AerialDrawingWall,Hub stage 3: radio aerial + drawing wall,Special,2,P1,y,16x16 add-on,asset-modeler,planned,,M3 Shallows; the drawing wall shows every counted Fish API drawing (S6); frame slots are material params
@@ -168,7 +168,7 @@ Item_Motor,Motor,Item,4,P1,n,~0.5x0.3x0.3 m,asset-modeler,planned,,motor housing
 Item_Resonator,Resonator,Item,5,P1,n,~0.4x0.3x0.3 m,asset-modeler,planned,,deep crystal in a tuning cage; hum + glow
 Item_DeepLens,Deep Lens,Item,5,P1,n,~0.4 m dia,asset-modeler,planned,,mesh = Item_Lens + deep-crystal veins
 Item_Medkit,Medkit,Item,1,P1,n,~0.4x0.3x0.15 m,asset-modeler,planned,,key story prop (P4 medkit choice); sits in Wreck_MedLocker; never on belts
-Tool_FPArms,First-person arms (Ishani),Tool,0,P1,y,-,asset-modeler,planned,,suit gloves + sleeves; skeletal; every tool attaches here; hold-to-craft + gather anims
+Tool_FPArms,First-person arms (Isla),Tool,0,P1,y,-,asset-modeler,planned,,suit gloves + sleeves; skeletal; every tool attaches here; hold-to-craft + gather anims
 Tool_Multitool,Multitool (build tool),Tool,1,P1,y,~0.5 m,asset-modeler,planned,,build + dismantle tool; emissive projector nozzle; holster anim
 Tool_BuildHologram,Build hologram material,Tool,1,P0,n,-,material-artist,planned,,M_Hologram valid / invalid / dismantle states
 Tool_BuildMaterialiseFX,Materialise + dismantle FX,Tool,1,P0,n,-,vfx-artist,planned,,scan-in build effect + dismantle refund burst
@@ -197,7 +197,7 @@ Wreck_Engine_Main,Wreck main engine,WreckKit,0,P1,y,~10x5x5 m,asset-modeler,plan
 Wreck_Engine_Thruster,Wreck thruster pods,WreckKit,0,P1,n,~2x2x2 m,asset-modeler,planned,,small RCS thrusters strewn on the reef
 Wreck_CargoPod_A,Wreck cargo pod (intact),WreckKit,0,P1,n,~4x2.5x2.5 m,asset-modeler,planned,,dented sealed pod; salvage target
 Wreck_CargoPod_B,Wreck cargo pod (burst),WreckKit,0,P1,n,~4x3x2.5 m,asset-modeler,planned,,burst open with spilled crates
-Wreck_Cockpit,Wreck cockpit section,WreckKit,0,P1,y,~6x5x4 m,asset-modeler,planned,,broken canopy; Ishani's seat; matches CIN_Crash_CockpitInterior
+Wreck_Cockpit,Wreck cockpit section,WreckKit,0,P1,y,~6x5x4 m,asset-modeler,planned,,broken canopy; Isla's seat; matches CIN_Crash_CockpitInterior
 Wreck_Galley,Wreck galley module,WreckKit,0,P1,y,~6x4x3 m,asset-modeler,planned,,where the Workbench table comes from; holds Wreck_MedLocker; tutorial step 2
 Wreck_MedLocker,Med locker,WreckKit,1,P1,n,~1x0.5x2 m,asset-modeler,planned,,first salvage of it gives the only medkit (BT_P1_02); door hinge pivot
 Wreck_DriveCore,Ship drive core,WreckKit,0,P1,y,~4x4x4 m,asset-modeler,planned,,Echo's mind runs here (D14); pulse glow; the final choice's energy source (P5 + endings)
@@ -205,7 +205,7 @@ Wreck_SolarArray,Wreck solar array,WreckKit,1,P1,n,~4x2 m,asset-modeler,planned,
 Wreck_ScrapPile,Scrap piles,WreckKit,1,P1,n,~3x3x1.5 m,asset-modeler,planned,,hand-salvage piles (~25 scrap each; finite); 3 variants; shrink as salvaged
 Wreck_DataCoreCradle,Data-core cradle,WreckKit,1,P1,n,~1x1x1 m,asset-modeler,planned,,debris nest that holds Item_DataCore; blinking locator light; 14 placements
 Wreck_CableDebris,Torn cable debris,WreckKit,0,P1,n,~3 m,asset-modeler,planned,,torn cable + hose bundles on splines (reuse Kit_Hose)
-Wreck_Decals_PaperKite,Paper Kite livery decals,WreckKit,0,P1,n,-,material-artist,planned,,ship name + hull numbers + the kite emblem Neela drew (DC01); burn + salt overlays
+Wreck_Decals_PaperKite,Paper Kite livery decals,WreckKit,0,P1,n,-,material-artist,planned,,ship name + hull numbers + the kite emblem Skye drew (DC01); burn + salt overlays
 Wreck_SeabedDebris,Underwater debris field,WreckKit,0,P2,n,~20x10 m,environment-artist,planned,,debris trail through the reef underwater; reused in FB4
 Env_Ocean_Water,Ocean water,EnvKit,0,P0,n,2.5x2.5 km + horizon,material-artist,planned,,UE Water ocean material; turquoise lagoon to deep blue; golden-hour tuned
 Env_Ocean_Shoreline,Shoreline foam + wet sand,EnvKit,0,P0,n,coastline,material-artist,planned,,shore foam + wave-break band + wet-sand darkening; slice requirement
@@ -284,19 +284,19 @@ Sky_StormClouds,Storm cloud deck,Sky,3,P1,n,-,material-artist,planned,,low storm
 FX_Weather_Rain,Rain + spray,Sky,3,P1,n,-,vfx-artist,planned,,rain sheets + sea spray + wet-surface hook
 FX_Weather_Lightning,Lightning,Sky,3,P1,n,-,vfx-artist,planned,,bolts + strike flash + rod hit + crystal birth at strike points
 FX_Weather_Fog,Sea fog banks,Sky,4,P2,n,-,vfx-artist,planned,,low fog around the Storm Spires; depth cue
-FB1_Kitchen,FB1 Count My Fish: kitchen,FlashbackSet,1,P1,y,~5x4 m room,environment-artist,planned,,rainy-evening kitchen; table + laptop + Neela's fish drawing; rain-streaked window
-FB2_Stairs,FB2 You Always Leave: stairs,FlashbackSet,2,P1,y,~4x6 m hall,environment-artist,planned,,night landing + stairs outside Neela's room; door slam (hinge pivot); shares house kit with FB1
-FB3_Street,FB3 The Blue Light: street,FlashbackSet,3,P1,y,~60x15 m street,environment-artist,planned,,suburban street at launch morning; Neela runs barefoot after the car
+FB1_Kitchen,FB1 Count My Fish: kitchen,FlashbackSet,1,P1,y,~5x4 m room,environment-artist,planned,,rainy-evening kitchen; table + laptop + Skye's fish drawing; rain-streaked window
+FB2_Stairs,FB2 You Always Leave: stairs,FlashbackSet,2,P1,y,~4x6 m hall,environment-artist,planned,,night landing + stairs outside Skye's room; door slam (hinge pivot); shares house kit with FB1
+FB3_Street,FB3 The Blue Light: street,FlashbackSet,3,P1,y,~60x15 m street,environment-artist,planned,,suburban street at launch morning; Skye runs barefoot after the car
 FB3_Car,FB3 family car,FlashbackSet,3,P1,y,~4.5x1.8x1.5 m,asset-modeler,planned,,original family car; doors + wheels with pivots
 FB4_SkyFire,FB4 Sky Fire: Glimmer memory,FlashbackSet,4,P1,y,reuses biomes,environment-artist,planned,,bright healthy reef (Glimmer Deep kit) + falling Paper Kite + burning wreck + carry to the island; Translator grade
-FB5_Garage,FB5 The Garage,FlashbackSet,5,P1,y,~6x6 m room,environment-artist,planned,,night garage; old laptop + workbench + tools + doorway where Ishani watches
-FB_Drawings,Neela's flashback drawings,FlashbackSet,1,P1,n,-,ui-artist,planned,,original child drawings: 6 fish (FB1) + little ship with a blue light (FB3); reused at the end
+FB5_Garage,FB5 The Garage,FlashbackSet,5,P1,y,~6x6 m room,environment-artist,planned,,night garage; old laptop + workbench + tools + doorway where Isla watches
+FB_Drawings,Skye's flashback drawings,FlashbackSet,1,P1,n,-,ui-artist,planned,,original child drawings: 6 fish (FB1) + little ship with a blue light (FB3); reused at the end
 FB_PostGrade,Memory grade,FlashbackSet,1,P1,n,-,material-artist,planned,,warm soft grade + film grain + letterbox; Translator-tinted variant for FB4
-Char_Ishani,Ishani (cinematic),Cinematic,0,P1,y,1.8 m,asset-modeler,planned,,skeletal; home clothes (FB1-3 + FB5) + work suit (crash + FB4 + endings); fallback painted stills (S5)
-Char_Neela_Child,Neela age 7-10,Cinematic,1,P1,y,1.2-1.4 m,asset-modeler,planned,,one rig scaled for ages 7 / 9 / 10 (FB1-FB3)
-Char_Neela_Teen,Neela age 13,Cinematic,E,P1,y,1.55 m,asset-modeler,planned,,Ending A reunion on Earth
-Char_Neela_Adult,Neela adult engineer,Cinematic,E,P1,y,1.7 m,asset-modeler,planned,,Ending B landing; flight suit echoing Ishani's
-Char_Ravi,Ravi,Cinematic,5,P1,y,1.8 m,asset-modeler,planned,,FB5 only (plus photo prop in DC08)
+Char_Isla,Isla (cinematic),Cinematic,0,P1,y,1.8 m,asset-modeler,planned,,skeletal; home clothes (FB1-3 + FB5) + work suit (crash + FB4 + endings); fallback painted stills (S5)
+Char_Skye_Child,Skye age 7-10,Cinematic,1,P1,y,1.2-1.4 m,asset-modeler,planned,,one rig scaled for ages 7 / 9 / 10 (FB1-FB3)
+Char_Skye_Teen,Skye age 13,Cinematic,E,P1,y,1.55 m,asset-modeler,planned,,Ending A reunion on Earth
+Char_Skye_Adult,Skye adult engineer,Cinematic,E,P1,y,1.7 m,asset-modeler,planned,,Ending B landing; flight suit echoing Isla's
+Char_Ray,Ray,Cinematic,5,P1,y,1.8 m,asset-modeler,planned,,FB5 only (plus photo prop in DC08)
 CIN_Prologue_Crash,Prologue sequence: the crash,Cinematic,0,P1,n,-,narrative-designer,planned,,Sequencer shot list + timing (BT_P0_01); uses CIN_Crash_CockpitInterior + CIN_PaperKite_Intact + FX_Crash
 CIN_Crash_CockpitInterior,Paper Kite cockpit interior (intact),Cinematic,0,P1,y,~5x4x3 m,environment-artist,planned,,alarms + red strobes + fire; matches Wreck_Cockpit
 CIN_PaperKite_Intact,Paper Kite (intact ship),Cinematic,0,P1,y,~60 m long,asset-modeler,planned,,exterior for the prologue and FB4's fall; the WreckKit is its broken form
@@ -311,10 +311,10 @@ FX_EndA_Launch,Drive-core overload + launch,Cinematic,E,P1,n,-,vfx-artist,planne
 CIN_EndA_PlanetFromOrbit,Blue from orbit,Cinematic,E,P1,n,-,material-artist,planned,,ocean planet seen while rising; blue glow fades below
 END_A_EarthHome,Ending A Earth home,Cinematic,E,P1,y,~20x20 m,environment-artist,planned,,arrival yard + night room with a telescope; reuses the FB1/FB2 house kit
 END_A_TelescopeImage,Ending A telescope picture,Cinematic,E,P1,n,-,ui-artist,planned,,final shot: telescope image where Blue used to shine
-CIN_EndB_BlueLight,Ending B sequence: The Blue Light,Cinematic,E,P1,n,-,narrative-designer,planned,,ocean lights up + last message + years pass + Neela lands; OH / GT / C_MEDKIT variants
+CIN_EndB_BlueLight,Ending B sequence: The Blue Light,Cinematic,E,P1,n,-,narrative-designer,planned,,ocean lights up + last message + years pass + Skye lands; OH / GT / C_MEDKIT variants
 FX_EndB_OceanLights,Ocean lights up,Cinematic,E,P1,n,-,vfx-artist,planned,,whole ocean blooms with light; Glimmers revive and sing
 END_B_GlowTown,Ending B glowing town,Cinematic,E,P1,y,~400x400 m,environment-artist,planned,,years later: the factory as a clean glowing town shared with the Glimmers; size scales with OH
-END_B_NeelaShip,Neela's ship,Cinematic,E,P1,y,~25 m long,asset-modeler,planned,,the ship that follows the signal and lands; landing legs + ramp pivots
+END_B_SkyeShip,Skye's ship,Cinematic,E,P1,y,~25 m long,asset-modeler,planned,,the ship that follows the signal and lands; landing legs + ramp pivots
 UI_Fonts,UI fonts,UI,0,P1,n,-,ui-artist,planned,,display + body + stencil fonts; licence must be CC0 or CC-BY (AgentRules 4)
 UI_Logo,Blue Signal logo,UI,0,P1,n,-,ui-artist,planned,,original title logo; also used on Kit_Decals
 UI_MainMenu,Main menu + pause + settings,UI,0,P1,n,-,ui-artist,planned,,menus + graphics tiers + controls + save slots
@@ -329,7 +329,7 @@ UI_MachinePanel,Machine panel,UI,1,P1,n,-,ui-artist,planned,,recipe choice + per
 UI_HubTerminal,Hub milestone terminal,UI,1,P1,n,-,ui-artist,planned,,tiers + costs + unlock cards; also the pod's in-world screen
 UI_TowerDelivery,Tower delivery list,UI,1,P1,n,-,ui-artist,planned,,per-phase requirements + progress; burner/clean variant in P4
 UI_PowerGrid,Power grid,UI,1,P1,n,-,ui-artist,planned,,grid load + fuse trip/reset + battery state
-UI_Journal,Ishani's journal,UI,1,P1,n,-,ui-artist,planned,,log pages stamped with the in-game day (S14) + data-core memories
+UI_Journal,Isla's journal,UI,1,P1,n,-,ui-artist,planned,,log pages stamped with the in-game day (S14) + data-core memories
 UI_DrawingCount,Drawing count,UI,1,P1,n,-,ui-artist,planned,,Fish API picture on drawing paper + count input + reply framing (S6)
 UI_FishApiFallback,Fish API fallback pictures,UI,1,P1,n,-,ui-artist,planned,,~24 original fish + chest pictures T_Fish_F#_C# for offline play (D11)
 UI_DataCore,Data-core playback,UI,1,P1,n,-,ui-artist,planned,,voice-memory player + alternate-recipe pick (S12)

@@ -33,7 +33,7 @@ struct FFGPuzzle
  * Talks to the Fish Game API (https://marcconrad.com/uob/fish/api.php).
  * RequestPuzzle() fetches a picture + counts and broadcasts OnPuzzleReady on the game thread.
  * If the API is slow or down it falls back to bundled pictures in /Game/Blue/FishApi
- * named T_Fish_F<fish>_C<chests>. Every puzzle is kept in History (Neela's repeated drawings).
+ * named T_Fish_F<fish>_C<chests>. Every puzzle is kept in History (Skye's repeated drawings).
  */
 UCLASS()
 class FISHGAME_API UFGFishApiSubsystem : public UGameInstanceSubsystem

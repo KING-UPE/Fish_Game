@@ -1615,7 +1615,7 @@
   "bHandCraftable": false,
   "UnlockedBy": "DataCore",
   "Phase": 5,
-  "Description": "Ravi's old board layout, found in Echo's private files. No sealed cable."
+  "Description": "Ray's old board layout, found in Echo's private files. No sealed cable."
  },
  {
   "Name": "Alt_GlimmerResonator",
