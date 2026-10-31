@@ -34,3 +34,7 @@ ArtSource/**/export/
 ArtSource/**/preview/*.png
 ArtSource/_downloads/
 ArtSource/**/_work/
+
+# Pipeline smoke-test target (Tools/Art/assets/_smoke.py)
+Content/Blue/Art/_Smoke/
+ArtSource/_smoke/

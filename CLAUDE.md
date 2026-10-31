@@ -453,6 +453,22 @@ then `compile_material` + `save_asset`. Remove a stray output wire with
 - Build-placement uses a **WorldStatic-only** trace; machines, belts and nodes are `BlockAllDynamic` so the ghost
   lands on the ground, not on them.
 
+### 1.18 Art pipeline: headless Blender → UE (found 2026-10-31, production M0)
+- Production rules live in `Production/` (`Brief.md`, `Plan.md`, `Log.md`, `AgentRules.md`); the editor is shared
+  through `Production/EDITOR.lock` (one agent at a time).
+- Blender 5.2 is installed (`C:\Program Files\Blender Foundation\Blender 5.2`). Run it only through
+  `python Tools/Art/run_blender.py <script> -- <card.json>`: one Blender at a time (lock), it waits for >= 1.2 GB
+  free RAM, puts `Tools/Art/lib` (the `bslib` helpers) on Blender's path and logs to `ArtSource/_work/logs/`.
+- **Blender FBX `apply_scale_options="FBX_SCALE_UNITS"` imports 100x too small in UE 5.8** (1 m -> 1 cm), even with
+  `convert_scene_unit`. Use `FBX_SCALE_NONE` + `apply_unit_scale` + `bake_space_transform` (bslib does). The UE
+  importer flips Y (left-handed): a Blender point (x, y, z) m lands at (100x, -100y, 100z) cm.
+- Import with `Tools/Art/ue_import.py`: `schedule()` (deferred slate tick, §1.15) then `status()` from a later call.
+  **Check `is_in_play_in_editor()` first**: a session can leave PIE running, and an import during PIE succeeds
+  but `load_asset` returns None, so post-processing silently fails.
+- `EditorAssetLibrary.delete_asset` returns False and blocks ~35 s when something still references the asset,
+  including a variable left in the shared Python console globals by an earlier `execute_python_code` call. Pop
+  those names from `globals()` first, or just re-import over the asset with `replace_existing`.
+
 ## 2. Tooling map (which server for what)
 
 MCP servers come from `.mcp.json` (need the editor running + Claude launched from the project dir):
