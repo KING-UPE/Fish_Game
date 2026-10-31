@@ -1,0 +1,389 @@
+[
+ {
+  "Name": "M1",
+  "DisplayName": "Landfall",
+  "Phase": 1,
+  "Tier": 1,
+  "PhaseTier": 1,
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 20
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 20
+   },
+   {
+    "Item": "Wire",
+    "Count": 20
+   }
+  ],
+  "UnlockBuildables": [
+   "DrillMk1",
+   "Smelter",
+   "Press",
+   "SalvagedSolar",
+   "PowerPole",
+   "BeltMk1",
+   "StorageCrate"
+  ],
+  "UnlockRecipes": [
+   "FerriteIngot",
+   "CupriteIngot",
+   "SalvageIngot",
+   "FerritePlate",
+   "FerriteRod",
+   "Bolt",
+   "Wire",
+   "Cable"
+  ],
+  "UnlockUpgrades": [],
+  "HubUpgrade": "The pod unfolds its solar wing; work lights come on around it.",
+  "StoryTrigger": "HubTier(1,1)",
+  "StoryHook": "BT_P1_04 Ishani log 1. Echo tutorial step 4 (first machine).",
+  "Description": "Machines, belts, power: the first factory."
+ },
+ {
+  "Name": "M2",
+  "DisplayName": "Footings",
+  "Phase": 1,
+  "Tier": 2,
+  "PhaseTier": 2,
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 60
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 60
+   },
+   {
+    "Item": "Wire",
+    "Count": 100
+   }
+  ],
+  "UnlockBuildables": [
+   "Assembler",
+   "KelpBurner",
+   "Foundation",
+   "Ramp",
+   "Stairs",
+   "Wall"
+  ],
+  "UnlockRecipes": [
+   "RivetedPlate",
+   "Reefcrete",
+   "KelpPulp"
+  ],
+  "UnlockUpgrades": [
+   "InvSlots6"
+  ],
+  "HubUpgrade": "A burner stack and storage lockers bolt onto the pod.",
+  "StoryTrigger": "HubTier(1,2)",
+  "StoryHook": "BT_P1_05 Ishani log 2. Echo tutorial step 7: the tower site and its list.",
+  "Description": "Everything the Tower Base needs: riveted plate, reefcrete, cable."
+ },
+ {
+  "Name": "M3",
+  "DisplayName": "Shallows",
+  "Phase": 2,
+  "Tier": 3,
+  "PhaseTier": 1,
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 40
+   },
+   {
+    "Item": "Cable",
+    "Count": 100
+   },
+   {
+    "Item": "Reefcrete",
+    "Count": 100
+   }
+  ],
+  "UnlockBuildables": [
+   "KelpHarvester",
+   "Kiln",
+   "FloatingPlatform",
+   "BeltLift",
+   "Splitter",
+   "Merger",
+   "TideLab",
+   "SuitFabricator",
+   "Catwalk",
+   "Ladder",
+   "Pillar",
+   "Roof"
+  ],
+  "UnlockRecipes": [
+   "Glass",
+   "Float"
+  ],
+  "UnlockUpgrades": [],
+  "HubUpgrade": "A radio aerial and the drawing wall (Neela's drawings) appear on the pod.",
+  "StoryTrigger": "HubTier(2,1)",
+  "StoryHook": "BT_P2_03 first sighting (if not already fired by entering the Kelp Shallows).",
+  "Description": "Glass, kelp, floating platforms and belts between islands; the Tide Lab."
+ },
+ {
+  "Name": "M4",
+  "DisplayName": "First Words",
+  "Phase": 2,
+  "Tier": 4,
+  "PhaseTier": 2,
+  "Cost": [
+   {
+    "Item": "Glass",
+    "Count": 80
+   },
+   {
+    "Item": "Float",
+    "Count": 30
+   },
+   {
+    "Item": "RivetedPlate",
+    "Count": 50
+   }
+  ],
+  "UnlockBuildables": [
+   "Translator",
+   "TradeBuoy",
+   "BeltMk2",
+   "DoorWall"
+  ],
+  "UnlockRecipes": [
+   "Frame",
+   "Lens",
+   "Rotor",
+   "CupriteSheet"
+  ],
+  "UnlockUpgrades": [
+   "Overclock"
+  ],
+  "HubUpgrade": "A Glimmer-light lantern hangs from the aerial.",
+  "StoryTrigger": "HubTier(2,2)",
+  "StoryHook": "BT_P2_07 Ishani log. The Translator can now be built (BT_P2_04 on first build).",
+  "Description": "Talk to the Glimmers, trade with them, and build the dish's frames and lenses."
+ },
+ {
+  "Name": "M5",
+  "DisplayName": "Steel & Sail",
+  "Phase": 3,
+  "Tier": 5,
+  "PhaseTier": 1,
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 25
+   },
+   {
+    "Item": "Rotor",
+    "Count": 40
+   },
+   {
+    "Item": "Lens",
+    "Count": 40
+   }
+  ],
+  "UnlockBuildables": [
+   "Foundry",
+   "FuelBurner",
+   "SeaPump",
+   "Pipe",
+   "PipePump",
+   "DrillMk2",
+   "Skiff",
+   "TallFoundation"
+  ],
+  "UnlockRecipes": [
+   "KelpChar",
+   "SteelIngot",
+   "SteelBeam",
+   "SteelPipe",
+   "ZiplineHarness"
+  ],
+  "UnlockUpgrades": [
+   "InvSlots6"
+  ],
+  "HubUpgrade": "A skiff dock and slipway are built beside the pod.",
+  "StoryTrigger": "HubTier(3,1)",
+  "StoryHook": "BT_P3_02 the sea darkens (if Ocean Health hasn't fired it first). Echo: the Tar Shelves are 900 m west.",
+  "Description": "Steel, fluids, the skiff and the first big generator."
+ },
+ {
+  "Name": "M6",
+  "DisplayName": "Tar & Circuits",
+  "Phase": 3,
+  "Tier": 6,
+  "PhaseTier": 2,
+  "Cost": [
+   {
+    "Item": "SteelBeam",
+    "Count": 80
+   },
+   {
+    "Item": "SteelPipe",
+    "Count": 80
+   },
+   {
+    "Item": "Frame",
+    "Count": 20
+   }
+  ],
+  "UnlockBuildables": [
+   "TarPump",
+   "Refinery",
+   "Accumulator"
+  ],
+  "UnlockRecipes": [
+   "Polymer",
+   "Sealant",
+   "TarFuel",
+   "CircuitBoard",
+   "SealedCable",
+   "MastSegment",
+   "GliderPack"
+  ],
+  "UnlockUpgrades": [],
+  "HubUpgrade": "The pod gets a second deck and a taller antenna.",
+  "StoryTrigger": "HubTier(3,2)",
+  "StoryHook": "BT_P3_03 the withheld packet, then BT_P3_04 the Great Storm 30 s later.",
+  "Description": "Tar, circuits and sealed cable: the Antenna Mast."
+ },
+ {
+  "Name": "M7",
+  "DisplayName": "Storm Glass",
+  "Phase": 4,
+  "Tier": 7,
+  "PhaseTier": 1,
+  "Cost": [
+   {
+    "Item": "CircuitBoard",
+    "Count": 50
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 80
+   },
+   {
+    "Item": "SteelBeam",
+    "Count": 100
+   }
+  ],
+  "UnlockBuildables": [],
+  "UnlockRecipes": [
+   "Stator",
+   "Motor",
+   "Oscillator"
+  ],
+  "UnlockUpgrades": [],
+  "HubUpgrade": "A crystal lightning rod crowns the pod.",
+  "StoryTrigger": "HubTier(4,1)",
+  "StoryHook": "BT_P4_02 the power choice: keep the burners, or rebuild clean (Glimmer blueprint, trust 20).",
+  "Description": "Oscillators, stators and motors for the big machines."
+ },
+ {
+  "Name": "M8",
+  "DisplayName": "Heavy Works",
+  "Phase": 4,
+  "Tier": 8,
+  "PhaseTier": 2,
+  "Cost": [
+   {
+    "Item": "Oscillator",
+    "Count": 40
+   },
+   {
+    "Item": "Motor",
+    "Count": 20
+   },
+   {
+    "Item": "SteelPipe",
+    "Count": 100
+   }
+  ],
+  "UnlockBuildables": [
+   "Manufactory",
+   "BeltMk3",
+   "DrillMk3"
+  ],
+  "UnlockRecipes": [
+   "HeavyFrame",
+   "ControlModule"
+  ],
+  "UnlockUpgrades": [
+   "InvSlots6"
+  ],
+  "HubUpgrade": "A crane arm unfolds over the pod.",
+  "StoryTrigger": "HubTier(4,2)",
+  "StoryHook": "BT_P4_03 the ill child, then BT_P4_04 the medkit choice.",
+  "Description": "Three-input machines: heavy frames and control modules for the Power Ring."
+ },
+ {
+  "Name": "M9",
+  "DisplayName": "Relay Calibration",
+  "Phase": 5,
+  "Tier": 9,
+  "PhaseTier": 1,
+  "Cost": [
+   {
+    "Item": "DeepLens",
+    "Count": 30
+   },
+   {
+    "Item": "ControlModule",
+    "Count": 15
+   },
+   {
+    "Item": "HeavyFrame",
+    "Count": 10
+   }
+  ],
+  "UnlockBuildables": [
+   "ResonanceForge"
+  ],
+  "UnlockRecipes": [
+   "Resonator"
+  ],
+  "UnlockUpgrades": [],
+  "HubUpgrade": "Echo's relay console lights up inside the pod.",
+  "StoryTrigger": "HubTier(5,1)",
+  "StoryHook": "BT_P5_03 confession 1, BT_P5_04 FB5 \"The Garage\", then the cold stretch.",
+  "Description": "Calibrate the relay with deep lenses. It finds what Echo has been hiding."
+ },
+ {
+  "Name": "M10",
+  "DisplayName": "Core Uplink",
+  "Phase": 5,
+  "Tier": 10,
+  "PhaseTier": 2,
+  "Cost": [
+   {
+    "Item": "Resonator",
+    "Count": 15
+   },
+   {
+    "Item": "DeepLens",
+    "Count": 20
+   },
+   {
+    "Item": "Motor",
+    "Count": 20
+   }
+  ],
+  "UnlockBuildables": [],
+  "UnlockRecipes": [],
+  "UnlockUpgrades": [
+   "CoreDock",
+   "HubBeaconBlue"
+  ],
+  "HubUpgrade": "The pod's beacon turns blue. It is ready to fly (the return capsule of Ending A).",
+  "StoryTrigger": "HubTier(5,2)",
+  "StoryHook": "BT_P5_06 the thaw: Echo's voice returns.",
+  "Description": "The tower can take the Signal Core."
+ }
+]

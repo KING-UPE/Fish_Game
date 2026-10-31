@@ -1,0 +1,3240 @@
+[
+ {
+  "Name": "LanderHub",
+  "DisplayName": "Lander Hub",
+  "Kind": "Hub",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 900.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "Start",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "PrePlaced",
+  "EffectRadius": 0.0,
+  "Description": "Ishani's escape pod, rebuilt as the milestone terminal. It grows with every tier, and it is the return capsule in Ending A."
+ },
+ {
+  "Name": "Workbench",
+  "DisplayName": "Workbench",
+  "Kind": "Workbench",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "ScrapMetal",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 150.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "Start",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 0.0,
+  "Description": "The galley table. Hold to craft any Press or Assembler recipe by hand."
+ },
+ {
+  "Name": "SignalTower",
+  "DisplayName": "Signal Tower",
+  "Kind": "TowerSite",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [],
+  "Size": {
+   "X": 6.0,
+   "Y": 6.0
+  },
+  "Height": 12000.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "Start",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "PrePlaced",
+  "EffectRadius": 0.0,
+  "Description": "The tower site on the sand. Each delivered phase grows one section and sends one message home."
+ },
+ {
+  "Name": "SuitFabricator",
+  "DisplayName": "Suit Fabricator",
+  "Kind": "SuitFabricator",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 6
+   },
+   {
+    "Item": "Cable",
+    "Count": 20
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 220.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 0.0,
+  "Description": "Builds suit equipment: dive mask, scanner, zipline harness, glider pack."
+ },
+ {
+  "Name": "TideLab",
+  "DisplayName": "Tide Lab",
+  "Kind": "TideLab",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 10
+   },
+   {
+    "Item": "Cable",
+    "Count": 30
+   },
+   {
+    "Item": "Reefcrete",
+    "Count": 30
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 1000.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 10.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Research station: kelp, glass, pearl and storm research trees. Also decodes data cores."
+ },
+ {
+  "Name": "Translator",
+  "DisplayName": "Translator",
+  "Kind": "Translator",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 4
+   },
+   {
+    "Item": "Lens",
+    "Count": 6
+   },
+   {
+    "Item": "Cable",
+    "Count": 20
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 900.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 6.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M4",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Turns Glimmer picture-words into text. Count their fish right and it learns more."
+ },
+ {
+  "Name": "TradeBuoy",
+  "DisplayName": "Trade Buoy",
+  "Kind": "TradeBuoy",
+  "Category": "Special",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Float",
+    "Count": 4
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   },
+   {
+    "Item": "Lens",
+    "Count": 1
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 999,
+  "Phase": 2,
+  "UnlockedBy": "M4",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Water",
+  "EffectRadius": 0.0,
+  "Description": "Glimmer trades (fish x 5 = units wanted, chests = pearls paid) and the pearl shop. Needs a working Translator."
+ },
+ {
+  "Name": "Smelter",
+  "DisplayName": "Smelter",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Smelter",
+  "Cost": [
+   {
+    "Item": "FerriteRod",
+    "Count": 5
+   },
+   {
+    "Item": "Wire",
+    "Count": 8
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 900.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 4.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "One input. Ore to ingots."
+ },
+ {
+  "Name": "Press",
+  "DisplayName": "Press",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Press",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 6
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 6
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 850.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 4.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "One input. Plates, rods, bolts, wire, cable, reefcrete, beams, pipes, shards."
+ },
+ {
+  "Name": "Kiln",
+  "DisplayName": "Kiln",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Kiln",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 10
+   },
+   {
+    "Item": "FerritePlate",
+    "Count": 6
+   },
+   {
+    "Item": "Cable",
+    "Count": 8
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 900.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 6.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "One input, heat. Glass and kelp char."
+ },
+ {
+  "Name": "Assembler",
+  "DisplayName": "Assembler",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Assembler",
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 6
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 1100.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 15.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M2",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Two inputs."
+ },
+ {
+  "Name": "Foundry",
+  "DisplayName": "Foundry",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Foundry",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 8
+   },
+   {
+    "Item": "Rotor",
+    "Count": 10
+   },
+   {
+    "Item": "Reefcrete",
+    "Count": 20
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 1000.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 16.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Two inputs, steel."
+ },
+ {
+  "Name": "Refinery",
+  "DisplayName": "Refinery",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Refinery",
+  "Cost": [
+   {
+    "Item": "SteelBeam",
+    "Count": 10
+   },
+   {
+    "Item": "SteelPipe",
+    "Count": 10
+   },
+   {
+    "Item": "Frame",
+    "Count": 6
+   }
+  ],
+  "Size": {
+   "X": 3.0,
+   "Y": 2.0
+  },
+  "Height": 2400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 30.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M6",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Fluid in, solid or fluid out. Tar products and glow gel."
+ },
+ {
+  "Name": "Manufactory",
+  "DisplayName": "Manufactory",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "Manufactory",
+  "Cost": [
+   {
+    "Item": "Motor",
+    "Count": 10
+   },
+   {
+    "Item": "SteelBeam",
+    "Count": 20
+   },
+   {
+    "Item": "CircuitBoard",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 3.0,
+   "Y": 3.0
+  },
+  "Height": 1300.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 55.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 4,
+  "UnlockedBy": "M8",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Three inputs. Heavy frames, control modules, light cells."
+ },
+ {
+  "Name": "ResonanceForge",
+  "DisplayName": "Resonance Forge",
+  "Kind": "Machine",
+  "Category": "Production",
+  "MachineType": "ResonanceForge",
+  "Cost": [
+   {
+    "Item": "HeavyFrame",
+    "Count": 4
+   },
+   {
+    "Item": "ControlModule",
+    "Count": 6
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 20
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 1600.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 50.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 5,
+  "UnlockedBy": "M9",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Two inputs. Tunes deep crystal into resonators."
+ },
+ {
+  "Name": "DrillMk1",
+  "DisplayName": "Drill Rig Mk1",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 6
+   },
+   {
+    "Item": "Wire",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 1400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 5.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 1.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:Solid",
+  "EffectRadius": 0.0,
+  "Description": "Sits on an ore vent, lime bed, sand dune or storm spire. 60/min on a normal node (impure x0.5, pure x2). ExtractItem comes from the node."
+ },
+ {
+  "Name": "DrillMk2",
+  "DisplayName": "Drill Rig Mk2",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 4
+   },
+   {
+    "Item": "Rotor",
+    "Count": 6
+   },
+   {
+    "Item": "Cable",
+    "Count": 20
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 1600.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 15.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.5,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:Solid",
+  "EffectRadius": 0.0,
+  "Description": "Sits on an ore vent, lime bed, sand dune or storm spire. 120/min on a normal node (impure x0.5, pure x2). ExtractItem comes from the node."
+ },
+ {
+  "Name": "DrillMk3",
+  "DisplayName": "Drill Rig Mk3",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Motor",
+    "Count": 10
+   },
+   {
+    "Item": "SteelBeam",
+    "Count": 10
+   },
+   {
+    "Item": "CircuitBoard",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 1800.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 45.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.25,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 4,
+  "UnlockedBy": "M8",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:Solid",
+  "EffectRadius": 0.0,
+  "Description": "Sits on an ore vent, lime bed, sand dune or storm spire. 240/min on a normal node (impure x0.5, pure x2). ExtractItem comes from the node."
+ },
+ {
+  "Name": "KelpHarvester",
+  "DisplayName": "Kelp Harvester",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 4
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 10
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 600.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 5.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "Glowkelp",
+  "ExtractInterval": 1.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:KelpBed",
+  "EffectRadius": 0.0,
+  "Description": "Floats on a kelp bed. 60 glowkelp/min on a normal bed."
+ },
+ {
+  "Name": "SeaPump",
+  "DisplayName": "Sea Pump",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 6
+   },
+   {
+    "Item": "Rotor",
+    "Count": 4
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 800.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 20.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "Seawater",
+  "ExtractInterval": 0.5,
+  "bNeedsWater": true,
+  "bNoNode": true,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Water",
+  "EffectRadius": 0.0,
+  "Description": "Any open water. 120 seawater/min."
+ },
+ {
+  "Name": "TarPump",
+  "DisplayName": "Tar Pump",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "SteelBeam",
+    "Count": 6
+   },
+   {
+    "Item": "SteelPipe",
+    "Count": 10
+   },
+   {
+    "Item": "Rotor",
+    "Count": 4
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 1400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 30.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "Tar",
+  "ExtractInterval": 1.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M6",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:TarSeep",
+  "EffectRadius": 0.0,
+  "Description": "Sits on a tar seep. 60 tar/min on a normal seep."
+ },
+ {
+  "Name": "LightningRod",
+  "DisplayName": "Lightning Rod",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "SteelPipe",
+    "Count": 4
+   },
+   {
+    "Item": "Cable",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 2000.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "StormCrystal",
+  "ExtractInterval": 10.0,
+  "bNeedsWater": false,
+  "bNoNode": true,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "Story:BT_P3_05",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 3.0,
+  "Description": "Takes the strikes so your machines don't: no fuse trips within 3 cells. During storms it collects 6 storm crystals/min."
+ },
+ {
+  "Name": "TrenchDrill",
+  "DisplayName": "Trench Drill",
+  "Kind": "Extractor",
+  "Category": "Extraction",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Motor",
+    "Count": 6
+   },
+   {
+    "Item": "HeavyFrame",
+    "Count": 4
+   },
+   {
+    "Item": "ControlModule",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 2200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 60.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "DeepCrystal",
+  "ExtractInterval": 1.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 5,
+  "UnlockedBy": "Phase4",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:TrenchVent",
+  "EffectRadius": 0.0,
+  "Description": "Sits on a trench vent in the Glimmer Deep. 60 deep crystal/min on a normal vent."
+ },
+ {
+  "Name": "SalvagedSolar",
+  "DisplayName": "Salvaged Solar",
+  "Kind": "Generator",
+  "Category": "Power",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "ScrapMetal",
+    "Count": 6
+   },
+   {
+    "Item": "Wire",
+    "Count": 6
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 300.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 8.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 12,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 0.0,
+  "Description": "A panel and battery pack from the wreck. Steady 8 MW. The wreck has 12."
+ },
+ {
+  "Name": "KelpBurner",
+  "DisplayName": "Kelp Burner",
+  "Kind": "Generator",
+  "Category": "Power",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 10
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 10
+   },
+   {
+    "Item": "Cable",
+    "Count": 6
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 1000.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 30.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "Biofuel",
+  "FuelTime": 20.0,
+  "AltFuels": [
+   {
+    "Item": "KelpPulp",
+    "BurnSeconds": 8.0
+   },
+   {
+    "Item": "Glowkelp",
+    "BurnSeconds": 3.0
+   }
+  ],
+  "Pollution": 1.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M2",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "30 MW. Burns biofuel (or kelp pulp, or raw glowkelp). Dirties the water a little (counts from Phase 3)."
+ },
+ {
+  "Name": "FuelBurner",
+  "DisplayName": "Fuel Burner",
+  "Kind": "Generator",
+  "Category": "Power",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 10
+   },
+   {
+    "Item": "Rotor",
+    "Count": 10
+   },
+   {
+    "Item": "Cable",
+    "Count": 30
+   }
+  ],
+  "Size": {
+   "X": 3.0,
+   "Y": 2.0
+  },
+  "Height": 2400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 75.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "KelpChar",
+  "FuelTime": 4.0,
+  "AltFuels": [
+   {
+    "Item": "TarFuel",
+    "BurnSeconds": 10.0
+   },
+   {
+    "Item": "Biofuel",
+    "BurnSeconds": 8.0
+   }
+  ],
+  "Pollution": 4.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "75 MW. Burns kelp char, tar fuel or biofuel. Strong, fast and dirty."
+ },
+ {
+  "Name": "TidalTurbine",
+  "DisplayName": "Tidal Turbine",
+  "Kind": "Generator",
+  "Category": "Power",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Motor",
+    "Count": 4
+   },
+   {
+    "Item": "SteelBeam",
+    "Count": 6
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 1.0
+  },
+  "Height": 1200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 50.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 4,
+  "UnlockedBy": "RS_ChoiceClean",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Node:TidalRace",
+  "EffectRadius": 0.0,
+  "Description": "Glimmer blueprint. Sits in a tidal race. 50 MW on a normal race (impure x0.5, pure x2). No fuel, no runoff."
+ },
+ {
+  "Name": "GlowBank",
+  "DisplayName": "Glow Bank",
+  "Kind": "Generator",
+  "Category": "Power",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 6
+   },
+   {
+    "Item": "Motor",
+    "Count": 4
+   },
+   {
+    "Item": "Glass",
+    "Count": 20
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 2.0,
+   "Y": 2.0
+  },
+  "Height": 1200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 120.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "LightCell",
+  "FuelTime": 40.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 4,
+  "UnlockedBy": "RS_ChoiceClean",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Glimmer blueprint. 120 MW from light cells (1.5/min). Clean."
+ },
+ {
+  "Name": "Accumulator",
+  "DisplayName": "Accumulator",
+  "Kind": "Battery",
+  "Category": "Power",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "SteelBeam",
+    "Count": 5
+   },
+   {
+    "Item": "Cable",
+    "Count": 20
+   },
+   {
+    "Item": "CupriteSheet",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 1100.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 3,
+  "UnlockedBy": "M6",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "Stores 100 MWh, charges and discharges at up to 100 MW. Rides out storms and night dips."
+ },
+ {
+  "Name": "BeltMk1",
+  "DisplayName": "Belt Mk1",
+  "Kind": "Belt",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 50.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 0,
+  "Throughput": 60.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "60 items/min. Cost per 8 m cell. Over water it rides on pontoons (1 float per 2 cells)."
+ },
+ {
+  "Name": "BeltMk2",
+  "DisplayName": "Belt Mk2",
+  "Kind": "Belt",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "RivetedPlate",
+    "Count": 1
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 50.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 2,
+  "UnlockedBy": "M4",
+  "MaxCount": 0,
+  "Throughput": 120.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "120 items/min. Cost per 8 m cell."
+ },
+ {
+  "Name": "BeltMk3",
+  "DisplayName": "Belt Mk3",
+  "Kind": "Belt",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "SteelBeam",
+    "Count": 1
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 50.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 4,
+  "UnlockedBy": "M8",
+  "MaxCount": 0,
+  "Throughput": 270.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "270 items/min. Cost per 8 m cell."
+ },
+ {
+  "Name": "BeltLift",
+  "DisplayName": "Belt Lift",
+  "Kind": "BeltLift",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "Moves a belt up or down one floor (4 m)."
+ },
+ {
+  "Name": "Splitter",
+  "DisplayName": "Splitter",
+  "Kind": "Splitter",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   },
+   {
+    "Item": "Cable",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "One in, three out."
+ },
+ {
+  "Name": "Merger",
+  "DisplayName": "Merger",
+  "Kind": "Merger",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerriteRod",
+    "Count": 2
+   },
+   {
+    "Item": "Cable",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "Three in, one out."
+ },
+ {
+  "Name": "StorageCrate",
+  "DisplayName": "Storage Crate",
+  "Kind": "Storage",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 6
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 6
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 1200,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Foundation",
+  "EffectRadius": 0.0,
+  "Description": "24 slots. One belt in, one out."
+ },
+ {
+  "Name": "Pipe",
+  "DisplayName": "Pipe",
+  "Kind": "Pipe",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "CupriteSheet",
+    "Count": 1
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 100.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 300.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "300 fluid/min. Cost per 8 m cell. Light head-lift only (4 m without a pump)."
+ },
+ {
+  "Name": "PipePump",
+  "DisplayName": "Pipe Pump",
+  "Kind": "PipePump",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Rotor",
+    "Count": 2
+   },
+   {
+    "Item": "Cable",
+    "Count": 4
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 4.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 50,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Belt",
+  "EffectRadius": 0.0,
+  "Description": "Adds 20 m of head-lift."
+ },
+ {
+  "Name": "PowerPole",
+  "DisplayName": "Power Pole",
+  "Kind": "PowerPole",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerriteRod",
+    "Count": 2
+   },
+   {
+    "Item": "Wire",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 700.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "M1",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 0.0,
+  "Description": "4 connections, cables up to 50 m with sag. Ziplines ride the cables."
+ },
+ {
+  "Name": "Skiff",
+  "DisplayName": "Skiff",
+  "Kind": "Vehicle",
+  "Category": "Logistics",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 6
+   },
+   {
+    "Item": "Rotor",
+    "Count": 6
+   },
+   {
+    "Item": "Float",
+    "Count": 10
+   },
+   {
+    "Item": "Cable",
+    "Count": 20
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 250.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "Biofuel",
+  "FuelTime": 120.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 24,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Water",
+  "EffectRadius": 0.0,
+  "Description": "The one boat. 12 m/s, 24 cargo slots, burns 1 biofuel every 2 min."
+ },
+ {
+  "Name": "Foundation",
+  "DisplayName": "Foundation",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 4
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 100.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "M2",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "FoundationGrid",
+  "EffectRadius": 0.0,
+  "Description": "8 x 8 x 1 m. Snaps to the grid."
+ },
+ {
+  "Name": "TallFoundation",
+  "DisplayName": "Tall Foundation",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 8
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 3,
+  "UnlockedBy": "M5",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "FoundationGrid",
+  "EffectRadius": 0.0,
+  "Description": "8 x 8 x 4 m."
+ },
+ {
+  "Name": "FloatingPlatform",
+  "DisplayName": "Floating Platform",
+  "Kind": "Platform",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Float",
+    "Count": 2
+   },
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 100.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Water",
+  "EffectRadius": 0.0,
+  "Description": "8 x 8 m pontoon foundation on open water. The planet's signature build."
+ },
+ {
+  "Name": "Ramp",
+  "DisplayName": "Ramp",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 4
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 200.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "M2",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "FoundationGrid",
+  "EffectRadius": 0.0,
+  "Description": "8 x 8 x 2 m ramp."
+ },
+ {
+  "Name": "Stairs",
+  "DisplayName": "Stairs",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 4
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "M2",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "FoundationGrid",
+  "EffectRadius": 0.0,
+  "Description": "8 x 8 x 4 m stairs."
+ },
+ {
+  "Name": "Wall",
+  "DisplayName": "Wall",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 2
+   },
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 1,
+  "UnlockedBy": "M2",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "WallEdge",
+  "EffectRadius": 0.0,
+  "Description": "8 x 4 m wall on a foundation edge."
+ },
+ {
+  "Name": "WindowWall",
+  "DisplayName": "Window Wall",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 2
+   },
+   {
+    "Item": "Glass",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "RS_Optics",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "WallEdge",
+  "EffectRadius": 0.0,
+  "Description": "8 x 4 m wall with a window."
+ },
+ {
+  "Name": "DoorWall",
+  "DisplayName": "Door Wall",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 2
+   },
+   {
+    "Item": "FerritePlate",
+    "Count": 4
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M4",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "WallEdge",
+  "EffectRadius": 0.0,
+  "Description": "8 x 4 m wall with a door."
+ },
+ {
+  "Name": "Catwalk",
+  "DisplayName": "Catwalk",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   },
+   {
+    "Item": "FerriteRod",
+    "Count": 1
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 50.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 0.0,
+  "Description": "8 m catwalk, railings included."
+ },
+ {
+  "Name": "Ladder",
+  "DisplayName": "Ladder",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerriteRod",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Anywhere",
+  "EffectRadius": 0.0,
+  "Description": "4 m ladder section."
+ },
+ {
+  "Name": "Pillar",
+  "DisplayName": "Pillar",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 0.5,
+   "Y": 0.5
+  },
+  "Height": 400.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "FoundationGrid",
+  "EffectRadius": 0.0,
+  "Description": "4 m support pillar."
+ },
+ {
+  "Name": "Roof",
+  "DisplayName": "Roof",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "FerritePlate",
+    "Count": 2
+   },
+   {
+    "Item": "Reefcrete",
+    "Count": 1
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 50.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": false,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 2,
+  "UnlockedBy": "M3",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "FoundationGrid",
+  "EffectRadius": 0.0,
+  "Description": "8 x 8 m roof panel."
+ },
+ {
+  "Name": "Breakwater",
+  "DisplayName": "Breakwater",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Reefcrete",
+    "Count": 10
+   },
+   {
+    "Item": "SteelBeam",
+    "Count": 2
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 0.5
+  },
+  "Height": 600.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 0.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": 0.0,
+  "BufferSize": 0,
+  "Phase": 3,
+  "UnlockedBy": "Story:BT_P3_05",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Water",
+  "EffectRadius": 4.0,
+  "Description": "8 m sea wall. Belts within 4 cells don't snap in storms."
+ },
+ {
+  "Name": "ReefFilter",
+  "DisplayName": "Reef Filter",
+  "Kind": "Structure",
+  "Category": "Structure",
+  "MachineType": "None",
+  "Cost": [
+   {
+    "Item": "Frame",
+    "Count": 4
+   },
+   {
+    "Item": "SealedCable",
+    "Count": 10
+   },
+   {
+    "Item": "Polymer",
+    "Count": 10
+   }
+  ],
+  "Size": {
+   "X": 1.0,
+   "Y": 1.0
+  },
+  "Height": 500.0,
+  "Mesh": "None",
+  "TopMesh": "None",
+  "TopScale": {
+   "X": 0.5,
+   "Y": 0.5,
+   "Z": 0.5
+  },
+  "Color": {
+   "R": 0.5,
+   "G": 0.5,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "AccentColor": {
+   "R": 1.0,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "PowerUse": 10.0,
+  "PowerOutput": 0.0,
+  "ExtractItem": "None",
+  "ExtractInterval": 0.0,
+  "bNeedsWater": true,
+  "bNoNode": false,
+  "FuelItem": "None",
+  "FuelTime": 0.0,
+  "AltFuels": [],
+  "Pollution": -3.0,
+  "BufferSize": 0,
+  "Phase": 4,
+  "UnlockedBy": "RS_ReefSong",
+  "MaxCount": 0,
+  "Throughput": 0.0,
+  "PlacementRule": "Water",
+  "EffectRadius": 6.0,
+  "Description": "Glimmer design. Cleans runoff: +3 Ocean Health per hour while powered. The first three near the Glimmer reef: +3 trust each."
+ }
+]

@@ -1,0 +1,988 @@
+[
+ {
+  "Name": "FerriteOre",
+  "DisplayName": "Ferrite Ore",
+  "Color": {
+   "R": 0.45,
+   "G": 0.28,
+   "B": 0.22,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Rust-red iron ore from the reef's ore vents."
+ },
+ {
+  "Name": "CupriteOre",
+  "DisplayName": "Cuprite Ore",
+  "Color": {
+   "R": 0.62,
+   "G": 0.36,
+   "B": 0.22,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Copper ore, streaked green where the sea touches it."
+ },
+ {
+  "Name": "CoralLime",
+  "DisplayName": "Coral Lime",
+  "Color": {
+   "R": 0.92,
+   "G": 0.86,
+   "B": 0.74,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Old dead coral. Crushed and pressed into reefcrete."
+ },
+ {
+  "Name": "BlackSand",
+  "DisplayName": "Black Sand",
+  "Color": {
+   "R": 0.12,
+   "G": 0.11,
+   "B": 0.12,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 2,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Volcanic sand from the Black Sands. Melts into glass."
+ },
+ {
+  "Name": "Glowkelp",
+  "DisplayName": "Glowkelp",
+  "Color": {
+   "R": 0.2,
+   "G": 1.0,
+   "B": 0.6,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Bioluminescent kelp. Fuel, pulp, char and gel all start here."
+ },
+ {
+  "Name": "Seawater",
+  "DisplayName": "Seawater",
+  "Color": {
+   "R": 0.2,
+   "G": 0.45,
+   "B": 0.65,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": true,
+  "StackSize": 0,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "The ocean itself, pumped. Fluid: moved by pipe."
+ },
+ {
+  "Name": "Tar",
+  "DisplayName": "Tar",
+  "Color": {
+   "R": 0.08,
+   "G": 0.07,
+   "B": 0.06,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": true,
+  "StackSize": 0,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Thick tar from the seeps on the Tar Shelves. Fluid."
+ },
+ {
+  "Name": "StormCrystal",
+  "DisplayName": "Storm Crystal",
+  "Color": {
+   "R": 0.55,
+   "G": 0.6,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Lightning-fused crystal. First appears with the Great Storm."
+ },
+ {
+  "Name": "DeepCrystal",
+  "DisplayName": "Deep Crystal",
+  "Color": {
+   "R": 0.3,
+   "G": 0.9,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Raw",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 5,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Resonant crystal from the trench under the Glimmer reef."
+ },
+ {
+  "Name": "ScrapMetal",
+  "DisplayName": "Scrap Metal",
+  "Color": {
+   "R": 0.45,
+   "G": 0.47,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "Category": "Pickup",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Hull plate and wreckage from the Paper Kite. Finite."
+ },
+ {
+  "Name": "GlimmerPearl",
+  "DisplayName": "Glimmer Pearl",
+  "Color": {
+   "R": 0.85,
+   "G": 0.95,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Currency",
+  "bFluid": false,
+  "StackSize": 500,
+  "Phase": 2,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "What the Glimmers pay with. Spent at the Trade Buoy and the Tide Lab."
+ },
+ {
+  "Name": "GlowShell",
+  "DisplayName": "Glow Shell",
+  "Color": {
+   "R": 1.0,
+   "G": 0.85,
+   "B": 0.4,
+   "A": 1.0
+  },
+  "Category": "Pickup",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 2,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Found on reefs at night. One shell = +50% clock on one machine (max 3)."
+ },
+ {
+  "Name": "DataCore",
+  "DisplayName": "Data Core",
+  "Color": {
+   "R": 0.9,
+   "G": 0.6,
+   "B": 0.2,
+   "A": 1.0
+  },
+  "Category": "Pickup",
+  "bFluid": false,
+  "StackSize": 10,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "A black-box core from the wreck: a voice memory and an alternate recipe."
+ },
+ {
+  "Name": "FerriteIngot",
+  "DisplayName": "Ferrite Ingot",
+  "Color": {
+   "R": 0.6,
+   "G": 0.6,
+   "B": 0.62,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Smelted ferrite."
+ },
+ {
+  "Name": "CupriteIngot",
+  "DisplayName": "Cuprite Ingot",
+  "Color": {
+   "R": 0.85,
+   "G": 0.5,
+   "B": 0.3,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Smelted copper."
+ },
+ {
+  "Name": "FerritePlate",
+  "DisplayName": "Ferrite Plate",
+  "Color": {
+   "R": 0.55,
+   "G": 0.62,
+   "B": 0.7,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "The workhorse plate. Belts, frames, everything."
+ },
+ {
+  "Name": "FerriteRod",
+  "DisplayName": "Ferrite Rod",
+  "Color": {
+   "R": 0.5,
+   "G": 0.52,
+   "B": 0.56,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Rods for frames, rotors and supports."
+ },
+ {
+  "Name": "Bolt",
+  "DisplayName": "Bolts",
+  "Color": {
+   "R": 0.72,
+   "G": 0.72,
+   "B": 0.74,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 500,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Bolts by the bucket."
+ },
+ {
+  "Name": "Wire",
+  "DisplayName": "Wire",
+  "Color": {
+   "R": 0.95,
+   "G": 0.55,
+   "B": 0.15,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 500,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Copper wire."
+ },
+ {
+  "Name": "Cable",
+  "DisplayName": "Cable",
+  "Color": {
+   "R": 0.25,
+   "G": 0.25,
+   "B": 0.28,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Insulated cable for power lines and machines."
+ },
+ {
+  "Name": "Reefcrete",
+  "DisplayName": "Reefcrete",
+  "Color": {
+   "R": 0.85,
+   "G": 0.82,
+   "B": 0.76,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Coral-lime concrete. Foundations and the Tower Base."
+ },
+ {
+  "Name": "RivetedPlate",
+  "DisplayName": "Riveted Plate",
+  "Color": {
+   "R": 0.4,
+   "G": 0.5,
+   "B": 0.6,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 1,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Plates riveted with bolts. The Tower Base is made of it."
+ },
+ {
+  "Name": "Glass",
+  "DisplayName": "Glass",
+  "Color": {
+   "R": 0.6,
+   "G": 0.9,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 2,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Black-sand glass."
+ },
+ {
+  "Name": "KelpPulp",
+  "DisplayName": "Kelp Pulp",
+  "Color": {
+   "R": 0.3,
+   "G": 0.6,
+   "B": 0.35,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 2,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Pressed glowkelp. Burns better than raw kelp."
+ },
+ {
+  "Name": "Biofuel",
+  "DisplayName": "Biofuel",
+  "Color": {
+   "R": 0.35,
+   "G": 0.55,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 2,
+  "TradePhase": 3,
+  "Icon": "None",
+  "Description": "Dense kelp fuel bricks. Burners, the skiff, and the burner Power Ring."
+ },
+ {
+  "Name": "Float",
+  "DisplayName": "Float",
+  "Color": {
+   "R": 0.95,
+   "G": 0.85,
+   "B": 0.3,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 2,
+  "TradePhase": 2,
+  "Icon": "None",
+  "Description": "Sealed kelp-pulp pontoon. Floating platforms and belts over water."
+ },
+ {
+  "Name": "Frame",
+  "DisplayName": "Frame",
+  "Color": {
+   "R": 0.6,
+   "G": 0.62,
+   "B": 0.66,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 2,
+  "TradePhase": 3,
+  "Icon": "None",
+  "Description": "A riveted frame. The Receiver Dish is built on them."
+ },
+ {
+  "Name": "Lens",
+  "DisplayName": "Lens",
+  "Color": {
+   "R": 0.5,
+   "G": 0.95,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 2,
+  "TradePhase": 3,
+  "Icon": "None",
+  "Description": "Ground glass in a wire ring. The dish, the Translator, the scanner."
+ },
+ {
+  "Name": "CupriteSheet",
+  "DisplayName": "Cuprite Sheet",
+  "Color": {
+   "R": 0.9,
+   "G": 0.55,
+   "B": 0.35,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 2,
+  "TradePhase": 3,
+  "Icon": "None",
+  "Description": "Rolled copper. Pipes and circuit boards."
+ },
+ {
+  "Name": "Rotor",
+  "DisplayName": "Rotor",
+  "Color": {
+   "R": 0.55,
+   "G": 0.55,
+   "B": 0.6,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 2,
+  "TradePhase": 3,
+  "Icon": "None",
+  "Description": "Spinning parts for pumps, burners, the skiff."
+ },
+ {
+  "Name": "KelpChar",
+  "DisplayName": "Kelp Char",
+  "Color": {
+   "R": 0.15,
+   "G": 0.15,
+   "B": 0.12,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Charred kelp. Steel and the fuel burner."
+ },
+ {
+  "Name": "SteelIngot",
+  "DisplayName": "Steel Ingot",
+  "Color": {
+   "R": 0.7,
+   "G": 0.72,
+   "B": 0.78,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Ferrite and char, fired in the foundry."
+ },
+ {
+  "Name": "SteelBeam",
+  "DisplayName": "Steel Beam",
+  "Color": {
+   "R": 0.5,
+   "G": 0.55,
+   "B": 0.62,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 3,
+  "TradePhase": 4,
+  "Icon": "None",
+  "Description": "Structural steel. The mast stands on it."
+ },
+ {
+  "Name": "SteelPipe",
+  "DisplayName": "Steel Pipe",
+  "Color": {
+   "R": 0.6,
+   "G": 0.62,
+   "B": 0.66,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 3,
+  "TradePhase": 4,
+  "Icon": "None",
+  "Description": "Steel pipe."
+ },
+ {
+  "Name": "Polymer",
+  "DisplayName": "Polymer",
+  "Color": {
+   "R": 0.95,
+   "G": 0.95,
+   "B": 0.92,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 3,
+  "TradePhase": 4,
+  "Icon": "None",
+  "Description": "Refined tar plastic."
+ },
+ {
+  "Name": "Sealant",
+  "DisplayName": "Sealant",
+  "Color": {
+   "R": 0.2,
+   "G": 0.18,
+   "B": 0.15,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 3,
+  "TradePhase": 4,
+  "Icon": "None",
+  "Description": "Tar and kelp sealant. Waterproofs anything."
+ },
+ {
+  "Name": "TarFuel",
+  "DisplayName": "Tar Fuel",
+  "Color": {
+   "R": 0.6,
+   "G": 0.35,
+   "B": 0.1,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": true,
+  "StackSize": 0,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Refined tar fuel. Fluid. Fast, strong and dirty."
+ },
+ {
+  "Name": "CircuitBoard",
+  "DisplayName": "Circuit Board",
+  "Color": {
+   "R": 0.2,
+   "G": 0.6,
+   "B": 0.3,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 3,
+  "TradePhase": 4,
+  "Icon": "None",
+  "Description": "Copper on polymer."
+ },
+ {
+  "Name": "SealedCable",
+  "DisplayName": "Sealed Cable",
+  "Color": {
+   "R": 0.15,
+   "G": 0.15,
+   "B": 0.2,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 3,
+  "TradePhase": 4,
+  "Icon": "None",
+  "Description": "Cable that survives the sea."
+ },
+ {
+  "Name": "MastSegment",
+  "DisplayName": "Mast Segment",
+  "Color": {
+   "R": 0.75,
+   "G": 0.78,
+   "B": 0.85,
+   "A": 1.0
+  },
+  "Category": "TowerPart",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "One lattice section of the Antenna Mast, cable runs included."
+ },
+ {
+  "Name": "CrystalShard",
+  "DisplayName": "Crystal Shard",
+  "Color": {
+   "R": 0.6,
+   "G": 0.65,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 200,
+  "Phase": 4,
+  "TradePhase": 5,
+  "Icon": "None",
+  "Description": "Cut storm crystal."
+ },
+ {
+  "Name": "Oscillator",
+  "DisplayName": "Oscillator",
+  "Color": {
+   "R": 0.7,
+   "G": 0.75,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 4,
+  "TradePhase": 5,
+  "Icon": "None",
+  "Description": "A tuned crystal that rings at one frequency."
+ },
+ {
+  "Name": "GlowGel",
+  "DisplayName": "Glow Gel",
+  "Color": {
+   "R": 0.3,
+   "G": 1.0,
+   "B": 0.8,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 4,
+  "TradePhase": 5,
+  "Icon": "None",
+  "Description": "Refined kelp light, the Glimmers' recipe."
+ },
+ {
+  "Name": "LightCell",
+  "DisplayName": "Light Cell",
+  "Color": {
+   "R": 0.5,
+   "G": 1.0,
+   "B": 0.9,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 4,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Stored glow. Clean fuel for the Glow Bank."
+ },
+ {
+  "Name": "PowerCell",
+  "DisplayName": "Power Cell",
+  "Color": {
+   "R": 0.4,
+   "G": 0.9,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "TowerPart",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 4,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Light cells on a circuit. The clean Power Ring is made of them."
+ },
+ {
+  "Name": "ControlModule",
+  "DisplayName": "Control Module",
+  "Color": {
+   "R": 0.2,
+   "G": 0.3,
+   "B": 0.5,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 4,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "The tower's brain, one module at a time."
+ },
+ {
+  "Name": "HeavyFrame",
+  "DisplayName": "Heavy Frame",
+  "Color": {
+   "R": 0.35,
+   "G": 0.38,
+   "B": 0.42,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 4,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Steel-reinforced frame for the big machines and the tower top."
+ },
+ {
+  "Name": "Stator",
+  "DisplayName": "Stator",
+  "Color": {
+   "R": 0.6,
+   "G": 0.45,
+   "B": 0.3,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 4,
+  "TradePhase": 5,
+  "Icon": "None",
+  "Description": "Wound steel stator."
+ },
+ {
+  "Name": "Motor",
+  "DisplayName": "Motor",
+  "Color": {
+   "R": 0.4,
+   "G": 0.4,
+   "B": 0.45,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 4,
+  "TradePhase": 5,
+  "Icon": "None",
+  "Description": "Rotor plus stator. Turbines and drills."
+ },
+ {
+  "Name": "Resonator",
+  "DisplayName": "Resonator",
+  "Color": {
+   "R": 0.4,
+   "G": 0.85,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "TowerPart",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 5,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Deep crystal tuned by an oscillator. The Signal Core sings with these."
+ },
+ {
+  "Name": "DeepLens",
+  "DisplayName": "Deep Lens",
+  "Color": {
+   "R": 0.3,
+   "G": 0.8,
+   "B": 1.0,
+   "A": 1.0
+  },
+  "Category": "Part",
+  "bFluid": false,
+  "StackSize": 100,
+  "Phase": 5,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "A lens grown through with deep crystal. Focuses the signal."
+ },
+ {
+  "Name": "SalvageCutter",
+  "DisplayName": "Salvage Cutter",
+  "Color": {
+   "R": 0.9,
+   "G": 0.6,
+   "B": 0.2,
+   "A": 1.0
+  },
+  "Category": "Equipment",
+  "bFluid": false,
+  "StackSize": 1,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Cuts wreckage and clears kelp and foliage. Doubles scrap salvage speed."
+ },
+ {
+  "Name": "Beacon",
+  "DisplayName": "Beacon",
+  "Color": {
+   "R": 1.0,
+   "G": 0.5,
+   "B": 0.2,
+   "A": 1.0
+  },
+  "Category": "Equipment",
+  "bFluid": false,
+  "StackSize": 50,
+  "Phase": 2,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Place it to mark a spot on the compass."
+ },
+ {
+  "Name": "DiveMask",
+  "DisplayName": "Dive Mask",
+  "Color": {
+   "R": 0.4,
+   "G": 0.8,
+   "B": 0.9,
+   "A": 1.0
+  },
+  "Category": "Equipment",
+  "bFluid": false,
+  "StackSize": 1,
+  "Phase": 2,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Clear underwater vision and faster swimming. No oxygen meter in this game."
+ },
+ {
+  "Name": "Scanner",
+  "DisplayName": "Scanner",
+  "Color": {
+   "R": 0.3,
+   "G": 0.9,
+   "B": 0.7,
+   "A": 1.0
+  },
+  "Category": "Equipment",
+  "bFluid": false,
+  "StackSize": 1,
+  "Phase": 2,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Pulse to show nearby resource nodes (and later trench vents and data cores)."
+ },
+ {
+  "Name": "ZiplineHarness",
+  "DisplayName": "Zipline Harness",
+  "Color": {
+   "R": 0.9,
+   "G": 0.8,
+   "B": 0.3,
+   "A": 1.0
+  },
+  "Category": "Equipment",
+  "bFluid": false,
+  "StackSize": 1,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Ride your own power lines."
+ },
+ {
+  "Name": "GliderPack",
+  "DisplayName": "Glider Pack",
+  "Color": {
+   "R": 0.8,
+   "G": 0.85,
+   "B": 0.95,
+   "A": 1.0
+  },
+  "Category": "Equipment",
+  "bFluid": false,
+  "StackSize": 1,
+  "Phase": 3,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "Glide from cliffs and towers. Mk2 rides storm updrafts."
+ },
+ {
+  "Name": "Medkit",
+  "DisplayName": "Medkit",
+  "Color": {
+   "R": 0.95,
+   "G": 0.2,
+   "B": 0.2,
+   "A": 1.0
+  },
+  "Category": "KeyItem",
+  "bFluid": false,
+  "StackSize": 1,
+  "Phase": 1,
+  "TradePhase": 0,
+  "Icon": "None",
+  "Description": "The ship's only medkit. You'll know when it matters."
+ }
+]
