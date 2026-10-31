@@ -2,6 +2,17 @@
 
 Newest first. Each entry: what was decided/done, what's next, blockers. Keep it short; details live in files.
 
+## 2026-11-01 (session 4) — M0 closed, M1 engine step 1 done
+**Found on resume**: no agents running; stale `EDITOR.lock`; `Progression.md` and the playtime estimate still TODO;
+step 1 C++ written but never built (it didn't compile).
+**Done**: M0 merged to `dev`, tagged `m0` (D21, D22). Step 1 built and tested on `m1/core`: test_building and
+test_phase2 pass end to end (`Production/TestLog.md`). Root cause of the "no collision" failures: 1-10 cm source meshes
+whose convex hulls don't register (`Tools/Setup/05_mesh_collision.py`). Platform raised above the ocean plane.
+**Open**: `Config/DefaultEngine.ini` (Nanite off, DX11, SM5) stays uncommitted until the user decides; it must be
+settled before hero assets (wave 3) because it conflicts with the bible's Nanite rule and D6's Epic. `stat FG` counters
+not yet read on screen. `stash@{0}` and `D:\Game\TideAndTreasure_stage` can still be deleted.
+**Next**: M1 wave 1: slice cards, material masters, engine step 2 (`UFGFactorySubsystem`), then the kitbash library.
+
 ## 2026-10-31 (session 3) — finish M0, start M1 engine
 **Recovered**: session 2's art-director and game-designer outputs were lost again (no `Art/`, no
 `Design/Progression.md`, no playtime model); `Design/Data/*.json` survived and is now committed (`013d66a`).

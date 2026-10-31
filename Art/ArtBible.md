@@ -66,8 +66,8 @@ paint (amber on yellow vanishes). Factory light is teal/yellow; nature's light i
 
 ## 4. Machines
 ### 4.1 Footprint and grid (Plan D10, Tech §3)
-- Gameplay footprint = data row `Size` in foundation cells (1 = 800 cm, halves allowed) unless the producer
-  rules otherwise. Outer dimensions are **even metres** so edges land on the 100 cm sub-grid when centred.
+- Gameplay footprint = data row `Size` in **100 cm cells** (Plan D21; a Foundation is 8 x 8). Outer dimensions are
+  **even metres** so edges land on the 100 cm sub-grid when centred.
 - The body fills the footprint to a **50 cm service margin**; nothing but port frames, cables and belts crosses
   the footprint edge. Height <= the row `Height`. Origin: footprint centre, base Z = 0.
 - Sizes (proportion bar, `satisfactory.wiki.gg`, R001-R003): Smelter 5x10x8.5 m, Constructor 8x10x8.5, Assembler
