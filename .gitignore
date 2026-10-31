@@ -24,3 +24,13 @@ Content/Collections/
 # Python
 __pycache__/
 *.pyc
+
+# Production pipeline (Production/Plan.md D7: scripts are the art source of truth)
+Production/EDITOR.lock
+Art/_refs/
+ArtSource/**/*.blend
+ArtSource/**/*.blend1
+ArtSource/**/export/
+ArtSource/**/preview/*.png
+ArtSource/_downloads/
+ArtSource/**/_work/
