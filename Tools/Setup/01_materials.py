@@ -73,14 +73,28 @@ def finish(mat):
     EAL.save_asset(mat.get_path_name())
 
 
-# ---------------------------------------------------------------- M_Machine: lit, Color + Glow
+# ---------------------------------------------------------------- M_Machine: lit, PBR Industrial with Edge Highlights & Bloom
 m = material("M_Machine")
-color = vparam(m, "Color", (0.5, 0.5, 0.5, 1), -600, 0)
-glow = sparam(m, "Glow", 0.0, -600, 200)
-metal = sparam(m, "Metallic", 0.25, -600, 320)
-rough = sparam(m, "Roughness", 0.45, -600, 420)
-out(color, "", MP.MP_BASE_COLOR)
-out(mul(m, color, "", glow, "", -300, 200), "", MP.MP_EMISSIVE_COLOR)
+color = vparam(m, "Color", (0.5, 0.5, 0.5, 1), -800, 0)
+glow = sparam(m, "Glow", 0.0, -800, 200)
+metal = sparam(m, "Metallic", 0.75, -800, 320)
+rough = sparam(m, "Roughness", 0.32, -800, 420)
+
+fresnel = expr(m, unreal.MaterialExpressionFresnel, -600, -120)
+fresnel.set_editor_property("exponent", 3.5)
+fresnel.set_editor_property("base_reflect_fraction", 0.04)
+
+edge_col = const3(m, (0.85, 0.9, 0.95), -600, -220)
+lerp_col = expr(m, unreal.MaterialExpressionLinearInterpolate, -400, -50)
+link(color, "", lerp_col, "A")
+link(edge_col, "", lerp_col, "B")
+link(fresnel, "", lerp_col, "Alpha")
+
+glow_mult = mul(m, glow, "", const(m, 6.0, -600, 260), "", -450, 200)
+emissive = mul(m, color, "", glow_mult, "", -250, 150)
+
+out(lerp_col, "", MP.MP_BASE_COLOR)
+out(emissive, "", MP.MP_EMISSIVE_COLOR)
 out(metal, "", MP.MP_METALLIC)
 out(rough, "", MP.MP_ROUGHNESS)
 finish(m)
@@ -111,7 +125,7 @@ out(mul(m, color, "", const(m, 2.0, -600, 200), "", -300, 0), "", MP.MP_EMISSIVE
 out(const(m, 0.35, -300, 200), "", MP.MP_OPACITY)
 finish(m)
 
-# ---------------------------------------------------------------- M_Belt: dark belt with moving stripes
+# ---------------------------------------------------------------- M_Belt: Industrial conveyor with moving hazard chevron stripes
 m = material("M_Belt")
 color = vparam(m, "Color", (0.12, 0.13, 0.15, 1), -200, -200)
 length = sparam(m, "Length", 1.0, -1200, 120)
@@ -129,11 +143,12 @@ link(moving, "", frac, "")
 rnd = expr(m, unreal.MaterialExpressionRound, -320, 120)
 link(frac, "", rnd, "")
 lerp = expr(m, unreal.MaterialExpressionLinearInterpolate, -150, 60)
-link(const(m, 0.55, -320, 0), "", lerp, "A")
-link(const(m, 1.0, -320, 40), "", lerp, "B")
+link(const3(m, (0.1, 0.11, 0.13), -320, 0), "", lerp, "A")
+link(const3(m, (0.95, 0.65, 0.05), -320, 40), "", lerp, "B")
 link(rnd, "", lerp, "Alpha")
-out(mul(m, color, "", lerp, "", 50, -100), "", MP.MP_BASE_COLOR)
-out(const(m, 0.75, 50, 100), "", MP.MP_ROUGHNESS)
+out(lerp, "", MP.MP_BASE_COLOR)
+out(mul(m, rnd, "", const3(m, (0.4, 0.25, 0.02), -300, 180), "", 50, 150), "", MP.MP_EMISSIVE_COLOR)
+out(const(m, 0.45, 50, 100), "", MP.MP_ROUGHNESS)
 finish(m)
 
 # ---------------------------------------------------------------- M_Ocean: single layer water with two panning normal maps
@@ -175,17 +190,41 @@ link(const3(m, (0.012, 0.055, 0.06), -350, 480), "", slw, "ScatteringCoefficient
 link(const3(m, (0.38, 0.06, 0.035), -350, 560), "", slw, "AbsorptionCoefficients")
 finish(m)
 
-# ---------------------------------------------------------------- M_Sand: warm sand with soft noise variation
+# ---------------------------------------------------------------- M_Sand: warm golden sand with wet shoreline gradient & noise
 m = material("M_Sand")
-world = expr(m, unreal.MaterialExpressionWorldPosition, -1000, 0)
-noise = expr(m, unreal.MaterialExpressionNoise, -800, 0, scale=0.004, levels=4, output_min=0.0, output_max=1.0)
+world = expr(m, unreal.MaterialExpressionWorldPosition, -1200, 0)
+noise = expr(m, unreal.MaterialExpressionNoise, -800, 0, scale=0.003, levels=4, output_min=0.0, output_max=1.0)
 link(world, "", noise, "World Position")
-sand = expr(m, unreal.MaterialExpressionLinearInterpolate, -500, 0)
-link(const3(m, (0.62, 0.52, 0.36), -800, -200), "", sand, "A")
-link(const3(m, (0.82, 0.72, 0.53), -800, -120), "", sand, "B")
-link(noise, "", sand, "Alpha")
-out(sand, "", MP.MP_BASE_COLOR)
-out(const(m, 0.9, -500, 200), "", MP.MP_ROUGHNESS)
+
+dry_sand = expr(m, unreal.MaterialExpressionLinearInterpolate, -550, -100)
+link(const3(m, (0.70, 0.58, 0.38), -800, -240), "", dry_sand, "A")
+link(const3(m, (0.86, 0.74, 0.52), -800, -160), "", dry_sand, "B")
+link(noise, "", dry_sand, "Alpha")
+
+wet_sand = const3(m, (0.28, 0.22, 0.14), -550, -250)
+
+# Shoreline wetness mask from world Z
+z_mask = expr(m, unreal.MaterialExpressionComponentMask, -1000, 200, r=False, g=False, b=True, a=False)
+link(world, "", z_mask, "")
+z_div = expr(m, unreal.MaterialExpressionDivide, -800, 200)
+link(z_mask, "", z_div, "A")
+link(const(m, 35.0, -1000, 280), "", z_div, "B")
+z_clamp = expr(m, unreal.MaterialExpressionClamp, -650, 200, min_default=0.0, max_default=1.0)
+link(z_div, "", z_clamp, "")
+
+sand_final = expr(m, unreal.MaterialExpressionLinearInterpolate, -300, -50)
+link(wet_sand, "", sand_final, "A")
+link(dry_sand, "", sand_final, "B")
+link(z_clamp, "", sand_final, "Alpha")
+
+roughness = expr(m, unreal.MaterialExpressionLinearInterpolate, -300, 150)
+link(const(m, 0.18, -500, 120), "", roughness, "A")
+link(const(m, 0.88, -500, 180), "", roughness, "B")
+link(z_clamp, "", roughness, "Alpha")
+
+out(sand_final, "", MP.MP_BASE_COLOR)
+out(roughness, "", MP.MP_ROUGHNESS)
+out(const(m, 0.05, -100, 250), "", MP.MP_SPECULAR)
 finish(m)
 
 # ---------------------------------------------------------------- material instances for the level

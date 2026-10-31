@@ -1,0 +1,3 @@
+import unreal
+
+print(unreal.GeometryScript_NewAssetUtils.create_new_static_mesh_asset_from_mesh.__doc__)

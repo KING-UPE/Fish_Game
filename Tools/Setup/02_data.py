@@ -17,6 +17,26 @@ CUBE = "/Engine/BasicShapes/Cube.Cube"
 CONE = "/Engine/BasicShapes/Cone.Cone"
 SPHERE = "/Engine/BasicShapes/Sphere.Sphere"
 
+MESHES = "/Game/Blue/Meshes"
+SM_CONVEYOR = f"{MESHES}/SM_Conveyor.SM_Conveyor"
+SM_CONVEYOR_STRIPE = f"{MESHES}/SM_ConveyorStripe.SM_ConveyorStripe"
+SM_SMELTER_CORE = f"{MESHES}/SM_SmelterCore.SM_SmelterCore"
+SM_ASSEMBLER_CORE = f"{MESHES}/SM_AssemblerCore.SM_AssemblerCore"
+SM_MACHINE_GANTRY = f"{MESHES}/SM_MachineGantry.SM_MachineGantry"
+SM_TOWER_SUPPORT = f"{MESHES}/SM_TowerSupport.SM_TowerSupport"
+SM_FOUNDATION = f"{MESHES}/SM_FoundationTile.SM_FoundationTile"
+SM_HOPPER = f"{MESHES}/SM_Hopper.SM_Hopper"
+SM_ROBOT_ARM = f"{MESHES}/SM_RobotArm.SM_RobotArm"
+SM_SCANNER = f"{MESHES}/SM_Scanner.SM_Scanner"
+SM_CONSOLE = f"{MESHES}/SM_ConsoleTerminal.SM_ConsoleTerminal"
+SM_STORAGE = f"{MESHES}/SM_StorageCrate.SM_StorageCrate"
+SM_FLUID_TANK = f"{MESHES}/SM_FluidTank.SM_FluidTank"
+SM_PIPE_STRAIGHT = f"{MESHES}/SM_PipeStraight.SM_PipeStraight"
+SM_PIPE_CORNER = f"{MESHES}/SM_PipeCorner.SM_PipeCorner"
+SM_PIPE_STAND = f"{MESHES}/SM_PipeStand.SM_PipeStand"
+SM_ANTENNA = f"{MESHES}/SM_SignalAntenna.SM_SignalAntenna"
+SM_DISH = f"{MESHES}/SM_SignalDish.SM_SignalDish"
+
 
 def color(r, g, b, a=1.0):
     return {"R": r, "G": g, "B": b, "A": a}
@@ -99,80 +119,80 @@ def buildable(name, display, kind, cost, size, height, mesh, col, phase, desc, *
            "TopMesh": "None", "TopScale": {"X": 0.5, "Y": 0.5, "Z": 0.5},
            "Color": col, "AccentColor": color(1.0, 0.55, 0.1), "PowerUse": 0, "PowerOutput": 0,
            "ExtractItem": "None", "ExtractInterval": 2.0, "BufferSize": 10,
-           "bNeedsWater": False, "FuelItem": "None", "FuelTime": 4.0, "Pollution": 0.0,
+           "bNeedsWater": False, "bNoNode": False, "FuelItem": "None", "FuelTime": 4.0, "Pollution": 0.0,
            "Phase": phase, "Description": desc}
     row.update(extra)
     return row
 
 
 BUILDABLES = [
-    buildable("Solar", "Solar Panel", "Generator", [stack("ScrapMetal", 8)], (2, 2), 45, CHAMFER,
-              color(0.04, 0.09, 0.25), 1, "Salvaged panel. Makes 10 power from the sun.",
-              PowerOutput=10, TopMesh=CUBE, TopScale={"X": 0.9, "Y": 0.9, "Z": 0.15},
-              AccentColor=color(0.1, 0.3, 0.8)),
-    buildable("SalvageCrane", "Salvage Crane", "Extractor", [stack("ScrapMetal", 12)], (2, 2), 220, CYLINDER,
-              color(0.9, 0.62, 0.08), 1, "Sits on a Scrap Metal pile and pulls out scrap.",
+    buildable("Solar", "Solar Panel", "Generator", [stack("ScrapMetal", 8)], (2, 2), 70, SM_FOUNDATION,
+              color(0.85, 0.88, 0.92), 1, "Salvaged panel array. Generates 10 power from the sun.",
+              PowerOutput=10, TopMesh=SM_ANTENNA, TopScale={"X": 0.85, "Y": 0.85, "Z": 0.6},
+              AccentColor=color(0.1, 0.45, 0.95)),
+    buildable("SalvageCrane", "Salvage Crane", "Extractor", [stack("ScrapMetal", 12)], (2, 2), 220, SM_MACHINE_GANTRY,
+              color(0.92, 0.65, 0.1), 1, "Heavy automated crane. Pulls scrap metal from wreckage.",
               ExtractItem="ScrapMetal", ExtractInterval=2.0, PowerUse=4, BufferSize=20,
-              TopMesh=CUBE, TopScale={"X": 1.2, "Y": 0.18, "Z": 0.12}, AccentColor=color(1.0, 0.75, 0.15)),
-    buildable("SeabedDrill", "Seabed Drill", "Extractor", [stack("SteelBar", 10)], (2, 2), 170, CYLINDER,
-              color(0.22, 0.32, 0.38), 1, "Sits on a Coral Ore patch and drills out coral.",
+              TopMesh=SM_ROBOT_ARM, TopScale={"X": 0.75, "Y": 0.75, "Z": 0.6}, AccentColor=color(1.0, 0.8, 0.2)),
+    buildable("SeabedDrill", "Seabed Drill", "Extractor", [stack("SteelBar", 10)], (2, 2), 200, SM_TOWER_SUPPORT,
+              color(0.25, 0.35, 0.42), 1, "Deep core pneumatic drill. Extracts coral ore.",
               ExtractItem="CoralOre", ExtractInterval=2.0, PowerUse=4, BufferSize=20,
-              TopMesh=CONE, TopScale={"X": 0.55, "Y": 0.55, "Z": 0.45}, AccentColor=color(1.0, 0.4, 0.45)),
-    buildable("Smelter", "Smelter", "Machine", [stack("ScrapMetal", 15)], (3, 3), 220, CHAMFER,
-              color(0.42, 0.22, 0.15), 1, "Scrap Metal -> Steel Bar.  Coral Ore -> Coral Ingot.",
+              TopMesh=SM_HOPPER, TopScale={"X": 0.8, "Y": 0.8, "Z": 0.5}, AccentColor=color(1.0, 0.4, 0.45)),
+    buildable("Smelter", "Smelter", "Machine", [stack("ScrapMetal", 15)], (3, 3), 240, SM_SMELTER_CORE,
+              color(0.35, 0.38, 0.42), 1, "High-temp arc smelter: Scrap -> Steel Bar, Coral -> Ingot.",
               MachineType="Smelter", PowerUse=6, BufferSize=20,
-              TopMesh=CYLINDER, TopScale={"X": 0.25, "Y": 0.25, "Z": 0.6}, AccentColor=color(1.0, 0.45, 0.1)),
-    buildable("Press", "Press", "Machine", [stack("SteelBar", 10), stack("CoralIngot", 4)], (3, 2), 190, CHAMFER,
-              color(0.28, 0.36, 0.46), 1, "Steel Bars -> Steel Plate.  Coral Ingot -> Coral Sheet.",
+              TopMesh=SM_HOPPER, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.35}, AccentColor=color(1.0, 0.45, 0.05)),
+    buildable("Press", "Press", "Machine", [stack("SteelBar", 10), stack("CoralIngot", 4)], (3, 2), 210, SM_MACHINE_GANTRY,
+              color(0.28, 0.36, 0.46), 1, "Hydraulic stamper: Bars -> Steel Plates, Ingots -> Sheets.",
               MachineType="Press", PowerUse=5, BufferSize=20,
-              TopMesh=CUBE, TopScale={"X": 0.6, "Y": 0.85, "Z": 0.25}, AccentColor=color(0.4, 0.75, 1.0)),
-    buildable("WireMill", "Wire Mill", "Machine", [stack("SteelPlate", 6), stack("CoralIngot", 4)], (3, 2), 160, CHAMFER,
-              color(0.33, 0.2, 0.11), 1, "Coral Ingot -> 3 Wire.",
+              TopMesh=SM_CONSOLE, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.35}, AccentColor=color(0.3, 0.75, 1.0)),
+    buildable("WireMill", "Wire Mill", "Machine", [stack("SteelPlate", 6), stack("CoralIngot", 4)], (3, 2), 180, SM_SCANNER,
+              color(0.42, 0.28, 0.18), 1, "Precision wire extrusion: Coral Ingot -> 3 High-conductivity Wire.",
               MachineType="WireMill", PowerUse=5, BufferSize=30,
-              TopMesh=CYLINDER, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.35}, AccentColor=color(0.95, 0.55, 0.15)),
-    buildable("Storage", "Storage Crate", "Storage", [stack("SteelPlate", 8)], (2, 2), 140, CHAMFER,
-              color(0.3, 0.32, 0.27), 1, "Holds 200 of anything. Belts can feed it and pull from it.",
-              BufferSize=200, AccentColor=color(0.8, 0.8, 0.7)),
-    buildable("Belt", "Belt", "Belt", [stack("SteelBar", 1)], (1, 1), 10, CUBE,
-              color(0.12, 0.13, 0.15), 1, "Floating belt from an orange output to a blue input."),
+              TopMesh=SM_CONSOLE, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.4}, AccentColor=color(0.95, 0.55, 0.15)),
+    buildable("Storage", "Storage Crate", "Storage", [stack("SteelPlate", 8)], (2, 2), 140, SM_STORAGE,
+              color(0.82, 0.85, 0.88), 1, "Heavy pressurized cargo container. Stores 200 items.",
+              BufferSize=200, AccentColor=color(0.95, 0.55, 0.1)),
+    buildable("Belt", "Belt", "Belt", [stack("SteelBar", 1)], (1, 1), 35, SM_CONVEYOR,
+              color(0.2, 0.22, 0.25), 1, "Motorized roller conveyor belt."),
     # ---- Phase 2: Strangers
-    buildable("SandDredger", "Sand Dredger", "Extractor", [stack("SteelPlate", 6), stack("Wire", 10)], (2, 2), 150, CYLINDER,
-              color(0.18, 0.2, 0.24), 2, "Sits on a Black Sand patch and scoops up sand.",
+    buildable("SandDredger", "Sand Dredger", "Extractor", [stack("SteelPlate", 6), stack("Wire", 10)], (2, 2), 180, SM_TOWER_SUPPORT,
+              color(0.22, 0.24, 0.28), 2, "Heavy bucket-wheel dredge: Gathers black mineral sand.",
               ExtractItem="BlackSand", ExtractInterval=2.0, PowerUse=4, BufferSize=20,
-              TopMesh=CONE, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.3}, AccentColor=color(0.5, 0.5, 0.55)),
-    buildable("SeaPump", "Sea Pump", "Extractor", [stack("SteelPlate", 4), stack("Wire", 6)], (2, 2), 120, CYLINDER,
-              color(0.12, 0.3, 0.55), 2, "Pumps Brine from the sea. Place it at the water's edge or on a platform.",
+              TopMesh=SM_HOPPER, TopScale={"X": 0.7, "Y": 0.7, "Z": 0.4}, AccentColor=color(0.6, 0.6, 0.65)),
+    buildable("SeaPump", "Sea Pump", "Extractor", [stack("SteelPlate", 4), stack("Wire", 6)], (2, 2), 160, SM_FLUID_TANK,
+              color(0.15, 0.35, 0.65), 2, "High-volume submersible sea intake pump for Brine.",
               ExtractItem="Brine", ExtractInterval=2.0, PowerUse=3, BufferSize=20, bNeedsWater=True,
-              TopMesh=CYLINDER, TopScale={"X": 0.35, "Y": 0.35, "Z": 0.5}, AccentColor=color(0.3, 0.7, 1.0)),
-    buildable("Kiln", "Kiln", "Machine", [stack("SteelBar", 10), stack("CoralSheet", 6)], (2, 2), 170, CHAMFER,
-              color(0.55, 0.32, 0.22), 2, "Black Sand -> Glass.",
+              TopMesh=SM_PIPE_STRAIGHT, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.5}, AccentColor=color(0.2, 0.75, 1.0)),
+    buildable("Kiln", "Kiln", "Machine", [stack("SteelBar", 10), stack("CoralSheet", 6)], (2, 2), 190, SM_SMELTER_CORE,
+              color(0.6, 0.35, 0.22), 2, "Thermal sintering kiln: Black Sand -> Optical Glass.",
               MachineType="Kiln", PowerUse=5, BufferSize=30,
-              TopMesh=CYLINDER, TopScale={"X": 0.3, "Y": 0.3, "Z": 0.5}, AccentColor=color(1.0, 0.6, 0.2)),
-    buildable("Assembler", "Assembler", "Machine", [stack("SteelPlate", 10), stack("Wire", 20)], (3, 3), 200, CHAMFER,
-              color(0.25, 0.3, 0.28), 2, "Steel Plates + Wire -> Frame.  Glass + Wire -> Lens.  Glowkelp + Steel Plate -> Float.",
+              TopMesh=SM_PIPE_CORNER, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.4}, AccentColor=color(1.0, 0.55, 0.1)),
+    buildable("Assembler", "Assembler", "Machine", [stack("SteelPlate", 10), stack("Wire", 20)], (3, 3), 240, SM_ASSEMBLER_CORE,
+              color(0.85, 0.88, 0.92), 2, "Dual-stage robotic assembly cell (Frames, Lenses, Floats).",
               MachineType="Assembler", PowerUse=8, BufferSize=30,
-              TopMesh=CUBE, TopScale={"X": 0.7, "Y": 0.7, "Z": 0.2}, AccentColor=color(0.4, 1.0, 0.6)),
-    buildable("KelpFarm", "Kelp Farm", "Machine", [stack("SteelPlate", 6), stack("CoralSheet", 6)], (3, 3), 60, CHAMFER,
-              color(0.08, 0.25, 0.22), 2, "Brine -> Glowkelp. Slow, but it glows.",
+              TopMesh=SM_ROBOT_ARM, TopScale={"X": 0.7, "Y": 0.7, "Z": 0.35}, AccentColor=color(0.3, 0.95, 0.6)),
+    buildable("KelpFarm", "Kelp Farm", "Machine", [stack("SteelPlate", 6), stack("CoralSheet", 6)], (3, 3), 90, SM_FOUNDATION,
+              color(0.12, 0.3, 0.25), 2, "Hydroponic growth bed for bioluminescent Glowkelp.",
               MachineType="KelpFarm", PowerUse=3, BufferSize=30,
-              TopMesh=CUBE, TopScale={"X": 0.85, "Y": 0.85, "Z": 0.15}, AccentColor=color(0.2, 1.0, 0.6)),
-    buildable("Desalinator", "Desalinator", "Machine", [stack("SteelPlate", 8), stack("Wire", 10)], (2, 2), 160, CYLINDER,
-              color(0.7, 0.75, 0.8), 2, "Brine -> Fresh Water + Salt.",
+              TopMesh=SM_FLUID_TANK, TopScale={"X": 0.65, "Y": 0.65, "Z": 0.35}, AccentColor=color(0.2, 1.0, 0.6)),
+    buildable("Desalinator", "Desalinator", "Machine", [stack("SteelPlate", 8), stack("Wire", 10)], (2, 2), 190, SM_FLUID_TANK,
+              color(0.75, 0.8, 0.85), 2, "Multi-stage flash evaporator: Brine -> Fresh Water + Salt.",
               MachineType="Desalinator", PowerUse=4, BufferSize=30,
-              TopMesh=SPHERE, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.4}, AccentColor=color(0.55, 0.8, 1.0)),
-    buildable("KelpDryer", "Kelp Dryer", "Machine", [stack("SteelPlate", 6)], (2, 2), 130, CHAMFER,
-              color(0.3, 0.33, 0.15), 2, "3 Glowkelp -> Biofuel.",
+              TopMesh=SM_PIPE_STAND, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.5}, AccentColor=color(0.4, 0.85, 1.0)),
+    buildable("KelpDryer", "Kelp Dryer", "Machine", [stack("SteelPlate", 6)], (2, 2), 170, SM_SMELTER_CORE,
+              color(0.32, 0.36, 0.2), 2, "Thermal dehydrator: Glowkelp -> Biofuel briquettes.",
               MachineType="KelpDryer", PowerUse=3, BufferSize=30,
-              TopMesh=CUBE, TopScale={"X": 0.8, "Y": 0.3, "Z": 0.2}, AccentColor=color(0.6, 0.8, 0.2)),
-    buildable("KelpBurner", "Kelp Burner", "Generator", [stack("SteelPlate", 10), stack("CoralSheet", 4)], (2, 2), 160, CHAMFER,
-              color(0.2, 0.18, 0.16), 2, "Burns Biofuel for 30 power. Strong, but its smoke and runoff darken the sea.",
+              TopMesh=SM_CONSOLE, TopScale={"X": 0.6, "Y": 0.6, "Z": 0.3}, AccentColor=color(0.7, 0.9, 0.2)),
+    buildable("KelpBurner", "Kelp Burner", "Generator", [stack("SteelPlate", 10), stack("CoralSheet", 4)], (2, 2), 200, SM_SMELTER_CORE,
+              color(0.22, 0.2, 0.18), 2, "Industrial thermal power generator (burns Biofuel for 30 MW).",
               PowerOutput=30, FuelItem="Biofuel", FuelTime=6.0, Pollution=1.0, BufferSize=20,
-              TopMesh=CYLINDER, TopScale={"X": 0.25, "Y": 0.25, "Z": 0.8}, AccentColor=color(1.0, 0.35, 0.05)),
-    buildable("Platform", "Floating Platform", "Platform", [stack("Float", 2), stack("SteelPlate", 1)], (4, 4), 40, CUBE,
-              color(0.42, 0.33, 0.22), 2, "4x4 m of new ground on the water. Build on it, or build your way across the sea."),
-    buildable("Translator", "Translator", "Translator", [stack("Frame", 4), stack("Lens", 4), stack("Wire", 12)], (2, 2), 240, CYLINDER,
-              color(0.15, 0.2, 0.3), 2, "Turns the Glimmers' light and music into words. Needs power.",
-              PowerUse=6, TopMesh=SPHERE, TopScale={"X": 0.9, "Y": 0.9, "Z": 0.35}, AccentColor=color(0.3, 0.9, 1.0)),
+              TopMesh=SM_PIPE_STRAIGHT, TopScale={"X": 0.45, "Y": 0.45, "Z": 0.6}, AccentColor=color(1.0, 0.35, 0.05)),
+    buildable("Platform", "Floating Platform", "Platform", [stack("Float", 2), stack("SteelPlate", 1)], (4, 4), 40, SM_FOUNDATION,
+              color(0.45, 0.48, 0.52), 2, "Modular floating steel foundation for factory expansion on water."),
+    buildable("Translator", "Translator", "Translator", [stack("Frame", 4), stack("Lens", 4), stack("Wire", 12)], (2, 2), 240, SM_TOWER_SUPPORT,
+              color(0.18, 0.22, 0.32), 2, "Optical bio-acoustic translation terminal for Glimmer communication.",
+              PowerUse=6, TopMesh=SM_DISH, TopScale={"X": 0.85, "Y": 0.85, "Z": 0.45}, AccentColor=color(0.3, 0.9, 1.0)),
     buildable("TradeBuoy", "Trade Buoy", "TradeBuoy", [stack("Float", 4), stack("Wire", 10), stack("Lens", 1)], (2, 2), 130, CYLINDER,
               color(1.0, 0.45, 0.1), 2, "Where Glimmers come to trade. Place it at the water's edge or on a platform.",
               bNeedsWater=True, BufferSize=999, TopMesh=SPHERE, TopScale={"X": 0.5, "Y": 0.5, "Z": 0.35},
