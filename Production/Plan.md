@@ -12,7 +12,7 @@ Status and next steps: `Production/Log.md`. This file holds the **decisions**, t
 |---|---|---|---|
 | D1 | 2026-10-31 | **Git model.** `main` = last stable playable build; only verified milestones merge into it (`--no-ff`, tag `mN`). `dev` = production integration branch (started from the `wip/phase3` checkpoint `f3998e9`). Work happens on short branches `mN/<topic>` cut from `dev` and merged back `--no-ff`, so each deliverable is one revertable merge. Conventional commits with scopes (`feat(belts)`, `art(smelter)`, `docs(art)`, `chore(git)`). Agents never commit; the producer commits each deliverable. Push at milestone exits (CLAUDE.md account rule). | Untested WIP (save/load, weather) stays off `main`; history stays bisectable |
 | D2 | 2026-10-31 | **Story beats win over the Brief's phase seed.** P3 ends with the scripted storm that breaks the relay (storm crystals + lightning rods arrive with it). P4 holds the power choice: burners (fast, dirty) vs tidal turbines + light cells (clean, needs Glimmer trust). The seed's "Tidal Generator in P3" moves to P4. Storm Spires is P4's biome and makes storms a recurring mechanic there. | Brief §4: "keep their story and only refit the factory content" |
-| D3 | 2026-10-31 | **Echo** = the ship's AI from the story (sarcastic, warm, Ravi's voice, two secrets), now running in Ishani's suit. It is the tutorial voice the Brief calls ECHO. | Story doc is the authority on characters |
+| D3 | 2026-10-31 | **Echo** = the ship's AI from the story (sarcastic, warm, Ray's voice, two secrets), now running in Isla's suit. It is the tutorial voice the Brief calls ECHO. | Story doc is the authority on characters |
 | D4 | 2026-10-31 | **No oxygen meter, no underwater survival.** The Brief's "rebreather" becomes a **dive mask** (underwater vision + swim speed). | Story doc: "No underwater survival, no oxygen meter" |
 | D5 | 2026-10-31 | **One skiff**; the story doc's Drone Boat Dock is cut. Zipline + glider-pack for traversal. | Brief §4 cuts |
 | D6 | 2026-10-31 | **Performance is re-baselined to this laptop (user's answer to Q1), with one rule: Epic is never cut to fit it.** Low / Medium / High get their speed targets on this Intel Iris Xe laptop (§6), and main development happens here, so every feature must run and be testable here on Low-High. **Epic keeps full Satisfactory-1.0 quality for strong PCs**: it is authored, kept working and documented (`Production/EpicTestPlan.md`) for the user to test later on a stronger PC. Here, Epic is only rendered for QA stills (frame rate ignored); hardware-RT-only features (hardware Lumen, anything needing DXR) must fall back cleanly on this GPU. | User decision 2026-10-31; measured hardware (Audit) |
@@ -26,7 +26,10 @@ Status and next steps: `Production/Log.md`. This file holds the **decisions**, t
 | D14 | 2026-10-31 | Echo's mind runs on the wreck's core; the suit is only its link (narrative R4). That is why Echo "stays behind" in Ending A. | Ending A logic |
 | D15 | 2026-10-31 | The Lander Hub is built from the escape pod, which is also Ending A's return capsule (R5). | Payoff for the hub |
 | D16 | 2026-10-31 | P5 pacing: Echo's confession + Flashback 5 at P5 hub tier 1, then a stretch with Echo text-only, then the last real message + the choice (R12). | Avoids ~15 min without play |
-| D17 | 2026-10-31 | The Fish API returns 0 fish ~1 time in 8: re-roll those for drawings and trades; keep them for the Elder's empty picture (R6). Flashback 4 hints Echo is Ravi (voice filter drops), Flashback 5 confirms it (R3). | Narrative audit |
+| D17 | 2026-10-31 | The Fish API returns 0 fish ~1 time in 8: re-roll those for drawings and trades; keep them for the Elder's empty picture (R6). Flashback 4 hints Echo is Ray (voice filter drops), Flashback 5 confirms it (R3). | Narrative audit |
+| D18 | 2026-10-31 | **Two projects, one repo, two folders (user: "Antigravity takes one branch", the producer is the boss).** Blue Signal (Unreal) lives in `D:\Game\FishGame` on `main` / `dev` / `mN/*`. The user's Antigravity agent builds *Tide & Treasure* (Node web game) in the git worktree `D:\Game\TideAndTreasure` on branch `tide-and-treasure` (first snapshot `b5e63cc`). Nobody switches branches, stashes or commits across folders. | At 22:39 the T&T start stashed Blue Signal and emptied this folder mid-run; one folder can hold only one branch |
+| D19 | 2026-10-31 | **Everything in English, names too (user, Q4).** Ishani → **Isla** (island), Neela → **Skye** (she watches the sky for the blue light, keeping the title's double meaning), Ravi → **Ray** (a ray of light; Echo's voice), "Duwa" → "sweetheart", "Appa" → "Dad". `Production/Brief.md` keeps the old names verbatim; this decision overrides it. | User decision |
+| D20 | 2026-10-31 | **Free only (user, Q2/Q3).** No paid LFS data pack, no paid API keys. Art comes from our own parametric Blender scripts plus CC0 sources (Poly Haven, ambientCG). LFS keeps only `.uasset`/`.umap` (git can't diff binaries and GitHub rejects files > 100 MB; LFS keeps clones light); regenerable sources stay git-ignored (D7). Keep LFS under ~800 MB of the free 1 GB and check before each push. Free MCPs/skills may be installed when a task needs them. Fonts under SIL OFL 1.1 are allowed (AgentRules §4). | User decision |
 
 ---
 
@@ -137,9 +140,7 @@ Measured on **this laptop** (Intel Iris Xe, i7-1165G7, 16 GB) in a **standalone 
 
 - ~~Q1 Target hardware~~ **Answered 2026-10-31:** re-baseline Low/Medium/High to this laptop, keep Epic at full
   quality for strong PCs, keep Epic ready and documented for a later test (D6, §6).
-- **Q2 Git LFS.** GitHub's free LFS is 1 GB storage + 1 GB/month bandwidth (136 MB used). A full production will
-  exceed it. Buy a data pack, or accept that art sources stay local (D7) and only `.uasset`s go to LFS?
-- **Q3 Keys and libraries (optional).** Sketchfab / Hyper3D API keys, or a Fab library to draw from? Without
-  them we use Poly Haven, ambientCG and our own procedural models.
-- **Q4 Names (small).** Ishani calls Neela *Duwa* (Sinhala) and Neela calls her father *Appa* (Tamil). Deliberate
-  (a mixed family), or should both come from one language?
+- ~~Q2 Git LFS~~ **Answered 2026-10-31:** no paid data pack; stay inside the free 1 GB (D20).
+- ~~Q3 Keys and libraries~~ **Answered 2026-10-31:** no paid keys; free sources and our own generated art; install
+  free MCPs/skills when they are needed (D20).
+- ~~Q4 Names~~ **Answered 2026-10-31:** everything in English, character names too (D19).

@@ -49,7 +49,8 @@ Don't read `Production/Brief.md` in full unless your task says so; the files abo
   `.blend` files, raw exports and downloads under `ArtSource/` are git-ignored and must be regenerable.
 - Every third-party file (texture, mesh, sound, font) gets a line in `Credits.md`:
   `| asset id | file | source URL | author | licence |`. Allowed licences: CC0, CC-BY (credit), Fab free /
-  user-owned, Sonniss GDC bundles. Anything else: don't use it.
+  user-owned, Sonniss GDC bundles, and SIL OFL 1.1 for fonts only. Anything else: don't use it. Nothing paid
+  (Plan D20).
 - **Forbidden:** anything ripped from Satisfactory's files; the names FICSIT / Coffee Stain or their logos; any
   other copyrighted brand or character. Match the quality with original work. Reference images stay in
   git-ignored `Art/_refs/` and are never imported into Content.

@@ -40,6 +40,10 @@
   when the `unreal` MCP tools aren't connected in this session).
 - **Git:** `https://github.com/KING-UPE/Fish_Game` (LFS for assets). The local `gh` has two accounts: `W3S-Upendra`
   (active, READ only on that repo) and `KING-UPE` (the owner). Switch to KING-UPE only for the push, then switch back.
+- **⭐ Two projects share this repo (Plan D18, 2026-10-31).** Blue Signal (this Unreal project) lives here in
+  `D:\Game\FishGame` on `main` / `dev` / `mN/*`. The user's Antigravity agent builds *Tide & Treasure* (the PDF's
+  Node web game) in the git worktree **`D:\Game\TideAndTreasure`** on branch `tide-and-treasure`. Never stash,
+  switch branches or commit across the two folders; `git worktree list` shows both.
 - **Ports:** Unreal MCP on **18765** (8000/8010/8020/8100 are taken by local PHP dev servers); UnrealClaude on 3000 (hard-coded).
 - **Plugins (engine-installed, `D:\UE_5.8\Engine\Plugins\Marketplace\`):** VibeUE **v5** and UnrealClaude.
 
